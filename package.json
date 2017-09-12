@@ -1,0 +1,25 @@
+{
+  "name": "pergamon-components",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/index.js",
+  "scripts": {
+    "watch": "tsc -w"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/react": "^16.0.5",
+    "typescript": "^2.5.2"
+  },
+  "dependencies": {
+    "hire-forms-input": "^3.0.4",
+    "hire-forms-select": "^2.2.10",
+    "hire-forms-textarea": "^2.3.0",
+    "hire-tooltip": "^1.1.6",
+    "lodash.debounce": "^4.0.8",
+    "react": "^15.6.1",
+    "styled-components": "^2.1.2",
+    "uuid": "^3.1.0"
+  }
+}
