@@ -14,10 +14,11 @@ export const IGNORE_CLASSNAME = '__ignore';
 export const SYSTEM_TEXT_TYPE = '__text';
 
 export const defaultAnnotation = {
-	type: null,
-	text: null,
-	start: null,
+	children: [],
 	end: null,
-	source: null,
 	id: null,
+	source: null,
+	start: null,
+	text: null,
+	type: null,
 };

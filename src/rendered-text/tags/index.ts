@@ -36,10 +36,21 @@ const Line = Div.extend`
 	line-height: 2em;
 `;
 
-const componentsByTags = {
+export interface IComponentsByTags {
+	[name: string]: {
+		component: any;
+		display: 'inline' | 'block';
+	}
+}
+
+const componentsByTags: IComponentsByTags = {
 	__text: {
 		component: Text,
 		display: 'inline',
+	},
+	__root: {
+		component: Div,
+		display: 'block',
 	},
 	bold: {
 		component: Bold,
@@ -52,6 +63,14 @@ const componentsByTags = {
 	doc: {
 		component: Div,
 		display: 'block',
+	},
+	title: {
+		component: Div,
+		display: 'block',
+	},
+	caesura: {
+		component: InlineDiv,
+		display: 'inline',
 	},
 	TEI: {
 		component: Div,

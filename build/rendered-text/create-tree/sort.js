@@ -17,11 +17,11 @@ exports.byStartEnd = (a, b) => {
 exports.byDisplayStartEnd = (a, b) => {
     if (!tags_1.default.hasOwnProperty(a.type)) {
         console.error(`Annotation type not found: "${a.type}"`);
-        tags_1.default[a.type] = tags_1.default.text;
+        tags_1.default[a.type] = tags_1.default.__text;
     }
     if (!tags_1.default.hasOwnProperty(b.type)) {
         console.error(`Annotation type not found: "${b.type}"`);
-        tags_1.default[b.type] = tags_1.default.text;
+        tags_1.default[b.type] = tags_1.default.__text;
     }
     const aDisplay = tags_1.default[a.type].display;
     const bDisplay = tags_1.default[b.type].display;

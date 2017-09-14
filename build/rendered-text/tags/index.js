@@ -33,6 +33,10 @@ const componentsByTags = {
         component: Text,
         display: 'inline',
     },
+    __root: {
+        component: base_1.Div,
+        display: 'block',
+    },
     bold: {
         component: Bold,
         display: 'inline',
@@ -44,6 +48,14 @@ const componentsByTags = {
     doc: {
         component: base_1.Div,
         display: 'block',
+    },
+    title: {
+        component: base_1.Div,
+        display: 'block',
+    },
+    caesura: {
+        component: base_1.InlineDiv,
+        display: 'inline',
     },
     TEI: {
         component: base_1.Div,

@@ -2,8 +2,12 @@
 import * as React from 'react';
 import { ITextAnnotationCommon } from "./node";
 import { IAnnotation } from "../interfaces";
-export interface ITree extends ITextAnnotationCommon {
+export interface IProps extends ITextAnnotationCommon {
     root: IAnnotation;
+    text: string;
 }
-declare const RenderedText: React.StatelessComponent<ITree>;
+export interface IState {
+    tree: Object;
+}
+declare const RenderedText: React.StatelessComponent<IProps>;
 export default RenderedText;

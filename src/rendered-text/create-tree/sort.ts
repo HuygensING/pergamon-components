@@ -1,4 +1,5 @@
 import componentsByTag from '../tags';
+import { IAnnotation } from '../../interfaces';
 
 export const byStartEnd = (a, b) => {
 	if (a.start > b.start) return 1;
@@ -10,15 +11,15 @@ export const byStartEnd = (a, b) => {
 	return 0;
 };
 
-export const byDisplayStartEnd = (a, b) => {
+export const byDisplayStartEnd = (a: IAnnotation, b: IAnnotation) => {
 	if (!componentsByTag.hasOwnProperty(a.type)) {
 		console.error(`Annotation type not found: "${a.type}"`)
-		componentsByTag[a.type] = componentsByTag.text;
+		componentsByTag[a.type] = componentsByTag.__text;
 	}
 
 	if (!componentsByTag.hasOwnProperty(b.type)) {
 		console.error(`Annotation type not found: "${b.type}"`)
-		componentsByTag[b.type] = componentsByTag.text;
+		componentsByTag[b.type] = componentsByTag.__text;
 	}
 
 	const aDisplay = componentsByTag[a.type].display;
