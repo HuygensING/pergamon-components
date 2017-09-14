@@ -5,6 +5,9 @@ import {IAnnotation} from "../interfaces";
 
 export interface IProps extends ITextAnnotationCommon {
 	root: IAnnotation;
+}
+
+export interface ITree extends IProps {
 	text: string;
 }
 
@@ -12,7 +15,7 @@ export interface IState {
 	tree: Object;
 }
 
-class Tree extends React.Component<IProps, IState> {
+class Tree extends React.Component<ITree, IState> {
 	public state = {
 		tree: null,
 	}

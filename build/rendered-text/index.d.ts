@@ -4,6 +4,8 @@ import { ITextAnnotationCommon } from "./node";
 import { IAnnotation } from "../interfaces";
 export interface IProps extends ITextAnnotationCommon {
     root: IAnnotation;
+}
+export interface ITree extends IProps {
     text: string;
 }
 export interface IState {
