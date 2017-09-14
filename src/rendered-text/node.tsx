@@ -1,6 +1,5 @@
 import * as React from 'react';
 import componentByTag from './tags';
-import styled from "styled-components";
 import {IAnnotation, IDocument} from "../interfaces";
 import {orange, orangeRGB} from "../constants";
 
@@ -24,33 +23,34 @@ const TextAnnotation: React.SFC<ITextAnnotationProps> = (props) => {
 
 	const Tag = componentByTag[props.annotation.type].component;
 
-	const ActiveTag = styled(Tag)`
-		background-color: rgba(${orangeRGB}, 0.03);
-		border: 1px solid ${orange};
-		box-shadow: 4px 4px 0px rgba(${orangeRGB}, 0.4);
-		line-height: 2.8em;
-		margin: 0.5em;
-		padding: 0.5em;
-	`;
-
-	let Comp = Tag;
-	if (props.annotation != null) {
-		Comp = (
+	let tagStyle: React.CSSProperties = {};
+	if (
+		(props.annotation != null) &&
+		(
 			props.activeAnnotation != null &&
 			props.activeAnnotation.id === props.annotation.id
-		) ?
-			ActiveTag :
-			Tag;
-	}
+		) 
+	) {
+		tagStyle = {
+			backgroundColor: `rgba(${orangeRGB}, 0.03)`,
+			border: `1px solid ${orange}`,
+			boxShadow: `4px 4px 0px rgba(${orangeRGB}, 0.4)`,
+			lineHeight: '2.8em',
+			margin: '0.5em',
+			padding: '0.5em',
+		}
+	}	
 	
 	return (
-		<Comp
+		<Tag
+			activeAnnotation={props.activeAnnotation}
 			annotation={props.annotation}
 			className={props.annotation.type}
 			id={props.annotation._tagId}
+			style={tagStyle}
 		>
 			{props.children}
-		</Comp>
+		</Tag>
 	);
 };
 

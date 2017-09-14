@@ -3,35 +3,31 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
 const node_1 = require("./node");
 const index_1 = require("./create-tree/index");
-class Tree extends React.Component {
+class RenderedText extends React.Component {
     constructor() {
         super(...arguments);
         this.state = {
             tree: null,
         };
     }
-    componentDidMount() {
-        this.generateTree(this.props.root, this.props.text);
-    }
     componentWillReceiveProps(nextProps) {
-        this.generateTree(nextProps.root, nextProps.text);
+        const activeChanged = this.props.activeAnnotation !== nextProps.activeAnnotation;
+        if (this.state.tree == null || activeChanged) {
+            const root = index_1.default(JSON.parse(JSON.stringify(nextProps.root)));
+            const tree = this.createTree(root, nextProps.root.text, nextProps.activeAnnotation);
+            this.setState({ tree });
+        }
     }
     render() {
         return this.state.tree;
     }
-    generateTree(root, text) {
+    createTree(root, text, activeAnnotation) {
         if (root.text == null && text == null)
             return null;
         const children = (root.hasOwnProperty('children') && root.children.length) ?
-            root.children
-                .map((child, i) => {
-                return (React.createElement(Tree, { key: i, root: child, text: text }));
-            }) :
+            root.children.map((child, i) => this.createTree(child, text, activeAnnotation)) :
             text.slice(root.start, root.end);
-        const tree = (React.createElement(node_1.default, { annotation: root }, children));
-        this.setState({ tree });
+        return (React.createElement(node_1.default, { activeAnnotation: activeAnnotation, annotation: root, key: Math.random() * 999999999 }, children));
     }
 }
-;
-const RenderedText = ({ root }) => React.createElement(Tree, { root: index_1.default(JSON.parse(JSON.stringify(root))), text: root.text });
 exports.default = RenderedText;

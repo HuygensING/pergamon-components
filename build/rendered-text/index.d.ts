@@ -11,5 +11,12 @@ export interface ITree extends IProps {
 export interface IState {
     tree: Object;
 }
-declare const RenderedText: React.StatelessComponent<IProps>;
+declare class RenderedText extends React.Component<IProps, IState> {
+    state: {
+        tree: any;
+    };
+    componentWillReceiveProps(nextProps: any): void;
+    render(): any;
+    private createTree(root, text, activeAnnotation);
+}
 export default RenderedText;

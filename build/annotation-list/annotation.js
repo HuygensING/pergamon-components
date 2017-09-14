@@ -1,18 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
-const styled_components_1 = require("styled-components");
 const annotation_form_1 = require("./annotation-form");
 const index_1 = require("../rendered-text/index");
-const Li = styled_components_1.default.li `
-`;
-const Small = styled_components_1.default.small `
-	margin-left: 1em;
-`;
-const Head4 = styled_components_1.default.h4 ``;
+const Small = (props) => React.createElement("small", { style: { marginLeft: '1em' } }, props.children);
 const Annotation = (props) => {
-    return (React.createElement(Li, null,
-        React.createElement(Head4, { onClick: () => props.activateAnnotation(props.annotation) },
+    return (React.createElement("li", null,
+        React.createElement("h4", { onClick: () => props.activateAnnotation(props.annotation) },
             props.annotation.type,
             React.createElement(Small, null,
                 "(",

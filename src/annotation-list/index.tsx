@@ -4,19 +4,12 @@ import {default as Annotation, IAnnotationCommon} from "./annotation";
 import {orange} from "../constants";
 import {IAnnotation} from "../interfaces";
 
-const Ul = styled.ul`
-	& ul {
-		border-left: 2px solid ${orange};
-		padding-left: 1em;
-	}	
-`;
-
 export interface IAnnotationListProps extends IAnnotationCommon {
 	rootAnnotation: IAnnotation;
 }
 
 const AnnotationList: React.SFC<IAnnotationListProps> = (props) =>
-	<Ul>
+	<ul>
 		{
 			props.rootAnnotation.children.map((annotation, index) =>
 				<Annotation
@@ -28,6 +21,6 @@ const AnnotationList: React.SFC<IAnnotationListProps> = (props) =>
 				/>
 			)
 		}
-	</Ul>;
+	</ul>;
 
 export default AnnotationList;

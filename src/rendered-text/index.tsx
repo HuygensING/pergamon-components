@@ -15,54 +15,44 @@ export interface IState {
 	tree: Object;
 }
 
-class Tree extends React.Component<ITree, IState> {
+class RenderedText extends React.Component<IProps, IState> {
 	public state = {
 		tree: null,
 	}
 
-	public componentDidMount() {
-		this.generateTree(this.props.root, this.props.text);
-	}
-
 	public componentWillReceiveProps(nextProps) {
-		this.generateTree(nextProps.root, nextProps.text);
+		const activeChanged = this.props.activeAnnotation !== nextProps.activeAnnotation;
+
+		if (this.state.tree == null || activeChanged) {
+			const root = createTree(JSON.parse(JSON.stringify(nextProps.root)));
+			const tree = this.createTree(root, nextProps.root.text, nextProps.activeAnnotation);
+
+			this.setState({ tree });
+		}
 	}
 
 	public render() {
 		return this.state.tree;
 	}
 
-	private generateTree(root: IAnnotation, text: string) {
+	// TODO move activeAnnotation to settings
+	private createTree(root, text, activeAnnotation) {
 		if (root.text == null && text == null) return null;
+
 		const children = (root.hasOwnProperty('children') && root.children.length) ?
-			root.children
-				.map((child, i) => {
-					return (
-						<Tree
-							key={i}
-							root={child}
-							text={text}
-						/>
-					);
-				}) :
+			root.children.map((child, i) => this.createTree(child, text, activeAnnotation)) :
 			text.slice(root.start, root.end);
 
-		const tree = (
+		return (
 			<Node
+				activeAnnotation={activeAnnotation}
 				annotation={root}
+				key={Math.random() * 999999999}
 			>
 				{children}
 			</Node>
 		);
-
-		this.setState({ tree });
 	}
-};
-
-const RenderedText: React.StatelessComponent<IProps> = ({root}) =>
-	<Tree
-		root={createTree(JSON.parse(JSON.stringify(root)))}
-		text={root.text}
-	/>;
+}
 
 export default RenderedText;
