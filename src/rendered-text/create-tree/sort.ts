@@ -1,4 +1,3 @@
-import componentsByTag from '../tags';
 import { IAnnotation } from '../../interfaces';
 
 export const byStartEnd = (a, b) => {
@@ -11,19 +10,19 @@ export const byStartEnd = (a, b) => {
 	return 0;
 };
 
-export const byDisplayStartEnd = (a: IAnnotation, b: IAnnotation) => {
-	if (!componentsByTag.hasOwnProperty(a.type)) {
+export const byDisplayStartEnd = (tags) => (a: IAnnotation, b: IAnnotation) => {
+	if (!tags.hasOwnProperty(a.type)) {
 		console.error(`Annotation type not found: "${a.type}"`)
-		componentsByTag[a.type] = componentsByTag.__text;
+		tags[a.type] = tags.__text;
 	}
 
-	if (!componentsByTag.hasOwnProperty(b.type)) {
+	if (!tags.hasOwnProperty(b.type)) {
 		console.error(`Annotation type not found: "${b.type}"`)
-		componentsByTag[b.type] = componentsByTag.__text;
+		tags[b.type] = tags.__text;
 	}
 
-	const aDisplay = componentsByTag[a.type].display;
-	const bDisplay = componentsByTag[b.type].display;
+	const aDisplay = tags[a.type].display;
+	const bDisplay = tags[b.type].display;
 
 	// If display prop are not the same, 'block' get precedence over 'inline'
 	// If display prop is equal, look at start and end prop

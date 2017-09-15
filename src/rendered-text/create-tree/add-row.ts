@@ -1,7 +1,7 @@
-import componentsByTag from '../tags';
 import {hasOverlap} from "./index";
+import { IComponentsByTags, Display } from "../../tags/system-components-by-tags";
 
-export const addRow = () => {
+export const addRow = (tags: IComponentsByTags) => {
 	const rows = [[]];
 	return annotation => {
 		const space = [];
@@ -16,7 +16,7 @@ export const addRow = () => {
 			} else {
 				space[row] = annotationsInRow
 					.filter(a => hasOverlap(annotation, a))
-					.some(a => componentsByTag[a.type].display === 'block');
+					.some(a => tags[a.type].display === Display.Block);
 			}
 		}
 

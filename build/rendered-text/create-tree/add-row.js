@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const tags_1 = require("../tags");
 const index_1 = require("./index");
-exports.addRow = () => {
+const system_components_by_tags_1 = require("../../tags/system-components-by-tags");
+exports.addRow = (tags) => {
     const rows = [[]];
     return annotation => {
         const space = [];
@@ -17,7 +17,7 @@ exports.addRow = () => {
             else {
                 space[row] = annotationsInRow
                     .filter(a => index_1.hasOverlap(annotation, a))
-                    .some(a => tags_1.default[a.type].display === 'block');
+                    .some(a => tags[a.type].display === system_components_by_tags_1.Display.Block);
             }
         }
         const highestBlockIndex = space.lastIndexOf(true);

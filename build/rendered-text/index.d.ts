@@ -2,8 +2,10 @@
 import * as React from 'react';
 import { ITextAnnotationCommon } from "./node";
 import { IAnnotation } from "../interfaces";
+import { IComponentsByTags } from '../tags/system-components-by-tags';
 export interface IProps extends ITextAnnotationCommon {
     root: IAnnotation;
+    tags: IComponentsByTags;
 }
 export interface ITree extends IProps {
     text: string;
@@ -19,6 +21,6 @@ declare class RenderedText extends React.Component<IProps, IState> {
     componentWillReceiveProps(nextProps: IProps): void;
     shouldComponentUpdate(nextProps: IProps, nextState: IState): boolean;
     render(): JSX.Element;
-    private textTree(root, text, activeAnnotation);
+    private textTree(root, text, props);
 }
 export default RenderedText;

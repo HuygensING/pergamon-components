@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const tags_1 = require("../tags");
 exports.byStartEnd = (a, b) => {
     if (a.start > b.start)
         return 1;
@@ -14,17 +13,17 @@ exports.byStartEnd = (a, b) => {
     }
     return 0;
 };
-exports.byDisplayStartEnd = (a, b) => {
-    if (!tags_1.default.hasOwnProperty(a.type)) {
+exports.byDisplayStartEnd = (tags) => (a, b) => {
+    if (!tags.hasOwnProperty(a.type)) {
         console.error(`Annotation type not found: "${a.type}"`);
-        tags_1.default[a.type] = tags_1.default.__text;
+        tags[a.type] = tags.__text;
     }
-    if (!tags_1.default.hasOwnProperty(b.type)) {
+    if (!tags.hasOwnProperty(b.type)) {
         console.error(`Annotation type not found: "${b.type}"`);
-        tags_1.default[b.type] = tags_1.default.__text;
+        tags[b.type] = tags.__text;
     }
-    const aDisplay = tags_1.default[a.type].display;
-    const bDisplay = tags_1.default[b.type].display;
+    const aDisplay = tags[a.type].display;
+    const bDisplay = tags[b.type].display;
     if (aDisplay !== bDisplay) {
         return (aDisplay === 'inline') ? 1 : -1;
     }

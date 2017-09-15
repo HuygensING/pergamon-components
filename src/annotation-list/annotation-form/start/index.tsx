@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {Input} from "../index";
 import {IAnnotation} from "../../../interfaces";
+import Input from "hire-forms-input";
 
 export interface IProps {
 	activeAnnotation: IAnnotation;

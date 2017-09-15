@@ -13,8 +13,8 @@ class RenderedText extends React.Component {
     }
     componentWillReceiveProps(nextProps) {
         if (this.state.textTree == null) {
-            const root = index_1.default(JSON.parse(JSON.stringify(nextProps.root)));
-            const textTree = this.textTree(root, nextProps.root.text, nextProps.activeAnnotation);
+            const root = index_1.default(JSON.parse(JSON.stringify(nextProps.root)), nextProps.tags);
+            const textTree = this.textTree(root, nextProps.root.text, nextProps);
             this.setState({ textTree });
         }
         if (this.props.activeAnnotation !== nextProps.activeAnnotation) {
@@ -46,13 +46,13 @@ class RenderedText extends React.Component {
     render() {
         return (React.createElement("div", { ref: (el) => { this.el = el; } }, this.state.textTree));
     }
-    textTree(root, text, activeAnnotation) {
+    textTree(root, text, props) {
         if (root.text == null && text == null)
             return null;
         const children = (root.hasOwnProperty('children') && root.children.length) ?
-            root.children.map((child, i) => this.textTree(child, text, activeAnnotation)) :
+            root.children.map((child, i) => this.textTree(child, text, props)) :
             text.slice(root.start, root.end);
-        return (React.createElement(node_1.default, { activeAnnotation: activeAnnotation, annotation: root, key: Math.random() * 999999999 }, children));
+        return (React.createElement(node_1.default, { activeAnnotation: props.activeAnnotation, annotation: root, key: Math.random() * 999999999, tags: props.tags }, children));
     }
 }
 exports.default = RenderedText;

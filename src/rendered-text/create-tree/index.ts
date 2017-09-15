@@ -4,6 +4,7 @@ import toTree from "./to-tree";
 import {addRow} from "./add-row";
 import fillGaps from "./fill-gaps";
 import {IAnnotation} from "../../interfaces";
+import { IComponentsByTags } from "../../tags/system-components-by-tags";
 
 export const hasOverlap = (a, b) => !(a.end <= b.start || a.start >= b.end);
 
@@ -24,18 +25,18 @@ const addTagId = (a: IAnnotation) => {
 	return a;
 }
 
-const orderAnnotations = (annotations) =>
+const orderAnnotations = (annotations, tags) =>
 	annotations
-		.sort(byDisplayStartEnd)
-		.map(addRow())
+		.sort(byDisplayStartEnd(tags))
+		.map(addRow(tags))
 		.sort(byRowStartEnd)
 		.reduce(splitAnnotations(), [])
-		.map(addRow())
+		.map(addRow(tags))
 		.sort(byRowStartEnd)
 		.map(addTagId);
 
-const createTree = (annotation: IAnnotation): IAnnotation => {
-	annotation.children = orderAnnotations(annotation.children)
+const createTree = (annotation: IAnnotation, tags: IComponentsByTags): IAnnotation => {
+	annotation.children = orderAnnotations(annotation.children, tags)
 	 .reduce(toTree, []);
 
 	return fillGaps(annotation);

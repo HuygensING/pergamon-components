@@ -18,6 +18,7 @@ const AnnotationList: React.SFC<IAnnotationListProps> = (props) =>
 					annotation={annotation}
 					key={index}
 					rootAnnotation={props.rootAnnotation}
+					tags={props.tags}
 				/>
 			)
 		}

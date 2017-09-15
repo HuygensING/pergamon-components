@@ -3,9 +3,11 @@ import TextTreeNode, {ITextAnnotationCommon} from "./node";
 import createTree, { generateTagId } from "./create-tree/index";
 import {IAnnotation} from "../interfaces";
 import { orangeRGB, orange } from '../constants';
+import { IComponentsByTags } from '../tags/system-components-by-tags';
 
 export interface IProps extends ITextAnnotationCommon {
 	root: IAnnotation;
+	tags: IComponentsByTags;
 }
 
 export interface ITree extends IProps {
@@ -24,8 +26,8 @@ class RenderedText extends React.Component<IProps, IState> {
 
 	public componentWillReceiveProps(nextProps: IProps) {
 		if (this.state.textTree == null) {
-			const root = createTree(JSON.parse(JSON.stringify(nextProps.root)));
-			const textTree = this.textTree(root, nextProps.root.text, nextProps.activeAnnotation);
+			const root = createTree(JSON.parse(JSON.stringify(nextProps.root)), nextProps.tags);
+			const textTree = this.textTree(root, nextProps.root.text, nextProps);
 			this.setState({ textTree });
 		}
 
@@ -70,19 +72,19 @@ class RenderedText extends React.Component<IProps, IState> {
 		);
 	}
 
-	// TODO move activeAnnotation to settings
-	private textTree(root, text, activeAnnotation) {
+	private textTree(root, text, props) {
 		if (root.text == null && text == null) return null;
 
 		const children = (root.hasOwnProperty('children') && root.children.length) ?
-			root.children.map((child, i) => this.textTree(child, text, activeAnnotation)) :
+			root.children.map((child, i) => this.textTree(child, text, props)) :
 			text.slice(root.start, root.end);
 
 		return (
 			<TextTreeNode
-				activeAnnotation={activeAnnotation}
+				activeAnnotation={props.activeAnnotation}
 				annotation={root}
 				key={Math.random() * 999999999}
+				tags={props.tags}
 			>
 				{children}
 			</TextTreeNode>

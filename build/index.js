@@ -8,3 +8,5 @@ const button_1 = require("./ui/button");
 exports.Button = button_1.default;
 const constants_1 = require("./constants");
 exports.defaultAnnotation = constants_1.defaultAnnotation;
+const epistolarium_1 = require("./tags/epistolarium");
+exports.ePistolariumTags = epistolarium_1.default;

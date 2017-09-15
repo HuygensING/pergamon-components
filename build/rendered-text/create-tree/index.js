@@ -20,16 +20,16 @@ const addTagId = (a) => {
     a._tagId = exports.generateTagId(a);
     return a;
 };
-const orderAnnotations = (annotations) => annotations
-    .sort(sort_1.byDisplayStartEnd)
-    .map(add_row_1.addRow())
+const orderAnnotations = (annotations, tags) => annotations
+    .sort(sort_1.byDisplayStartEnd(tags))
+    .map(add_row_1.addRow(tags))
     .sort(sort_1.byRowStartEnd)
     .reduce(split_annotations_1.splitAnnotations(), [])
-    .map(add_row_1.addRow())
+    .map(add_row_1.addRow(tags))
     .sort(sort_1.byRowStartEnd)
     .map(addTagId);
-const createTree = (annotation) => {
-    annotation.children = orderAnnotations(annotation.children)
+const createTree = (annotation, tags) => {
+    annotation.children = orderAnnotations(annotation.children, tags)
         .reduce(to_tree_1.default, []);
     return fill_gaps_1.default(annotation);
 };

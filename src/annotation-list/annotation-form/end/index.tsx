@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Input} from "../index";
+import Input from "hire-forms-input";
 import {IAnnotation} from "../../../interfaces";
 
 export interface IProps {

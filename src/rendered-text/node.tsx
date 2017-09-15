@@ -1,7 +1,7 @@
 import * as React from 'react';
-import componentByTag from './tags';
 import {IAnnotation, IDocument} from "../interfaces";
 import {orange, orangeRGB} from "../constants";
+import { IComponentsByTags } from '../tags/system-components-by-tags';
 
 export interface ITextAnnotationCommon {
 	activateAnnotationDocument?: (IAnnotation, string) => void;
@@ -14,20 +14,20 @@ export interface ITextAnnotationCommon {
 
 export interface ITextAnnotationProps extends ITextAnnotationCommon {
 	annotation: IAnnotation;
+	tags: IComponentsByTags;
 }
 
 const TextTreeNode: React.SFC<ITextAnnotationProps> = (props) => {
-	if (!componentByTag.hasOwnProperty(props.annotation.type)) {
+	if (!props.tags.hasOwnProperty(props.annotation.type)) {
 		throw new Error(`Component not found: ${props.annotation.type}`);
 	}
 
-	const Tag = componentByTag[props.annotation.type].component;
+	const Tag = props.tags[props.annotation.type].component;
 	
 	return (
 		<Tag
 			activeAnnotation={props.activeAnnotation}
 			annotation={props.annotation}
-			className={props.annotation.type}
 			id={props.annotation._tagId}
 		>
 			{props.children}

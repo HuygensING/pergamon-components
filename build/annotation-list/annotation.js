@@ -21,6 +21,6 @@ const Annotation = (props) => React.createElement("li", { style: { minHeight: '2
         React.createElement(annotation_form_1.default, { activeAnnotation: props.activeAnnotation, rootAnnotation: props.rootAnnotation }) :
         (props.activeAnnotation != null &&
             props.activeAnnotation.text != null) ?
-            React.createElement(index_1.default, { root: props.activeAnnotation }) :
+            React.createElement(index_1.default, { root: props.activeAnnotation, tags: props.tags }) :
             null);
 exports.default = Annotation;

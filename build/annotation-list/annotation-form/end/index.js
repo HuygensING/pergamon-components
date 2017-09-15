@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
-const index_1 = require("../index");
+const hire_forms_input_1 = require("hire-forms-input");
 class End extends React.Component {
     constructor() {
         super(...arguments);
@@ -17,7 +17,7 @@ class End extends React.Component {
     render() {
         const { activeAnnotation, updateAnnotation } = this.props;
         const { value } = this.state;
-        return (React.createElement(index_1.Input, { onChange: (value) => {
+        return (React.createElement(hire_forms_input_1.default, { onChange: (value) => {
                 let end = parseInt(value, 10);
                 if (Number.isNaN(end))
                     end = null;

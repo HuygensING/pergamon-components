@@ -2,9 +2,11 @@ import * as React from 'react';
 import AnnotationForm, {IAnnotationFormProps} from "./annotation-form";
 import {IAnnotation, IDocument} from "../interfaces";
 import RenderedText from "../rendered-text/index";
+import { IComponentsByTags } from '../tags/system-components-by-tags';
 
 export interface IAnnotationCommon extends IAnnotationFormProps {
 	activateAnnotation: (string) => void;
+	tags: IComponentsByTags;
 }
 
 export interface IAnnotationProps extends IAnnotationCommon {
@@ -41,6 +43,7 @@ const Annotation: React.SFC<IAnnotationProps> = (props) =>
 				) ?
 					<RenderedText
 						root={props.activeAnnotation}
+						tags={props.tags}
 					/> :
 					null
 		}
