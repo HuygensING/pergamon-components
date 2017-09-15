@@ -25,9 +25,8 @@ class RenderedText extends React.Component<IProps, IState> {
 
 		if (this.state.tree == null || activeChanged) {
 			const root = createTree(JSON.parse(JSON.stringify(nextProps.root)));
-			const tree = this.createTree(root, nextProps.root.text, nextProps.activeAnnotation);
-
-			this.setState({ tree });
+			const nodes = this.createNodes(root, nextProps.root.text, nextProps.activeAnnotation);
+			this.setState({ tree: nodes });
 		}
 	}
 
@@ -36,11 +35,13 @@ class RenderedText extends React.Component<IProps, IState> {
 	}
 
 	// TODO move activeAnnotation to settings
-	private createTree(root, text, activeAnnotation) {
+	private createNodes(root, text, activeAnnotation) {
 		if (root.text == null && text == null) return null;
 
+		// console.log(root, text.slice(root.start, root.end))
+
 		const children = (root.hasOwnProperty('children') && root.children.length) ?
-			root.children.map((child, i) => this.createTree(child, text, activeAnnotation)) :
+			root.children.map((child, i) => this.createNodes(child, text, activeAnnotation)) :
 			text.slice(root.start, root.end);
 
 		return (

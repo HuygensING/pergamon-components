@@ -1,28 +1,19 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
-const hire_forms_input_1 = require("hire-forms-input");
 const styled_components_1 = require("styled-components");
-exports.inputEl = `
-	flex: 3;
-`;
 const Ul = styled_components_1.default.ul `
 	margin: 1em 0;
 `;
 const Li = styled_components_1.default.li `
-	display: flex;
-	margin-bottom: 1em;
+	display: grid;
+	grid-template-columns: 1fr 4fr; 
 `;
 const Label = styled_components_1.default.label `
 	color: #666;
-	flex: 1;
 	font-size: 0.8em;
 `;
-exports.Input = styled_components_1.default(hire_forms_input_1.default) `
-	${exports.inputEl}
-`;
 const Immutable = styled_components_1.default.div `
-	${exports.inputEl}
 	color: #666;
 	font-style: italic;
 `;

@@ -14,18 +14,18 @@ class RenderedText extends React.Component {
         const activeChanged = this.props.activeAnnotation !== nextProps.activeAnnotation;
         if (this.state.tree == null || activeChanged) {
             const root = index_1.default(JSON.parse(JSON.stringify(nextProps.root)));
-            const tree = this.createTree(root, nextProps.root.text, nextProps.activeAnnotation);
-            this.setState({ tree });
+            const nodes = this.createNodes(root, nextProps.root.text, nextProps.activeAnnotation);
+            this.setState({ tree: nodes });
         }
     }
     render() {
         return this.state.tree;
     }
-    createTree(root, text, activeAnnotation) {
+    createNodes(root, text, activeAnnotation) {
         if (root.text == null && text == null)
             return null;
         const children = (root.hasOwnProperty('children') && root.children.length) ?
-            root.children.map((child, i) => this.createTree(child, text, activeAnnotation)) :
+            root.children.map((child, i) => this.createNodes(child, text, activeAnnotation)) :
             text.slice(root.start, root.end);
         return (React.createElement(node_1.default, { activeAnnotation: activeAnnotation, annotation: root, key: Math.random() * 999999999 }, children));
     }

@@ -30,7 +30,7 @@ const orderAnnotations = (annotations) =>
 
 const createTree = (annotation: IAnnotation): IAnnotation => {
 	annotation.children = orderAnnotations(annotation.children)
-    .reduce(toTree, []);
+	 .reduce(toTree, []);
 
 	return fillGaps(annotation);
 };
