@@ -9,14 +9,16 @@ export interface ITree extends IProps {
     text: string;
 }
 export interface IState {
-    tree: Object;
+    textTree: Object;
 }
 declare class RenderedText extends React.Component<IProps, IState> {
+    private el;
     state: {
-        tree: any;
+        textTree: any;
     };
-    componentWillReceiveProps(nextProps: any): void;
-    render(): any;
-    private createNodes(root, text, activeAnnotation);
+    componentWillReceiveProps(nextProps: IProps): void;
+    shouldComponentUpdate(nextProps: IProps, nextState: IState): boolean;
+    render(): JSX.Element;
+    private textTree(root, text, activeAnnotation);
 }
 export default RenderedText;

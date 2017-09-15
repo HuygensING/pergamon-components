@@ -10,6 +10,7 @@ export interface IAnnotation {
 	// Ie. somewhere in between.
 	_segment?: boolean;
 
+	// A unique identifier to identify splitted tags correctly
 	_tagId?: string;
 
 	// Type and id of the target (parent)

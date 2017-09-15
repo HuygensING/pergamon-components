@@ -12,7 +12,7 @@ exports.reducer = (parent) => {
         if (prev == null && curr.start > parent.start) {
             agg.push({
                 end: curr.start,
-                _tagId: `start___${uuidv4()}`,
+                _tagId: `${constants_1.SYSTEM_TEXT_TYPE}_${uuidv4()}_first`,
                 start: parent.start,
                 type: constants_1.SYSTEM_TEXT_TYPE,
             });
@@ -23,7 +23,7 @@ exports.reducer = (parent) => {
             const end = curr.start;
             agg.push({
                 end,
-                _tagId: `middle___${uuidv4()}`,
+                _tagId: `${constants_1.SYSTEM_TEXT_TYPE}_${uuidv4()}_segment`,
                 start,
                 type: constants_1.SYSTEM_TEXT_TYPE,
             });
@@ -33,7 +33,7 @@ exports.reducer = (parent) => {
         if (index === arr.length - 1 && prevEnd < parent.end) {
             agg.push({
                 end: parent.end,
-                _tagId: `end___${uuidv4()}`,
+                _tagId: `${constants_1.SYSTEM_TEXT_TYPE}_${uuidv4()}_last`,
                 start: prevEnd,
                 type: constants_1.SYSTEM_TEXT_TYPE,
             });

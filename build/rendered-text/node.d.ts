@@ -12,5 +12,5 @@ export interface ITextAnnotationCommon {
 export interface ITextAnnotationProps extends ITextAnnotationCommon {
     annotation: IAnnotation;
 }
-declare const TextAnnotation: React.SFC<ITextAnnotationProps>;
-export default TextAnnotation;
+declare const TextTreeNode: React.SFC<ITextAnnotationProps>;
+export default TextTreeNode;
