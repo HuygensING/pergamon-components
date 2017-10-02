@@ -8,7 +8,7 @@ import { IComponentsByTags } from "../../tags/system-components-by-tags";
 
 export const hasOverlap = (a, b) => !(a.end <= b.start || a.start >= b.end);
 
-export const generateTagId = (a: IAnnotation) => {
+export const generateTagId = (a: IAnnotation, withSuffix: boolean = true) => {
 	const suffix = a.hasOwnProperty('_first') ?
 		'_first' :
 		a.hasOwnProperty('_last') ?
@@ -17,7 +17,7 @@ export const generateTagId = (a: IAnnotation) => {
 				`_segment_${Math.round(Math.random() * 1000000)}` :
 				'';
 
-	return `${a.type}_${a.id}${suffix}`;
+	return withSuffix ? `${a.type}_${a.id}${suffix}` : `${a.type}_${a.id}`;
 }
 
 const addTagId = (a: IAnnotation) => {

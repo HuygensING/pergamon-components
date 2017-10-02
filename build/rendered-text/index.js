@@ -4,6 +4,14 @@ const React = require("react");
 const node_1 = require("./node");
 const index_1 = require("./create-tree/index");
 const constants_1 = require("../constants");
+const activeTagStyle = `
+	background-color: rgba(${constants_1.orangeRGB}, 0.03);
+	border: 1px solid ${constants_1.orange};
+	box-shadow: 4px 4px 0px rgba(${constants_1.orangeRGB}, 0.4);
+	line-height: 2.8em;
+	margin: 0.5em;
+	padding: 0.5em;
+`;
 class RenderedText extends React.Component {
     constructor() {
         super(...arguments);
@@ -24,19 +32,14 @@ class RenderedText extends React.Component {
                 a.classList.remove('active');
             });
             if (nextProps.activeAnnotation != null) {
-                const activeTag = this.el.querySelector(`#${index_1.generateTagId(nextProps.activeAnnotation)}`);
-                if (activeTag instanceof HTMLElement) {
-                    const tagStyle = `
-						background-color: rgba(${constants_1.orangeRGB}, 0.03);
-						border: 1px solid ${constants_1.orange};
-						box-shadow: 4px 4px 0px rgba(${constants_1.orangeRGB}, 0.4);
-						line-height: 2.8em;
-						margin: 0.5em;
-						padding: 0.5em;
-					`;
-                    activeTag.style.cssText = tagStyle;
-                    activeTag.classList.add('active');
-                }
+                const tagId = index_1.generateTagId(nextProps.activeAnnotation, false);
+                const activeTags = this.el.querySelectorAll(`[id^=${tagId}]`);
+                [...activeTags].forEach(at => {
+                    if (at instanceof HTMLElement) {
+                        at.style.cssText = activeTagStyle;
+                        at.classList.add('active');
+                    }
+                });
             }
         }
     }

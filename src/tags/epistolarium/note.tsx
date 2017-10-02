@@ -71,7 +71,6 @@ const Note: React.SFC<any> = (props) => {
 						active &&
 						<Tooltip
 							borderColor="black"
-							style={tooltipStyle}
 						>
 							<TextTree
 								root={props.annotation}

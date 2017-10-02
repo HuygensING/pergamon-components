@@ -6,7 +6,7 @@ const to_tree_1 = require("./to-tree");
 const add_row_1 = require("./add-row");
 const fill_gaps_1 = require("./fill-gaps");
 exports.hasOverlap = (a, b) => !(a.end <= b.start || a.start >= b.end);
-exports.generateTagId = (a) => {
+exports.generateTagId = (a, withSuffix = true) => {
     const suffix = a.hasOwnProperty('_first') ?
         '_first' :
         a.hasOwnProperty('_last') ?
@@ -14,7 +14,7 @@ exports.generateTagId = (a) => {
             a.hasOwnProperty('_segment') ?
                 `_segment_${Math.round(Math.random() * 1000000)}` :
                 '';
-    return `${a.type}_${a.id}${suffix}`;
+    return withSuffix ? `${a.type}_${a.id}${suffix}` : `${a.type}_${a.id}`;
 };
 const addTagId = (a) => {
     a._tagId = exports.generateTagId(a);

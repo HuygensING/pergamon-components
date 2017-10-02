@@ -43,7 +43,7 @@ const Note = (props) => {
                 }, style: noteNumberStyle },
                 "N",
                 active &&
-                    React.createElement(hire_tooltip_1.default, { borderColor: "black", style: tooltipStyle },
+                    React.createElement(hire_tooltip_1.default, { borderColor: "black" },
                         React.createElement(rendered_text_1.default, { root: props.annotation, tags: index_1.default })))));
 };
 exports.default = Note;

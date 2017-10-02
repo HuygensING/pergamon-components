@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const system_components_by_tags_1 = require("../../tags/system-components-by-tags");
 exports.byStartEnd = (a, b) => {
     if (a.start > b.start)
         return 1;
@@ -25,7 +26,7 @@ exports.byDisplayStartEnd = (tags) => (a, b) => {
     const aDisplay = tags[a.type].display;
     const bDisplay = tags[b.type].display;
     if (aDisplay !== bDisplay) {
-        return (aDisplay === 'inline') ? 1 : -1;
+        return (aDisplay === system_components_by_tags_1.Display.Inline) ? 1 : -1;
     }
     else {
         return exports.byStartEnd(a, b);

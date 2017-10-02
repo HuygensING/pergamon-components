@@ -1,4 +1,5 @@
 import { IAnnotation } from '../../interfaces';
+import { Display } from '../../tags/system-components-by-tags';
 
 export const byStartEnd = (a, b) => {
 	if (a.start > b.start) return 1;
@@ -27,7 +28,7 @@ export const byDisplayStartEnd = (tags) => (a: IAnnotation, b: IAnnotation) => {
 	// If display prop are not the same, 'block' get precedence over 'inline'
 	// If display prop is equal, look at start and end prop
 	if (aDisplay !== bDisplay) {
-		return (aDisplay === 'inline') ? 1 : -1;
+		return (aDisplay === Display.Inline) ? 1 : -1;
 	} else {
 		return byStartEnd(a, b);
 	}

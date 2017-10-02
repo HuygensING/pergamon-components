@@ -18,6 +18,15 @@ export interface IState {
 	textTree: Object;
 }
 
+const activeTagStyle: string = `
+	background-color: rgba(${orangeRGB}, 0.03);
+	border: 1px solid ${orange};
+	box-shadow: 4px 4px 0px rgba(${orangeRGB}, 0.4);
+	line-height: 2.8em;
+	margin: 0.5em;
+	padding: 0.5em;
+`;
+
 class RenderedText extends React.Component<IProps, IState> {
 	private el: HTMLDivElement;
 	public state = {
@@ -41,19 +50,14 @@ class RenderedText extends React.Component<IProps, IState> {
 			});
 
  			if (nextProps.activeAnnotation != null) {
-				const activeTag = this.el.querySelector(`#${generateTagId(nextProps.activeAnnotation)}`);
-				if (activeTag instanceof HTMLElement) {
-					const tagStyle = `
-						background-color: rgba(${orangeRGB}, 0.03);
-						border: 1px solid ${orange};
-						box-shadow: 4px 4px 0px rgba(${orangeRGB}, 0.4);
-						line-height: 2.8em;
-						margin: 0.5em;
-						padding: 0.5em;
-					`
-					activeTag.style.cssText = tagStyle;
-					activeTag.classList.add('active');
-				}
+				const tagId = generateTagId(nextProps.activeAnnotation, false);
+				const activeTags = this.el.querySelectorAll(`[id^=${tagId}]`);
+				[...activeTags].forEach(at => {
+					if (at instanceof HTMLElement) {
+						at.style.cssText = activeTagStyle;
+						at.classList.add('active');
+					}
+				})
 			}
 		}
 	}
