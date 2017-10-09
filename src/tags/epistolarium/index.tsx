@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Note from "./note";
 import systemComponentsByTags, { Display, IComponentsByTags } from '../system-components-by-tags';
-import { LineGroup, Line, Title } from './tags';
+import { PersName, PlaceName, Line, LineGroup, Name, Hi, P, DateTag } from './tags';
 import { Span, Div, None } from '../default-tags';
 
 const componentsByTags: IComponentsByTags = {
@@ -11,9 +11,17 @@ const componentsByTags: IComponentsByTags = {
 			component: Div,
 			display: Display.Block,
 		},
-		head: {
+		div: {
 			component: Div,
 			display: Display.Block,
+		},
+		date: {
+			component: DateTag,
+			display: Display.Inline,
+		},
+		hi: {
+			component: Hi,
+			display: Display.Inline,
 		},
 		l: {
 			component: Line,
@@ -23,12 +31,24 @@ const componentsByTags: IComponentsByTags = {
 			component: LineGroup,
 			display: Display.Block,
 		},
-		note: {
-			component: Note,
+		meta: {
+			component: None,
+			display: Display.None,
+		},
+		name: {
+			component: Name,
 			display: Display.Inline,
 		},
-		seg: {
-			component: Span,
+		p: {
+			component: P,
+			display: Display.Block,
+		},
+		persName: {
+			component: PersName,
+			display: Display.Inline,
+		},
+		placeName: {
+			component: PlaceName,
 			display: Display.Inline,
 		},
 		text: {
@@ -42,10 +62,6 @@ const componentsByTags: IComponentsByTags = {
 		teiHeader: {
 			component: None,
 			display: Display.None,
-		},
-		title: {
-			component: Title,
-			display: Display.Block,
 		},
 	}
 };

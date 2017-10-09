@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const note_1 = require("./note");
 const system_components_by_tags_1 = require("../system-components-by-tags");
 const tags_1 = require("./tags");
 const default_tags_1 = require("../default-tags");
@@ -9,9 +8,17 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         component: default_tags_1.Div,
         display: system_components_by_tags_1.Display.Block,
     },
-    head: {
+    div: {
         component: default_tags_1.Div,
         display: system_components_by_tags_1.Display.Block,
+    },
+    date: {
+        component: tags_1.DateTag,
+        display: system_components_by_tags_1.Display.Inline,
+    },
+    hi: {
+        component: tags_1.Hi,
+        display: system_components_by_tags_1.Display.Inline,
     },
     l: {
         component: tags_1.Line,
@@ -21,12 +28,24 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         component: tags_1.LineGroup,
         display: system_components_by_tags_1.Display.Block,
     },
-    note: {
-        component: note_1.default,
+    meta: {
+        component: default_tags_1.None,
+        display: system_components_by_tags_1.Display.None,
+    },
+    name: {
+        component: tags_1.Name,
         display: system_components_by_tags_1.Display.Inline,
     },
-    seg: {
-        component: default_tags_1.Span,
+    p: {
+        component: tags_1.P,
+        display: system_components_by_tags_1.Display.Block,
+    },
+    persName: {
+        component: tags_1.PersName,
+        display: system_components_by_tags_1.Display.Inline,
+    },
+    placeName: {
+        component: tags_1.PlaceName,
         display: system_components_by_tags_1.Display.Inline,
     },
     text: {
@@ -40,10 +59,6 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
     teiHeader: {
         component: default_tags_1.None,
         display: system_components_by_tags_1.Display.None,
-    },
-    title: {
-        component: tags_1.Title,
-        display: system_components_by_tags_1.Display.Block,
     },
 });
 exports.default = componentsByTags;
