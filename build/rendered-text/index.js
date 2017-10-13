@@ -31,6 +31,10 @@ class RenderedText extends React.Component {
     render() {
         return (React.createElement("div", { ref: (el) => { this.el = el; } }, this.state.textTree));
     }
+    activeTags(activeAnnotation) {
+        const tagId = index_1.generateTagId(activeAnnotation, false);
+        return this.el.querySelectorAll(`[id^=${tagId}]`);
+    }
     init(props) {
         if (this.state.textTree == null) {
             const root = index_1.default(JSON.parse(JSON.stringify(props.root)), props.tags);
@@ -38,19 +42,16 @@ class RenderedText extends React.Component {
             this.setState({ textTree });
         }
         if (this.props.activeAnnotation !== props.activeAnnotation) {
-            const activeAnnotations = this.el.querySelectorAll('.active');
-            [...activeAnnotations].forEach((a) => {
-                a.style.cssText = '';
-                a.classList.remove('active');
-            });
+            if (this.props.activeAnnotation !== null) {
+                [...this.activeTags(this.props.activeAnnotation)].forEach((a) => {
+                    a.style.cssText = this.inactiveTagStyle;
+                    this.inactiveTagStyle = null;
+                });
+            }
             if (props.activeAnnotation != null) {
-                const tagId = index_1.generateTagId(props.activeAnnotation, false);
-                const activeTags = this.el.querySelectorAll(`[id^=${tagId}]`);
-                [...activeTags].forEach(at => {
-                    if (at instanceof HTMLElement) {
-                        at.style.cssText = activeTagStyle;
-                        at.classList.add('active');
-                    }
+                [...this.activeTags(props.activeAnnotation)].forEach((a) => {
+                    this.inactiveTagStyle = a.style.cssText;
+                    a.style.cssText = activeTagStyle;
                 });
             }
         }

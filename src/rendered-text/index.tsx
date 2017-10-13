@@ -29,6 +29,11 @@ const activeTagStyle: string = `
 
 class RenderedText extends React.Component<IProps, IState> {
 	private el: HTMLDivElement;
+
+	// Holds the inactive style for a currently active tag.
+	// When the tag is deactivated, the inactive style re-set on the tag.
+	private inactiveTagStyle: string;
+
 	public state = {
 		textTree: null,
 	}
@@ -56,6 +61,11 @@ class RenderedText extends React.Component<IProps, IState> {
 		);
 	}
 
+	private activeTags(activeAnnotation) {
+		const tagId = generateTagId(activeAnnotation, false);
+		return this.el.querySelectorAll(`[id^=${tagId}]`);
+	}
+
 	private init(props) {
 		if (this.state.textTree == null) {
 			const root = createTree(JSON.parse(JSON.stringify(props.root)), props.tags);
@@ -64,20 +74,21 @@ class RenderedText extends React.Component<IProps, IState> {
 		}
 
 		if (this.props.activeAnnotation !== props.activeAnnotation) {
-			const activeAnnotations = this.el.querySelectorAll('.active');
-			[...activeAnnotations].forEach((a: HTMLElement) => {
-				a.style.cssText = '';
-				a.classList.remove('active');
-			});
+			// Current props has an active annotation which needs to be deactivated
+			if (this.props.activeAnnotation !== null) {
+				[...this.activeTags(this.props.activeAnnotation)].forEach((a: HTMLElement) => {
+					// Return the inactive style to the tag
+					a.style.cssText = this.inactiveTagStyle;
+					this.inactiveTagStyle = null;
+				});
+			}
 
+			// Next props has an active annotation which needs to be activated
  			if (props.activeAnnotation != null) {
-				const tagId = generateTagId(props.activeAnnotation, false);
-				const activeTags = this.el.querySelectorAll(`[id^=${tagId}]`);
-				[...activeTags].forEach(at => {
-					if (at instanceof HTMLElement) {
-						at.style.cssText = activeTagStyle;
-						at.classList.add('active');
-					}
+				[...this.activeTags(props.activeAnnotation)].forEach((a: HTMLElement) => {
+					// Remember the activated tags style
+					this.inactiveTagStyle = a.style.cssText; // Little overhead, because it is overwritten in the loop, but taking it out requires a lot more code (and type checking)
+					a.style.cssText = activeTagStyle;
 				})
 			}
 		}

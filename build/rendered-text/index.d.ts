@@ -15,6 +15,7 @@ export interface IState {
 }
 declare class RenderedText extends React.Component<IProps, IState> {
     private el;
+    private inactiveTagStyle;
     state: {
         textTree: any;
     };
@@ -22,6 +23,7 @@ declare class RenderedText extends React.Component<IProps, IState> {
     componentWillReceiveProps(nextProps: IProps): void;
     shouldComponentUpdate(nextProps: IProps, nextState: IState): boolean;
     render(): JSX.Element;
+    private activeTags(activeAnnotation);
     private init(props);
     private textTree(root, text, props);
 }
