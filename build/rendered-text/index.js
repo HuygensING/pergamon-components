@@ -19,20 +19,32 @@ class RenderedText extends React.Component {
             textTree: null,
         };
     }
+    componentDidMount() {
+        this.init(this.props);
+    }
     componentWillReceiveProps(nextProps) {
+        this.init(nextProps);
+    }
+    shouldComponentUpdate(nextProps, nextState) {
+        return this.state.textTree == null && nextState.textTree != null;
+    }
+    render() {
+        return (React.createElement("div", { ref: (el) => { this.el = el; } }, this.state.textTree));
+    }
+    init(props) {
         if (this.state.textTree == null) {
-            const root = index_1.default(JSON.parse(JSON.stringify(nextProps.root)), nextProps.tags);
-            const textTree = this.textTree(root, nextProps.root.text, nextProps);
+            const root = index_1.default(JSON.parse(JSON.stringify(props.root)), props.tags);
+            const textTree = this.textTree(root, props.root.text, props);
             this.setState({ textTree });
         }
-        if (this.props.activeAnnotation !== nextProps.activeAnnotation) {
+        if (this.props.activeAnnotation !== props.activeAnnotation) {
             const activeAnnotations = this.el.querySelectorAll('.active');
             [...activeAnnotations].forEach((a) => {
                 a.style.cssText = '';
                 a.classList.remove('active');
             });
-            if (nextProps.activeAnnotation != null) {
-                const tagId = index_1.generateTagId(nextProps.activeAnnotation, false);
+            if (props.activeAnnotation != null) {
+                const tagId = index_1.generateTagId(props.activeAnnotation, false);
                 const activeTags = this.el.querySelectorAll(`[id^=${tagId}]`);
                 [...activeTags].forEach(at => {
                     if (at instanceof HTMLElement) {
@@ -43,19 +55,13 @@ class RenderedText extends React.Component {
             }
         }
     }
-    shouldComponentUpdate(nextProps, nextState) {
-        return this.state.textTree == null && nextState.textTree != null;
-    }
-    render() {
-        return (React.createElement("div", { ref: (el) => { this.el = el; } }, this.state.textTree));
-    }
     textTree(root, text, props) {
         if (root.text == null && text == null)
             return null;
         const children = (root.hasOwnProperty('children') && root.children.length) ?
             root.children.map((child, i) => this.textTree(child, text, props)) :
             text.slice(root.start, root.end);
-        return (React.createElement(node_1.default, { activeAnnotation: props.activeAnnotation, annotation: root, key: Math.random() * 999999999, tags: props.tags }, children));
+        return (React.createElement(node_1.default, { activeAnnotation: props.activeAnnotation, annotation: root, key: window.crypto.getRandomValues(new Uint32Array(1))[0], tags: props.tags }, children));
     }
 }
 exports.default = RenderedText;

@@ -33,34 +33,14 @@ class RenderedText extends React.Component<IProps, IState> {
 		textTree: null,
 	}
 
-	public componentWillReceiveProps(nextProps: IProps) {
-		if (this.state.textTree == null) {
-			const root = createTree(JSON.parse(JSON.stringify(nextProps.root)), nextProps.tags);
-			const textTree = this.textTree(root, nextProps.root.text, nextProps);
-			this.setState({ textTree });
-		}
-
-		// TODO change generateTagId to without suffix and querySelectorAll on tagId without suffix
-		// to find also the splitted tags
-		if (this.props.activeAnnotation !== nextProps.activeAnnotation) {
-			const activeAnnotations = this.el.querySelectorAll('.active');
-			[...activeAnnotations].forEach((a: HTMLElement) => {
-				a.style.cssText = '';
-				a.classList.remove('active');
-			});
-
- 			if (nextProps.activeAnnotation != null) {
-				const tagId = generateTagId(nextProps.activeAnnotation, false);
-				const activeTags = this.el.querySelectorAll(`[id^=${tagId}]`);
-				[...activeTags].forEach(at => {
-					if (at instanceof HTMLElement) {
-						at.style.cssText = activeTagStyle;
-						at.classList.add('active');
-					}
-				})
-			}
-		}
+	public componentDidMount() {
+		this.init(this.props)
 	}
+
+	public componentWillReceiveProps(nextProps: IProps) {
+		this.init(nextProps)
+	}
+
 
 	public shouldComponentUpdate(nextProps: IProps, nextState: IState) {
 		return this.state.textTree == null && nextState.textTree != null;
@@ -76,6 +56,33 @@ class RenderedText extends React.Component<IProps, IState> {
 		);
 	}
 
+	private init(props) {
+		if (this.state.textTree == null) {
+			const root = createTree(JSON.parse(JSON.stringify(props.root)), props.tags);
+			const textTree = this.textTree(root, props.root.text, props);
+			this.setState({ textTree });
+		}
+
+		if (this.props.activeAnnotation !== props.activeAnnotation) {
+			const activeAnnotations = this.el.querySelectorAll('.active');
+			[...activeAnnotations].forEach((a: HTMLElement) => {
+				a.style.cssText = '';
+				a.classList.remove('active');
+			});
+
+ 			if (props.activeAnnotation != null) {
+				const tagId = generateTagId(props.activeAnnotation, false);
+				const activeTags = this.el.querySelectorAll(`[id^=${tagId}]`);
+				[...activeTags].forEach(at => {
+					if (at instanceof HTMLElement) {
+						at.style.cssText = activeTagStyle;
+						at.classList.add('active');
+					}
+				})
+			}
+		}
+	}
+
 	private textTree(root, text, props) {
 		if (root.text == null && text == null) return null;
 
@@ -87,7 +94,7 @@ class RenderedText extends React.Component<IProps, IState> {
 			<TextTreeNode
 				activeAnnotation={props.activeAnnotation}
 				annotation={root}
-				key={Math.random() * 999999999}
+				key={window.crypto.getRandomValues(new Uint32Array(1))[0]}
 				tags={props.tags}
 			>
 				{children}
