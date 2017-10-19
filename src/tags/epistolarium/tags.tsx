@@ -1,6 +1,40 @@
 import * as React from 'react';
 import { ITag } from '../default-tags';
 
+export const Add: React.SFC<ITag> = (props) =>
+	<span
+		style={{
+			color: 'green',
+		}}
+	>
+		+ {props.children}
+	</span>
+
+export const Choice: React.SFC<ITag> = (props) =>
+	<span>
+		{props.children}
+	</span>
+
+export const Sic: React.SFC<ITag> = (props) =>
+	<span
+		style={{
+			borderBottom: '1px solid #AAA',
+			paddingRight: '.6em',
+		}}
+	>
+		{props.children}
+	</span>
+
+export const Corr: React.SFC<ITag> = (props) =>
+	<span
+		style={{
+			border: '1px solid #AAA',
+			padding: '0 .6em',
+		}}
+	>
+		{props.children}
+	</span>
+
 export const DateTag: React.SFC<ITag> = (props) =>
 	<span
 		id={props.id}
