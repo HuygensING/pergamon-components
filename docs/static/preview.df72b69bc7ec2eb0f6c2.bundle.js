@@ -16115,7 +16115,7 @@ createStoryWithKnobs('RenderedText').add('default', function () {
 	});
 });
 
-createStory('SemanticSearch').add('default', function () {
+createStory('SemanticSuggestions').add('default', function () {
 	return _react2.default.createElement(_src.SemanticSuggestions, {
 		fullTextSearch: function fullTextSearch() {},
 		semanticSuggestions: [{ text: 'reprehenderit', weight: 1 }, { text: 'pariatur', weight: 0.9 }, { text: 'occaecat', weight: 0.9 }, { text: 'tempor', weight: 0.7 }, { text: 'nostrud', weight: 0.6 }, { text: 'eiusmod', weight: 0.5 }, { text: 'quis', weight: 0.2 }]
@@ -49552,4 +49552,4 @@ module.exports = __webpack_require__(788);
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=preview.c0d0beb6e2b4b0df3587.bundle.js.map
+//# sourceMappingURL=preview.df72b69bc7ec2eb0f6c2.bundle.js.map

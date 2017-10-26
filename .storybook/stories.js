@@ -67,7 +67,7 @@ createStoryWithKnobs('RenderedText')
 		/>
 	)
 
-createStory('SemanticSearch')
+createStory('SemanticSuggestions')
 	.add('default', () =>
 		<SemanticSuggestions
 			fullTextSearch={ () => {} }
