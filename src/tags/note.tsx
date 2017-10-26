@@ -1,8 +1,10 @@
 import * as React from 'react';
 import Tooltip from 'hire-tooltip';
-import TextTree from "../../rendered-text";
-import { orangeLight, orangeRGB, IGNORE_CLASSNAME } from "../../constants";
+import TextTree from "../rendered-text";
+import { orangeLight, orangeRGB, IGNORE_CLASSNAME } from "../constants";
 import tags from './index';
+import { ITag } from './default-tags';
+import { IAnnotation } from '../interfaces';
 
 
 interface INoteNumber {
@@ -39,7 +41,11 @@ const tooltipStyle: React.CSSProperties = {
 	zIndex: 1,
 };
 
-const Note: React.SFC<any> = (props) => {
+export interface INote extends ITag {
+	activateNote: (a: IAnnotation) => void
+	activeNoteId: string
+}
+const Note: React.SFC<INote> = (props) => {
 	const isLast = ((
 			!props.annotation.hasOwnProperty('_first') &&
 			!props.annotation.hasOwnProperty('_segment') &&

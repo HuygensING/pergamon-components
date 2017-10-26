@@ -3,13 +3,13 @@ import AnnotationList from './annotation-list';
 import Button from './ui/button';
 import {defaultAnnotation} from './constants';
 import { IAnnotation } from './interfaces';
-import ePistolariumTags from './tags/epistolarium';
+import PergamonUITags from './tags';
 
 export {
    AnnotationList,
    Button,
    defaultAnnotation,
-   ePistolariumTags,
+   PergamonUITags,
    IAnnotation,
    RenderedText
 };

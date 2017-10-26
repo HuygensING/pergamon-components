@@ -8,6 +8,10 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         component: default_tags_1.Div,
         display: system_components_by_tags_1.Display.Block,
     },
+    corr: {
+        component: tags_1.Corr,
+        display: system_components_by_tags_1.Display.Inline,
+    },
     div: {
         component: default_tags_1.Div,
         display: system_components_by_tags_1.Display.Block,

@@ -6,8 +6,20 @@ import {
 	AnnotationList,
 	RenderedText
 } from '../src'
-import Tags from '../src/tags/epistolarium'
-import { Add, Choice, Corr, Hi, Sic } from '../src/tags/epistolarium/tags'
+import Tags from '../src/tags'
+import {
+	Add,
+	Choice,
+	Corr,
+	DateTag, // Date is a reserved keyword
+	Hi,
+	Line,
+	LineGroup,
+	P,
+	PersName,
+	PlaceName,
+	Sic
+} from '../src/tags/tags'
 import { activeAnnotation, rootAnnotation } from './data'
 
 const createStory = (name) => {
@@ -46,7 +58,7 @@ createStory('RenderedText')
 		/>
 	)
 
-createStory('Add')
+createStory("Tags/Passive/Add, { type: 'add' }")
 	.add('default', () => <Add>This is added</Add>);
 
 // createStory('Anchor')
@@ -59,7 +71,7 @@ createStory('Add')
 // 		</Body>
 // 	);
 
-createStory('Choice')
+createStory("Tags/Passive/Choice, { type: 'choice' }")
 	.add('default', () =>
 		<Choice>
 			<Sic>Incorrect</Sic>
@@ -67,12 +79,96 @@ createStory('Choice')
 		</Choice>
 	);
 
+createStory("Tags/Passive/DateTag, { type: date }")
+	.add('default', () => <DateTag>Jan van Riebeeck</DateTag>)
+
 // createStory('Del')
 // 	.add('default', () => <Del>This is deleted</Del>);
 
-createStory('Hi')
-	.add('underline', () => <Hi data-rend="underline">Underline</Hi>)
-	.add('super', () => <div>Aliens warp with tragedy! <Hi data-rend="super">Super</Hi></div>);
+createStory("Tags/Passive/Hi', { type: 'hi' }")
+	.add('attributes: rend: bold', () => <div>Aliens <Hi annotation={{ attributes: { rend: 'bold' }}}>warp</Hi> with tragedy!</div>)
+	.add('attributes: rend: italic', () => <div>Aliens <Hi annotation={{ attributes: { rend: 'italic' }}}>warp</Hi> with tragedy!</div>)
+	.add('attributes: rend: underline', () => <Hi annotation={{ attributes: { rend: 'underline' }}}>Underline</Hi>)
+	.add('attributes: rend: strikethrough', () => <div>Aliens warp with tragedy! <Hi annotation={{ attributes: { rend: 'strikethrough' }}}>Super</Hi></div>)
+	.add('attributes: rend: superscript', () => <div>Aliens <Hi annotation={{ attributes: { rend: 'superscript' }}}>warp</Hi> with tragedy!</div>)
+	.add('attributes: rend: subscript', () => <div>Aliens <Hi annotation={{ attributes: { rend: 'subscript' }}}>warp</Hi> with tragedy!</div>)
+	.add('attributes: rend: case(smallcaps)', () => <div>Aliens <Hi annotation={{ attributes: { rend: 'case(smallcaps)' }}}>warp</Hi> with tragedy!</div>)
+
+createStory("Tags/Passive/LineGroup { type: 'lg' }")
+	.add('default', () =>
+		<LineGroup>
+			<Line>Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem.</Line>
+			<Line>Non est occaecat culpa pariatur minim tempor.</Line>
+			<Line>Eiusmod tempor consectetur id duis minim mollit ut reprehenderit commodo consectetur occaecat consequat.</Line>
+		</LineGroup>
+	)
+	.add('attributes: type: poem', () =>
+		<LineGroup annotation={{ attributes: { type: 'poem' }}}>
+			<Line>Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem.</Line>
+			<Line>Non est occaecat culpa pariatur minim tempor.</Line>
+			<Line>Eiusmod tempor consectetur id duis minim mollit ut reprehenderit commodo consectetur occaecat consequat.</Line>
+		</LineGroup>
+	)
+
+createStory("Tags/Interactive/Note { type: 'note' }")
+	.add('default', () =>
+		<LineGroup>
+			<Line>Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem.</Line>
+			<Line>Non est occaecat culpa pariatur minim tempor.</Line>
+			<Line>Eiusmod tempor consectetur id duis minim mollit ut reprehenderit commodo consectetur occaecat consequat.</Line>
+		</LineGroup>
+	)
+	.add('attributes: type: poem', () =>
+		<LineGroup annotation={{ attributes: { type: 'poem' }}}>
+			<Line>Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem.</Line>
+			<Line>Non est occaecat culpa pariatur minim tempor.</Line>
+			<Line>Eiusmod tempor consectetur id duis minim mollit ut reprehenderit commodo consectetur occaecat consequat.</Line>
+		</LineGroup>
+	)
+
+createStory("Tags/Passive/P, { type: p }")
+	.add('default', () =>
+		<div>
+			<P annotation={{attributes: {}}}>
+				Proident Lorem ut cillum duis. Eiusmod reprehenderit ea mollit id excepteur occaecat dolor consequat.
+				Est culpa ea consequat nulla est eiusmod ex incididunt laboris.
+			</P>
+			<P annotation={{attributes: {}}}>
+				Dolore nisi sit aliquip reprehenderit proident adipisicing dolore excepteur cupidatat. 
+				Deserunt veniam reprehenderit deserunt exercitation eu ipsum non. 
+				Qui culpa exercitation pariatur commodo adipisicing reprehenderit mollit fugiat anim dolore anim.
+			</P>
+			<P annotation={{attributes: {}}}>
+				Et in reprehenderit ea nisi nostrud occaecat deserunt anim ullamco in dolor.
+				Sint deserunt labore aute fugiat.
+				Cupidatat irure mollit aliquip dolor cillum commodo exercitation culpa duis sint ullamco ad.
+			</P>
+		</div>
+	)
+	.add('attributes: rend: italic', () =>
+		<div>
+			<P annotation={{attributes: { rend: "italic" }}}>
+				Proident Lorem ut cillum duis. Eiusmod reprehenderit ea mollit id excepteur occaecat dolor consequat.
+				Est culpa ea consequat nulla est eiusmod ex incididunt laboris.
+			</P>
+			<P annotation={{attributes: {}}}>
+				Dolore nisi sit aliquip reprehenderit proident adipisicing dolore excepteur cupidatat. 
+				Deserunt veniam reprehenderit deserunt exercitation eu ipsum non. 
+				Qui culpa exercitation pariatur commodo adipisicing reprehenderit mollit fugiat anim dolore anim.
+			</P>
+			<P annotation={{attributes: {}}}>
+				Et in reprehenderit ea nisi nostrud occaecat deserunt anim ullamco in dolor.
+				Sint deserunt labore aute fugiat.
+				Cupidatat irure mollit aliquip dolor cillum commodo exercitation culpa duis sint ullamco ad.
+			</P>
+		</div>
+	)
+
+createStory("Tags/Passive/PersName, { type: personName }")
+	.add('default', () => <PersName>Jan van Riebeeck</PersName>)
+
+createStory("Tags/Passive/PlaceName, { type: placeName }")
+	.add('default', () => <PlaceName>Culemborg</PlaceName>)
 
 // createStory('Notes')
 // 	.add('default', () =>

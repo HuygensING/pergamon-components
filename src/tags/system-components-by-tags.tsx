@@ -1,9 +1,9 @@
-import { Span, Div } from "./default-tags";
+import { Span, Div, ITag } from "./default-tags";
 
 export enum Display { None, Inline, Block };
 export interface IComponentsByTags {
 	[name: string]: {
-		component: any;
+		component: React.SFC<ITag>;
 		display: Display;
 	}
 }

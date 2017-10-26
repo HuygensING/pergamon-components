@@ -1,8 +1,18 @@
 import * as React from 'react';
+import systemComponentsByTags, { Display, IComponentsByTags } from './system-components-by-tags';
+import {
+	Corr,
+	DateTag,
+	Hi,
+	Line,
+	LineGroup,
+	Name,
+	P,
+	PersName,
+	PlaceName,
+} from './tags'
 import Note from "./note";
-import systemComponentsByTags, { Display, IComponentsByTags } from '../system-components-by-tags';
-import { PersName, PlaceName, Line, LineGroup, Name, Hi, P, DateTag } from './tags';
-import { Span, Div, None } from '../default-tags';
+import { Span, Div, None } from './default-tags';
 
 const componentsByTags: IComponentsByTags = {
 	...systemComponentsByTags,
@@ -10,6 +20,10 @@ const componentsByTags: IComponentsByTags = {
 		body: {
 			component: Div,
 			display: Display.Block,
+		},
+		corr: {
+			component: Corr,
+			display: Display.Inline,
 		},
 		div: {
 			component: Div,
@@ -37,6 +51,10 @@ const componentsByTags: IComponentsByTags = {
 		},
 		name: {
 			component: Name,
+			display: Display.Inline,
+		},
+		note: {
+			component: Note,
 			display: Display.Inline,
 		},
 		p: {

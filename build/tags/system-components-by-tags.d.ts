@@ -1,3 +1,5 @@
+/// <reference types="react" />
+import { ITag } from "./default-tags";
 export declare enum Display {
     None = 0,
     Inline = 1,
@@ -5,7 +7,7 @@ export declare enum Display {
 }
 export interface IComponentsByTags {
     [name: string]: {
-        component: any;
+        component: React.SFC<ITag>;
         display: Display;
     };
 }
