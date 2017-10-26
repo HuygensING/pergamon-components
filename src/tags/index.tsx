@@ -10,6 +10,7 @@ import {
 	P,
 	PersName,
 	PlaceName,
+	Rs,
 	Seg,
 	Title,
 } from './tags'
@@ -73,6 +74,10 @@ const componentsByTags: IComponentsByTags = {
 		},
 		placeName: {
 			component: PlaceName,
+			display: Display.Inline,
+		},
+		rs: {
+			component: Rs,
 			display: Display.Inline,
 		},
 		seg: {

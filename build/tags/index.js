@@ -61,6 +61,10 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         component: tags_1.PlaceName,
         display: system_components_by_tags_1.Display.Inline,
     },
+    rs: {
+        component: tags_1.Rs,
+        display: system_components_by_tags_1.Display.Inline,
+    },
     seg: {
         component: tags_1.Seg,
         display: system_components_by_tags_1.Display.Inline,
