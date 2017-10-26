@@ -1,34 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
-const rendStyle = (props) => ({
-    fontStyle: props.annotation.attributes.hasOwnProperty('rend') &&
-        props.annotation.attributes.rend === 'italic' ?
-        'italic' :
-        'initial',
-    fontVariant: props.annotation.attributes.hasOwnProperty('rend') &&
-        props.annotation.attributes.rend === 'case(smallcaps)' ?
-        'small-caps' :
-        'initial',
-    fontWeight: props.annotation.attributes.hasOwnProperty('rend') &&
-        props.annotation.attributes.rend === 'bold' ?
-        'bold' :
-        'initial',
-    textDecoration: props.annotation.attributes.hasOwnProperty('rend') &&
-        props.annotation.attributes.rend === 'underline' ?
-        'underline' :
-        props.annotation.attributes.hasOwnProperty('rend') &&
-            props.annotation.attributes.rend === 'strikethrough' ?
-            'line-through' :
-            'initial',
-    verticalAlign: props.annotation.attributes.hasOwnProperty('rend') &&
-        props.annotation.attributes.rend === 'superscript' ?
-        'super' :
-        props.annotation.attributes.hasOwnProperty('rend') &&
-            props.annotation.attributes.rend === 'subscript' ?
-            'sub' :
-            'initial',
-});
+const rend_1 = require("./rend");
 exports.Add = (props) => React.createElement("span", { style: {
         color: 'green',
     } },
@@ -47,22 +20,32 @@ exports.DateTag = (props) => React.createElement("span", { id: props.id, style: 
         backgroundColor: 'orange',
         color: 'white'
     } }, props.children);
-exports.PersName = (props) => React.createElement("span", { id: props.id, style: {
-        backgroundColor: 'blue',
-        color: 'white'
-    } }, props.children);
-exports.PlaceName = (props) => React.createElement("span", { id: props.id, style: {
-        backgroundColor: 'green',
-        color: 'white'
-    } }, props.children);
-exports.Name = (props) => React.createElement("span", { id: props.id, style: {
-        backgroundColor: 'red',
-        color: 'white'
-    } }, props.children);
-exports.Hi = (props) => React.createElement("span", { id: props.id, style: rendStyle(props) }, props.children);
+exports.Hi = (props) => React.createElement("span", { id: props.id, style: rend_1.default(props) }, props.children);
 exports.Line = (props) => React.createElement("div", { id: props.id, style: { lineHeight: '2em' } }, props.children);
 exports.LineGroup = (props) => React.createElement("div", { id: props.id, style: { margin: '2em 0' } }, props.children);
-exports.P = (props) => React.createElement("div", { id: props.id, style: Object.assign({}, rendStyle(props), { margin: '1em 0' }) },
+exports.Name = (props) => props.annotation.attributes.type === 'person' ?
+    React.createElement(exports.PersName, Object.assign({}, props)) :
+    props.annotation.attributes.type === 'place' ?
+        React.createElement(exports.PlaceName, Object.assign({}, props)) :
+        null;
+exports.P = (props) => React.createElement("div", { id: props.id, style: Object.assign({}, rend_1.default(props), { margin: '1em 0' }) },
     props.children,
     React.createElement("hr", { style: { margin: '1em' } }));
-exports.Seg = (props) => React.createElement("div", { id: props.id, style: rendStyle(props) }, props.children);
+exports.PersName = (props) => React.createElement("span", { id: props.id, style: Object.assign({}, rend_1.default(props), {
+        backgroundColor: 'blue',
+        color: 'white'
+    }) }, props.children);
+exports.PlaceName = (props) => React.createElement("span", { id: props.id, style: Object.assign({}, rend_1.default(props), {
+        backgroundColor: 'green',
+        color: 'white'
+    }) }, props.children);
+exports.Rs = (props) => props.annotation.attributes.type === 'person' ?
+    React.createElement(exports.PersName, Object.assign({}, props)) :
+    props.annotation.attributes.type === 'place' ?
+        React.createElement(exports.PlaceName, Object.assign({}, props)) :
+        null;
+exports.Seg = (props) => React.createElement("div", { id: props.id, style: rend_1.default(props) }, props.children);
+exports.Title = (props) => React.createElement("div", { id: props.id, style: Object.assign({}, rend_1.default(props), {
+        fontSize: '2em',
+        fontWeight: 'bold',
+    }) }, props.children);

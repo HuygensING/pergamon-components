@@ -19,7 +19,10 @@ export interface IAnnotation {
 	_targetType?: 'annotation' | 'document';
 
 	annotations?: IAnnotation[];
-	attributes?: any;
+	attributes?: {
+		type: string
+		[key: string]: any
+	};
 	children?: IAnnotation[];
 	body?: string;
 	end: number;
@@ -39,3 +42,10 @@ export interface IDocument {
 	tree: IAnnotation,
 }
 
+export interface ITag {
+	activeAnnotation: IAnnotation
+	annotation: IAnnotation
+	id: string
+}
+
+export type Tag = React.SFC<ITag>

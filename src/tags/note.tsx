@@ -3,8 +3,7 @@ import Tooltip from 'hire-tooltip';
 import TextTree from "../rendered-text";
 import { orangeLight, orangeRGB, IGNORE_CLASSNAME } from "../constants";
 import tags from './index';
-import { ITag } from './default-tags';
-import { IAnnotation } from '../interfaces';
+import { IAnnotation, ITag } from '../interfaces';
 
 
 interface INoteNumber {

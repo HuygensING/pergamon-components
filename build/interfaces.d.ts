@@ -1,3 +1,4 @@
+/// <reference types="react" />
 export declare type SourceType = 'system' | 'xml' | 'user';
 export interface IAnnotation {
     _first?: boolean;
@@ -6,7 +7,10 @@ export interface IAnnotation {
     _tagId?: string;
     _targetType?: 'annotation' | 'document';
     annotations?: IAnnotation[];
-    attributes?: any;
+    attributes?: {
+        type: string;
+        [key: string]: any;
+    };
     children?: IAnnotation[];
     body?: string;
     end: number;
@@ -24,3 +28,9 @@ export interface IDocument {
     text: string;
     tree: IAnnotation;
 }
+export interface ITag {
+    activeAnnotation: IAnnotation;
+    annotation: IAnnotation;
+    id: string;
+}
+export declare type Tag = React.SFC<ITag>;

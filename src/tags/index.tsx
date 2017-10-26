@@ -10,6 +10,8 @@ import {
 	P,
 	PersName,
 	PlaceName,
+	Seg,
+	Title,
 } from './tags'
 import Note from "./note";
 import { Span, Div, None } from './default-tags';
@@ -17,6 +19,10 @@ import { Span, Div, None } from './default-tags';
 const componentsByTags: IComponentsByTags = {
 	...systemComponentsByTags,
 	...{
+		ab: {
+			component: Div,
+			display: Display.Block,
+		},
 		body: {
 			component: Div,
 			display: Display.Block,
@@ -69,8 +75,16 @@ const componentsByTags: IComponentsByTags = {
 			component: PlaceName,
 			display: Display.Inline,
 		},
+		seg: {
+			component: Seg,
+			display: Display.Inline,
+		},
 		text: {
 			component: Div,
+			display: Display.Block,
+		},
+		title: {
+			component: Title,
 			display: Display.Block,
 		},
 		TEI: {

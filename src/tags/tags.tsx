@@ -1,41 +1,7 @@
-import * as React from 'react';
-import { ITag } from './default-tags';
+import * as React from 'react'
+import rendStyle from './rend'
+import { Tag } from '../interfaces';
 
-const rendStyle = (props): React.CSSProperties=> ({
-	fontStyle:
-		props.annotation.attributes.hasOwnProperty('rend') &&
-		props.annotation.attributes.rend === 'italic' ?
-			'italic' :
-			'initial',
-	fontVariant:
-		props.annotation.attributes.hasOwnProperty('rend') &&
-		props.annotation.attributes.rend === 'case(smallcaps)' ?
-			'small-caps' :
-			'initial',
-	fontWeight:
-		props.annotation.attributes.hasOwnProperty('rend') &&
-		props.annotation.attributes.rend === 'bold' ?
-			'bold' :
-			'initial',
-	textDecoration:
-		props.annotation.attributes.hasOwnProperty('rend') &&
-		props.annotation.attributes.rend === 'underline' ?
-			'underline' :
-			props.annotation.attributes.hasOwnProperty('rend') &&
-			props.annotation.attributes.rend === 'strikethrough' ?
-				'line-through' :
-				'initial',
-	verticalAlign:
-		props.annotation.attributes.hasOwnProperty('rend') &&
-		props.annotation.attributes.rend === 'superscript' ?
-			'super' :
-			props.annotation.attributes.hasOwnProperty('rend') &&
-			props.annotation.attributes.rend === 'subscript' ?
-				'sub' :
-				'initial',
-})
-
-export type Tag = React.SFC<ITag>
 
 export const Add: Tag = (props) =>
 	<span
@@ -82,39 +48,6 @@ export const DateTag: Tag = (props) =>
 		{props.children}
 	</span>
 
-export const PersName: Tag = (props) =>
-	<span
-		id={props.id}
-		style={{
-			backgroundColor: 'blue',
-			color: 'white'
-		}}
-	>
-		{props.children}
-	</span>
-
-export const PlaceName: Tag = (props) =>
-	<span
-		id={props.id}
-		style={{
-			backgroundColor: 'green',
-			color: 'white'
-		}}
-	>
-		{props.children}
-	</span>
-
-export const Name: Tag = (props) =>
-	<span
-		id={props.id}
-		style={{
-			backgroundColor: 'red',
-			color: 'white'
-		}}
-	>
-		{props.children}
-	</span>
-
 export const Hi: Tag = (props) =>
 	<span
 		id={props.id}
@@ -129,7 +62,7 @@ export const Line: Tag = (props) =>
 		style={{ lineHeight: '2em' }}
 	>
 		{props.children}
-	</div>;
+	</div>
 
 export const LineGroup: Tag = (props) =>
 	<div
@@ -137,7 +70,14 @@ export const LineGroup: Tag = (props) =>
 		style={{ margin: '2em 0' }}
 	>
 		{props.children}
-	</div>;
+	</div>
+
+export const Name: Tag = (props) =>
+	props.annotation.attributes.type === 'person' ?
+		<PersName {...props} /> :
+		props.annotation.attributes.type === 'place' ?
+		<PlaceName {...props} /> :
+		null	
 
 export const P: Tag = (props) =>
 	<div
@@ -149,7 +89,42 @@ export const P: Tag = (props) =>
 	>
 		{props.children}
 		<hr style={{ margin: '1em' }} />
-	</div>;
+	</div>
+
+export const PersName: Tag = (props) =>
+	<span
+		id={props.id}
+		style={{
+			...rendStyle(props),
+			...{
+				backgroundColor: 'blue',
+				color: 'white'
+			}
+		}}
+	>
+		{props.children}
+	</span>
+
+export const PlaceName: Tag = (props) =>
+	<span
+		id={props.id}
+		style={{
+			...rendStyle(props),
+			...{
+				backgroundColor: 'green',
+				color: 'white'
+			}
+		}}
+	>
+		{props.children}
+	</span>
+
+export const Rs: Tag = (props) =>
+	props.annotation.attributes.type === 'person' ?
+		<PersName {...props} /> :
+		props.annotation.attributes.type === 'place' ?
+		<PlaceName {...props} /> :
+		null	
 
 export const Seg: Tag = (props) =>
 	<div
@@ -157,15 +132,18 @@ export const Seg: Tag = (props) =>
 		style={rendStyle(props)}
 	>
 		{props.children}
-	</div>;
+	</div>
 
-// export const Title: Tag = (props) =>
-// 	<h2
-// 		id={props.id}
-// 		style={{
-// 			fontSize: '2em',
-// 			fontWeight: 'bold',
-// 		}}
-// 	>
-// 		{props.children}
-// 	</h2>;
+export const Title: Tag = (props) =>
+	<div
+		id={props.id}
+		style={{
+			...rendStyle(props),
+			...{
+				fontSize: '2em',
+				fontWeight: 'bold',
+			}
+		}}
+	>
+		{props.children}
+	</div>;

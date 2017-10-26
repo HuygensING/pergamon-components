@@ -1,11 +1,6 @@
 /// <reference types="react" />
 import * as React from 'react';
-import { IAnnotation } from '../interfaces';
-export interface ITag {
-    activeAnnotation: IAnnotation;
-    annotation: IAnnotation;
-    id: string;
-}
-export declare const Span: React.SFC<ITag>;
-export declare const Div: React.SFC<ITag>;
+import { Tag } from '../interfaces';
+export declare const Span: Tag;
+export declare const Div: Tag;
 export declare const None: React.SFC;

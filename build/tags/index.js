@@ -5,6 +5,10 @@ const tags_1 = require("./tags");
 const note_1 = require("./note");
 const default_tags_1 = require("./default-tags");
 const componentsByTags = Object.assign({}, system_components_by_tags_1.default, {
+    ab: {
+        component: default_tags_1.Div,
+        display: system_components_by_tags_1.Display.Block,
+    },
     body: {
         component: default_tags_1.Div,
         display: system_components_by_tags_1.Display.Block,
@@ -57,8 +61,16 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         component: tags_1.PlaceName,
         display: system_components_by_tags_1.Display.Inline,
     },
+    seg: {
+        component: tags_1.Seg,
+        display: system_components_by_tags_1.Display.Inline,
+    },
     text: {
         component: default_tags_1.Div,
+        display: system_components_by_tags_1.Display.Block,
+    },
+    title: {
+        component: tags_1.Title,
         display: system_components_by_tags_1.Display.Block,
     },
     TEI: {

@@ -15,20 +15,28 @@ import {
 	Hi,
 	Line,
 	LineGroup,
+	Name,
 	P,
 	PersName,
 	PlaceName,
-	Sic
+	Rs,
+	Sic,
+	Title,
 } from '../src/tags/tags'
+import { 
+	Div,
+} from '../src/tags/default-tags'
 import { activeAnnotation, rootAnnotation } from './data'
 
-const createStory = (name) => {
-	const stories = storiesOf(name, module)
+export const createStory = (name) => storiesOf(name, module)
+
+export const createStoryWithKnobs = (name) => {
+	const stories = createStory(name)
 	stories.addDecorator(withKnobs)
 	return stories
 }
 
-createStory('AnnotationList')
+createStoryWithKnobs('AnnotationList')
 	.add('default', () =>
 		<AnnotationList
 			activateAnnotation={ action('activate Annotation') }
@@ -43,7 +51,7 @@ createStory('AnnotationList')
 		/>
 	)
 
-createStory('RenderedText')
+createStoryWithKnobs('RenderedText')
 	.add('default', () =>
 		<RenderedText
 			root={ object('rootAnnotation', rootAnnotation) }
@@ -81,6 +89,22 @@ createStory("Tags/Passive/Choice, { type: 'choice' }")
 
 createStory("Tags/Passive/DateTag, { type: date }")
 	.add('default', () => <DateTag>Jan van Riebeeck</DateTag>)
+
+createStory("Tags/Passive/Div, { type: div }")
+	.add('default', () =>
+		<div>
+			<Div>
+				Fugiat non commodo non tempor. Esse nisi et sit aute.
+				Adipisicing duis labore commodo aliqua cupidatat officia eiusmod proident aliqua do.
+				Velit eu aute cupidatat adipisicing voluptate in ullamco.
+			</Div>
+			<Div>
+				Minim minim eiusmod ad dolore tempor.
+				Eiusmod id occaecat sint qui aliqua sint minim.
+				Voluptate ullamco fugiat pariatur voluptate occaecat laborum ipsum culpa dolore quis dolor sit sunt.
+			</Div>
+		</div>
+	)
 
 // createStory('Del')
 // 	.add('default', () => <Del>This is deleted</Del>);
@@ -126,49 +150,50 @@ createStory("Tags/Interactive/Note { type: 'note' }")
 		</LineGroup>
 	)
 
-createStory("Tags/Passive/P, { type: p }")
-	.add('default', () =>
-		<div>
-			<P annotation={{attributes: {}}}>
-				Proident Lorem ut cillum duis. Eiusmod reprehenderit ea mollit id excepteur occaecat dolor consequat.
-				Est culpa ea consequat nulla est eiusmod ex incididunt laboris.
-			</P>
-			<P annotation={{attributes: {}}}>
-				Dolore nisi sit aliquip reprehenderit proident adipisicing dolore excepteur cupidatat. 
-				Deserunt veniam reprehenderit deserunt exercitation eu ipsum non. 
-				Qui culpa exercitation pariatur commodo adipisicing reprehenderit mollit fugiat anim dolore anim.
-			</P>
-			<P annotation={{attributes: {}}}>
-				Et in reprehenderit ea nisi nostrud occaecat deserunt anim ullamco in dolor.
-				Sint deserunt labore aute fugiat.
-				Cupidatat irure mollit aliquip dolor cillum commodo exercitation culpa duis sint ullamco ad.
-			</P>
-		</div>
+createStory("Tags/Passive/Name, { type: Name }")
+	.add('attributes: type: person', () =>
+		<div>Consectetur minim adipisicing <Name annotation={{ attributes: { type: 'person' }}}>Jan van Riebeeck</Name> enim consequat ex aute voluptate do.</div>
 	)
-	.add('attributes: rend: italic', () =>
-		<div>
-			<P annotation={{attributes: { rend: "italic" }}}>
-				Proident Lorem ut cillum duis. Eiusmod reprehenderit ea mollit id excepteur occaecat dolor consequat.
-				Est culpa ea consequat nulla est eiusmod ex incididunt laboris.
-			</P>
-			<P annotation={{attributes: {}}}>
-				Dolore nisi sit aliquip reprehenderit proident adipisicing dolore excepteur cupidatat. 
-				Deserunt veniam reprehenderit deserunt exercitation eu ipsum non. 
-				Qui culpa exercitation pariatur commodo adipisicing reprehenderit mollit fugiat anim dolore anim.
-			</P>
-			<P annotation={{attributes: {}}}>
-				Et in reprehenderit ea nisi nostrud occaecat deserunt anim ullamco in dolor.
-				Sint deserunt labore aute fugiat.
-				Cupidatat irure mollit aliquip dolor cillum commodo exercitation culpa duis sint ullamco ad.
-			</P>
-		</div>
+	.add('attributes: type: place', () =>
+		<div>Fugiat consequat ex mollit <Name annotation={{ attributes: { type: 'place' }}}>Culemborg</Name> incididunt quis non pariatur laborum veniam.</div>
 	)
+
+import storiesOfP from './tags/p'
+storiesOfP(createStory)
 
 createStory("Tags/Passive/PersName, { type: personName }")
-	.add('default', () => <PersName>Jan van Riebeeck</PersName>)
+	.add('default', () =>
+		<div>Consectetur minim adipisicing <PersName annotation={{ attributes: { type: 'person' }}}>Jan van Riebeeck</PersName> enim consequat ex aute voluptate do.</div>
+	)
 
 createStory("Tags/Passive/PlaceName, { type: placeName }")
-	.add('default', () => <PlaceName>Culemborg</PlaceName>)
+	.add('default', () =>
+		<div>Fugiat consequat ex mollit <PlaceName annotation={{ attributes: { type: 'place' }}}>Culemborg</PlaceName> incididunt quis non pariatur laborum veniam.</div>
+	)
+
+createStory("Tags/Passive/Rs, { type: rs }")
+	.add('attributes: type: person', () =>
+		<div>Consectetur minim adipisicing <Rs annotation={{ attributes: { type: 'person' }}}>ab eo</Rs> enim consequat ex aute voluptate do.</div>
+	)
+	.add('attributes: type: place', () =>
+		<div>Fugiat consequat ex mollit <Rs annotation={{ attributes: { type: 'place' }}}>est ibi</Rs> incididunt quis non pariatur laborum veniam.</div>
+	)
+
+import storiesOfSeg from './tags/seg'
+storiesOfSeg(createStory)
+
+createStory("Tags/Passive/Title, { type: title }")
+	.add('default', () =>
+		<div>
+			Dolor eiusmod ea anim ipsum dolor minim fugiat deserunt nostrud ipsum.
+			Amet nisi eiusmod non deserunt exercitation commodo commodo cupidatat non labore voluptate.
+			<Title annotation={{ attributes: {} }}>Laboris labore est aliquip</Title>
+			Eu magna labore consequat voluptate cillum tempor occaecat.
+			Labore eiusmod culpa adipisicing laborum.
+			Fugiat sit ea magna do adipisicing voluptate eiusmod consectetur duis est adipisicing ullamco labore.
+			Laboris commodo aute ad adipisicing tempor occaecat deserunt deserunt consequat in officia consectetur tempor enim.
+		</div>
+	)
 
 // createStory('Notes')
 // 	.add('default', () =>
