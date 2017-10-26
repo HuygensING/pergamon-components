@@ -4,4 +4,6 @@ import Button from './ui/button';
 import { defaultAnnotation } from './constants';
 import { IAnnotation } from './interfaces';
 import PergamonUITags from './tags';
-export { AnnotationList, Button, defaultAnnotation, PergamonUITags, IAnnotation, RenderedText };
+import SemanticSuggestions from './semantic-suggestions';
+import { ISuggestion } from './semantic-suggestions/suggestion';
+export { AnnotationList, Button, defaultAnnotation, IAnnotation, ISuggestion, PergamonUITags, RenderedText, SemanticSuggestions };

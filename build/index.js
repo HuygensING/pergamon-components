@@ -10,3 +10,5 @@ const constants_1 = require("./constants");
 exports.defaultAnnotation = constants_1.defaultAnnotation;
 const tags_1 = require("./tags");
 exports.PergamonUITags = tags_1.default;
+const semantic_suggestions_1 = require("./semantic-suggestions");
+exports.SemanticSuggestions = semantic_suggestions_1.default;

@@ -4,7 +4,8 @@ import { action } from '@storybook/addon-actions'
 import { withKnobs, object } from '@storybook/addon-knobs'
 import {
 	AnnotationList,
-	RenderedText
+	RenderedText,
+	SemanticSuggestions,
 } from '../src'
 import Tags from '../src/tags'
 import {
@@ -63,6 +64,22 @@ createStoryWithKnobs('RenderedText')
 			activeAnnotation={ object('activeAnnotation', Object.assign({}, activeAnnotation)) }
 			root={ object('rootAnnotation', rootAnnotation) }
 			tags={Tags}
+		/>
+	)
+
+createStory('SemanticSearch')
+	.add('default', () =>
+		<SemanticSuggestions
+			fullTextSearch={ () => {} }
+			semanticSuggestions={[
+				{ text: 'reprehenderit', weight: 1 },
+				{ text: 'pariatur', weight: 0.9 },
+				{ text: 'occaecat', weight: 0.9 },
+				{ text: 'tempor', weight: 0.7 },
+				{ text: 'nostrud', weight: 0.6 },
+				{ text: 'eiusmod', weight: 0.5 },
+				{ text: 'quis', weight: 0.2 },
+			]}
 		/>
 	)
 
