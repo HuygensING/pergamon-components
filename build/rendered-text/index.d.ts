@@ -21,7 +21,6 @@ declare class RenderedText extends React.Component<IProps, IState> {
     };
     componentDidMount(): void;
     componentWillReceiveProps(nextProps: IProps): void;
-    shouldComponentUpdate(nextProps: IProps, nextState: IState): boolean;
     render(): JSX.Element;
     private activeTags(activeAnnotation);
     private init(props);

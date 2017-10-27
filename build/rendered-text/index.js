@@ -25,9 +25,6 @@ class RenderedText extends React.Component {
     componentWillReceiveProps(nextProps) {
         this.init(nextProps);
     }
-    shouldComponentUpdate(nextProps, nextState) {
-        return this.state.textTree == null && nextState.textTree != null;
-    }
     render() {
         return (React.createElement("div", { ref: (el) => { this.el = el; } }, this.state.textTree));
     }
@@ -36,7 +33,9 @@ class RenderedText extends React.Component {
         return this.el.querySelectorAll(`[id^=${tagId}]`);
     }
     init(props) {
-        if (this.state.textTree == null) {
+        if (props.root.id == null)
+            return;
+        if (this.state.textTree == null || this.props.root.id !== props.root.id) {
             const root = index_1.default(JSON.parse(JSON.stringify(props.root)), props.tags);
             const textTree = this.textTree(root, props.root.text, props);
             this.setState({ textTree });

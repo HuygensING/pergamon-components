@@ -46,11 +46,6 @@ class RenderedText extends React.Component<IProps, IState> {
 		this.init(nextProps)
 	}
 
-
-	public shouldComponentUpdate(nextProps: IProps, nextState: IState) {
-		return this.state.textTree == null && nextState.textTree != null;
-	}
-
 	public render() {
 		return (
 			<div
@@ -67,7 +62,10 @@ class RenderedText extends React.Component<IProps, IState> {
 	}
 
 	private init(props) {
-		if (this.state.textTree == null) {
+		// No root, no init
+		if (props.root.id == null) return
+
+		if (this.state.textTree == null || this.props.root.id !== props.root.id) {
 			const root = createTree(JSON.parse(JSON.stringify(props.root)), props.tags);
 			const textTree = this.textTree(root, props.root.text, props);
 			this.setState({ textTree });
