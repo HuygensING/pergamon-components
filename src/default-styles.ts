@@ -8,7 +8,7 @@ export const fontStyle: React.CSSProperties = {
 }
 
 export const fontReadStyle: React.CSSProperties = {
-    fontFamily: "Merriweather', serif",
+    fontFamily: "'Merriweather', serif",
     fontSize: '18px',
 	fontWeight: 300,
     lineHeight: '150%',
@@ -19,6 +19,5 @@ export const grayLightBackground: React.CSSProperties = {
 }
 
 export const basicAnnotation: React.CSSProperties = {
-    backgroundColor: 'lightblue',
     borderBottom: '1px solid #ccc',
 }

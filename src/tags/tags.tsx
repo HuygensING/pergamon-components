@@ -92,19 +92,25 @@ export const P: Tag = (props) =>
 		<hr style={{ margin: '1em' }} />
 	</div>
 
+interface IIcon { src: string }
+const Icon: React.SFC<IIcon> = (props) =>
+	<img
+		src={props.src}
+		style={{
+			height: "15px",
+			width: "15px"
+		}}
+	/>
+
 export const PersName: Tag = (props) =>
 	<span
 		id={props.id}
 		style={{
 			...rendStyle(props),
-            ...basicAnnotation,   
-			...{
-                paddingLeft: '1em',
-                background: 'url("http://design.huygens.knaw.nl/static/icons/person.svg") no-repeat left bottom',
-               backgroundSize: '15px',
-			}
+			...basicAnnotation,   
 		}}
 	>
+		<Icon src="http://design.huygens.knaw.nl/static/icons/person.svg" />
 		{props.children}
 	</span>
 
@@ -113,12 +119,10 @@ export const PlaceName: Tag = (props) =>
 		id={props.id}
 		style={{
 			...rendStyle(props),
-            ...basicAnnotation,
-			...{
-
-			}
+			...basicAnnotation,
 		}}
 	>
+		<Icon src="http://design.huygens.knaw.nl/static/icons/location.svg" />
 		{props.children}
 	</span>
 

@@ -7,7 +7,7 @@ exports.fontStyle = {
     lineHeight: '150%',
 };
 exports.fontReadStyle = {
-    fontFamily: "Merriweather', serif",
+    fontFamily: "'Merriweather', serif",
     fontSize: '18px',
     fontWeight: 300,
     lineHeight: '150%',
@@ -16,6 +16,5 @@ exports.grayLightBackground = {
     backgroundColor: '#f9f9f9',
 };
 exports.basicAnnotation = {
-    backgroundColor: 'lightblue',
     borderBottom: '1px solid #ccc',
 };
