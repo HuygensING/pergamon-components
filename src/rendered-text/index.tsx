@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { fontStyle,grayLightBackground,fontReadStyle } from '../default-styles'
 import TextTreeNode, {ITextAnnotationCommon} from "./node";
 import createTree, { generateTagId } from "./create-tree/index";
 import {IAnnotation} from "../interfaces";
@@ -50,6 +51,9 @@ class RenderedText extends React.Component<IProps, IState> {
 		return (
 			<div
 				ref={(el) => { this.el = el; }}
+        style={{
+       ...fontReadStyle,
+		}}
 			>
 				{this.state.textTree}
 			</div>
