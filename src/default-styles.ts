@@ -12,6 +12,8 @@ export const fontReadStyle: React.CSSProperties = {
     fontSize: '18px',
 	fontWeight: 300,
     lineHeight: '150%',
+    
+
 }
 
 export const grayLightBackground: React.CSSProperties = {
@@ -19,5 +21,6 @@ export const grayLightBackground: React.CSSProperties = {
 }
 
 export const basicAnnotation: React.CSSProperties = {
-    borderBottom: '1px solid #ccc',
+    borderBottom: '1px solid #ddd',
+    cursor: 'pointer',
 }
