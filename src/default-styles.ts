@@ -10,3 +10,18 @@ export const fontStyle: React.CSSProperties = {
 export const grayLightBackground: React.CSSProperties = {
     backgroundColor: '#f9f9f9',
 }
+
+const fontReadStyle: React.CSSProperties = {
+    fontFamily: "Merriweather', serif",
+    fontSize: '18px',
+	fontWeight: 300,
+    lineHeight: '150%',
+}
+export { fontReadStyle };
+
+
+const basicAnnotation: React.CSSProperties = {
+    borderBottom: '1px solid #ccc',
+}
+
+export { basicAnnotation };

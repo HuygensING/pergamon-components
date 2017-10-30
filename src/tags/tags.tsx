@@ -1,5 +1,6 @@
 import * as React from 'react'
 import rendStyle from './rend'
+import { basicAnnotation } from '../default-styles'
 import { Tag } from '../interfaces';
 
 
@@ -96,9 +97,9 @@ export const PersName: Tag = (props) =>
 		id={props.id}
 		style={{
 			...rendStyle(props),
+            ...basicAnnotation,   
 			...{
-				backgroundColor: 'blue',
-				color: 'white'
+				
 			}
 		}}
 	>
@@ -110,9 +111,9 @@ export const PlaceName: Tag = (props) =>
 		id={props.id}
 		style={{
 			...rendStyle(props),
+            ...basicAnnotation,
 			...{
-				backgroundColor: 'green',
-				color: 'white'
+				
 			}
 		}}
 	>
