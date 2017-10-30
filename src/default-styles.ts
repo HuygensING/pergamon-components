@@ -11,17 +11,14 @@ export const grayLightBackground: React.CSSProperties = {
     backgroundColor: '#f9f9f9',
 }
 
-const fontReadStyle: React.CSSProperties = {
+export const fontReadStyle: React.CSSProperties = {
     fontFamily: "Merriweather', serif",
     fontSize: '18px',
 	fontWeight: 300,
     lineHeight: '150%',
 }
-export { fontReadStyle };
 
-
-const basicAnnotation: React.CSSProperties = {
+export const basicAnnotation: React.CSSProperties = {
+    backgroundColor: 'lightblue',
     borderBottom: '1px solid #ccc',
 }
-
-export { basicAnnotation };

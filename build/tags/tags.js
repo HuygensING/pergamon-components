@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
 const rend_1 = require("./rend");
+const default_styles_1 = require("../default-styles");
 exports.Add = (props) => React.createElement("span", { style: {
         color: 'green',
     } },
@@ -31,14 +32,8 @@ exports.Name = (props) => props.annotation.attributes.type === 'person' ?
 exports.P = (props) => React.createElement("div", { id: props.id, style: Object.assign({}, rend_1.default(props), { margin: '1em 0' }) },
     props.children,
     React.createElement("hr", { style: { margin: '1em' } }));
-exports.PersName = (props) => React.createElement("span", { id: props.id, style: Object.assign({}, rend_1.default(props), {
-        backgroundColor: 'blue',
-        color: 'white'
-    }) }, props.children);
-exports.PlaceName = (props) => React.createElement("span", { id: props.id, style: Object.assign({}, rend_1.default(props), {
-        backgroundColor: 'green',
-        color: 'white'
-    }) }, props.children);
+exports.PersName = (props) => React.createElement("span", { id: props.id, style: Object.assign({}, rend_1.default(props), default_styles_1.basicAnnotation, {}) }, props.children);
+exports.PlaceName = (props) => React.createElement("span", { id: props.id, style: Object.assign({}, rend_1.default(props), default_styles_1.basicAnnotation, {}) }, props.children);
 exports.Rs = (props) => props.annotation.attributes.type === 'person' ?
     React.createElement(exports.PersName, Object.assign({}, props)) :
     props.annotation.attributes.type === 'place' ?
