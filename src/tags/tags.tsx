@@ -42,10 +42,11 @@ export const DateTag: Tag = (props) =>
 	<span
 		id={props.id}
 		style={{
-			backgroundColor: 'orange',
-			color: 'white'
+			...rendStyle(props),
+			...basicAnnotation,   
 		}}
 	>
+        <Icon src="http://design.huygens.knaw.nl/static/icons/date.svg" />
 		{props.children}
 	</span>
 
@@ -89,7 +90,15 @@ export const P: Tag = (props) =>
 		}}
 	>
 		{props.children}
-		<hr style={{ margin: '1em' }} />
+		<hr style={{ 
+            margin: '1em',
+            height: '1px',
+            backgroundColor: '#ddd',
+            color: '#ddd',
+            width: '33px',
+            border: 'none',
+                   
+        }} />
 	</div>
 
 interface IIcon { src: string }
@@ -97,8 +106,9 @@ const Icon: React.SFC<IIcon> = (props) =>
 	<img
 		src={props.src}
 		style={{
-			height: "15px",
-			width: "15px"
+			width: "12px",
+			height:'auto',
+            marginRight: '.2em',
 		}}
 	/>
 
