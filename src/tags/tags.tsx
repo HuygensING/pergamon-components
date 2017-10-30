@@ -99,7 +99,9 @@ export const PersName: Tag = (props) =>
 			...rendStyle(props),
             ...basicAnnotation,   
 			...{
-				
+                paddingLeft: '1em',
+                background: 'url("http://design.huygens.knaw.nl/static/icons/person.svg") no-repeat left bottom',
+               backgroundSize: '15px',
 			}
 		}}
 	>
@@ -113,7 +115,7 @@ export const PlaceName: Tag = (props) =>
 			...rendStyle(props),
             ...basicAnnotation,
 			...{
-				
+
 			}
 		}}
 	>
