@@ -10,14 +10,17 @@ class Suggestion extends React.Component {
     }
     render() {
         return (React.createElement("li", { onClick: this.props.onClick, onMouseEnter: () => this.setState({ hover: true }), onMouseLeave: () => this.setState({ hover: false }), style: {
-                background: this.state.hover ? '#245b6d' : `linear-gradient(to right, lightblue 0%, lightblue ${100 * this.props.suggestion.weight}%, white ${20 + (100 * this.props.suggestion.weight)}%, white 100%)`,
-                borderRadius: '3px',
-                color: this.state.hover ? 'white' : 'inherit',
+                color: this.state.hover ? '#ccc' : 'inherit',
                 cursor: 'pointer',
-                marginBottom: '0.3em',
-                marginRight: '0.2em',
-                padding: '0.1em 0.3em',
-            } }, this.props.children));
+            } },
+            this.props.children,
+            React.createElement("span", { style: {
+                    color: '#bbb',
+                    fontSize: '14px',
+                } },
+                "(",
+                100 * this.props.suggestion.weight,
+                "%)")));
     }
 }
 exports.default = Suggestion;

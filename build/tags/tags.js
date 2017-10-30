@@ -17,10 +17,9 @@ exports.Corr = (props) => React.createElement("span", { style: {
         border: '1px solid #AAA',
         padding: '0 .6em',
     } }, props.children);
-exports.DateTag = (props) => React.createElement("span", { id: props.id, style: {
-        backgroundColor: 'orange',
-        color: 'white'
-    } }, props.children);
+exports.DateTag = (props) => React.createElement("span", { id: props.id, style: Object.assign({}, rend_1.default(props), default_styles_1.basicAnnotation) },
+    React.createElement(Icon, { src: "http://design.huygens.knaw.nl/static/icons/date.svg" }),
+    props.children);
 exports.Hi = (props) => React.createElement("span", { id: props.id, style: rend_1.default(props) }, props.children);
 exports.Line = (props) => React.createElement("div", { id: props.id, style: { lineHeight: '2em' } }, props.children);
 exports.LineGroup = (props) => React.createElement("div", { id: props.id, style: { margin: '2em 0' } }, props.children);
@@ -31,10 +30,18 @@ exports.Name = (props) => props.annotation.attributes.type === 'person' ?
         null;
 exports.P = (props) => React.createElement("div", { id: props.id, style: Object.assign({}, rend_1.default(props), { margin: '1em 0' }) },
     props.children,
-    React.createElement("hr", { style: { margin: '1em' } }));
+    React.createElement("hr", { style: {
+            margin: '1em',
+            height: '1px',
+            backgroundColor: '#ddd',
+            color: '#ddd',
+            width: '33px',
+            border: 'none',
+        } }));
 const Icon = (props) => React.createElement("img", { src: props.src, style: {
-        height: "15px",
-        width: "15px"
+        width: "12px",
+        height: 'auto',
+        marginRight: '.2em',
     } });
 exports.PersName = (props) => React.createElement("span", { id: props.id, style: Object.assign({}, rend_1.default(props), default_styles_1.basicAnnotation) },
     React.createElement(Icon, { src: "http://design.huygens.knaw.nl/static/icons/person.svg" }),

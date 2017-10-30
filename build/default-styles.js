@@ -16,5 +16,6 @@ exports.grayLightBackground = {
     backgroundColor: '#f9f9f9',
 };
 exports.basicAnnotation = {
-    borderBottom: '1px solid #ccc',
+    borderBottom: '1px solid #ddd',
+    cursor: 'pointer',
 };
