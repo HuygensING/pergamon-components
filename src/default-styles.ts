@@ -8,7 +8,7 @@ export const fontStyle: React.CSSProperties = {
 }
 
 export const fontReadStyle: React.CSSProperties = {
-    fontFamily: "Merriweather', serif",
+    fontFamily: "'Merriweather', serif",
     fontSize: '18px',
 	fontWeight: 300,
     lineHeight: '150%',
