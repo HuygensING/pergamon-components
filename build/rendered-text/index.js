@@ -4,6 +4,7 @@ const React = require("react");
 const node_1 = require("./node");
 const index_1 = require("./create-tree/index");
 const constants_1 = require("../constants");
+const default_styles_1 = require("../default-styles");
 const activeTagStyle = `
 	background-color: rgba(${constants_1.orangeRGB}, 0.03);
 	border: 1px solid ${constants_1.orange};
@@ -26,7 +27,7 @@ class RenderedText extends React.Component {
         this.init(nextProps);
     }
     render() {
-        return (React.createElement("div", { ref: (el) => { this.el = el; } }, this.state.textTree));
+        return (React.createElement("div", { ref: (el) => { this.el = el; }, style: default_styles_1.fontReadStyle }, this.state.textTree));
     }
     activeTags(activeAnnotation) {
         const tagId = index_1.generateTagId(activeAnnotation, false);

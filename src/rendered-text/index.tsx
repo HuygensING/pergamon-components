@@ -4,6 +4,7 @@ import createTree, { generateTagId } from "./create-tree/index";
 import {IAnnotation} from "../interfaces";
 import { orangeRGB, orange } from '../constants';
 import { IComponentsByTags } from '../tags/system-components-by-tags';
+import { fontReadStyle } from '../default-styles';
 
 export interface IProps extends ITextAnnotationCommon {
 	root: IAnnotation;
@@ -50,6 +51,7 @@ class RenderedText extends React.Component<IProps, IState> {
 		return (
 			<div
 				ref={(el) => { this.el = el; }}
+				style={fontReadStyle}
 			>
 				{this.state.textTree}
 			</div>

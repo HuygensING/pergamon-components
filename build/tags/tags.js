@@ -32,7 +32,11 @@ exports.Name = (props) => props.annotation.attributes.type === 'person' ?
 exports.P = (props) => React.createElement("div", { id: props.id, style: Object.assign({}, rend_1.default(props), { margin: '1em 0' }) },
     props.children,
     React.createElement("hr", { style: { margin: '1em' } }));
-exports.PersName = (props) => React.createElement("span", { id: props.id, style: Object.assign({}, rend_1.default(props), default_styles_1.basicAnnotation, {}) }, props.children);
+exports.PersName = (props) => React.createElement("span", { id: props.id, style: Object.assign({}, rend_1.default(props), default_styles_1.basicAnnotation, {
+        paddingLeft: '1em',
+        background: 'url("http://design.huygens.knaw.nl/static/icons/person.svg") no-repeat left bottom',
+        backgroundSize: '15px',
+    }) }, props.children);
 exports.PlaceName = (props) => React.createElement("span", { id: props.id, style: Object.assign({}, rend_1.default(props), default_styles_1.basicAnnotation, {}) }, props.children);
 exports.Rs = (props) => props.annotation.attributes.type === 'person' ?
     React.createElement(exports.PersName, Object.assign({}, props)) :
