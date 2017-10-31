@@ -31,12 +31,13 @@ exports.Name = (props) => props.annotation.attributes.type === 'person' ?
 exports.P = (props) => React.createElement("div", { id: props.id, style: Object.assign({}, rend_1.default(props), { margin: '1em 0' }) },
     props.children,
     React.createElement("hr", { style: {
-            margin: '1em',
             height: '1px',
             backgroundColor: '#ddd',
-            color: '#ddd',
-            width: '33px',
+            color: '#eee',
+            width: '20px',
             border: 'none',
+            marginLeft: '-10px',
+            marginTop: '1em',
         } }));
 const Icon = (props) => React.createElement("img", { src: props.src, style: {
         width: "12px",

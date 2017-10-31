@@ -3,6 +3,7 @@ import AnnotationForm, {IAnnotationFormProps} from "./annotation-form";
 import {IAnnotation, IDocument} from "../interfaces";
 import RenderedText from "../rendered-text/index";
 import { IComponentsByTags } from '../tags/system-components-by-tags';
+import { fontStyle } from '../default-styles';
 
 export interface IAnnotationCommon extends IAnnotationFormProps {
 	activateAnnotation: (string) => void;
@@ -20,13 +21,17 @@ const Annotation: React.SFC<IAnnotationProps> = (props) =>
 				props.activateAnnotation(props.annotation)
 			}
 			style={{
-				display: 'grid',
-				gridTemplateColumns: '1fr 1fr 3fr',
+				...fontStyle,
+				color: '#085CAF',
+				cursor: 'pointer',
+				fontWeight: 'normal',
 			}}
 		>
-			{props.annotation.type}
-			<small>({props.annotation.start} - {props.annotation.end})</small>
-			<small>{props.annotation.id}</small>
+			{props.rootAnnotation.text.slice(props.annotation.start, props.annotation.end)}
+			{
+				props.annotation.type === 'persName' ?
+					<small style={{ color: '#444', marginLeft: '1em' }}>(xxxx - xxxx)</small> : null
+			}
 		</h4>
 		{
 			(

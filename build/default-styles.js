@@ -11,6 +11,9 @@ exports.fontReadStyle = {
     fontSize: '18px',
     fontWeight: 300,
     lineHeight: '150%',
+    maxWidth: '550px',
+    marginLeft: 'auto',
+    marginRight: 'auto',
 };
 exports.grayLightBackground = {
     backgroundColor: '#f9f9f9',
