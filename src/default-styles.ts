@@ -13,7 +13,9 @@ export const fontReadStyle: React.CSSProperties = {
 	fontWeight: 300,
     lineHeight: '150%',
     
-
+    maxWidth: '550px',
+    marginLeft: 'auto',
+    marginRight: 'auto', 
 }
 
 export const grayLightBackground: React.CSSProperties = {

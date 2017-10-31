@@ -91,12 +91,13 @@ export const P: Tag = (props) =>
 	>
 		{props.children}
 		<hr style={{ 
-            margin: '1em',
             height: '1px',
             backgroundColor: '#ddd',
-            color: '#ddd',
-            width: '33px',
+            color: '#eee',
+            width: '20px',
             border: 'none',
+            marginLeft: '-10px',
+            marginTop: '1em',
                    
         }} />
 	</div>
