@@ -15948,30 +15948,25 @@ exports.default = RenderedText;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const React = __webpack_require__(0);
-exports.Span = (props) => React.createElement("span", { id: props.id }, props.children);
-exports.Div = (props) => React.createElement("div", { id: props.id }, props.children);
-exports.None = () => null;
-
-
-/***/ }),
-/* 298 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const system_components_by_tags_1 = __webpack_require__(299);
+const system_components_by_tags_1 = __webpack_require__(298);
 const tags_1 = __webpack_require__(239);
 const note_1 = __webpack_require__(884);
-const default_tags_1 = __webpack_require__(297);
+const system_tags_1 = __webpack_require__(299);
 const componentsByTags = Object.assign({}, system_components_by_tags_1.default, {
     ab: {
-        component: default_tags_1.Div,
+        component: system_tags_1.Div,
         display: system_components_by_tags_1.Display.Block,
     },
     body: {
-        component: default_tags_1.Div,
+        component: system_tags_1.Div,
+        display: system_components_by_tags_1.Display.Block,
+    },
+    cell: {
+        component: system_tags_1.NotImplemented,
+        display: system_components_by_tags_1.Display.Block,
+    },
+    closer: {
+        component: system_tags_1.NotImplemented,
         display: system_components_by_tags_1.Display.Block,
     },
     corr: {
@@ -15979,27 +15974,59 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Inline,
     },
     div: {
-        component: default_tags_1.Div,
+        component: system_tags_1.Div,
         display: system_components_by_tags_1.Display.Block,
     },
     date: {
         component: tags_1.DateTag,
         display: system_components_by_tags_1.Display.Inline,
     },
+    figure: {
+        component: system_tags_1.NotImplemented,
+        display: system_components_by_tags_1.Display.Block,
+    },
+    formula: {
+        component: system_tags_1.NotImplemented,
+        display: system_components_by_tags_1.Display.Block,
+    },
+    geogName: {
+        component: system_tags_1.NotImplemented,
+        display: system_components_by_tags_1.Display.Block,
+    },
+    graphic: {
+        component: system_tags_1.NotImplemented,
+        display: system_components_by_tags_1.Display.Block,
+    },
     hi: {
         component: tags_1.Hi,
         display: system_components_by_tags_1.Display.Inline,
     },
+    item: {
+        component: system_tags_1.NotImplemented,
+        display: system_components_by_tags_1.Display.Block,
+    },
     l: {
         component: tags_1.Line,
+        display: system_components_by_tags_1.Display.Block,
+    },
+    label: {
+        component: system_tags_1.NotImplemented,
+        display: system_components_by_tags_1.Display.Block,
+    },
+    lb: {
+        component: system_tags_1.NotImplemented,
         display: system_components_by_tags_1.Display.Block,
     },
     lg: {
         component: tags_1.LineGroup,
         display: system_components_by_tags_1.Display.Block,
     },
+    list: {
+        component: system_tags_1.NotImplemented,
+        display: system_components_by_tags_1.Display.Block,
+    },
     meta: {
-        component: default_tags_1.None,
+        component: system_tags_1.None,
         display: system_components_by_tags_1.Display.None,
     },
     name: {
@@ -16010,8 +16037,20 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         component: note_1.default,
         display: system_components_by_tags_1.Display.Inline,
     },
+    opener: {
+        component: system_tags_1.NotImplemented,
+        display: system_components_by_tags_1.Display.Block,
+    },
+    orgName: {
+        component: system_tags_1.NotImplemented,
+        display: system_components_by_tags_1.Display.Block,
+    },
     p: {
         component: tags_1.P,
+        display: system_components_by_tags_1.Display.Block,
+    },
+    pb: {
+        component: system_tags_1.NotImplemented,
         display: system_components_by_tags_1.Display.Block,
     },
     persName: {
@@ -16022,6 +16061,18 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         component: tags_1.PlaceName,
         display: system_components_by_tags_1.Display.Inline,
     },
+    q: {
+        component: system_tags_1.NotImplemented,
+        display: system_components_by_tags_1.Display.Block,
+    },
+    quote: {
+        component: system_tags_1.NotImplemented,
+        display: system_components_by_tags_1.Display.Block,
+    },
+    row: {
+        component: system_tags_1.NotImplemented,
+        display: system_components_by_tags_1.Display.Block,
+    },
     rs: {
         component: tags_1.Rs,
         display: system_components_by_tags_1.Display.Inline,
@@ -16030,8 +16081,16 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         component: tags_1.Seg,
         display: system_components_by_tags_1.Display.Inline,
     },
+    sup: {
+        component: system_tags_1.NotImplemented,
+        display: system_components_by_tags_1.Display.Block,
+    },
+    table: {
+        component: system_tags_1.NotImplemented,
+        display: system_components_by_tags_1.Display.Block,
+    },
     text: {
-        component: default_tags_1.Div,
+        component: system_tags_1.Div,
         display: system_components_by_tags_1.Display.Block,
     },
     title: {
@@ -16039,11 +16098,11 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Block,
     },
     TEI: {
-        component: default_tags_1.Div,
+        component: system_tags_1.Div,
         display: system_components_by_tags_1.Display.Block,
     },
     teiHeader: {
-        component: default_tags_1.None,
+        component: system_tags_1.None,
         display: system_components_by_tags_1.Display.None,
     },
 });
@@ -16051,13 +16110,13 @@ exports.default = componentsByTags;
 
 
 /***/ }),
-/* 299 */
+/* 298 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const default_tags_1 = __webpack_require__(297);
+const system_tags_1 = __webpack_require__(299);
 var Display;
 (function (Display) {
     Display[Display["None"] = 0] = "None";
@@ -16067,15 +16126,45 @@ var Display;
 ;
 const systemComponentsByTags = {
     __text: {
-        component: default_tags_1.Span,
+        component: system_tags_1.Span,
         display: Display.Inline,
     },
     __root: {
-        component: default_tags_1.Div,
+        component: system_tags_1.Div,
         display: Display.Block,
     },
 };
 exports.default = systemComponentsByTags;
+
+
+/***/ }),
+/* 299 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __webpack_require__(0);
+exports.Span = (props) => React.createElement("span", { id: props.id }, props.children);
+exports.Div = (props) => React.createElement("div", { id: props.id }, props.children);
+exports.NotImplemented = (props) => React.createElement("div", { style: {
+        backgroundColor: 'red',
+        border: '1px solid darkred',
+        borderRadius: '3px',
+        color: 'white',
+        padding: '1em',
+        boxShadow: '4px 4px 6px darkred'
+    } },
+    React.createElement("span", { style: {
+            fontWeight: 'bold',
+            fontSize: '1.5em',
+        } },
+        "[",
+        props.annotation.type,
+        " | NOT IMPLEMENTED]"),
+    "\u00A0",
+    props.children);
+exports.None = () => null;
 
 
 /***/ }),
@@ -16102,13 +16191,13 @@ var _addonKnobs = __webpack_require__(807);
 
 var _src = __webpack_require__(876);
 
-var _tags = __webpack_require__(298);
+var _tags = __webpack_require__(297);
 
 var _tags2 = _interopRequireDefault(_tags);
 
 var _tags3 = __webpack_require__(239);
 
-var _defaultTags = __webpack_require__(297);
+var _systemTags = __webpack_require__(299);
 
 var _data = __webpack_require__(887);
 
@@ -16213,12 +16302,12 @@ createStory("Tags/Passive/Div, { type: div }").add('default', function () {
 		'div',
 		null,
 		_react2.default.createElement(
-			_defaultTags.Div,
+			_systemTags.Div,
 			null,
 			'Fugiat non commodo non tempor. Esse nisi et sit aute. Adipisicing duis labore commodo aliqua cupidatat officia eiusmod proident aliqua do. Velit eu aute cupidatat adipisicing voluptate in ullamco.'
 		),
 		_react2.default.createElement(
-			_defaultTags.Div,
+			_systemTags.Div,
 			null,
 			'Minim minim eiusmod ad dolore tempor. Eiusmod id occaecat sint qui aliqua sint minim. Voluptate ullamco fugiat pariatur voluptate occaecat laborum ipsum culpa dolore quis dolor sit sunt.'
 		)
@@ -40364,7 +40453,7 @@ reduxStore.subscribe(renderUI);
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const system_components_by_tags_1 = __webpack_require__(299);
+const system_components_by_tags_1 = __webpack_require__(298);
 exports.byStartEnd = (a, b) => {
     if (a.start > b.start)
         return 1;
@@ -44745,12 +44834,18 @@ exports.default = Annotation;
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(0);
 const annotation_1 = __webpack_require__(874);
-const sort_1 = __webpack_require__(547);
 const showAnnotationTypes = ['persName', 'placeName', 'geogName', 'name'];
-const AnnotationList = (props) => React.createElement("ul", null, props.rootAnnotation.children
-    .filter(a => showAnnotationTypes.indexOf(a.type) > -1)
-    .sort(sort_1.byStartEnd)
-    .map((annotation, index) => React.createElement(annotation_1.default, { activateAnnotation: props.activateAnnotation, activeAnnotation: props.activeAnnotation, annotation: annotation, key: index, rootAnnotation: props.rootAnnotation, tags: props.tags })));
+const AnnotationList = (props) => {
+    let annotations = props.rootAnnotation.children;
+    if (props.filter != null) {
+        annotations = annotations.filter(props.filter);
+    }
+    if (props.sort != null) {
+        annotations = annotations.sort(props.sort);
+    }
+    return (React.createElement("ul", null, annotations
+        .map((annotation, index) => React.createElement(annotation_1.default, { activateAnnotation: props.activateAnnotation, activeAnnotation: props.activeAnnotation, annotation: annotation, key: index, rootAnnotation: props.rootAnnotation, tags: props.tags }))));
+};
 exports.default = AnnotationList;
 
 
@@ -44769,10 +44864,12 @@ const button_1 = __webpack_require__(886);
 exports.Button = button_1.default;
 const constants_1 = __webpack_require__(236);
 exports.defaultAnnotation = constants_1.defaultAnnotation;
-const tags_1 = __webpack_require__(298);
+const tags_1 = __webpack_require__(297);
 exports.PergamonUITags = tags_1.default;
 const semantic_suggestions_1 = __webpack_require__(882);
 exports.SemanticSuggestions = semantic_suggestions_1.default;
+const sort_1 = __webpack_require__(547);
+exports.byStartEnd = sort_1.byStartEnd;
 
 
 /***/ }),
@@ -44783,7 +44880,7 @@ exports.SemanticSuggestions = semantic_suggestions_1.default;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const index_1 = __webpack_require__(238);
-const system_components_by_tags_1 = __webpack_require__(299);
+const system_components_by_tags_1 = __webpack_require__(298);
 exports.addRow = (tags) => {
     const rows = [[]];
     return annotation => {
@@ -45106,7 +45203,7 @@ const React = __webpack_require__(0);
 const hire_tooltip_1 = __webpack_require__(964);
 const rendered_text_1 = __webpack_require__(296);
 const constants_1 = __webpack_require__(236);
-const index_1 = __webpack_require__(298);
+const index_1 = __webpack_require__(297);
 const noteNumberStyle = {
     backgroundColor: '#DDD',
     borderRadius: '1em',
@@ -49606,4 +49703,4 @@ module.exports = __webpack_require__(790);
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=preview.f9274dff8aeaa4dcfa95.bundle.js.map
+//# sourceMappingURL=preview.714cd50584d91750975b.bundle.js.map

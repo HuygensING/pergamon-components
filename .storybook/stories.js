@@ -26,7 +26,7 @@ import {
 } from '../src/tags/tags'
 import { 
 	Div,
-} from '../src/tags/default-tags'
+} from '../src/tags/system-tags'
 import { activeAnnotation, rootAnnotation } from './data'
 
 export const createStory = (name) => storiesOf(name, module)
