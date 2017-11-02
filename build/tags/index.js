@@ -13,6 +13,10 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         component: default_tags_1.Div,
         display: system_components_by_tags_1.Display.Block,
     },
+    cell: {
+        component: default_tags_1.NotImplemented,
+        display: system_components_by_tags_1.Display.Block,
+    },
     corr: {
         component: tags_1.Corr,
         display: system_components_by_tags_1.Display.Inline,
@@ -25,16 +29,48 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         component: tags_1.DateTag,
         display: system_components_by_tags_1.Display.Inline,
     },
+    figure: {
+        component: default_tags_1.NotImplemented,
+        display: system_components_by_tags_1.Display.Block,
+    },
+    formula: {
+        component: default_tags_1.NotImplemented,
+        display: system_components_by_tags_1.Display.Block,
+    },
+    geogName: {
+        component: default_tags_1.NotImplemented,
+        display: system_components_by_tags_1.Display.Block,
+    },
+    graphic: {
+        component: default_tags_1.NotImplemented,
+        display: system_components_by_tags_1.Display.Block,
+    },
     hi: {
         component: tags_1.Hi,
         display: system_components_by_tags_1.Display.Inline,
+    },
+    item: {
+        component: default_tags_1.NotImplemented,
+        display: system_components_by_tags_1.Display.Block,
     },
     l: {
         component: tags_1.Line,
         display: system_components_by_tags_1.Display.Block,
     },
+    label: {
+        component: default_tags_1.NotImplemented,
+        display: system_components_by_tags_1.Display.Block,
+    },
+    lb: {
+        component: default_tags_1.NotImplemented,
+        display: system_components_by_tags_1.Display.Block,
+    },
     lg: {
         component: tags_1.LineGroup,
+        display: system_components_by_tags_1.Display.Block,
+    },
+    list: {
+        component: default_tags_1.NotImplemented,
         display: system_components_by_tags_1.Display.Block,
     },
     meta: {
@@ -49,8 +85,16 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         component: note_1.default,
         display: system_components_by_tags_1.Display.Inline,
     },
+    orgName: {
+        component: default_tags_1.NotImplemented,
+        display: system_components_by_tags_1.Display.Block,
+    },
     p: {
         component: tags_1.P,
+        display: system_components_by_tags_1.Display.Block,
+    },
+    pb: {
+        component: default_tags_1.NotImplemented,
         display: system_components_by_tags_1.Display.Block,
     },
     persName: {
@@ -61,6 +105,18 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         component: tags_1.PlaceName,
         display: system_components_by_tags_1.Display.Inline,
     },
+    q: {
+        component: default_tags_1.NotImplemented,
+        display: system_components_by_tags_1.Display.Block,
+    },
+    quote: {
+        component: default_tags_1.NotImplemented,
+        display: system_components_by_tags_1.Display.Block,
+    },
+    row: {
+        component: default_tags_1.NotImplemented,
+        display: system_components_by_tags_1.Display.Block,
+    },
     rs: {
         component: tags_1.Rs,
         display: system_components_by_tags_1.Display.Inline,
@@ -68,6 +124,14 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
     seg: {
         component: tags_1.Seg,
         display: system_components_by_tags_1.Display.Inline,
+    },
+    sup: {
+        component: default_tags_1.NotImplemented,
+        display: system_components_by_tags_1.Display.Block,
+    },
+    table: {
+        component: default_tags_1.NotImplemented,
+        display: system_components_by_tags_1.Display.Block,
     },
     text: {
         component: default_tags_1.Div,

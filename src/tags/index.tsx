@@ -15,7 +15,7 @@ import {
 	Title,
 } from './tags'
 import Note from "./note";
-import { Span, Div, None } from './default-tags';
+import { Span, Div, None, NotImplemented } from './default-tags';
 
 const componentsByTags: IComponentsByTags = {
 	...systemComponentsByTags,
@@ -26,6 +26,10 @@ const componentsByTags: IComponentsByTags = {
 		},
 		body: {
 			component: Div,
+			display: Display.Block,
+		},
+		cell: {
+			component: NotImplemented,
 			display: Display.Block,
 		},
 		corr: {
@@ -40,16 +44,48 @@ const componentsByTags: IComponentsByTags = {
 			component: DateTag,
 			display: Display.Inline,
 		},
+		figure: {
+			component: NotImplemented,
+			display: Display.Block,
+		},
+		formula: {
+			component: NotImplemented,
+			display: Display.Block,
+		},
+		geogName: {
+			component: NotImplemented,
+			display: Display.Block,
+		},
+		graphic: {
+			component: NotImplemented,
+			display: Display.Block,
+		},
 		hi: {
 			component: Hi,
 			display: Display.Inline,
+		},
+		item: {
+			component: NotImplemented,
+			display: Display.Block,
 		},
 		l: {
 			component: Line,
 			display: Display.Block,
 		},
+		label: {
+			component: NotImplemented,
+			display: Display.Block,
+		},
+		lb: {
+			component: NotImplemented,
+			display: Display.Block,
+		},
 		lg: {
 			component: LineGroup,
+			display: Display.Block,
+		},
+		list: {
+			component: NotImplemented,
 			display: Display.Block,
 		},
 		meta: {
@@ -64,8 +100,16 @@ const componentsByTags: IComponentsByTags = {
 			component: Note,
 			display: Display.Inline,
 		},
+		orgName: {
+			component: NotImplemented,
+			display: Display.Block,
+		},
 		p: {
 			component: P,
+			display: Display.Block,
+		},
+		pb: {
+			component: NotImplemented,
 			display: Display.Block,
 		},
 		persName: {
@@ -76,6 +120,18 @@ const componentsByTags: IComponentsByTags = {
 			component: PlaceName,
 			display: Display.Inline,
 		},
+		q: {
+			component: NotImplemented,
+			display: Display.Block,
+		},
+		quote: {
+			component: NotImplemented,
+			display: Display.Block,
+		},
+		row: {
+			component: NotImplemented,
+			display: Display.Block,
+		},
 		rs: {
 			component: Rs,
 			display: Display.Inline,
@@ -83,6 +139,14 @@ const componentsByTags: IComponentsByTags = {
 		seg: {
 			component: Seg,
 			display: Display.Inline,
+		},
+		sup: {
+			component: NotImplemented,
+			display: Display.Block,
+		},
+		table: {
+			component: NotImplemented,
+			display: Display.Block,
 		},
 		text: {
 			component: Div,
