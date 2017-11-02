@@ -12,3 +12,5 @@ const tags_1 = require("./tags");
 exports.PergamonUITags = tags_1.default;
 const semantic_suggestions_1 = require("./semantic-suggestions");
 exports.SemanticSuggestions = semantic_suggestions_1.default;
+const sort_1 = require("./rendered-text/create-tree/sort");
+exports.byStartEnd = sort_1.byStartEnd;

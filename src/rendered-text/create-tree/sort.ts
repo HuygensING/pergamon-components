@@ -1,7 +1,7 @@
 import { IAnnotation } from '../../interfaces';
 import { Display } from '../../tags/system-components-by-tags';
 
-export const byStartEnd = (a, b) => {
+export const byStartEnd = (a: IAnnotation, b: IAnnotation) => {
 	if (a.start > b.start) return 1;
 	if (b.start > a.start) return -1;
 	if (a.start === b.start) {

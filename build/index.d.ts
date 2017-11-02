@@ -6,4 +6,5 @@ import { IAnnotation } from './interfaces';
 import PergamonUITags from './tags';
 import SemanticSuggestions from './semantic-suggestions';
 import { ISuggestion } from './semantic-suggestions/suggestion';
-export { AnnotationList, Button, defaultAnnotation, IAnnotation, ISuggestion, PergamonUITags, RenderedText, SemanticSuggestions };
+import { byStartEnd } from './rendered-text/create-tree/sort';
+export { AnnotationList, Button, byStartEnd, defaultAnnotation, IAnnotation, ISuggestion, PergamonUITags, RenderedText, SemanticSuggestions };
