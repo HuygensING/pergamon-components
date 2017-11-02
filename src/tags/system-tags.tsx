@@ -11,11 +11,19 @@ export const NotImplemented: Tag = (props) =>
 	<div
 		style={{
 			backgroundColor: 'red',
+			border: '1px solid darkred',
+			borderRadius: '3px',
 			color: 'white',
-			padding: '0.5em',
+			padding: '1em',
+			boxShadow: '4px 4px 6px darkred'
 		}}
 	>
-		[{props.annotation.type} | NOT IMPLEMENTED]
+		<span style={{
+			fontWeight: 'bold',
+			fontSize: '1.5em',
+		}}>
+			[{props.annotation.type} | NOT IMPLEMENTED]
+		</span>
 		&nbsp;{props.children}
 	</div>
 

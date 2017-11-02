@@ -1,4 +1,4 @@
-import { Span, Div } from "./default-tags";
+import { Span, Div } from "./system-tags";
 import { Tag } from "../interfaces";
 
 export enum Display { None, Inline, Block };

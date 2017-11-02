@@ -15,7 +15,7 @@ import {
 	Title,
 } from './tags'
 import Note from "./note";
-import { Span, Div, None, NotImplemented } from './default-tags';
+import { Span, Div, None, NotImplemented } from './system-tags';
 
 const componentsByTags: IComponentsByTags = {
 	...systemComponentsByTags,
@@ -29,6 +29,10 @@ const componentsByTags: IComponentsByTags = {
 			display: Display.Block,
 		},
 		cell: {
+			component: NotImplemented,
+			display: Display.Block,
+		},
+		closer: {
 			component: NotImplemented,
 			display: Display.Block,
 		},
@@ -99,6 +103,10 @@ const componentsByTags: IComponentsByTags = {
 		note: {
 			component: Note,
 			display: Display.Inline,
+		},
+		opener: {
+			component: NotImplemented,
+			display: Display.Block,
 		},
 		orgName: {
 			component: NotImplemented,

@@ -3,18 +3,22 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const system_components_by_tags_1 = require("./system-components-by-tags");
 const tags_1 = require("./tags");
 const note_1 = require("./note");
-const default_tags_1 = require("./default-tags");
+const system_tags_1 = require("./system-tags");
 const componentsByTags = Object.assign({}, system_components_by_tags_1.default, {
     ab: {
-        component: default_tags_1.Div,
+        component: system_tags_1.Div,
         display: system_components_by_tags_1.Display.Block,
     },
     body: {
-        component: default_tags_1.Div,
+        component: system_tags_1.Div,
         display: system_components_by_tags_1.Display.Block,
     },
     cell: {
-        component: default_tags_1.NotImplemented,
+        component: system_tags_1.NotImplemented,
+        display: system_components_by_tags_1.Display.Block,
+    },
+    closer: {
+        component: system_tags_1.NotImplemented,
         display: system_components_by_tags_1.Display.Block,
     },
     corr: {
@@ -22,7 +26,7 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Inline,
     },
     div: {
-        component: default_tags_1.Div,
+        component: system_tags_1.Div,
         display: system_components_by_tags_1.Display.Block,
     },
     date: {
@@ -30,19 +34,19 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Inline,
     },
     figure: {
-        component: default_tags_1.NotImplemented,
+        component: system_tags_1.NotImplemented,
         display: system_components_by_tags_1.Display.Block,
     },
     formula: {
-        component: default_tags_1.NotImplemented,
+        component: system_tags_1.NotImplemented,
         display: system_components_by_tags_1.Display.Block,
     },
     geogName: {
-        component: default_tags_1.NotImplemented,
+        component: system_tags_1.NotImplemented,
         display: system_components_by_tags_1.Display.Block,
     },
     graphic: {
-        component: default_tags_1.NotImplemented,
+        component: system_tags_1.NotImplemented,
         display: system_components_by_tags_1.Display.Block,
     },
     hi: {
@@ -50,7 +54,7 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Inline,
     },
     item: {
-        component: default_tags_1.NotImplemented,
+        component: system_tags_1.NotImplemented,
         display: system_components_by_tags_1.Display.Block,
     },
     l: {
@@ -58,11 +62,11 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Block,
     },
     label: {
-        component: default_tags_1.NotImplemented,
+        component: system_tags_1.NotImplemented,
         display: system_components_by_tags_1.Display.Block,
     },
     lb: {
-        component: default_tags_1.NotImplemented,
+        component: system_tags_1.NotImplemented,
         display: system_components_by_tags_1.Display.Block,
     },
     lg: {
@@ -70,11 +74,11 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Block,
     },
     list: {
-        component: default_tags_1.NotImplemented,
+        component: system_tags_1.NotImplemented,
         display: system_components_by_tags_1.Display.Block,
     },
     meta: {
-        component: default_tags_1.None,
+        component: system_tags_1.None,
         display: system_components_by_tags_1.Display.None,
     },
     name: {
@@ -85,8 +89,12 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         component: note_1.default,
         display: system_components_by_tags_1.Display.Inline,
     },
+    opener: {
+        component: system_tags_1.NotImplemented,
+        display: system_components_by_tags_1.Display.Block,
+    },
     orgName: {
-        component: default_tags_1.NotImplemented,
+        component: system_tags_1.NotImplemented,
         display: system_components_by_tags_1.Display.Block,
     },
     p: {
@@ -94,7 +102,7 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Block,
     },
     pb: {
-        component: default_tags_1.NotImplemented,
+        component: system_tags_1.NotImplemented,
         display: system_components_by_tags_1.Display.Block,
     },
     persName: {
@@ -106,15 +114,15 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Inline,
     },
     q: {
-        component: default_tags_1.NotImplemented,
+        component: system_tags_1.NotImplemented,
         display: system_components_by_tags_1.Display.Block,
     },
     quote: {
-        component: default_tags_1.NotImplemented,
+        component: system_tags_1.NotImplemented,
         display: system_components_by_tags_1.Display.Block,
     },
     row: {
-        component: default_tags_1.NotImplemented,
+        component: system_tags_1.NotImplemented,
         display: system_components_by_tags_1.Display.Block,
     },
     rs: {
@@ -126,15 +134,15 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Inline,
     },
     sup: {
-        component: default_tags_1.NotImplemented,
+        component: system_tags_1.NotImplemented,
         display: system_components_by_tags_1.Display.Block,
     },
     table: {
-        component: default_tags_1.NotImplemented,
+        component: system_tags_1.NotImplemented,
         display: system_components_by_tags_1.Display.Block,
     },
     text: {
-        component: default_tags_1.Div,
+        component: system_tags_1.Div,
         display: system_components_by_tags_1.Display.Block,
     },
     title: {
@@ -142,11 +150,11 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Block,
     },
     TEI: {
-        component: default_tags_1.Div,
+        component: system_tags_1.Div,
         display: system_components_by_tags_1.Display.Block,
     },
     teiHeader: {
-        component: default_tags_1.None,
+        component: system_tags_1.None,
         display: system_components_by_tags_1.Display.None,
     },
 });
