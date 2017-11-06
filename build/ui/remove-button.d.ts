@@ -13,6 +13,6 @@ declare class RemoveButton extends React.Component<IProps, IState> {
     state: {
         confirm: boolean;
     };
-    render(): JSX.Element;
+    render(): any;
 }
 export default RemoveButton;

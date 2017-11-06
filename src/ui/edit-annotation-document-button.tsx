@@ -1,18 +1,19 @@
 import * as React from "react";
 import Button from "./button";
-import styled, { StyledComponentClass } from "styled-components";
 import {IAnnotation, IDocument} from "../interfaces";
 
-const TopRightButton = styled(Button)`
-	color: #BBB;
-	position: absolute;
-	right: 0;
-	top: 0;
-	
-	&:hover {
-		color: #444;
-	}	
-`;
+const TopRightButton = (props) =>
+	<Button
+		{...props}
+		style={{
+			color: '#BBB',
+			position: 'absolute',
+			right: 0,
+			top: 0,
+		}}
+	>
+		{props.children}
+	</Button>
 
 export interface IProps {
 	activateAnnotationDocument: (IAnnotation, string) => void;

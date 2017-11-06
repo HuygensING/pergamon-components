@@ -1,25 +1,27 @@
 import * as React from 'react';
-import Input, { IProps as __IHireFormsInputProps } from "hire-forms-input";
-import styled, { StyledComponentClass } from "styled-components";
 import {IAnnotation} from "../../interfaces";
 
-const Ul = styled.ul`
-	margin: 1em 0;
-`;
-const Li = styled.li`
-	display: grid;
-	grid-template-columns: 1fr 4fr; 
-`;
-
-const Label = styled.label`
-	color: #666;
-	font-size: 0.8em;
-`;
-
-const Immutable = styled.div`
-	color: #666;
-	font-style: italic;
-`;
+const Ul = (props) => <ul style={{ margin: '1em 0'}}>{props.children}</ul>
+const Li = (props) =>
+	<li style={{
+		display: 'grid',
+		gridTemplateColumns: '1fr 4fr',
+	}}>
+		{props.children} </li>
+const Label = (props) =>
+	<label style={{
+		color: '#666',
+		fontSize: '0.8em',
+	}}>
+		{props.children}
+	</label>
+const Immutable = (props) =>
+	<div style={{
+		color: '#666',
+		fontStyle: 'italic',
+	}}>
+		{props.children}
+	</div>
 
 export interface IAnnotationFormProps {
 	activeAnnotation: IAnnotation;

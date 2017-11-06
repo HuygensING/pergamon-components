@@ -6,6 +6,6 @@ const TextTreeNode = (props) => {
         throw new Error(`Component not found: ${props.annotation.type}`);
     }
     const Tag = props.tags[props.annotation.type].component;
-    return (React.createElement(Tag, { activeAnnotation: props.activeAnnotation, annotation: props.annotation, id: props.annotation._tagId }, props.children));
+    return (React.createElement(Tag, { activateAnnotation: props.activateAnnotation, activeAnnotation: props.activeAnnotation, annotation: props.annotation, id: props.annotation._tagId, root: props.root, tags: props.tags }, props.children));
 };
 exports.default = TextTreeNode;

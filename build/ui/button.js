@@ -1,20 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const styled_components_1 = require("styled-components");
+const React = require("react");
 exports.buttonBackgroundColor = '#EEE';
-const Button = styled_components_1.default.div `
-	background: ${(props) => props.bare ? 'none' : exports.buttonBackgroundColor};
-	border-radius: 3px;
-	border: ${(props) => props.bare ? 'none' : '1px solid #DDD'};
-	cursor: pointer;
-	display: inline-block;
-	font-size: ${(props) => props.scale != null ? `${props.scale}em` : '1em'};	
-	height: 1.5em;
-	line-height: 1.5em;
-	overflow: hidden;
-	padding: 0 0.5em;
-	text-align: center;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-`;
+const Button = (props) => React.createElement("div", { style: Object.assign({ background: props.bare ? 'none' : exports.buttonBackgroundColor, borderRadius: '3px', border: props.bare ? 'none' : '1px solid #DDD', cursor: 'pointer', display: 'inline-block', fontSize: props.scale ? `${props.scale}em` : '1em', height: '1.5em', lineHeight: '1.5em', overflow: 'hidden', padding: '0 0.5em', textAlign: 'center', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }, props.style) }, props.children);
 exports.default = Button;

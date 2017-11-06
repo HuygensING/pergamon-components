@@ -1,22 +1,21 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
-const styled_components_1 = require("styled-components");
-const Ul = styled_components_1.default.ul `
-	margin: 1em 0;
-`;
-const Li = styled_components_1.default.li `
-	display: grid;
-	grid-template-columns: 1fr 4fr; 
-`;
-const Label = styled_components_1.default.label `
-	color: #666;
-	font-size: 0.8em;
-`;
-const Immutable = styled_components_1.default.div `
-	color: #666;
-	font-style: italic;
-`;
+const Ul = (props) => React.createElement("ul", { style: { margin: '1em 0' } }, props.children);
+const Li = (props) => React.createElement("li", { style: {
+        display: 'grid',
+        gridTemplateColumns: '1fr 4fr',
+    } },
+    props.children,
+    " ");
+const Label = (props) => React.createElement("label", { style: {
+        color: '#666',
+        fontSize: '0.8em',
+    } }, props.children);
+const Immutable = (props) => React.createElement("div", { style: {
+        color: '#666',
+        fontStyle: 'italic',
+    } }, props.children);
 const AnnotationForm = (props) => React.createElement(Ul, null,
     React.createElement(Li, null,
         React.createElement(Label, null, "ID"),

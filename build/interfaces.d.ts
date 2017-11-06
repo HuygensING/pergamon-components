@@ -1,4 +1,5 @@
 /// <reference types="react" />
+import { IComponentsByTags } from "./tags/system-components-by-tags";
 export declare type SourceType = 'system' | 'xml' | 'user';
 export interface IAnnotation {
     _first?: boolean;
@@ -29,8 +30,11 @@ export interface IDocument {
     tree: IAnnotation;
 }
 export interface ITag {
+    activateAnnotation: (a: IAnnotation) => void;
     activeAnnotation: IAnnotation;
     annotation: IAnnotation;
     id: string;
+    root: IAnnotation;
+    tags: IComponentsByTags;
 }
 export declare type Tag = React.SFC<ITag>;

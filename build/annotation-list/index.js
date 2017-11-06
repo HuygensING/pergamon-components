@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
 const annotation_1 = require("./annotation");
-const showAnnotationTypes = ['persName', 'placeName', 'geogName', 'name'];
 const AnnotationList = (props) => {
     let annotations = props.rootAnnotation.children;
     if (props.filter != null) {

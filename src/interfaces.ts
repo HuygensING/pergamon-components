@@ -1,3 +1,5 @@
+import { IComponentsByTags } from "./tags/system-components-by-tags";
+
 export type SourceType = 'system' | 'xml' | 'user';
 export interface IAnnotation {
 	// If the annotation is splitted, is it the first segment?
@@ -43,9 +45,13 @@ export interface IDocument {
 }
 
 export interface ITag {
+	activateAnnotation: (a: IAnnotation) => void
 	activeAnnotation: IAnnotation
 	annotation: IAnnotation
 	id: string
+	root: IAnnotation
+	tags: IComponentsByTags
 }
 
 export type Tag = React.SFC<ITag>
+	

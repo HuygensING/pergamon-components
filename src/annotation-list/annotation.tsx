@@ -1,6 +1,6 @@
 import * as React from 'react';
 import AnnotationForm, {IAnnotationFormProps} from "./annotation-form";
-import {IAnnotation, IDocument} from "../interfaces";
+import {IAnnotation} from "../interfaces";
 import RenderedText from "../rendered-text/index";
 import { IComponentsByTags } from '../tags/system-components-by-tags';
 import { fontStyle } from '../default-styles';

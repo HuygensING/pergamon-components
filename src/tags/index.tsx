@@ -1,8 +1,8 @@
-import * as React from 'react';
 import systemComponentsByTags, { Display, IComponentsByTags } from './system-components-by-tags';
 import {
 	Corr,
 	DateTag,
+	Formula,
 	Hi,
 	Line,
 	LineGroup,
@@ -13,9 +13,11 @@ import {
 	Rs,
 	Seg,
 	Title,
+	Graphic,
+	Figure,
 } from './tags'
-import Note from "./note";
-import { Span, Div, None, NotImplemented } from './system-tags';
+import Anchor from "./anchor";
+import { Div, None, NotImplemented } from './system-tags';
 
 const componentsByTags: IComponentsByTags = {
 	...systemComponentsByTags,
@@ -23,6 +25,10 @@ const componentsByTags: IComponentsByTags = {
 		ab: {
 			component: Div,
 			display: Display.Block,
+		},
+		anchor: {
+			component: Anchor,
+			display: Display.Inline,
 		},
 		body: {
 			component: Div,
@@ -48,19 +54,27 @@ const componentsByTags: IComponentsByTags = {
 			component: DateTag,
 			display: Display.Inline,
 		},
-		figure: {
+		figDesc: {
 			component: NotImplemented,
 			display: Display.Block,
 		},
-		formula: {
-			component: NotImplemented,
+		figure: {
+			component: Figure,
 			display: Display.Block,
+		},
+		formula: {
+			component: Formula,
+			display: Display.Inline,
 		},
 		geogName: {
 			component: NotImplemented,
 			display: Display.Block,
 		},
 		graphic: {
+			component: Graphic,
+			display: Display.Block,
+		},
+		head: {
 			component: NotImplemented,
 			display: Display.Block,
 		},
@@ -101,8 +115,8 @@ const componentsByTags: IComponentsByTags = {
 			display: Display.Inline,
 		},
 		note: {
-			component: Note,
-			display: Display.Inline,
+			component: Div,
+			display: Display.Block,
 		},
 		opener: {
 			component: NotImplemented,

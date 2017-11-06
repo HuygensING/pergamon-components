@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
 const hire_tooltip_1 = require("hire-tooltip");
 const constants_1 = require("../constants");
+const rendered_text_1 = require("../rendered-text");
 const AnchorComp = (props) => React.createElement("span", { className: constants_1.IGNORE_CLASSNAME, onClick: props.onClick, ref: props.setRef, style: {
         backgroundColor: '#DDD',
         borderRadius: '1em',
@@ -18,10 +19,10 @@ class Anchor extends React.Component {
     constructor() {
         super(...arguments);
         this.state = {
-            height: 0,
-            left: 0,
-            top: 0,
-            width: 0,
+            height: null,
+            left: null,
+            top: null,
+            width: null,
         };
     }
     render() {
@@ -33,22 +34,29 @@ class Anchor extends React.Component {
             shift = .5 - ((left - minLeft) / -tooltipWidth);
             left = minLeft;
         }
-        return (React.createElement(AnchorComp, { onClick: ev => {
-                ev.stopPropagation();
-                this.props.activateAnnotation(this.props.annotation);
-            }, setRef: (el) => {
-                if (active && el && this.state.top === 0) {
-                    const { height, left, top, width } = el.getBoundingClientRect();
-                    this.setState({ height, left, top, width });
-                }
-            } },
-            this.props.annotation.attributes.n,
+        let note;
+        if (active) {
+            note = this.props.root.children.find(a => a.type === 'note' &&
+                a.hasOwnProperty('attributes') &&
+                a.attributes.n === this.props.activeAnnotation.attributes.n);
+        }
+        return (React.createElement("span", null,
+            React.createElement(AnchorComp, { onClick: ev => {
+                    ev.stopPropagation();
+                    this.props.activateAnnotation(this.props.annotation);
+                }, setRef: (el) => {
+                    if (active && el && this.state.top == null) {
+                        const { height, left, top, width } = el.getBoundingClientRect();
+                        this.setState({ height, left, top, width });
+                    }
+                } }, this.props.annotation.attributes.n),
             active &&
                 React.createElement(hire_tooltip_1.default, { shift: shift, style: {
                         left,
                         top: this.state.top + this.state.height + 16 + window.scrollY,
                         width: `${tooltipWidth}px`,
-                    } }, "Enim consectetur ullamco dolor laborum veniam mollit nulla in. Officia est tempor excepteur non fugiat Lorem reprehenderit aliqua sint cillum et nisi nulla culpa. Fugiat laboris Lorem sunt id eiusmod incididunt esse exercitation cupidatat do consequat exercitation tempor commodo. Sunt non voluptate qui ut in ex Lorem cupidatat proident eu elit nulla eiusmod ullamco. Pariatur amet cillum incididunt occaecat et do dolor. Laborum nisi cupidatat eu est aliqua nostrud esse.")));
+                    } },
+                    React.createElement(rendered_text_1.default, { root: Object.assign({}, note, { annotations: [note], children: [note], text: this.props.root.text }), tags: this.props.tags }))));
     }
 }
 exports.default = Anchor;

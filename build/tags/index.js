@@ -2,12 +2,16 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const system_components_by_tags_1 = require("./system-components-by-tags");
 const tags_1 = require("./tags");
-const note_1 = require("./note");
+const anchor_1 = require("./anchor");
 const system_tags_1 = require("./system-tags");
 const componentsByTags = Object.assign({}, system_components_by_tags_1.default, {
     ab: {
         component: system_tags_1.Div,
         display: system_components_by_tags_1.Display.Block,
+    },
+    anchor: {
+        component: anchor_1.default,
+        display: system_components_by_tags_1.Display.Inline,
     },
     body: {
         component: system_tags_1.Div,
@@ -33,19 +37,27 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         component: tags_1.DateTag,
         display: system_components_by_tags_1.Display.Inline,
     },
-    figure: {
+    figDesc: {
         component: system_tags_1.NotImplemented,
         display: system_components_by_tags_1.Display.Block,
     },
-    formula: {
-        component: system_tags_1.NotImplemented,
+    figure: {
+        component: tags_1.Figure,
         display: system_components_by_tags_1.Display.Block,
+    },
+    formula: {
+        component: tags_1.Formula,
+        display: system_components_by_tags_1.Display.Inline,
     },
     geogName: {
         component: system_tags_1.NotImplemented,
         display: system_components_by_tags_1.Display.Block,
     },
     graphic: {
+        component: tags_1.Graphic,
+        display: system_components_by_tags_1.Display.Block,
+    },
+    head: {
         component: system_tags_1.NotImplemented,
         display: system_components_by_tags_1.Display.Block,
     },
@@ -86,8 +98,8 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Inline,
     },
     note: {
-        component: note_1.default,
-        display: system_components_by_tags_1.Display.Inline,
+        component: system_tags_1.Div,
+        display: system_components_by_tags_1.Display.Block,
     },
     opener: {
         component: system_tags_1.NotImplemented,

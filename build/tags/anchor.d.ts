@@ -9,10 +9,10 @@ export interface IState {
 }
 declare class Anchor extends React.Component<ITag, IState> {
     state: {
-        height: number;
-        left: number;
-        top: number;
-        width: number;
+        height: any;
+        left: any;
+        top: any;
+        width: any;
     };
     render(): JSX.Element;
 }

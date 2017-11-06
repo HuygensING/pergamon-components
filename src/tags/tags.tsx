@@ -50,6 +50,31 @@ export const DateTag: Tag = (props) =>
 		{props.children}
 	</span>
 
+export const Figure: Tag = (props) =>
+	<div
+		id={props.id}
+		style={{
+			margin: 'auto',
+			width: '75%',
+		}}
+	>
+		{props.children}
+	</div>
+
+export const Graphic: Tag = (props) =>
+	<img
+		src={`/static/graphics/${props.annotation.attributes.url}`}
+		style={{
+			height: '100%',
+			width: '100%',
+		}}
+	/>
+
+export const Formula: React.SFC = (props) =>
+	<span style={{ fontStyle: 'italic' }}>
+		{props.children}
+	</span>
+
 export const Hi: Tag = (props) =>
 	<span
 		id={props.id}

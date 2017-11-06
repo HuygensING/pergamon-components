@@ -20,6 +20,15 @@ exports.Corr = (props) => React.createElement("span", { style: {
 exports.DateTag = (props) => React.createElement("span", { id: props.id, style: Object.assign({}, rend_1.default(props), default_styles_1.basicAnnotation) },
     React.createElement(Icon, { src: "http://design.huygens.knaw.nl/static/icons/date.svg" }),
     props.children);
+exports.Figure = (props) => React.createElement("div", { id: props.id, style: {
+        margin: 'auto',
+        width: '75%',
+    } }, props.children);
+exports.Graphic = (props) => React.createElement("img", { src: `/static/graphics/${props.annotation.attributes.url}`, style: {
+        height: '100%',
+        width: '100%',
+    } });
+exports.Formula = (props) => React.createElement("span", { style: { fontStyle: 'italic' } }, props.children);
 exports.Hi = (props) => React.createElement("span", { id: props.id, style: rend_1.default(props) }, props.children);
 exports.Line = (props) => React.createElement("div", { id: props.id, style: { lineHeight: '2em' } }, props.children);
 exports.LineGroup = (props) => React.createElement("div", { id: props.id, style: { margin: '2em 0' } }, props.children);
