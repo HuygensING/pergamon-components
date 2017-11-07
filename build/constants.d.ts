@@ -8,6 +8,7 @@ export declare const defaultAnnotation: {
     children: any[];
     end: any;
     id: any;
+    metadata: {};
     source: any;
     start: any;
     text: any;

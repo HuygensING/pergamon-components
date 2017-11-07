@@ -17,6 +17,7 @@ export const defaultAnnotation = {
 	children: [],
 	end: null,
 	id: null,
+	metadata: {},
 	source: null,
 	start: null,
 	text: null,
