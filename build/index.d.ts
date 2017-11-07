@@ -7,4 +7,5 @@ import PergamonUITags from './tags';
 import SemanticSuggestions from './semantic-suggestions';
 import { ISuggestion } from './semantic-suggestions/suggestion';
 import { byStartEnd } from './rendered-text/create-tree/sort';
-export { AnnotationList, Button, byStartEnd, defaultAnnotation, IAnnotation, ISuggestion, PergamonUITags, RenderedText, SemanticSuggestions };
+import Keywords from './keywords';
+export { AnnotationList, Button, byStartEnd, defaultAnnotation, IAnnotation, ISuggestion, Keywords, PergamonUITags, RenderedText, SemanticSuggestions };

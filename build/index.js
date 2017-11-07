@@ -14,3 +14,5 @@ const semantic_suggestions_1 = require("./semantic-suggestions");
 exports.SemanticSuggestions = semantic_suggestions_1.default;
 const sort_1 = require("./rendered-text/create-tree/sort");
 exports.byStartEnd = sort_1.byStartEnd;
+const keywords_1 = require("./keywords");
+exports.Keywords = keywords_1.default;

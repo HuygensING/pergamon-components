@@ -3,7 +3,7 @@ import AnnotationForm, {IAnnotationFormProps} from "./annotation-form";
 import {IAnnotation} from "../interfaces";
 import RenderedText from "../rendered-text/index";
 import { IComponentsByTags } from '../tags/system-components-by-tags';
-import { fontStyle } from '../default-styles';
+import { fontStyle, blueFontStyle } from '../default-styles';
 
 export interface IAnnotationCommon extends IAnnotationFormProps {
 	activateAnnotation: (string) => void;
@@ -22,9 +22,7 @@ const Annotation: React.SFC<IAnnotationProps> = (props) =>
 			}
 			style={{
 				...fontStyle,
-				color: '#085CAF',
-				cursor: 'pointer',
-				fontWeight: 'normal',
+				...blueFontStyle,
 			}}
 		>
 			{props.rootAnnotation.text.slice(props.annotation.start, props.annotation.end)}

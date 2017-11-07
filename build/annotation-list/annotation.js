@@ -5,7 +5,7 @@ const annotation_form_1 = require("./annotation-form");
 const index_1 = require("../rendered-text/index");
 const default_styles_1 = require("../default-styles");
 const Annotation = (props) => React.createElement("li", { style: { minHeight: '2em' } },
-    React.createElement("h4", { onClick: () => props.activateAnnotation(props.annotation), style: Object.assign({}, default_styles_1.fontStyle, { color: '#085CAF', cursor: 'pointer', fontWeight: 'normal' }) },
+    React.createElement("h4", { onClick: () => props.activateAnnotation(props.annotation), style: Object.assign({}, default_styles_1.fontStyle, default_styles_1.blueFontStyle) },
         props.rootAnnotation.text.slice(props.annotation.start, props.annotation.end),
         props.annotation.type === 'persName' ?
             React.createElement("small", { style: { color: '#444', marginLeft: '1em' } }, "(xxxx - xxxx)") : null),

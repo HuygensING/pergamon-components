@@ -12,10 +12,15 @@ export const fontReadStyle: React.CSSProperties = {
     fontSize: '18px',
 	fontWeight: 300,
     lineHeight: '150%',
-    
     maxWidth: '550px',
     marginLeft: 'auto',
     marginRight: 'auto', 
+}
+
+export const blueFontStyle: React.CSSProperties = {
+    color: '#085CAF',
+    cursor: 'pointer',
+    fontWeight: 'normal',
 }
 
 export const grayLightBackground: React.CSSProperties = {

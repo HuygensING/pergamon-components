@@ -15,6 +15,11 @@ exports.fontReadStyle = {
     marginLeft: 'auto',
     marginRight: 'auto',
 };
+exports.blueFontStyle = {
+    color: '#085CAF',
+    cursor: 'pointer',
+    fontWeight: 'normal',
+};
 exports.grayLightBackground = {
     backgroundColor: '#f9f9f9',
 };
