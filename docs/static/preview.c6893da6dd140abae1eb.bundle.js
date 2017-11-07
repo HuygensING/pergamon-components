@@ -15305,6 +15305,7 @@ exports.defaultAnnotation = {
     children: [],
     end: null,
     id: null,
+    metadata: {},
     source: null,
     start: null,
     text: null,
@@ -45299,4 +45300,4 @@ module.exports = __webpack_require__(743);
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=preview.067e02c5b20e54c51bc8.bundle.js.map
+//# sourceMappingURL=preview.c6893da6dd140abae1eb.bundle.js.map
