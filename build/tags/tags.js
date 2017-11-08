@@ -9,6 +9,7 @@ exports.Add = (props) => React.createElement("span", { style: {
     "+ ",
     props.children);
 exports.Choice = (props) => React.createElement("span", null, props.children);
+exports.Closer = (props) => React.createElement("div", null, props.children);
 exports.Sic = (props) => React.createElement("span", { style: {
         borderBottom: '1px solid #AAA',
         paddingRight: '.6em',
@@ -37,6 +38,7 @@ exports.Name = (props) => props.annotation.attributes.type === 'person' ?
     props.annotation.attributes.type === 'place' ?
         React.createElement(exports.PlaceName, Object.assign({}, props)) :
         null;
+exports.Opener = (props) => React.createElement("div", null, props.children);
 exports.P = (props) => React.createElement("div", { id: props.id, style: Object.assign({}, rend_1.default(props), { margin: '1em 0' }) },
     props.children,
     React.createElement("hr", { style: {

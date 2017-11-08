@@ -18,6 +18,11 @@ export const Choice: Tag = (props) =>
 		{props.children}
 	</span>
 
+export const Closer: Tag = (props) =>
+	<div>
+		{props.children}
+	</div>
+
 export const Sic: Tag = (props) =>
 	<span
 		style={{
@@ -105,6 +110,11 @@ export const Name: Tag = (props) =>
 		props.annotation.attributes.type === 'place' ?
 		<PlaceName {...props} /> :
 		null	
+
+export const Opener: Tag = (props) =>
+	<div>
+		{props.children}
+	</div>
 
 export const P: Tag = (props) =>
 	<div

@@ -50,6 +50,7 @@ export interface ITag {
 	annotation: IAnnotation
 	id: string
 	root: IAnnotation
+	style?: React.CSSProperties
 	tags: IComponentsByTags
 }
 

@@ -22,7 +22,7 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Block,
     },
     closer: {
-        component: system_tags_1.NotImplemented,
+        component: tags_1.Closer,
         display: system_components_by_tags_1.Display.Block,
     },
     corr: {
@@ -102,7 +102,7 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Block,
     },
     opener: {
-        component: system_tags_1.NotImplemented,
+        component: tags_1.Opener,
         display: system_components_by_tags_1.Display.Block,
     },
     orgName: {

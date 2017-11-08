@@ -1,5 +1,6 @@
 import systemComponentsByTags, { Display, IComponentsByTags } from './system-components-by-tags';
 import {
+	Closer,
 	Corr,
 	DateTag,
 	Formula,
@@ -7,6 +8,7 @@ import {
 	Line,
 	LineGroup,
 	Name,
+	Opener,
 	P,
 	PersName,
 	PlaceName,
@@ -39,7 +41,7 @@ const componentsByTags: IComponentsByTags = {
 			display: Display.Block,
 		},
 		closer: {
-			component: NotImplemented,
+			component: Closer,
 			display: Display.Block,
 		},
 		corr: {
@@ -119,7 +121,7 @@ const componentsByTags: IComponentsByTags = {
 			display: Display.Block,
 		},
 		opener: {
-			component: NotImplemented,
+			component: Opener,
 			display: Display.Block,
 		},
 		orgName: {

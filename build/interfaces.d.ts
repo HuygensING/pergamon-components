@@ -35,6 +35,7 @@ export interface ITag {
     annotation: IAnnotation;
     id: string;
     root: IAnnotation;
+    style?: React.CSSProperties;
     tags: IComponentsByTags;
 }
 export declare type Tag = React.SFC<ITag>;

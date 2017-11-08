@@ -11,12 +11,14 @@ import Tags from '../src/tags'
 import {
 	Add,
 	Choice,
+	Closer,
 	Corr,
 	DateTag, // Date is a reserved keyword
 	Hi,
 	Line,
 	LineGroup,
 	Name,
+	Opener,
 	P,
 	PersName,
 	PlaceName,
@@ -26,6 +28,7 @@ import {
 } from '../src/tags/tags'
 import { 
 	Div,
+	NotImplemented,
 } from '../src/tags/system-tags'
 import { activeAnnotation, rootAnnotation } from './data'
 
@@ -104,8 +107,32 @@ createStory("Tags/Passive/Choice, { type: 'choice' }")
 		</Choice>
 	);
 
+createStory("Tags/Passive/Closer, { type: closer }")
+	.add('default', () =>
+		<div>
+			Commodo enim adipisicing nostrud labore.
+			Ad deserunt commodo cillum Lorem sunt Lorem reprehenderit sint.
+			Ut dolor nulla est consequat consectetur magna in culpa eiusmod pariatur.
+			<Closer>
+				Est tempor anim in id anim reprehenderit laboris.
+				Eiusmod sit velit pariatur incididunt.
+				In adipisicing consequat ullamco duis non occaecat non magna dolore nostrud magna exercitation.
+				Ipsum cillum adipisicing est ullamco et aliqua.
+			</Closer>
+			Minim eu cillum laboris reprehenderit consequat labore ipsum qui cillum ad tempor non.
+			Aute exercitation incididunt irure aute dolore culpa consequat.
+			Est laborum quis laboris sint enim incididunt minim Lorem ut qui ea proident enim anim.
+		</div>
+	)
+
 createStory("Tags/Passive/DateTag, { type: date }")
-	.add('default', () => <DateTag>Jan van Riebeeck</DateTag>)
+	.add('default', () => 
+		<div>
+			Minim irure ipsum ea dolore exercitation minim.
+			<DateTag annotation={{ attributes: {}}}>Jan van Riebeeck</DateTag>
+			Officia incididunt eu est amet adipisicing reprehenderit quis voluptate eiusmod.
+		</div>
+	)
 
 createStory("Tags/Passive/Div, { type: div }")
 	.add('default', () =>
@@ -173,6 +200,29 @@ createStory("Tags/Passive/Name, { type: Name }")
 	)
 	.add('attributes: type: place', () =>
 		<div>Fugiat consequat ex mollit <Name annotation={{ attributes: { type: 'place' }}}>Culemborg</Name> incididunt quis non pariatur laborum veniam.</div>
+	)
+
+createStory("Tags/Other/NotImplemented, { type: Name }")
+	.add('type: x-unknown-tag', () =>
+		<div>Consectetur minim adipisicing <NotImplemented annotation={{ type: 'x-unknown-tag' }}>Jan van Riebeeck</NotImplemented> enim consequat ex aute voluptate do.</div>
+	)
+
+createStory("Tags/Passive/Opener, { type: opener }")
+	.add('default', () =>
+		<div>
+			Commodo enim adipisicing nostrud labore.
+			Ad deserunt commodo cillum Lorem sunt Lorem reprehenderit sint.
+			Ut dolor nulla est consequat consectetur magna in culpa eiusmod pariatur.
+			<Opener>
+				Est tempor anim in id anim reprehenderit laboris.
+				Eiusmod sit velit pariatur incididunt.
+				In adipisicing consequat ullamco duis non occaecat non magna dolore nostrud magna exercitation.
+				Ipsum cillum adipisicing est ullamco et aliqua.
+			</Opener>
+			Minim eu cillum laboris reprehenderit consequat labore ipsum qui cillum ad tempor non.
+			Aute exercitation incididunt irure aute dolore culpa consequat.
+			Est laborum quis laboris sint enim incididunt minim Lorem ut qui ea proident enim anim.
+		</div>
 	)
 
 import storiesOfP from './tags/p'
