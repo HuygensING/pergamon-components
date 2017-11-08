@@ -152,6 +152,11 @@ createStory("Tags/Passive/Div, { type: div }")
 
 // createStory('Del')
 // 	.add('default', () => <Del>This is deleted</Del>);
+import storiesOfFigure from './tags/figure'
+storiesOfFigure(createStory, "Tags/Passive/Figure, { type: 'figure' }")
+
+import storiesOfGraphic from './tags/figure'
+storiesOfGraphic(createStory, "Tags/Passive/Graphic, { type: 'graphic' }")
 
 createStory("Tags/Passive/Hi', { type: 'hi' }")
 	.add('attributes: rend: bold', () => <div>Aliens <Hi annotation={{ attributes: { rend: 'bold' }}}>warp</Hi> with tragedy!</div>)
