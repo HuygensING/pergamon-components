@@ -1,8 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
-exports.Span = (props) => React.createElement("span", { id: props.id, style: props.style }, props.children);
-exports.Div = (props) => React.createElement("div", { id: props.id, style: props.style }, props.children);
+const rend_1 = require("./rend");
+exports.Span = (props) => React.createElement("span", { id: props.id, style: Object.assign({}, rend_1.default(props), props.style) }, props.children);
+exports.Div = (props) => React.createElement("div", { id: props.id, style: Object.assign({}, rend_1.default(props), props.style) }, props.children);
 exports.NotImplemented = (props) => React.createElement("div", { style: {
         backgroundColor: 'red',
         border: '1px solid darkred',

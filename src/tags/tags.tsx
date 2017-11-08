@@ -1,73 +1,61 @@
 import * as React from 'react'
-import rendStyle from './rend'
 import { basicAnnotation } from '../default-styles'
 import { Tag } from '../interfaces';
-
+import { Div, Span } from './system-tags';
 
 export const Add: Tag = (props) =>
-	<span
+	<Span
 		style={{
 			color: 'green',
 		}}
+		{...props}
 	>
 		+ {props.children}
-	</span>
+	</Span>
 
-export const Choice: Tag = (props) =>
-	<span>
-		{props.children}
-	</span>
+export const Choice: Tag = Span
 
-export const Closer: Tag = (props) =>
-	<div>
-		{props.children}
-	</div>
+export const Closer: Tag = Div
 
 export const Sic: Tag = (props) =>
-	<span
+	<Span
 		style={{
 			borderBottom: '1px solid #AAA',
 			paddingRight: '.6em',
 		}}
-	>
-		{props.children}
-	</span>
+		{...props}
+	/>
 
 export const Corr: Tag = (props) =>
-	<span
+	<Span
 		style={{
 			border: '1px solid #AAA',
 			padding: '0 .6em',
 		}}
-	>
-		{props.children}
-	</span>
+		{...props}
+	/>
 
 export const DateTag: Tag = (props) =>
-	<span
-		id={props.id}
-		style={{
-			...rendStyle(props),
-			...basicAnnotation,   
-		}}
+	<Span
+		style={basicAnnotation}
+		{...props}
 	>
         <Icon src="http://design.huygens.knaw.nl/static/icons/date.svg" />
 		{props.children}
-	</span>
+	</Span>
 
 export const Figure: Tag = (props) =>
-	<div
-		id={props.id}
+	<Div
 		style={{
 			margin: 'auto',
 			width: '75%',
 		}}
-	>
-		{props.children}
-	</div>
+		{...props}
+	/>
 
 export const Graphic: Tag = (props) =>
 	<img
+		id={props.id}
 		src={`/static/graphics/${props.annotation.attributes.url}`}
 		style={{
 			height: '100%',
@@ -75,34 +63,25 @@ export const Graphic: Tag = (props) =>
 		}}
 	/>
 
-export const Formula: React.SFC = (props) =>
-	<span style={{ fontStyle: 'italic' }}>
-		{props.children}
-	</span>
+export const Formula: Tag = (props) =>
+	<Span
+		style={{ fontStyle: 'italic' }}
+		{...props}
+	/>
 
-export const Hi: Tag = (props) =>
-	<span
-		id={props.id}
-		style={rendStyle(props)}
-	>
-		{props.children}
-	</span>
+export const Hi: Tag = Span
 
 export const Line: Tag = (props) =>
-	<div
-		id={props.id}
+	<Div
 		style={{ lineHeight: '2em' }}
-	>
-		{props.children}
-	</div>
+		{...props}
+	/>
 
 export const LineGroup: Tag = (props) =>
-	<div
-		id={props.id}
+	<Div
 		style={{ margin: '2em 0' }}
-	>
-		{props.children}
-	</div>
+		{...props}
+	/>
 
 export const Name: Tag = (props) =>
 	props.annotation.attributes.type === 'person' ?
@@ -111,18 +90,12 @@ export const Name: Tag = (props) =>
 		<PlaceName {...props} /> :
 		null	
 
-export const Opener: Tag = (props) =>
-	<div>
-		{props.children}
-	</div>
+export const Opener: Tag = Div
 
 export const P: Tag = (props) =>
-	<div
-		id={props.id}
-		style={{
-			...rendStyle(props),
-			...{ margin: '1em 0' }
-		}}
+	<Div
+		style={{ margin: '1em 0' }}
+		{...props}
 	>
 		{props.children}
 		<hr style={{ 
@@ -135,7 +108,7 @@ export const P: Tag = (props) =>
             marginTop: '1em',
                    
         }} />
-	</div>
+	</Div>
 
 interface IIcon { src: string }
 const Icon: React.SFC<IIcon> = (props) =>
@@ -149,28 +122,22 @@ const Icon: React.SFC<IIcon> = (props) =>
 	/>
 
 export const PersName: Tag = (props) =>
-	<span
-		id={props.id}
-		style={{
-			...rendStyle(props),
-			...basicAnnotation,   
-		}}
+	<Span
+		style={basicAnnotation}
+		{...props}
 	>
 		<Icon src="http://design.huygens.knaw.nl/static/icons/person.svg" />
 		{props.children}
-	</span>
+	</Span>
 
 export const PlaceName: Tag = (props) =>
-	<span
-		id={props.id}
-		style={{
-			...rendStyle(props),
-			...basicAnnotation,
-		}}
+	<Span
+		style={basicAnnotation}
+		{...props}
 	>
 		<Icon src="http://design.huygens.knaw.nl/static/icons/location.svg" />
 		{props.children}
-	</span>
+	</Span>
 
 export const Rs: Tag = (props) =>
 	props.annotation.attributes.type === 'person' ?
@@ -179,24 +146,15 @@ export const Rs: Tag = (props) =>
 		<PlaceName {...props} /> :
 		null	
 
-export const Seg: Tag = (props) =>
-	<div
-		id={props.id}
-		style={rendStyle(props)}
-	>
-		{props.children}
-	</div>
+export const Seg: Tag = Div
 
 export const Title: Tag = (props) =>
-	<div
-		id={props.id}
+	<Div
 		style={{
-			...rendStyle(props),
 			...{
 				fontSize: '2em',
 				fontWeight: 'bold',
 			}
 		}}
-	>
-		{props.children}
-	</div>;
+		{...props}
+	/>

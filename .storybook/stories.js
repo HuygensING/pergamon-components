@@ -87,7 +87,7 @@ createStory('SemanticSuggestions')
 	)
 
 createStory("Tags/Passive/Add, { type: 'add' }")
-	.add('default', () => <Add>This is added</Add>);
+	.add('default', () => <Add annotation={{ attributes: {} }}>This is added</Add>);
 
 // createStory('Anchor')
 // 	.add('default', () =>
@@ -101,9 +101,9 @@ createStory("Tags/Passive/Add, { type: 'add' }")
 
 createStory("Tags/Passive/Choice, { type: 'choice' }")
 	.add('default', () =>
-		<Choice>
-			<Sic>Incorrect</Sic>
-			<Corr>Correction</Corr>
+		<Choice annotation={{ attributes: {} }}>
+			<Sic annotation={{ attributes: {} }}>Incorrect</Sic>
+			<Corr annotation={{ attributes: {} }}>Correction</Corr>
 		</Choice>
 	);
 
@@ -113,7 +113,7 @@ createStory("Tags/Passive/Closer, { type: closer }")
 			Commodo enim adipisicing nostrud labore.
 			Ad deserunt commodo cillum Lorem sunt Lorem reprehenderit sint.
 			Ut dolor nulla est consequat consectetur magna in culpa eiusmod pariatur.
-			<Closer>
+			<Closer annotation={{ attributes: {} }}>
 				Est tempor anim in id anim reprehenderit laboris.
 				Eiusmod sit velit pariatur incididunt.
 				In adipisicing consequat ullamco duis non occaecat non magna dolore nostrud magna exercitation.
@@ -137,12 +137,12 @@ createStory("Tags/Passive/DateTag, { type: date }")
 createStory("Tags/Passive/Div, { type: div }")
 	.add('default', () =>
 		<div>
-			<Div>
+			<Div annotation={{ attributes: {} }}>
 				Fugiat non commodo non tempor. Esse nisi et sit aute.
 				Adipisicing duis labore commodo aliqua cupidatat officia eiusmod proident aliqua do.
 				Velit eu aute cupidatat adipisicing voluptate in ullamco.
 			</Div>
-			<Div>
+			<Div annotation={{ attributes: {} }}>
 				Minim minim eiusmod ad dolore tempor.
 				Eiusmod id occaecat sint qui aliqua sint minim.
 				Voluptate ullamco fugiat pariatur voluptate occaecat laborum ipsum culpa dolore quis dolor sit sunt.
@@ -169,33 +169,33 @@ createStory("Tags/Passive/Hi', { type: 'hi' }")
 
 createStory("Tags/Passive/LineGroup { type: 'lg' }")
 	.add('default', () =>
-		<LineGroup>
-			<Line>Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem.</Line>
-			<Line>Non est occaecat culpa pariatur minim tempor.</Line>
-			<Line>Eiusmod tempor consectetur id duis minim mollit ut reprehenderit commodo consectetur occaecat consequat.</Line>
+		<LineGroup annotation={{ attributes: {} }}>
+			<Line annotation={{ attributes: {} }}>Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem.</Line>
+			<Line annotation={{ attributes: {} }}>Non est occaecat culpa pariatur minim tempor.</Line>
+			<Line annotation={{ attributes: {} }}>Eiusmod tempor consectetur id duis minim mollit ut reprehenderit commodo consectetur occaecat consequat.</Line>
 		</LineGroup>
 	)
 	.add('attributes: type: poem', () =>
 		<LineGroup annotation={{ attributes: { type: 'poem' }}}>
-			<Line>Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem.</Line>
-			<Line>Non est occaecat culpa pariatur minim tempor.</Line>
-			<Line>Eiusmod tempor consectetur id duis minim mollit ut reprehenderit commodo consectetur occaecat consequat.</Line>
+			<Line annotation={{ attributes: {} }}>Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem.</Line>
+			<Line annotation={{ attributes: {} }}>Non est occaecat culpa pariatur minim tempor.</Line>
+			<Line annotation={{ attributes: {} }}>Eiusmod tempor consectetur id duis minim mollit ut reprehenderit commodo consectetur occaecat consequat.</Line>
 		</LineGroup>
 	)
 
 createStory("Tags/Interactive/Note { type: 'note' }")
 	.add('default', () =>
-		<LineGroup>
-			<Line>Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem.</Line>
-			<Line>Non est occaecat culpa pariatur minim tempor.</Line>
-			<Line>Eiusmod tempor consectetur id duis minim mollit ut reprehenderit commodo consectetur occaecat consequat.</Line>
+		<LineGroup annotation={{ attributes: {} }}>
+			<Line annotation={{ attributes: {} }}>Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem.</Line>
+			<Line annotation={{ attributes: {} }}>Non est occaecat culpa pariatur minim tempor.</Line>
+			<Line annotation={{ attributes: {} }}>Eiusmod tempor consectetur id duis minim mollit ut reprehenderit commodo consectetur occaecat consequat.</Line>
 		</LineGroup>
 	)
 	.add('attributes: type: poem', () =>
 		<LineGroup annotation={{ attributes: { type: 'poem' }}}>
-			<Line>Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem.</Line>
-			<Line>Non est occaecat culpa pariatur minim tempor.</Line>
-			<Line>Eiusmod tempor consectetur id duis minim mollit ut reprehenderit commodo consectetur occaecat consequat.</Line>
+			<Line annotation={{ attributes: {} }}>Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem.</Line>
+			<Line annotation={{ attributes: {} }}>Non est occaecat culpa pariatur minim tempor.</Line>
+			<Line annotation={{ attributes: {} }}>Eiusmod tempor consectetur id duis minim mollit ut reprehenderit commodo consectetur occaecat consequat.</Line>
 		</LineGroup>
 	)
 
@@ -218,7 +218,7 @@ createStory("Tags/Passive/Opener, { type: opener }")
 			Commodo enim adipisicing nostrud labore.
 			Ad deserunt commodo cillum Lorem sunt Lorem reprehenderit sint.
 			Ut dolor nulla est consequat consectetur magna in culpa eiusmod pariatur.
-			<Opener>
+			<Opener annotation={{ attributes: {} }}>
 				Est tempor anim in id anim reprehenderit laboris.
 				Eiusmod sit velit pariatur incididunt.
 				In adipisicing consequat ullamco duis non occaecat non magna dolore nostrud magna exercitation.

@@ -1,5 +1,3 @@
-/// <reference types="react" />
-import * as React from 'react';
 import { Tag } from '../interfaces';
 export declare const Add: Tag;
 export declare const Choice: Tag;
@@ -9,7 +7,7 @@ export declare const Corr: Tag;
 export declare const DateTag: Tag;
 export declare const Figure: Tag;
 export declare const Graphic: Tag;
-export declare const Formula: React.SFC;
+export declare const Formula: Tag;
 export declare const Hi: Tag;
 export declare const Line: Tag;
 export declare const LineGroup: Tag;
