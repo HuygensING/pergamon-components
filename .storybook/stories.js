@@ -233,6 +233,9 @@ createStory("Tags/Passive/Opener, { type: opener }")
 import storiesOfP from './tags/p'
 storiesOfP(createStory)
 
+import storiesOfPb from './tags/pb'
+storiesOfPb(createStory)
+
 createStory("Tags/Passive/PersName, { type: personName }")
 	.add('default', () =>
 		<div>Consectetur minim adipisicing <PersName annotation={{ attributes: { type: 'person' }}}>Jan van Riebeeck</PersName> enim consequat ex aute voluptate do.</div>

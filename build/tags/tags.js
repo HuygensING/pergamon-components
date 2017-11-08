@@ -50,6 +50,7 @@ exports.P = (props) => React.createElement(system_tags_1.Div, Object.assign({ st
             marginLeft: '-10px',
             marginTop: '1em',
         } }));
+exports.Pb = system_tags_1.Div;
 const Icon = (props) => React.createElement("img", { src: props.src, style: {
         width: "12px",
         height: 'auto',

@@ -10,6 +10,7 @@ import {
 	Name,
 	Opener,
 	P,
+	Pb,
 	PersName,
 	PlaceName,
 	Rs,
@@ -133,7 +134,7 @@ const componentsByTags: IComponentsByTags = {
 			display: Display.Block,
 		},
 		pb: {
-			component: NotImplemented,
+			component: Pb,
 			display: Display.Block,
 		},
 		persName: {

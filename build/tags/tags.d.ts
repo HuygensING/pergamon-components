@@ -14,6 +14,7 @@ export declare const LineGroup: Tag;
 export declare const Name: Tag;
 export declare const Opener: Tag;
 export declare const P: Tag;
+export declare const Pb: Tag;
 export declare const PersName: Tag;
 export declare const PlaceName: Tag;
 export declare const Rs: Tag;

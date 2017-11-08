@@ -114,7 +114,7 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Block,
     },
     pb: {
-        component: system_tags_1.NotImplemented,
+        component: tags_1.Pb,
         display: system_components_by_tags_1.Display.Block,
     },
     persName: {

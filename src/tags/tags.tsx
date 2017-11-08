@@ -110,6 +110,8 @@ export const P: Tag = (props) =>
         }} />
 	</Div>
 
+export const Pb: Tag = Div
+
 interface IIcon { src: string }
 const Icon: React.SFC<IIcon> = (props) =>
 	<img
