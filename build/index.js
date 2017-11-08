@@ -16,3 +16,5 @@ const sort_1 = require("./rendered-text/create-tree/sort");
 exports.byStartEnd = sort_1.byStartEnd;
 const keywords_1 = require("./keywords");
 exports.Keywords = keywords_1.default;
+const metadata_1 = require("./metadata");
+exports.Metadata = metadata_1.default;

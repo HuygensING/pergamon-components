@@ -16,6 +16,9 @@ export interface IAnnotation {
     body?: string;
     end: number;
     id?: number | string;
+    metadata?: {
+        [key: string]: string;
+    };
     source: SourceType;
     start: number;
     target: string;

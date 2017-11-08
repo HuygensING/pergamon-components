@@ -4,6 +4,8 @@ import { action } from '@storybook/addon-actions'
 import { withKnobs, object } from '@storybook/addon-knobs'
 import {
 	AnnotationList,
+	Keywords,
+	Metadata,
 	RenderedText,
 	SemanticSuggestions,
 } from '../src'
@@ -53,6 +55,27 @@ createStoryWithKnobs('AnnotationList')
 			activateAnnotation={ action('activate Annotation') }
 			rootAnnotation={ object('rootAnnotation', rootAnnotation) }
 		/>
+	)
+
+createStory('Keywords')
+	.add('default', () =>
+		<Keywords keywords={[
+			{ weight: 0.9, terms: ['oliebol', 'africa'] },
+			{ weight: 0.8, terms: ['brief', 'scherm'] },
+			{ weight: 0.7, terms: ['opstapje', 'geheugen'] },
+			{ weight: 0.7, terms: ['frituurpan', 'belasting'] },
+			{ weight: 0.6, terms: ['softbal', 'vriend'] },
+			{ weight: 0.4, terms: ['stopcontact'] },
+			{ weight: 0.3, terms: ['afhaal'] },
+			{ weight: 0.3, terms: ['vakantiepark'] },
+			{ weight: 0.3, terms: ['pech'] },
+			{ weight: 0.1, terms: ['rond', 'stoel', 'rsa', 'filter', 'groente'] },
+		]} />
+	)
+
+createStoryWithKnobs('Metadata')
+	.add('default', () =>
+		<Metadata rootAnnotation={rootAnnotation} />
 	)
 
 createStoryWithKnobs('RenderedText')
