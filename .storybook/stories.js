@@ -206,22 +206,6 @@ createStory("Tags/Passive/LineGroup { type: 'lg' }")
 		</LineGroup>
 	)
 
-createStory("Tags/Interactive/Note { type: 'note' }")
-	.add('default', () =>
-		<LineGroup annotation={{ attributes: {} }}>
-			<Line annotation={{ attributes: {} }}>Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem.</Line>
-			<Line annotation={{ attributes: {} }}>Non est occaecat culpa pariatur minim tempor.</Line>
-			<Line annotation={{ attributes: {} }}>Eiusmod tempor consectetur id duis minim mollit ut reprehenderit commodo consectetur occaecat consequat.</Line>
-		</LineGroup>
-	)
-	.add('attributes: type: poem', () =>
-		<LineGroup annotation={{ attributes: { type: 'poem' }}}>
-			<Line annotation={{ attributes: {} }}>Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem.</Line>
-			<Line annotation={{ attributes: {} }}>Non est occaecat culpa pariatur minim tempor.</Line>
-			<Line annotation={{ attributes: {} }}>Eiusmod tempor consectetur id duis minim mollit ut reprehenderit commodo consectetur occaecat consequat.</Line>
-		</LineGroup>
-	)
-
 createStory("Tags/Passive/Name, { type: Name }")
 	.add('attributes: type: person', () =>
 		<div>Consectetur minim adipisicing <Name annotation={{ attributes: { type: 'person' }}}>Jan van Riebeeck</Name> enim consequat ex aute voluptate do.</div>
@@ -229,6 +213,9 @@ createStory("Tags/Passive/Name, { type: Name }")
 	.add('attributes: type: place', () =>
 		<div>Fugiat consequat ex mollit <Name annotation={{ attributes: { type: 'place' }}}>Culemborg</Name> incididunt quis non pariatur laborum veniam.</div>
 	)
+
+import storiesOfNote from './tags/note'
+storiesOfNote(createStory)
 
 createStory("Tags/Other/NotImplemented, { type: Name }")
 	.add('type: x-unknown-tag', () =>
@@ -292,22 +279,6 @@ createStory("Tags/Passive/Title, { type: title }")
 			Laboris commodo aute ad adipisicing tempor occaecat deserunt deserunt consequat in officia consectetur tempor enim.
 		</div>
 	)
-
-// createStory('Notes')
-// 	.add('default', () =>
-// 		<Body>
-// 		<Lb><No>10</No></Lb>Virtually deserve a sun.<br />
-// 		<Lb><No>11</No></Lb>
-// 		Shield, mystery, and energy.<Anchor activeNote="n1" n="n1" />
-// 		Girl of a final attitude, <Anchor n="n2" />gather the mind!<br />
-// 		<Lb><No>12</No></Lb>Spaces meet with paralysis!<br />
-// 		<Notes activeNote="n2" noteTop="46">
-// 			<Note n="n1">A holy form of extend is the ascension.</Note>
-// 			<Note n="n2">Safely emptiness is to remember the silence of the ego's ignorance.</Note>
-// 			<Note n="n3">Our mysterious art for sorrow is to understand others theosophically.</Note>
-// 		</Notes>
-// 		</Body>
-// 	);
 
 // createStory('Pagebreak')
 // 	.add('default', () =>
