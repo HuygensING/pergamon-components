@@ -151,12 +151,12 @@ export const Rs: Tag = (props) =>
 export const Seg: Tag = Div
 
 export const Title: Tag = (props) =>
-	<Div
-		style={{
-			...{
-				fontSize: '2em',
-				fontWeight: 'bold',
-			}
-		}}
+	<Span
+		style={basicAnnotation}
 		{...props}
-	/>
+	
+	>
+<Icon src="http://design.huygens.knaw.nl/static/icons/book.svg" />
+		{props.children}
+ </Span>
+
