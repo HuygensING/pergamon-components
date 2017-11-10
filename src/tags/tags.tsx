@@ -98,16 +98,7 @@ export const P: Tag = (props) =>
 		{...props}
 	>
 		{props.children}
-		<hr style={{ 
-            height: '1px',
-            backgroundColor: '#ddd',
-            color: '#eee',
-            width: '20px',
-            border: 'none',
-            marginLeft: '-10px',
-            marginTop: '1em',
-                   
-        }} />
+
 	</Div>
 
 export const Pb: Tag = Div
