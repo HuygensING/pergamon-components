@@ -68,7 +68,6 @@ exports.Rs = (props) => props.annotation.attributes.type === 'person' ?
         React.createElement(exports.PlaceName, Object.assign({}, props)) :
         null;
 exports.Seg = system_tags_1.Div;
-exports.Title = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: Object.assign({
-        fontSize: '2em',
-        fontWeight: 'bold',
-    }) }, props));
+exports.Title = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: default_styles_1.basicAnnotation }, props),
+    React.createElement(Icon, { src: "http://design.huygens.knaw.nl/static/icons/book.svg" }),
+    props.children);
