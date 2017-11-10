@@ -14,13 +14,16 @@ const AnchorComp: React.SFC<IAnchorComp> = (props) =>
 		onClick={props.onClick}
 		ref={props.setRef}
 		style={{
-			backgroundColor: '#DDD',
-			borderRadius: '1em',
+            fontFamily: "'Roboto', sans-serif",
+			backgroundColor: '#fff',
+            border: '1px solid #aaa',
+			borderRadius: '50%',
 			cursor: 'pointer',
 			fontSize: '10px',
 			marginLeft: '.2em',
-			padding: '.3em .5em',
-			verticalAlign: 'bottom',
+            marginRight: '.4em',
+			padding: '.5em .5em',
+			verticalAlign: 'top',
 		}}
 	>
 		{props.children}
@@ -89,6 +92,7 @@ class Anchor extends React.Component<ITag, IState> {
 							left,
 							top: this.state.top + this.state.height + 16 + window.scrollY,
 							width: `${tooltipWidth}px`,
+                            
 						}}
 					>
 						<RenderedText
@@ -98,6 +102,7 @@ class Anchor extends React.Component<ITag, IState> {
 								children: [note],
 								text: this.props.root.text
 							}}
+                           
 							tags={this.props.tags}
 						/>
 					</Tooltip>
