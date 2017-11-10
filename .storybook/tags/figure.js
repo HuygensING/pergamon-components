@@ -7,7 +7,7 @@ export default (createStory, title) => createStory(title)
 		<div>
 			Deserunt aliquip veniam minim voluptate id.
 			Labore consectetur deserunt ex fugiat nulla consequat elit ex pariatur officia nisi proident pariatur.
-			<Figure>
+			<Figure annotation={{ attributes: {} }}>
 				<Graphic annotation={{attributes: { url: 'docker-hub.png' }}} />
 			</Figure>
 			Eiusmod irure elit fugiat aliqua in deserunt et.
