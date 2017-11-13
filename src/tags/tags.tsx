@@ -75,7 +75,23 @@ export const Line: Tag = (props) =>
 	<Div
 		style={{ lineHeight: '2em' }}
 		{...props}
-	/>
+	>
+
+	<span
+		style={{
+				width:'1em',
+				textAline: 'right',
+				fontFamily: "'Roboto', sans-serif",
+				fontSize:'.8em',
+				color: '#aaa',
+				marginRight: '.5em',
+			 }}
+	>
+		1
+	</span>
+	{props.children}
+	</Div>
+
 
 export const LineGroup: Tag = (props) =>
 	<Div
@@ -88,7 +104,7 @@ export const Name: Tag = (props) =>
 		<PersName {...props} /> :
 		props.annotation.attributes.type === 'place' ?
 		<PlaceName {...props} /> :
-		null	
+		null
 
 export const Opener: Tag = Div
 
@@ -110,7 +126,7 @@ const Icon: React.SFC<IIcon> = (props) =>
 		style={{
 			width: "12px",
 			height:'auto',
-            marginRight: '.2em',
+      marginRight: '.2em',
 		}}
 	/>
 
@@ -137,7 +153,7 @@ export const Rs: Tag = (props) =>
 		<PersName {...props} /> :
 		props.annotation.attributes.type === 'place' ?
 		<PlaceName {...props} /> :
-		null	
+		null
 
 export const Seg: Tag = Div
 
@@ -145,9 +161,8 @@ export const Title: Tag = (props) =>
 	<Span
 		style={basicAnnotation}
 		{...props}
-	
+
 	>
 <Icon src="http://design.huygens.knaw.nl/static/icons/book.svg" />
 		{props.children}
  </Span>
-
