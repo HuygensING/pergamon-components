@@ -30,9 +30,9 @@ export const NotImplemented: Tag = (props) =>
 			backgroundColor: '#EC7700',
 			color: 'white',
 			padding: '2em 1.5em',
-            margin: '1em -.5em',
-            fontFamily: "'Roboto', sans-serif",
-			
+      margin: '1em -.5em',
+      fontFamily: "'Roboto', sans-serif",
+
 		}}
 	>
 		<span style={{
@@ -41,11 +41,11 @@ export const NotImplemented: Tag = (props) =>
 		}}>
             <img style={{
 			 width:'2em',
-             height: 'auto',
-             display: 'block',
-             marginBottom: '1em',
+       height: 'auto',
+       display: 'block',
+       marginBottom: '1em',
 		      }}
-                src="http://design.huygens.knaw.nl/static/icons/caution-inv.svg" 
+                src="http://design.huygens.knaw.nl/static/icons/caution-inv.svg"
             />
 			Warning: The tag {props.annotation.type} is not implemented!
 		</span>
