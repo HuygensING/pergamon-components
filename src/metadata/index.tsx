@@ -50,7 +50,7 @@ const Metadata: React.SFC<IMetadata> = (props) =>
 		<MetadataItem>
 			<Label>TO</Label>
 			<div>
-				<Bold>{props.rootAnnotation.metadata.recipient}</Bold>
+				<div>{props.rootAnnotation.metadata.recipient}</div>
 				<div>{props.rootAnnotation.metadata.recipientloc}</div>
 			</div>
 		</MetadataItem>
