@@ -16,6 +16,7 @@ import {
 	Closer,
 	Corr,
 	DateTag, // Date is a reserved keyword
+	Formula,
 	Hi,
 	Line,
 	LineGroup,
@@ -180,6 +181,15 @@ storiesOfFigure(createStory, "Tags/Passive/Figure, { type: 'figure' }")
 
 import storiesOfGraphic from './tags/figure'
 storiesOfGraphic(createStory, "Tags/Passive/Graphic, { type: 'graphic' }")
+
+createStory("Tags/Passive/Formula, { type: formula }")
+	.add('default', () =>
+		<div>
+			Excepteur esse incididunt officia ad laborum id.
+			<Formula annotation={{attributes: {}}}>Euler is unpronouncable</Formula>
+			Dolore consequat voluptate do mollit aliqua exercitation culpa duis cupidatat.
+		</div>
+	)
 
 createStory("Tags/Passive/Hi', { type: 'hi' }")
 	.add('attributes: rend: bold', () => <div>Aliens <Hi annotation={{ attributes: { rend: 'bold' }}}>warp</Hi> with tragedy!</div>)
