@@ -31,7 +31,16 @@ exports.Graphic = (props) => React.createElement("img", { id: props.id, src: `/s
     } });
 exports.Formula = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: { fontStyle: 'italic' } }, props));
 exports.Hi = system_tags_1.Span;
-exports.Line = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: { lineHeight: '2em' } }, props));
+exports.Line = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: { lineHeight: '2em' } }, props),
+    React.createElement("span", { style: {
+            width: '1em',
+            textAline: 'right',
+            fontFamily: "'Roboto', sans-serif",
+            fontSize: '.8em',
+            color: '#aaa',
+            marginRight: '.5em',
+        } }, "1"),
+    props.children);
 exports.LineGroup = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: { margin: '2em 0' } }, props));
 exports.Name = (props) => props.annotation.attributes.type === 'person' ?
     React.createElement(exports.PersName, Object.assign({}, props)) :
@@ -39,17 +48,7 @@ exports.Name = (props) => props.annotation.attributes.type === 'person' ?
         React.createElement(exports.PlaceName, Object.assign({}, props)) :
         null;
 exports.Opener = system_tags_1.Div;
-exports.P = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: { margin: '1em 0' } }, props),
-    props.children,
-    React.createElement("hr", { style: {
-            height: '1px',
-            backgroundColor: '#ddd',
-            color: '#eee',
-            width: '20px',
-            border: 'none',
-            marginLeft: '-10px',
-            marginTop: '1em',
-        } }));
+exports.P = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: { margin: '1em 0' } }, props), props.children);
 exports.Pb = system_tags_1.Div;
 const Icon = (props) => React.createElement("img", { src: props.src, style: {
         width: "12px",
