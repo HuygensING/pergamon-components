@@ -12,6 +12,7 @@ import {
 import Tags from '../src/tags'
 import {
 	Add,
+	Cell,
 	Choice,
 	Closer,
 	Corr,
@@ -25,8 +26,10 @@ import {
 	P,
 	PersName,
 	PlaceName,
+	Row,
 	Rs,
 	Sic,
+	Table,
 	Title,
 } from '../src/tags/tags'
 import { 
@@ -276,6 +279,27 @@ createStory("Tags/Passive/Rs, { type: rs }")
 
 import storiesOfSeg from './tags/seg'
 storiesOfSeg(createStory)
+
+createStory("Tags/Passive/Table, { type: table }")
+	.add('default', () =>
+		<Table annotation={{attributes: {}}}>
+			<Row annotation={{attributes: {}}}>
+				<Cell annotation={{attributes: {}}}>cel 1</Cell>
+				<Cell annotation={{attributes: {}}}>cel 2</Cell>
+				<Cell annotation={{attributes: {}}}>cel 3</Cell>
+			</Row>
+			<Row annotation={{attributes: {}}}>
+				<Cell annotation={{attributes: {}}}>cel 4</Cell>
+				<Cell annotation={{attributes: {}}}>cel 5</Cell>
+				<Cell annotation={{attributes: {}}}>cel 6</Cell>
+			</Row>
+			<Row annotation={{attributes: {}}}>
+				<Cell annotation={{attributes: {}}}>cel 7</Cell>
+				<Cell annotation={{attributes: {}}}>cel 8</Cell>
+				<Cell annotation={{attributes: {}}}>cel 9</Cell>
+			</Row>
+		</Table>
+	)
 
 createStory("Tags/Passive/Title, { type: title }")
 	.add('default', () =>

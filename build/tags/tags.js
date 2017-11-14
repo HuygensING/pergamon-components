@@ -67,6 +67,9 @@ exports.Rs = (props) => props.annotation.attributes.type === 'person' ?
         React.createElement(exports.PlaceName, Object.assign({}, props)) :
         null;
 exports.Seg = system_tags_1.Div;
+exports.Table = (props) => React.createElement("table", null, props.children);
+exports.Row = (props) => React.createElement("tr", null, props.children);
+exports.Cell = (props) => React.createElement("td", null, props.children);
 exports.Title = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: default_styles_1.basicAnnotation }, props),
     React.createElement(Icon, { src: "http://design.huygens.knaw.nl/static/icons/book.svg" }),
     props.children);

@@ -1,9 +1,12 @@
 import systemComponentsByTags, { Display, IComponentsByTags } from './system-components-by-tags';
 import {
+	Cell,
 	Closer,
 	Corr,
 	DateTag,
+	Figure,
 	Formula,
+	Graphic,
 	Hi,
 	Line,
 	LineGroup,
@@ -13,11 +16,11 @@ import {
 	Pb,
 	PersName,
 	PlaceName,
+	Row,
 	Rs,
 	Seg,
+	Table,
 	Title,
-	Graphic,
-	Figure,
 } from './tags'
 import Anchor from "./anchor";
 import { Div, None, NotImplemented } from './system-tags';
@@ -38,7 +41,7 @@ const componentsByTags: IComponentsByTags = {
 			display: Display.Block,
 		},
 		cell: {
-			component: NotImplemented,
+			component: Cell,
 			display: Display.Block,
 		},
 		closer: {
@@ -154,7 +157,7 @@ const componentsByTags: IComponentsByTags = {
 			display: Display.Block,
 		},
 		row: {
-			component: NotImplemented,
+			component: Row,
 			display: Display.Block,
 		},
 		rs: {
@@ -170,7 +173,7 @@ const componentsByTags: IComponentsByTags = {
 			display: Display.Block,
 		},
 		table: {
-			component: NotImplemented,
+			component: Table,
 			display: Display.Block,
 		},
 		text: {

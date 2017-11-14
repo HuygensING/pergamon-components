@@ -18,7 +18,7 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Block,
     },
     cell: {
-        component: system_tags_1.NotImplemented,
+        component: tags_1.Cell,
         display: system_components_by_tags_1.Display.Block,
     },
     closer: {
@@ -134,7 +134,7 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Block,
     },
     row: {
-        component: system_tags_1.NotImplemented,
+        component: tags_1.Row,
         display: system_components_by_tags_1.Display.Block,
     },
     rs: {
@@ -150,7 +150,7 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Block,
     },
     table: {
-        component: system_tags_1.NotImplemented,
+        component: tags_1.Table,
         display: system_components_by_tags_1.Display.Block,
     },
     text: {

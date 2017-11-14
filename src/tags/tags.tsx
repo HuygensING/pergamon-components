@@ -152,17 +152,25 @@ export const Rs: Tag = (props) =>
 	props.annotation.attributes.type === 'person' ?
 		<PersName {...props} /> :
 		props.annotation.attributes.type === 'place' ?
-		<PlaceName {...props} /> :
-		null
+			<PlaceName {...props} /> :
+			null
 
 export const Seg: Tag = Div
+
+export const Table: Tag = (props) =>
+	<table>{props.children}</table>
+
+export const Row: Tag = (props) =>
+	<tr>{props.children}</tr>
+
+export const Cell: Tag = (props) =>
+	<td>{props.children}</td>
 
 export const Title: Tag = (props) =>
 	<Span
 		style={basicAnnotation}
 		{...props}
-
 	>
-<Icon src="http://design.huygens.knaw.nl/static/icons/book.svg" />
+		<Icon src="http://design.huygens.knaw.nl/static/icons/book.svg" />
 		{props.children}
- </Span>
+	</Span>
