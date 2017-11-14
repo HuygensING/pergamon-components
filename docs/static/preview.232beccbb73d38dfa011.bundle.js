@@ -7835,7 +7835,16 @@ exports.Graphic = (props) => React.createElement("img", { id: props.id, src: `/s
     } });
 exports.Formula = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: { fontStyle: 'italic' } }, props));
 exports.Hi = system_tags_1.Span;
-exports.Line = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: { lineHeight: '2em' } }, props));
+exports.Line = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: { lineHeight: '2em' } }, props),
+    React.createElement("span", { style: {
+            width: '1em',
+            textAline: 'right',
+            fontFamily: "'Roboto', sans-serif",
+            fontSize: '.8em',
+            color: '#aaa',
+            marginRight: '.5em',
+        } }, "1"),
+    props.children);
 exports.LineGroup = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: { margin: '2em 0' } }, props));
 exports.Name = (props) => props.annotation.attributes.type === 'person' ?
     React.createElement(exports.PersName, Object.assign({}, props)) :
@@ -7843,17 +7852,7 @@ exports.Name = (props) => props.annotation.attributes.type === 'person' ?
         React.createElement(exports.PlaceName, Object.assign({}, props)) :
         null;
 exports.Opener = system_tags_1.Div;
-exports.P = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: { margin: '1em 0' } }, props),
-    props.children,
-    React.createElement("hr", { style: {
-            height: '1px',
-            backgroundColor: '#ddd',
-            color: '#eee',
-            width: '20px',
-            border: 'none',
-            marginLeft: '-10px',
-            marginTop: '1em',
-        } }));
+exports.P = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: { margin: '1em 0' } }, props), props.children);
 exports.Pb = system_tags_1.Div;
 const Icon = (props) => React.createElement("img", { src: props.src, style: {
         width: "12px",
@@ -7872,10 +7871,12 @@ exports.Rs = (props) => props.annotation.attributes.type === 'person' ?
         React.createElement(exports.PlaceName, Object.assign({}, props)) :
         null;
 exports.Seg = system_tags_1.Div;
-exports.Title = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: Object.assign({
-        fontSize: '2em',
-        fontWeight: 'bold',
-    }) }, props));
+exports.Table = (props) => React.createElement("table", null, props.children);
+exports.Row = (props) => React.createElement("tr", null, props.children);
+exports.Cell = (props) => React.createElement("td", null, props.children);
+exports.Title = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: default_styles_1.basicAnnotation }, props),
+    React.createElement(Icon, { src: "http://design.huygens.knaw.nl/static/icons/book.svg" }),
+    props.children);
 
 
 /***/ }),
@@ -8071,6 +8072,20 @@ createStory("Tags/Passive/Div, { type: div }").add('default', function () {
 (0, _figure2.default)(createStory, "Tags/Passive/Figure, { type: 'figure' }");
 
 (0, _figure2.default)(createStory, "Tags/Passive/Graphic, { type: 'graphic' }");
+
+createStory("Tags/Passive/Formula, { type: formula }").add('default', function () {
+	return _react2.default.createElement(
+		'div',
+		null,
+		'Excepteur esse incididunt officia ad laborum id.',
+		_react2.default.createElement(
+			_tags3.Formula,
+			{ annotation: { attributes: {} } },
+			'Euler is unpronouncable'
+		),
+		'Dolore consequat voluptate do mollit aliqua exercitation culpa duis cupidatat.'
+	);
+});
 
 createStory("Tags/Passive/Hi', { type: 'hi' }").add('attributes: rend: bold', function () {
 	return _react2.default.createElement(
@@ -8308,6 +8323,70 @@ createStory("Tags/Passive/Rs, { type: rs }").add('attributes: type: person', fun
 });
 
 (0, _seg2.default)(createStory);
+
+createStory("Tags/Passive/Table, { type: table }").add('default', function () {
+	return _react2.default.createElement(
+		_tags3.Table,
+		{ annotation: { attributes: {} } },
+		_react2.default.createElement(
+			_tags3.Row,
+			{ annotation: { attributes: {} } },
+			_react2.default.createElement(
+				_tags3.Cell,
+				{ annotation: { attributes: {} } },
+				'cel 1'
+			),
+			_react2.default.createElement(
+				_tags3.Cell,
+				{ annotation: { attributes: {} } },
+				'cel 2'
+			),
+			_react2.default.createElement(
+				_tags3.Cell,
+				{ annotation: { attributes: {} } },
+				'cel 3'
+			)
+		),
+		_react2.default.createElement(
+			_tags3.Row,
+			{ annotation: { attributes: {} } },
+			_react2.default.createElement(
+				_tags3.Cell,
+				{ annotation: { attributes: {} } },
+				'cel 4'
+			),
+			_react2.default.createElement(
+				_tags3.Cell,
+				{ annotation: { attributes: {} } },
+				'cel 5'
+			),
+			_react2.default.createElement(
+				_tags3.Cell,
+				{ annotation: { attributes: {} } },
+				'cel 6'
+			)
+		),
+		_react2.default.createElement(
+			_tags3.Row,
+			{ annotation: { attributes: {} } },
+			_react2.default.createElement(
+				_tags3.Cell,
+				{ annotation: { attributes: {} } },
+				'cel 7'
+			),
+			_react2.default.createElement(
+				_tags3.Cell,
+				{ annotation: { attributes: {} } },
+				'cel 8'
+			),
+			_react2.default.createElement(
+				_tags3.Cell,
+				{ annotation: { attributes: {} } },
+				'cel 9'
+			)
+		)
+	);
+});
 
 createStory("Tags/Passive/Title, { type: title }").add('default', function () {
 	return _react2.default.createElement(
@@ -13646,22 +13725,38 @@ const rend_1 = __webpack_require__(837);
 exports.Span = (props) => React.createElement("span", { id: props.id, style: Object.assign({}, rend_1.default(props), props.style) }, props.children);
 exports.Div = (props) => React.createElement("div", { id: props.id, style: Object.assign({}, rend_1.default(props), props.style) }, props.children);
 exports.NotImplemented = (props) => React.createElement("div", { style: {
-        backgroundColor: 'red',
-        border: '1px solid darkred',
-        borderRadius: '3px',
+        backgroundColor: '#EC7700',
         color: 'white',
-        padding: '1em',
-        boxShadow: '4px 4px 6px darkred'
+        padding: '2em 1.5em',
+        margin: '1em -.5em',
+        fontFamily: "'Roboto', sans-serif",
     } },
     React.createElement("span", { style: {
             fontWeight: 'bold',
-            fontSize: '1.5em',
+            fontSize: '1.3em',
         } },
-        "[",
+        React.createElement("img", { style: {
+                width: '2em',
+                height: 'auto',
+                display: 'block',
+                marginBottom: '1em',
+            }, src: "http://design.huygens.knaw.nl/static/icons/caution-inv.svg" }),
+        "Warning: The tag ",
         props.annotation.type,
-        " | NOT IMPLEMENTED]"),
-    "\u00A0",
-    props.children);
+        " is not implemented!"),
+    React.createElement("br", null),
+    "Wrapped on ",
+    React.createElement("em", null, props.children),
+    ".",
+    React.createElement("div", { style: {
+            marginTop: '1em',
+            fontStyle: 'italic',
+        } },
+        "This tag is not part of the Huygens ING TEI standard. Please visit ",
+        React.createElement("a", { style: {
+                color: '#fff',
+            }, href: "http://servicedesk.huygens.knaw.nl", target: "_blank" }, "Servicedesk.huygens.knaw.nl"),
+        " to request support of this tag."));
 exports.None = () => null;
 
 
@@ -39749,13 +39844,16 @@ const hire_tooltip_1 = __webpack_require__(919);
 const constants_1 = __webpack_require__(273);
 const rendered_text_1 = __webpack_require__(274);
 const AnchorComp = (props) => React.createElement("span", { className: constants_1.IGNORE_CLASSNAME, onClick: props.onClick, ref: props.setRef, style: {
-        backgroundColor: '#DDD',
-        borderRadius: '1em',
+        fontFamily: "'Roboto', sans-serif",
+        backgroundColor: '#fff',
+        border: '1px solid #aaa',
+        borderRadius: '50%',
         cursor: 'pointer',
         fontSize: '10px',
         marginLeft: '.2em',
-        padding: '.3em .5em',
-        verticalAlign: 'bottom',
+        marginRight: '.4em',
+        padding: '.5em .5em',
+        verticalAlign: 'top',
     } }, props.children);
 const minLeft = 18;
 const tooltipWidth = 400;
@@ -39831,7 +39929,7 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Block,
     },
     cell: {
-        component: system_tags_1.NotImplemented,
+        component: tags_1.Cell,
         display: system_components_by_tags_1.Display.Block,
     },
     closer: {
@@ -39947,7 +40045,7 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Block,
     },
     row: {
-        component: system_tags_1.NotImplemented,
+        component: tags_1.Row,
         display: system_components_by_tags_1.Display.Block,
     },
     rs: {
@@ -39963,7 +40061,7 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Block,
     },
     table: {
-        component: system_tags_1.NotImplemented,
+        component: tags_1.Table,
         display: system_components_by_tags_1.Display.Block,
     },
     text: {
@@ -42275,7 +42373,9 @@ const React = __webpack_require__(0);
 const default_styles_1 = __webpack_require__(153);
 const Li = (props) => React.createElement("li", { style: { display: 'inline-block', marginRight: '.5em' } }, props.children);
 const Keywords = (props) => React.createElement("section", null,
-    React.createElement("h3", null, "Keywords"),
+    React.createElement("h3", { style: {
+            fontSize: '1em',
+        } }, "Keywords"),
     React.createElement("ul", { style: default_styles_1.blueFontStyle },
         props.keywords &&
             props.keywords
@@ -42320,7 +42420,7 @@ const Metadata = (props) => React.createElement(MetadataList, null,
     React.createElement(MetadataItem, null,
         React.createElement(Label, null, "TO"),
         React.createElement("div", null,
-            React.createElement(Bold, null, props.rootAnnotation.metadata.recipient),
+            React.createElement("div", null, props.rootAnnotation.metadata.recipient),
             React.createElement("div", null, props.rootAnnotation.metadata.recipientloc))),
     React.createElement(MetadataItem, null,
         React.createElement(Label, null, "DATE"),
@@ -43030,7 +43130,7 @@ exports.default = function (createStory, title) {
 			'Deserunt aliquip veniam minim voluptate id. Labore consectetur deserunt ex fugiat nulla consequat elit ex pariatur officia nisi proident pariatur.',
 			_react2.default.createElement(
 				_tags.Figure,
-				null,
+				{ annotation: { attributes: {} } },
 				_react2.default.createElement(_tags.Graphic, { annotation: { attributes: { url: 'docker-hub.png' } } })
 			),
 			'Eiusmod irure elit fugiat aliqua in deserunt et. Anim nisi aute anim eiusmod consectetur eiusmod consectetur sunt aute elit.'
@@ -45559,4 +45659,4 @@ module.exports = __webpack_require__(745);
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=preview.3a5daa6716b05c5eebdc.bundle.js.map
+//# sourceMappingURL=preview.232beccbb73d38dfa011.bundle.js.map
