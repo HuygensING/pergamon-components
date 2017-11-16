@@ -101,6 +101,19 @@ createStory('SemanticSuggestions')
 	.add('default', () =>
 		<SemanticSuggestions
 			fullTextSearch={ () => {} }
+			semanticSuggestions={[]}
+		/>
+	)
+	.add('requesting', () =>
+		<SemanticSuggestions
+			fullTextSearch={ () => {} }
+			requesting
+			semanticSuggestions={[]}
+		/>
+	)
+	.add('found', () =>
+		<SemanticSuggestions
+			fullTextSearch={ () => {} }
 			semanticSuggestions={[
 				{ text: 'reprehenderit', weight: 1 },
 				{ text: 'pariatur', weight: 0.9 },
