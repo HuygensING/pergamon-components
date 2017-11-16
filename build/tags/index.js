@@ -4,7 +4,6 @@ const system_components_by_tags_1 = require("./system-components-by-tags");
 const tags_1 = require("./tags");
 const anchor_1 = require("./anchor");
 const system_tags_1 = require("./system-tags");
-const not_implemented_1 = require("./not-implemented");
 const componentsByTags = Object.assign({}, system_components_by_tags_1.default, {
     ab: {
         component: system_tags_1.Div,
@@ -38,10 +37,6 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         component: tags_1.DateTag,
         display: system_components_by_tags_1.Display.Inline,
     },
-    figDesc: {
-        component: not_implemented_1.default,
-        display: system_components_by_tags_1.Display.Block,
-    },
     figure: {
         component: tags_1.Figure,
         display: system_components_by_tags_1.Display.Block,
@@ -50,44 +45,20 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         component: tags_1.Formula,
         display: system_components_by_tags_1.Display.Inline,
     },
-    geogName: {
-        component: not_implemented_1.default,
-        display: system_components_by_tags_1.Display.Block,
-    },
     graphic: {
         component: tags_1.Graphic,
-        display: system_components_by_tags_1.Display.Block,
-    },
-    head: {
-        component: not_implemented_1.default,
         display: system_components_by_tags_1.Display.Block,
     },
     hi: {
         component: tags_1.Hi,
         display: system_components_by_tags_1.Display.Inline,
     },
-    item: {
-        component: not_implemented_1.default,
-        display: system_components_by_tags_1.Display.Block,
-    },
     l: {
         component: tags_1.Line,
         display: system_components_by_tags_1.Display.Block,
     },
-    label: {
-        component: not_implemented_1.default,
-        display: system_components_by_tags_1.Display.Block,
-    },
-    lb: {
-        component: not_implemented_1.default,
-        display: system_components_by_tags_1.Display.Block,
-    },
     lg: {
         component: tags_1.LineGroup,
-        display: system_components_by_tags_1.Display.Block,
-    },
-    list: {
-        component: not_implemented_1.default,
         display: system_components_by_tags_1.Display.Block,
     },
     meta: {
@@ -106,10 +77,6 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         component: tags_1.Opener,
         display: system_components_by_tags_1.Display.Block,
     },
-    orgName: {
-        component: not_implemented_1.default,
-        display: system_components_by_tags_1.Display.Block,
-    },
     p: {
         component: tags_1.P,
         display: system_components_by_tags_1.Display.Block,
@@ -126,14 +93,6 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         component: tags_1.PlaceName,
         display: system_components_by_tags_1.Display.Inline,
     },
-    q: {
-        component: not_implemented_1.default,
-        display: system_components_by_tags_1.Display.Block,
-    },
-    quote: {
-        component: not_implemented_1.default,
-        display: system_components_by_tags_1.Display.Block,
-    },
     row: {
         component: tags_1.Row,
         display: system_components_by_tags_1.Display.Block,
@@ -145,10 +104,6 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
     seg: {
         component: tags_1.Seg,
         display: system_components_by_tags_1.Display.Inline,
-    },
-    sup: {
-        component: not_implemented_1.default,
-        display: system_components_by_tags_1.Display.Block,
     },
     table: {
         component: tags_1.Table,

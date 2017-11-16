@@ -17,7 +17,7 @@ exports.addRow = (tags) => {
             else {
                 space[row] = annotationsInRow
                     .filter(a => index_1.hasOverlap(annotation, a))
-                    .some(a => tags[a.type].display === system_components_by_tags_1.Display.Block);
+                    .some(a => tags.hasOwnProperty(a.type) && tags[a.type].display === system_components_by_tags_1.Display.Block);
             }
         }
         const highestBlockIndex = space.lastIndexOf(true);

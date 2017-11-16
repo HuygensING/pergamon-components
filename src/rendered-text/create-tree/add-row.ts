@@ -16,7 +16,7 @@ export const addRow = (tags: IComponentsByTags) => {
 			} else {
 				space[row] = annotationsInRow
 					.filter(a => hasOverlap(annotation, a))
-					.some(a => tags[a.type].display === Display.Block);
+					.some(a => tags.hasOwnProperty(a.type) && tags[a.type].display === Display.Block);
 			}
 		}
 

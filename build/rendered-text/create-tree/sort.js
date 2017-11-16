@@ -15,16 +15,8 @@ exports.byStartEnd = (a, b) => {
     return 0;
 };
 exports.byDisplayStartEnd = (tags) => (a, b) => {
-    if (!tags.hasOwnProperty(a.type)) {
-        console.error(`Annotation type not found: "${a.type}"`);
-        tags[a.type] = tags.__text;
-    }
-    if (!tags.hasOwnProperty(b.type)) {
-        console.error(`Annotation type not found: "${b.type}"`);
-        tags[b.type] = tags.__text;
-    }
-    const aDisplay = tags[a.type].display;
-    const bDisplay = tags[b.type].display;
+    const aDisplay = tags.hasOwnProperty(a.type) ? tags[a.type].display : system_components_by_tags_1.Display.Inline;
+    const bDisplay = tags.hasOwnProperty(b.type) ? tags[b.type].display : system_components_by_tags_1.Display.Inline;
     if (aDisplay !== bDisplay) {
         return (aDisplay === system_components_by_tags_1.Display.Inline) ? 1 : -1;
     }

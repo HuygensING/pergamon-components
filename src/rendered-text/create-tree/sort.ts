@@ -12,18 +12,23 @@ export const byStartEnd = (a: IAnnotation, b: IAnnotation) => {
 };
 
 export const byDisplayStartEnd = (tags) => (a: IAnnotation, b: IAnnotation) => {
-	if (!tags.hasOwnProperty(a.type)) {
-		console.error(`Annotation type not found: "${a.type}"`)
-		tags[a.type] = tags.__text;
-	}
+	// if (!tags.hasOwnProperty(a.type)) {
+	// 	console.error(`Annotation type not found: "${a.type}"`)
+	// 	tags[a.type] = {
+	// 		component: NotImplemented,
+	// 		display: Display.Block,
+	// 	}
+	// }
 
-	if (!tags.hasOwnProperty(b.type)) {
-		console.error(`Annotation type not found: "${b.type}"`)
-		tags[b.type] = tags.__text;
-	}
-
-	const aDisplay = tags[a.type].display;
-	const bDisplay = tags[b.type].display;
+	// if (!tags.hasOwnProperty(b.type)) {
+	// 	console.error(`Annotation type not found: "${b.type}"`)
+	// 	tags[b.type] = {
+	// 		component: NotImplemented,
+	// 		display: Display.Block,
+	// 	}
+	// }
+	const aDisplay = tags.hasOwnProperty(a.type) ? tags[a.type].display : Display.Inline
+	const bDisplay = tags.hasOwnProperty(b.type) ? tags[b.type].display : Display.Inline
 
 	// If display prop are not the same, 'block' get precedence over 'inline'
 	// If display prop is equal, look at start and end prop

@@ -24,7 +24,6 @@ import {
 } from './tags'
 import Anchor from "./anchor"
 import { Div, None } from './system-tags'
-import NotImplemented from './not-implemented'
 
 const componentsByTags: IComponentsByTags = {
 	...systemComponentsByTags,
@@ -61,10 +60,6 @@ const componentsByTags: IComponentsByTags = {
 			component: DateTag,
 			display: Display.Inline,
 		},
-		figDesc: {
-			component: NotImplemented,
-			display: Display.Block,
-		},
 		figure: {
 			component: Figure,
 			display: Display.Block,
@@ -73,44 +68,20 @@ const componentsByTags: IComponentsByTags = {
 			component: Formula,
 			display: Display.Inline,
 		},
-		geogName: {
-			component: NotImplemented,
-			display: Display.Block,
-		},
 		graphic: {
 			component: Graphic,
-			display: Display.Block,
-		},
-		head: {
-			component: NotImplemented,
 			display: Display.Block,
 		},
 		hi: {
 			component: Hi,
 			display: Display.Inline,
 		},
-		item: {
-			component: NotImplemented,
-			display: Display.Block,
-		},
 		l: {
 			component: Line,
 			display: Display.Block,
 		},
-		label: {
-			component: NotImplemented,
-			display: Display.Block,
-		},
-		lb: {
-			component: NotImplemented,
-			display: Display.Block,
-		},
 		lg: {
 			component: LineGroup,
-			display: Display.Block,
-		},
-		list: {
-			component: NotImplemented,
 			display: Display.Block,
 		},
 		meta: {
@@ -129,10 +100,6 @@ const componentsByTags: IComponentsByTags = {
 			component: Opener,
 			display: Display.Block,
 		},
-		orgName: {
-			component: NotImplemented,
-			display: Display.Block,
-		},
 		p: {
 			component: P,
 			display: Display.Block,
@@ -149,14 +116,6 @@ const componentsByTags: IComponentsByTags = {
 			component: PlaceName,
 			display: Display.Inline,
 		},
-		q: {
-			component: NotImplemented,
-			display: Display.Block,
-		},
-		quote: {
-			component: NotImplemented,
-			display: Display.Block,
-		},
 		row: {
 			component: Row,
 			display: Display.Block,
@@ -168,10 +127,6 @@ const componentsByTags: IComponentsByTags = {
 		seg: {
 			component: Seg,
 			display: Display.Inline,
-		},
-		sup: {
-			component: NotImplemented,
-			display: Display.Block,
 		},
 		table: {
 			component: Table,
