@@ -7814,8 +7814,6 @@ exports.Add = (props) => React.createElement(system_tags_1.Span, Object.assign({
     "+ ",
     props.children);
 exports.Cell = (props) => React.createElement("td", null, props.children);
-exports.Choice = system_tags_1.Span;
-exports.Closer = system_tags_1.Div;
 exports.Sic = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: {
         borderBottom: '1px solid #AAA',
         paddingRight: '.6em',
@@ -7824,6 +7822,11 @@ exports.Corr = (props) => React.createElement(system_tags_1.Span, Object.assign(
         border: '1px solid #AAA',
         padding: '0 .6em',
     } }, props));
+// DivTag is the TEI <div> tag (there is also a Div tag which represents the HTML <div> tag)
+exports.DivTag = (props) => (props.annotation.attributes.type === 'comment' ||
+    props.annotation.attributes.type === 'provenance') ?
+    React.createElement(system_tags_1.None, null) :
+    React.createElement(system_tags_1.Div, Object.assign({}, props));
 exports.DateTag = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: default_styles_1.basicAnnotation }, props),
     React.createElement(Icon, { src: "http://design.huygens.knaw.nl/static/icons/date.svg" }),
     props.children);
@@ -7836,7 +7839,6 @@ exports.Graphic = (props) => React.createElement("img", { id: props.id, src: `/s
         width: '100%',
     } });
 exports.Formula = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: { fontStyle: 'italic' } }, props));
-exports.Hi = system_tags_1.Span;
 exports.Line = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: { lineHeight: '2em' } }, props),
     React.createElement("span", { style: {
             width: '1em',
@@ -7855,7 +7857,6 @@ exports.Name = (props) => props.annotation.attributes.type === 'person' ?
         React.createElement(not_implemented_1.default, Object.assign({}, props));
 exports.Opener = system_tags_1.Div;
 exports.P = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: { margin: '1em 0' } }, props), props.children);
-exports.Pb = system_tags_1.Div;
 const Icon = (props) => React.createElement("img", { src: props.src, style: {
         width: "12px",
         height: 'auto',
@@ -7873,7 +7874,6 @@ exports.Rs = (props) => props.annotation.attributes.type === 'person' ?
     props.annotation.attributes.type === 'place' ?
         React.createElement(exports.PlaceName, Object.assign({}, props)) :
         null;
-exports.Seg = system_tags_1.Div;
 exports.Table = (props) => React.createElement("table", null, props.children);
 exports.Title = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: default_styles_1.basicAnnotation }, props),
     React.createElement(Icon, { src: "http://design.huygens.knaw.nl/static/icons/book.svg" }),
@@ -7985,6 +7985,17 @@ createStoryWithKnobs('RenderedText').add('default', function () {
 });
 
 createStory('SemanticSuggestions').add('default', function () {
+	return _react2.default.createElement(_src.SemanticSuggestions, {
+		fullTextSearch: function fullTextSearch() {},
+		semanticSuggestions: []
+	});
+}).add('requesting', function () {
+	return _react2.default.createElement(_src.SemanticSuggestions, {
+		fullTextSearch: function fullTextSearch() {},
+		requesting: true,
+		semanticSuggestions: []
+	});
+}).add('found', function () {
 	return _react2.default.createElement(_src.SemanticSuggestions, {
 		fullTextSearch: function fullTextSearch() {},
 		semanticSuggestions: [{ text: 'reprehenderit', weight: 1 }, { text: 'pariatur', weight: 0.9 }, { text: 'occaecat', weight: 0.9 }, { text: 'tempor', weight: 0.7 }, { text: 'nostrud', weight: 0.6 }, { text: 'eiusmod', weight: 0.5 }, { text: 'quis', weight: 0.2 }]
@@ -39845,16 +39856,22 @@ exports.byStartEnd = (a, b) => {
     return 0;
 };
 exports.byDisplayStartEnd = (tags) => (a, b) => {
-    if (!tags.hasOwnProperty(a.type)) {
-        console.error(`Annotation type not found: "${a.type}"`);
-        tags[a.type] = tags.__text;
-    }
-    if (!tags.hasOwnProperty(b.type)) {
-        console.error(`Annotation type not found: "${b.type}"`);
-        tags[b.type] = tags.__text;
-    }
-    const aDisplay = tags[a.type].display;
-    const bDisplay = tags[b.type].display;
+    // if (!tags.hasOwnProperty(a.type)) {
+    // 	console.error(`Annotation type not found: "${a.type}"`)
+    // 	tags[a.type] = {
+    // 		component: NotImplemented,
+    // 		display: Display.Block,
+    // 	}
+    // }
+    // if (!tags.hasOwnProperty(b.type)) {
+    // 	console.error(`Annotation type not found: "${b.type}"`)
+    // 	tags[b.type] = {
+    // 		component: NotImplemented,
+    // 		display: Display.Block,
+    // 	}
+    // }
+    const aDisplay = tags.hasOwnProperty(a.type) ? tags[a.type].display : system_components_by_tags_1.Display.Inline;
+    const bDisplay = tags.hasOwnProperty(b.type) ? tags[b.type].display : system_components_by_tags_1.Display.Inline;
     // If display prop are not the same, 'block' get precedence over 'inline'
     // If display prop is equal, look at start and end prop
     if (aDisplay !== bDisplay) {
@@ -39959,7 +39976,6 @@ const system_components_by_tags_1 = __webpack_require__(276);
 const tags_1 = __webpack_require__(142);
 const anchor_1 = __webpack_require__(523);
 const system_tags_1 = __webpack_require__(230);
-const not_implemented_1 = __webpack_require__(275);
 const componentsByTags = Object.assign({}, system_components_by_tags_1.default, {
     ab: {
         component: system_tags_1.Div,
@@ -39977,8 +39993,12 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         component: tags_1.Cell,
         display: system_components_by_tags_1.Display.Block,
     },
+    choice: {
+        component: system_tags_1.Span,
+        display: system_components_by_tags_1.Display.Inline,
+    },
     closer: {
-        component: tags_1.Closer,
+        component: system_tags_1.Div,
         display: system_components_by_tags_1.Display.Block,
     },
     corr: {
@@ -39986,16 +40006,12 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Inline,
     },
     div: {
-        component: system_tags_1.Div,
+        component: tags_1.DivTag,
         display: system_components_by_tags_1.Display.Block,
     },
     date: {
         component: tags_1.DateTag,
         display: system_components_by_tags_1.Display.Inline,
-    },
-    figDesc: {
-        component: not_implemented_1.default,
-        display: system_components_by_tags_1.Display.Block,
     },
     figure: {
         component: tags_1.Figure,
@@ -40005,44 +40021,24 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         component: tags_1.Formula,
         display: system_components_by_tags_1.Display.Inline,
     },
-    geogName: {
-        component: not_implemented_1.default,
-        display: system_components_by_tags_1.Display.Block,
-    },
     graphic: {
         component: tags_1.Graphic,
         display: system_components_by_tags_1.Display.Block,
     },
-    head: {
-        component: not_implemented_1.default,
-        display: system_components_by_tags_1.Display.Block,
-    },
     hi: {
-        component: tags_1.Hi,
+        component: system_tags_1.Span,
         display: system_components_by_tags_1.Display.Inline,
-    },
-    item: {
-        component: not_implemented_1.default,
-        display: system_components_by_tags_1.Display.Block,
     },
     l: {
         component: tags_1.Line,
         display: system_components_by_tags_1.Display.Block,
     },
-    label: {
-        component: not_implemented_1.default,
-        display: system_components_by_tags_1.Display.Block,
-    },
     lb: {
-        component: not_implemented_1.default,
+        component: system_tags_1.Div,
         display: system_components_by_tags_1.Display.Block,
     },
     lg: {
         component: tags_1.LineGroup,
-        display: system_components_by_tags_1.Display.Block,
-    },
-    list: {
-        component: not_implemented_1.default,
         display: system_components_by_tags_1.Display.Block,
     },
     meta: {
@@ -40061,16 +40057,12 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         component: tags_1.Opener,
         display: system_components_by_tags_1.Display.Block,
     },
-    orgName: {
-        component: not_implemented_1.default,
-        display: system_components_by_tags_1.Display.Block,
-    },
     p: {
         component: tags_1.P,
         display: system_components_by_tags_1.Display.Block,
     },
     pb: {
-        component: tags_1.Pb,
+        component: system_tags_1.Div,
         display: system_components_by_tags_1.Display.Block,
     },
     persName: {
@@ -40081,14 +40073,6 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         component: tags_1.PlaceName,
         display: system_components_by_tags_1.Display.Inline,
     },
-    q: {
-        component: not_implemented_1.default,
-        display: system_components_by_tags_1.Display.Block,
-    },
-    quote: {
-        component: not_implemented_1.default,
-        display: system_components_by_tags_1.Display.Block,
-    },
     row: {
         component: tags_1.Row,
         display: system_components_by_tags_1.Display.Block,
@@ -40098,12 +40082,8 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Inline,
     },
     seg: {
-        component: tags_1.Seg,
+        component: system_tags_1.Span,
         display: system_components_by_tags_1.Display.Inline,
-    },
-    sup: {
-        component: not_implemented_1.default,
-        display: system_components_by_tags_1.Display.Block,
     },
     table: {
         component: tags_1.Table,
@@ -42511,7 +42491,7 @@ exports.addRow = (tags) => {
             else {
                 space[row] = annotationsInRow
                     .filter(a => index_1.hasOverlap(annotation, a))
-                    .some(a => tags[a.type].display === system_components_by_tags_1.Display.Block);
+                    .some(a => tags.hasOwnProperty(a.type) && tags[a.type].display === system_components_by_tags_1.Display.Block);
             }
         }
         const highestBlockIndex = space.lastIndexOf(true);
@@ -42738,11 +42718,14 @@ exports.default = toTree;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(0);
+const not_implemented_1 = __webpack_require__(275);
 const TextTreeNode = (props) => {
     if (!props.tags.hasOwnProperty(props.annotation.type)) {
-        throw new Error(`Component not found: ${props.annotation.type}`);
+        console.error(`Component not found: ${props.annotation.type}`);
     }
-    const Tag = props.tags[props.annotation.type].component;
+    const Tag = props.tags.hasOwnProperty(props.annotation.type) ?
+        props.tags[props.annotation.type].component :
+        not_implemented_1.default;
     return (React.createElement(Tag, { activateAnnotation: props.activateAnnotation, activeAnnotation: props.activeAnnotation, annotation: props.annotation, id: props.annotation._tagId, root: props.root, tags: props.tags }, props.children));
 };
 exports.default = TextTreeNode;
@@ -42758,19 +42741,34 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(0);
 const default_styles_1 = __webpack_require__(153);
 const suggestion_1 = __webpack_require__(837);
-const Suggestions = (props) => React.createElement("div", { style: Object.assign({}, default_styles_1.fontStyle, default_styles_1.grayLightBackground, { padding: '.5em' }) },
-    React.createElement("img", { src: "http://design.huygens.knaw.nl/static/icons/loader.svg", style: {
-            width: '30px',
-            height: 'auto'
-        } }),
-    React.createElement("p", null, "Generating semantic suggestions for better search results."),
-    React.createElement("p", null, "The ePistolarium has found 9 terms that are used in the same context. You can add them to improve your search results:"),
-    React.createElement("ul", { style: {
-            listStyle: 'none',
-            margin: '.5em 0 0 0',
-            padding: 0,
-        } }, props.children));
-const SemanticSuggestions = (props) => React.createElement(Suggestions, null, props.semanticSuggestions.map(((s) => React.createElement(suggestion_1.default, { key: s.text, onClick: (ev) => props.fullTextSearch(s.text), suggestion: s }, s.text))));
+const Wrapper = (props) => React.createElement("div", { style: Object.assign({}, default_styles_1.fontStyle, default_styles_1.grayLightBackground, { padding: props.semanticSuggestions.length > 0 ? '.5em' : 0 }) }, props.children);
+const Suggestions = (props) => React.createElement("ul", { style: {
+        listStyle: 'none',
+        margin: '.5em 0 0 0',
+        padding: 0,
+    } }, props.children);
+const SemanticSuggestions = (props) => React.createElement(Wrapper, Object.assign({}, props),
+    props.requesting &&
+        React.createElement("p", { style: {
+                alignItems: 'center',
+                display: 'grid',
+                fontSize: '0.9em',
+                gridTemplateColumns: '62px auto',
+                justifyItems: 'center',
+                padding: '.5em',
+            } },
+            React.createElement("img", { src: "http://design.huygens.knaw.nl/static/icons/loader.svg", style: {
+                    height: 'auto',
+                    width: '30px',
+                } }),
+            "Generating semantic suggestions for better search results."),
+    (props.semanticSuggestions.length > 0) &&
+        React.createElement("p", null,
+            "The ePistolarium has found ",
+            props.semanticSuggestions.length,
+            " terms that are used in the same context. You can add them to improve your search results:"),
+    (props.semanticSuggestions.length > 0) &&
+        React.createElement(Suggestions, null, props.semanticSuggestions.map(((s) => React.createElement(suggestion_1.default, { key: s.text, onClick: (ev) => props.fullTextSearch(s.text), suggestion: s }, s.text)))));
 exports.default = SemanticSuggestions;
 
 
@@ -45718,4 +45716,4 @@ module.exports = __webpack_require__(746);
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=preview.db397e914da4288aa587.bundle.js.map
+//# sourceMappingURL=preview.2309e7bf12fdd5ce368a.bundle.js.map
