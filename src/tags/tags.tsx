@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { basicAnnotation } from '../default-styles'
 import { Tag } from '../interfaces';
-import { Div, Span } from './system-tags';
+import { Div, Span, NotImplemented } from './system-tags';
 
 export const Add: Tag = (props) =>
 	<Span
@@ -106,8 +106,8 @@ export const Name: Tag = (props) =>
 	props.annotation.attributes.type === 'person' ?
 		<PersName {...props} /> :
 		props.annotation.attributes.type === 'place' ?
-		<PlaceName {...props} /> :
-		null
+			<PlaceName {...props} /> :
+			<NotImplemented {...props} />
 
 export const Opener: Tag = Div
 

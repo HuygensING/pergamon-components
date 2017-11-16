@@ -47,7 +47,7 @@ exports.Name = (props) => props.annotation.attributes.type === 'person' ?
     React.createElement(exports.PersName, Object.assign({}, props)) :
     props.annotation.attributes.type === 'place' ?
         React.createElement(exports.PlaceName, Object.assign({}, props)) :
-        null;
+        React.createElement(system_tags_1.NotImplemented, Object.assign({}, props));
 exports.Opener = system_tags_1.Div;
 exports.P = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: { margin: '1em 0' } }, props), props.children);
 exports.Pb = system_tags_1.Div;

@@ -32,9 +32,11 @@ exports.NotImplemented = (props) => React.createElement("div", { style: {
             marginTop: '1em',
             fontStyle: 'italic',
         } },
-        "This tag is not part of the Huygens ING TEI standard. Please visit ",
+        "This tag is not part of the Huygens ING TEI standard. Please visit",
+        ' ',
         React.createElement("a", { style: {
                 color: '#fff',
             }, href: "http://servicedesk.huygens.knaw.nl", target: "_blank" }, "Servicedesk.huygens.knaw.nl"),
-        " to request support of this tag."));
+        ' ',
+        "to request support of this tag."));
 exports.None = () => null;
