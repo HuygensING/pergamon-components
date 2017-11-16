@@ -4,6 +4,7 @@ import {
 	Closer,
 	Corr,
 	DateTag,
+	DivTag, // DivTag === TEI <div>, Div === HTML <div>
 	Figure,
 	Formula,
 	Graphic,
@@ -53,7 +54,7 @@ const componentsByTags: IComponentsByTags = {
 			display: Display.Inline,
 		},
 		div: {
-			component: Div,
+			component: DivTag,
 			display: Display.Block,
 		},
 		date: {

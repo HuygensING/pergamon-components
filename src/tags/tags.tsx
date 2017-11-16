@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { basicAnnotation } from '../default-styles'
 import { Tag } from '../interfaces';
-import { Div, Span } from './system-tags';
+import { Div, Span, None } from './system-tags';
 import NotImplemented from './not-implemented';
 
 export const Add: Tag = (props) =>
@@ -38,6 +38,13 @@ export const Corr: Tag = (props) =>
 		}}
 		{...props}
 	/>
+
+// DivTag is the TEI <div> tag (there is also a Div tag which represents the HTML <div> tag)
+export const DivTag: Tag = (props) =>
+	(props.annotation.attributes.type === 'comment' ||
+	props.annotation.attributes.type === 'provenance') ?
+		<None /> :
+		<Div {...props} />
 
 export const DateTag: Tag = (props) =>
 	<Span

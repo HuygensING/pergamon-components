@@ -30,7 +30,7 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Inline,
     },
     div: {
-        component: system_tags_1.Div,
+        component: tags_1.DivTag,
         display: system_components_by_tags_1.Display.Block,
     },
     date: {

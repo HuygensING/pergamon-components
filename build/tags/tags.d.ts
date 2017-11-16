@@ -5,6 +5,7 @@ export declare const Choice: Tag;
 export declare const Closer: Tag;
 export declare const Sic: Tag;
 export declare const Corr: Tag;
+export declare const DivTag: Tag;
 export declare const DateTag: Tag;
 export declare const Figure: Tag;
 export declare const Graphic: Tag;

@@ -20,6 +20,10 @@ exports.Corr = (props) => React.createElement(system_tags_1.Span, Object.assign(
         border: '1px solid #AAA',
         padding: '0 .6em',
     } }, props));
+exports.DivTag = (props) => (props.annotation.attributes.type === 'comment' ||
+    props.annotation.attributes.type === 'provenance') ?
+    React.createElement(system_tags_1.None, null) :
+    React.createElement(system_tags_1.Div, Object.assign({}, props));
 exports.DateTag = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: default_styles_1.basicAnnotation }, props),
     React.createElement(Icon, { src: "http://design.huygens.knaw.nl/static/icons/date.svg" }),
     props.children);
