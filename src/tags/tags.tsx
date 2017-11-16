@@ -13,6 +13,9 @@ export const Add: Tag = (props) =>
 		+ {props.children}
 	</Span>
 
+export const Cell: Tag = (props) =>
+	<td>{props.children}</td>
+
 export const Choice: Tag = Span
 
 export const Closer: Tag = Div
@@ -148,6 +151,9 @@ export const PlaceName: Tag = (props) =>
 		{props.children}
 	</Span>
 
+export const Row: Tag = (props) =>
+	<tr>{props.children}</tr>
+
 export const Rs: Tag = (props) =>
 	props.annotation.attributes.type === 'person' ?
 		<PersName {...props} /> :
@@ -159,12 +165,6 @@ export const Seg: Tag = Div
 
 export const Table: Tag = (props) =>
 	<table>{props.children}</table>
-
-export const Row: Tag = (props) =>
-	<tr>{props.children}</tr>
-
-export const Cell: Tag = (props) =>
-	<td>{props.children}</td>
 
 export const Title: Tag = (props) =>
 	<Span

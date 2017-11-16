@@ -18,11 +18,9 @@ class RenderedText extends React.Component {
         this.init(nextProps);
     }
     render() {
-        console.log('rendered text, render', this.state, this.props);
         return (React.createElement("div", { style: default_styles_1.fontReadStyle }, this.state.textTree));
     }
     init(props) {
-        console.log('init', props, this.props);
         if (props.root.id == null)
             return;
         if (this.state.textTree == null ||

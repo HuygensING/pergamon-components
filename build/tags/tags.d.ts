@@ -1,5 +1,6 @@
 import { Tag } from '../interfaces';
 export declare const Add: Tag;
+export declare const Cell: Tag;
 export declare const Choice: Tag;
 export declare const Closer: Tag;
 export declare const Sic: Tag;
@@ -17,9 +18,8 @@ export declare const P: Tag;
 export declare const Pb: Tag;
 export declare const PersName: Tag;
 export declare const PlaceName: Tag;
+export declare const Row: Tag;
 export declare const Rs: Tag;
 export declare const Seg: Tag;
 export declare const Table: Tag;
-export declare const Row: Tag;
-export declare const Cell: Tag;
 export declare const Title: Tag;

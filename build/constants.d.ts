@@ -5,6 +5,7 @@ export declare const debounceWait: number;
 export declare const IGNORE_CLASSNAME = "__ignore";
 export declare const SYSTEM_TEXT_TYPE = "__text";
 export declare const defaultAnnotation: {
+    attributes: {};
     children: any[];
     end: any;
     id: any;

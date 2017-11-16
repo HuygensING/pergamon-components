@@ -8,6 +8,7 @@ exports.Add = (props) => React.createElement(system_tags_1.Span, Object.assign({
     } }, props),
     "+ ",
     props.children);
+exports.Cell = (props) => React.createElement("td", null, props.children);
 exports.Choice = system_tags_1.Span;
 exports.Closer = system_tags_1.Div;
 exports.Sic = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: {
@@ -61,6 +62,7 @@ exports.PersName = (props) => React.createElement(system_tags_1.Span, Object.ass
 exports.PlaceName = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: default_styles_1.basicAnnotation }, props),
     React.createElement(Icon, { src: "http://design.huygens.knaw.nl/static/icons/location.svg" }),
     props.children);
+exports.Row = (props) => React.createElement("tr", null, props.children);
 exports.Rs = (props) => props.annotation.attributes.type === 'person' ?
     React.createElement(exports.PersName, Object.assign({}, props)) :
     props.annotation.attributes.type === 'place' ?
@@ -68,8 +70,6 @@ exports.Rs = (props) => props.annotation.attributes.type === 'person' ?
         null;
 exports.Seg = system_tags_1.Div;
 exports.Table = (props) => React.createElement("table", null, props.children);
-exports.Row = (props) => React.createElement("tr", null, props.children);
-exports.Cell = (props) => React.createElement("td", null, props.children);
 exports.Title = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: default_styles_1.basicAnnotation }, props),
     React.createElement(Icon, { src: "http://design.huygens.knaw.nl/static/icons/book.svg" }),
     props.children);

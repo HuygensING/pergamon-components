@@ -37,7 +37,6 @@ class RenderedText extends React.Component<IProps, IState> {
 	}
 
 	public render() {
-		console.log('rendered text, render', this.state, this.props)
 		return (
 			<div
 				style={fontReadStyle}
@@ -49,7 +48,6 @@ class RenderedText extends React.Component<IProps, IState> {
 
 	private init(props) {
 		// No root, no init
-		console.log('init', props, this.props)
 		if (props.root.id == null) return
 
 		if (

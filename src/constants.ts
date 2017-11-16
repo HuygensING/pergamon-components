@@ -14,6 +14,7 @@ export const IGNORE_CLASSNAME = '__ignore';
 export const SYSTEM_TEXT_TYPE = '__text';
 
 export const defaultAnnotation = {
+	attributes: {},
 	children: [],
 	end: null,
 	id: null,

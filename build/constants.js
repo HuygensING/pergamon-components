@@ -7,6 +7,7 @@ exports.debounceWait = 1000;
 exports.IGNORE_CLASSNAME = '__ignore';
 exports.SYSTEM_TEXT_TYPE = '__text';
 exports.defaultAnnotation = {
+    attributes: {},
     children: [],
     end: null,
     id: null,
