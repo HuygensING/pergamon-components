@@ -1,4 +1,4 @@
-import systemComponentsByTags, { Display, IComponentsByTags } from './system-components-by-tags';
+import systemComponentsByTags, { Display, IComponentsByTags } from './system-components-by-tags'
 import {
 	Cell,
 	Closer,
@@ -22,8 +22,9 @@ import {
 	Table,
 	Title,
 } from './tags'
-import Anchor from "./anchor";
-import { Div, None, NotImplemented } from './system-tags';
+import Anchor from "./anchor"
+import { Div, None } from './system-tags'
+import NotImplemented from './not-implemented'
 
 const componentsByTags: IComponentsByTags = {
 	...systemComponentsByTags,

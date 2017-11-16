@@ -4,6 +4,7 @@ const system_components_by_tags_1 = require("./system-components-by-tags");
 const tags_1 = require("./tags");
 const anchor_1 = require("./anchor");
 const system_tags_1 = require("./system-tags");
+const not_implemented_1 = require("./not-implemented");
 const componentsByTags = Object.assign({}, system_components_by_tags_1.default, {
     ab: {
         component: system_tags_1.Div,
@@ -38,7 +39,7 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Inline,
     },
     figDesc: {
-        component: system_tags_1.NotImplemented,
+        component: not_implemented_1.default,
         display: system_components_by_tags_1.Display.Block,
     },
     figure: {
@@ -50,7 +51,7 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Inline,
     },
     geogName: {
-        component: system_tags_1.NotImplemented,
+        component: not_implemented_1.default,
         display: system_components_by_tags_1.Display.Block,
     },
     graphic: {
@@ -58,7 +59,7 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Block,
     },
     head: {
-        component: system_tags_1.NotImplemented,
+        component: not_implemented_1.default,
         display: system_components_by_tags_1.Display.Block,
     },
     hi: {
@@ -66,7 +67,7 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Inline,
     },
     item: {
-        component: system_tags_1.NotImplemented,
+        component: not_implemented_1.default,
         display: system_components_by_tags_1.Display.Block,
     },
     l: {
@@ -74,11 +75,11 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Block,
     },
     label: {
-        component: system_tags_1.NotImplemented,
+        component: not_implemented_1.default,
         display: system_components_by_tags_1.Display.Block,
     },
     lb: {
-        component: system_tags_1.NotImplemented,
+        component: not_implemented_1.default,
         display: system_components_by_tags_1.Display.Block,
     },
     lg: {
@@ -86,7 +87,7 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Block,
     },
     list: {
-        component: system_tags_1.NotImplemented,
+        component: not_implemented_1.default,
         display: system_components_by_tags_1.Display.Block,
     },
     meta: {
@@ -106,7 +107,7 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Block,
     },
     orgName: {
-        component: system_tags_1.NotImplemented,
+        component: not_implemented_1.default,
         display: system_components_by_tags_1.Display.Block,
     },
     p: {
@@ -126,11 +127,11 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Inline,
     },
     q: {
-        component: system_tags_1.NotImplemented,
+        component: not_implemented_1.default,
         display: system_components_by_tags_1.Display.Block,
     },
     quote: {
-        component: system_tags_1.NotImplemented,
+        component: not_implemented_1.default,
         display: system_components_by_tags_1.Display.Block,
     },
     row: {
@@ -146,7 +147,7 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Inline,
     },
     sup: {
-        component: system_tags_1.NotImplemented,
+        component: not_implemented_1.default,
         display: system_components_by_tags_1.Display.Block,
     },
     table: {

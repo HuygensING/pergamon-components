@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
 const default_styles_1 = require("../default-styles");
 const system_tags_1 = require("./system-tags");
+const not_implemented_1 = require("./not-implemented");
 exports.Add = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: {
         color: 'green',
     } }, props),
@@ -47,7 +48,7 @@ exports.Name = (props) => props.annotation.attributes.type === 'person' ?
     React.createElement(exports.PersName, Object.assign({}, props)) :
     props.annotation.attributes.type === 'place' ?
         React.createElement(exports.PlaceName, Object.assign({}, props)) :
-        React.createElement(system_tags_1.NotImplemented, Object.assign({}, props));
+        React.createElement(not_implemented_1.default, Object.assign({}, props));
 exports.Opener = system_tags_1.Div;
 exports.P = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: { margin: '1em 0' } }, props), props.children);
 exports.Pb = system_tags_1.Div;
