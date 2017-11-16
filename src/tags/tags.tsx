@@ -17,10 +17,6 @@ export const Add: Tag = (props) =>
 export const Cell: Tag = (props) =>
 	<td>{props.children}</td>
 
-export const Choice: Tag = Span
-
-export const Closer: Tag = Div
-
 export const Sic: Tag = (props) =>
 	<Span
 		style={{
@@ -80,8 +76,6 @@ export const Formula: Tag = (props) =>
 		{...props}
 	/>
 
-export const Hi: Tag = Span
-
 export const Line: Tag = (props) =>
 	<Div
 		style={{ lineHeight: '2em' }}
@@ -128,8 +122,6 @@ export const P: Tag = (props) =>
 
 	</Div>
 
-export const Pb: Tag = Div
-
 interface IIcon { src: string }
 const Icon: React.SFC<IIcon> = (props) =>
 	<img
@@ -168,8 +160,6 @@ export const Rs: Tag = (props) =>
 		props.annotation.attributes.type === 'place' ?
 			<PlaceName {...props} /> :
 			null
-
-export const Seg: Tag = Div
 
 export const Table: Tag = (props) =>
 	<table>{props.children}</table>

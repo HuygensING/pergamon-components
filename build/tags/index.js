@@ -21,8 +21,12 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         component: tags_1.Cell,
         display: system_components_by_tags_1.Display.Block,
     },
+    choice: {
+        component: system_tags_1.Span,
+        display: system_components_by_tags_1.Display.Inline,
+    },
     closer: {
-        component: tags_1.Closer,
+        component: system_tags_1.Div,
         display: system_components_by_tags_1.Display.Block,
     },
     corr: {
@@ -50,7 +54,7 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Block,
     },
     hi: {
-        component: tags_1.Hi,
+        component: system_tags_1.Span,
         display: system_components_by_tags_1.Display.Inline,
     },
     l: {
@@ -82,7 +86,7 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Block,
     },
     pb: {
-        component: tags_1.Pb,
+        component: system_tags_1.Div,
         display: system_components_by_tags_1.Display.Block,
     },
     persName: {
@@ -102,7 +106,7 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Inline,
     },
     seg: {
-        component: tags_1.Seg,
+        component: system_tags_1.Span,
         display: system_components_by_tags_1.Display.Inline,
     },
     table: {

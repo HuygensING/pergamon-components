@@ -1,30 +1,26 @@
 import systemComponentsByTags, { Display, IComponentsByTags } from './system-components-by-tags'
 import {
 	Cell,
-	Closer,
 	Corr,
 	DateTag,
 	DivTag, // DivTag === TEI <div>, Div === HTML <div>
 	Figure,
 	Formula,
 	Graphic,
-	Hi,
 	Line,
 	LineGroup,
 	Name,
 	Opener,
 	P,
-	Pb,
 	PersName,
 	PlaceName,
 	Row,
 	Rs,
-	Seg,
 	Table,
 	Title,
 } from './tags'
 import Anchor from "./anchor"
-import { Div, None } from './system-tags'
+import { Div, None, Span } from './system-tags'
 
 const componentsByTags: IComponentsByTags = {
 	...systemComponentsByTags,
@@ -45,8 +41,12 @@ const componentsByTags: IComponentsByTags = {
 			component: Cell,
 			display: Display.Block,
 		},
+		choice: {
+			component: Span,
+			display: Display.Inline,
+		},
 		closer: {
-			component: Closer,
+			component: Div,
 			display: Display.Block,
 		},
 		corr: {
@@ -74,7 +74,7 @@ const componentsByTags: IComponentsByTags = {
 			display: Display.Block,
 		},
 		hi: {
-			component: Hi,
+			component: Span,
 			display: Display.Inline,
 		},
 		l: {
@@ -106,7 +106,7 @@ const componentsByTags: IComponentsByTags = {
 			display: Display.Block,
 		},
 		pb: {
-			component: Pb,
+			component: Div,
 			display: Display.Block,
 		},
 		persName: {
@@ -126,7 +126,7 @@ const componentsByTags: IComponentsByTags = {
 			display: Display.Inline,
 		},
 		seg: {
-			component: Seg,
+			component: Span,
 			display: Display.Inline,
 		},
 		table: {
