@@ -81,6 +81,10 @@ const componentsByTags: IComponentsByTags = {
 			component: Line,
 			display: Display.Block,
 		},
+		lb: {
+			component: Div,
+			display: Display.Block,
+		},
 		lg: {
 			component: LineGroup,
 			display: Display.Block,

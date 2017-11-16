@@ -61,6 +61,10 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         component: tags_1.Line,
         display: system_components_by_tags_1.Display.Block,
     },
+    lb: {
+        component: system_tags_1.Div,
+        display: system_components_by_tags_1.Display.Block,
+    },
     lg: {
         component: tags_1.LineGroup,
         display: system_components_by_tags_1.Display.Block,
