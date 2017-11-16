@@ -42768,7 +42768,7 @@ const SemanticSuggestions = (props) => React.createElement(Wrapper, Object.assig
             props.semanticSuggestions.length,
             " terms that are used in the same context. You can add them to improve your search results:"),
     (props.semanticSuggestions.length > 0) &&
-        React.createElement(Suggestions, null, props.semanticSuggestions.map(((s) => React.createElement(suggestion_1.default, { key: s.text, onClick: (ev) => props.fullTextSearch(s.text), suggestion: s }, s.text)))));
+        React.createElement(Suggestions, null, props.semanticSuggestions.map(((s) => React.createElement(suggestion_1.default, { key: s.text, onClick: (ev) => props.fullTextSearch(s.text), suggestion: s })))));
 exports.default = SemanticSuggestions;
 
 
@@ -42789,17 +42789,19 @@ class Suggestion extends React.Component {
     }
     render() {
         return (React.createElement("li", { onClick: this.props.onClick, onMouseEnter: () => this.setState({ hover: true }), onMouseLeave: () => this.setState({ hover: false }), style: {
-                color: this.state.hover ? '#ccc' : 'inherit',
+                color: this.state.hover ? 'black' : '#444',
                 cursor: 'pointer',
+                display: 'grid',
+                gridTemplateColumns: '4fr 1fr',
             } },
-            this.props.children,
+            this.props.suggestion.text,
             React.createElement("span", { style: {
-                    color: '#bbb',
+                    color: this.state.hover ? 'black' : '#aaa',
                     fontSize: '14px',
+                    textAlign: 'right',
                 } },
-                "(",
-                100 * this.props.suggestion.weight,
-                "%)")));
+                Math.round(100 * this.props.suggestion.weight),
+                "%")));
     }
 }
 exports.default = Suggestion;
@@ -45716,4 +45718,4 @@ module.exports = __webpack_require__(746);
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=preview.2309e7bf12fdd5ce368a.bundle.js.map
+//# sourceMappingURL=preview.1252f97bb27ae009f7ab.bundle.js.map
