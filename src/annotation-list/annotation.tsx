@@ -3,7 +3,7 @@ import AnnotationForm, {IAnnotationFormProps} from "./annotation-form";
 import {IAnnotation} from "../interfaces";
 import RenderedText from "../rendered-text/index";
 import { IComponentsByTags } from '../tags/system-components-by-tags';
-import { fontStyle, blueFontStyle } from '../default-styles';
+import { fontStyle } from '../default-styles';
 
 export interface IAnnotationCommon extends IAnnotationFormProps {
 	activateAnnotation: (string) => void;
@@ -22,9 +22,34 @@ const Annotation: React.SFC<IAnnotationProps> = (props) =>
 			}
 			style={{
 				...fontStyle,
-				...blueFontStyle,
+
 			}}
 		>
+		{
+			props.annotation.type != 'persName' ?
+				<div style={{ color: '#444', fontSize:'.85em'}}>34</div> : null
+		}
+		{
+			props.annotation.type === 'persName' ?
+			<img
+				style={{
+					width: "12px",
+					height:'auto',
+					marginRight: '.2em',
+				}}
+				src="http://design.huygens.knaw.nl/static/icons/person.svg" /> : null
+		}
+		{
+			props.annotation.type === 'placeName' ?
+			<img
+				style={{
+					width: "12px",
+					height:'auto',
+					marginRight: '.2em',
+				}}
+				src="http://design.huygens.knaw.nl/static/icons/location.svg" /> : null
+		}
+
 			{props.rootAnnotation.text.slice(props.annotation.start, props.annotation.end)}
 			{
 				props.annotation.type === 'persName' ?
@@ -53,4 +78,3 @@ const Annotation: React.SFC<IAnnotationProps> = (props) =>
 	</li>;
 
 export default Annotation;
-
