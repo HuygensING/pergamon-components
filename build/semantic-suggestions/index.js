@@ -30,5 +30,5 @@ const SemanticSuggestions = (props) => React.createElement(Wrapper, Object.assig
             props.semanticSuggestions.length,
             " terms that are used in the same context. You can add them to improve your search results:"),
     (props.semanticSuggestions.length > 0) &&
-        React.createElement(Suggestions, null, props.semanticSuggestions.map(((s) => React.createElement(suggestion_1.default, { key: s.text, onClick: (ev) => props.fullTextSearch(s.text), suggestion: s }, s.text)))));
+        React.createElement(Suggestions, null, props.semanticSuggestions.map(((s) => React.createElement(suggestion_1.default, { key: s.text, onClick: (ev) => props.fullTextSearch(s.text), suggestion: s })))));
 exports.default = SemanticSuggestions;

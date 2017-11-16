@@ -69,9 +69,7 @@ const SemanticSuggestions: React.SFC<ISemanticSuggestions> = (props) =>
 							key={s.text}
 							onClick={(ev) => props.fullTextSearch(s.text)}
 							suggestion={s}
-						>
-							{s.text}
-						</Suggestion>
+						/>
 					))
 				}
 			</Suggestions>

@@ -24,18 +24,21 @@ class Suggestion extends React.Component<ISuggestionProps, ISuggestionState> {
 				onMouseEnter={() => this.setState({ hover: true })}
 				onMouseLeave={() => this.setState({ hover: false })}
 				style={{
-					color: this.state.hover ? '#ccc' : 'inherit',
+					color: this.state.hover ? 'black' : '#444',
 					cursor: 'pointer',
+					display: 'grid',
+					gridTemplateColumns: '4fr 1fr',
 				}}
 			>
-				{this.props.children} 
+				{this.props.suggestion.text} 
 				<span 
 					style={{
-						color: '#bbb',
+						color: this.state.hover ? 'black' : '#aaa',
 						fontSize: '14px',
+						textAlign: 'right',
 					}}
 				>
-					({100 * this.props.suggestion.weight}%)
+					{Math.round(100 * this.props.suggestion.weight)}%
 				</span>
 			</li>
 		)
