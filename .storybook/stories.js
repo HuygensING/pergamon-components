@@ -34,8 +34,8 @@ import {
 } from '../src/tags/tags'
 import { 
 	Div,
-	NotImplemented,
 } from '../src/tags/system-tags'
+import NotImplemented from '../src/tags/not-implemented'
 import { activeAnnotation, rootAnnotation } from './data'
 
 export const createStory = (name) => storiesOf(name, module)
@@ -230,9 +230,12 @@ createStory("Tags/Passive/Name, { type: Name }")
 import storiesOfNote from './tags/note'
 storiesOfNote(createStory)
 
-createStory("Tags/Other/NotImplemented, { type: Name }")
-	.add('type: x-unknown-tag', () =>
-		<div>Consectetur minim adipisicing <NotImplemented annotation={{ type: 'x-unknown-tag' }}>Jan van Riebeeck</NotImplemented> enim consequat ex aute voluptate do.</div>
+createStory("Tags/Other/NotImplemented, { type: NotImplemented }")
+	.add('type: unknown-type', () =>
+		<div>Consectetur minim adipisicing <NotImplemented annotation={{ type: 'unknown-type', attributes: {} }} tags={Tags}>Jan van Riebeeck</NotImplemented> enim consequat ex aute voluptate do.</div>
+	)
+	.add('type: name, attributes: { type: "unknown-sub-type" }', () =>
+		<div>Consectetur minim adipisicing <NotImplemented annotation={{ type: 'name', attributes: { type: 'unknown-sub-type' } }} tags={Tags}>Jan van Riebeeck</NotImplemented> enim consequat ex aute voluptate do.</div>
 	)
 
 createStory("Tags/Passive/Opener, { type: opener }")
