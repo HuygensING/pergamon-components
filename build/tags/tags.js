@@ -9,7 +9,10 @@ exports.Add = (props) => React.createElement(system_tags_1.Span, Object.assign({
     } }, props),
     "+ ",
     props.children);
-exports.Cell = (props) => React.createElement("td", null, props.children);
+exports.Cell = (props) => React.createElement("td", { style: {
+        borderBottom: '1px solid #ddd',
+        paddingRight: '.5em',
+    } }, props.children);
 exports.Sic = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: {
         borderBottom: '1px solid #AAA',
         paddingRight: '.6em',
@@ -34,16 +37,7 @@ exports.Graphic = (props) => React.createElement("img", { id: props.id, src: `/s
         width: '100%',
     } });
 exports.Formula = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: { fontStyle: 'italic' } }, props));
-exports.Line = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: { lineHeight: '2em' } }, props),
-    React.createElement("span", { style: {
-            width: '1em',
-            textAline: 'right',
-            fontFamily: "'Roboto', sans-serif",
-            fontSize: '.8em',
-            color: '#aaa',
-            marginRight: '.5em',
-        } }, "1"),
-    props.children);
+exports.Line = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: { lineHeight: '2em' } }, props), props.children);
 exports.LineGroup = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: { margin: '2em 0' } }, props));
 exports.Name = (props) => props.annotation.attributes.type === 'person' ?
     React.createElement(exports.PersName, Object.assign({}, props)) :
@@ -63,13 +57,17 @@ exports.PersName = (props) => React.createElement(system_tags_1.Span, Object.ass
 exports.PlaceName = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: default_styles_1.basicAnnotation }, props),
     React.createElement(Icon, { src: "http://design.huygens.knaw.nl/static/icons/location.svg" }),
     props.children);
-exports.Row = (props) => React.createElement("tr", null, props.children);
+exports.Row = (props) => React.createElement("tr", { style: {
+        borderBottom: '1px solid #aaa',
+    } }, props.children);
 exports.Rs = (props) => props.annotation.attributes.type === 'person' ?
     React.createElement(exports.PersName, Object.assign({}, props)) :
     props.annotation.attributes.type === 'place' ?
         React.createElement(exports.PlaceName, Object.assign({}, props)) :
         null;
-exports.Table = (props) => React.createElement("table", null, props.children);
+exports.Table = (props) => React.createElement("table", { style: {
+        fontFamily: "'Roboto', sans-serif",
+    } }, props.children);
 exports.Title = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: default_styles_1.basicAnnotation }, props),
     React.createElement(Icon, { src: "http://design.huygens.knaw.nl/static/icons/book.svg" }),
     props.children);
