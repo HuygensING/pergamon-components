@@ -9,34 +9,31 @@ import {
 	RenderedText,
 	SemanticSuggestions,
 } from '../src'
-import Tags from '../src/tags'
-import {
-	Add,
-	Cell,
-	Choice,
-	Closer,
-	Corr,
-	DateTag, // Date is a reserved keyword
-	Formula,
-	Hi,
-	Line,
-	LineGroup,
-	Name,
-	Opener,
-	P,
-	PersName,
-	PlaceName,
-	Row,
-	Rs,
-	Sic,
-	Table,
-	Title,
-} from '../src/tags/tags'
-import { 
-	Div,
-} from '../src/tags/system-tags'
+import { Div } from '../src/tags/system-tags'
 import NotImplemented from '../src/tags/not-implemented'
 import { activeAnnotation, rootAnnotation } from './data'
+
+import Tags from '../src/tags'
+const Add = Tags.add.component
+const Cell = Tags.cell.component
+const Choice = Tags.choice.component
+const Closer = Tags.closer.component
+const Corr = Tags.corr.component
+const DateTag = Tags.date.component
+const Formula = Tags.formula.component
+const Hi = Tags.hi.component
+const Line = Tags.l.component
+const LineGroup = Tags.lg.component
+const Name = Tags.name.component
+const Opener = Tags.opener.component
+const P = Tags.p.component
+const PersName = Tags.persName.component
+const PlaceName = Tags.placeName.component
+const Row = Tags.row.component
+const Rs = Tags.rs.component
+const Sic = Tags.sic.component
+const Table = Tags.table.component
+const Title = Tags.title.component
 
 export const createStory = (name) => storiesOf(name, module)
 

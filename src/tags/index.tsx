@@ -1,5 +1,6 @@
 import systemComponentsByTags, { Display, IComponentsByTags } from './system-components-by-tags'
 import {
+	Add,
 	Cell,
 	Corr,
 	DateTag,
@@ -18,6 +19,7 @@ import {
 	Rs,
 	Table,
 	Title,
+	Sic,
 } from './tags'
 import Anchor from "./anchor"
 import { Div, None, Span } from './system-tags'
@@ -28,6 +30,10 @@ const componentsByTags: IComponentsByTags = {
 		ab: {
 			component: Div,
 			display: Display.Block,
+		},
+		add: {
+			component: Add,
+			display: Display.Inline,
 		},
 		anchor: {
 			component: Anchor,
@@ -131,6 +137,10 @@ const componentsByTags: IComponentsByTags = {
 		},
 		seg: {
 			component: Span,
+			display: Display.Inline,
+		},
+		sic: {
+			component: Sic,
 			display: Display.Inline,
 		},
 		table: {

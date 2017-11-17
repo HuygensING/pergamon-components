@@ -9,6 +9,10 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         component: system_tags_1.Div,
         display: system_components_by_tags_1.Display.Block,
     },
+    add: {
+        component: tags_1.Add,
+        display: system_components_by_tags_1.Display.Inline,
+    },
     anchor: {
         component: anchor_1.default,
         display: system_components_by_tags_1.Display.Inline,
@@ -111,6 +115,10 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
     },
     seg: {
         component: system_tags_1.Span,
+        display: system_components_by_tags_1.Display.Inline,
+    },
+    sic: {
+        component: tags_1.Sic,
         display: system_components_by_tags_1.Display.Inline,
     },
     table: {

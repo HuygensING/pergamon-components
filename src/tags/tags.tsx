@@ -23,15 +23,6 @@ export const Cell: Tag = (props) =>
 
 	>{props.children}</td>
 
-export const Sic: Tag = (props) =>
-	<Span
-		style={{
-			borderBottom: '1px solid #AAA',
-			paddingRight: '.6em',
-		}}
-		{...props}
-	/>
-
 export const Corr: Tag = (props) =>
 	<Span
 		style={{
@@ -157,6 +148,15 @@ export const Rs: Tag = (props) =>
 		props.annotation.attributes.type === 'place' ?
 			<PlaceName {...props} /> :
 			null
+
+export const Sic: Tag = (props) =>
+	<Span
+		style={{
+			borderBottom: '1px solid #AAA',
+			paddingRight: '.6em',
+		}}
+		{...props}
+	/>
 
 export const Table: Tag = (props) =>
 	<table

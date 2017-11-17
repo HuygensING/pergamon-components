@@ -1,7 +1,6 @@
 import { Tag } from '../interfaces';
 export declare const Add: Tag;
 export declare const Cell: Tag;
-export declare const Sic: Tag;
 export declare const Corr: Tag;
 export declare const DivTag: Tag;
 export declare const DateTag: Tag;
@@ -17,5 +16,6 @@ export declare const PersName: Tag;
 export declare const PlaceName: Tag;
 export declare const Row: Tag;
 export declare const Rs: Tag;
+export declare const Sic: Tag;
 export declare const Table: Tag;
 export declare const Title: Tag;
