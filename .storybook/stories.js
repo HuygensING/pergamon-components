@@ -22,8 +22,10 @@ const Corr = Tags.corr.component
 const DateTag = Tags.date.component
 const Formula = Tags.formula.component
 const Hi = Tags.hi.component
+const Item = Tags.item.component
 const Line = Tags.l.component
 const LineGroup = Tags.lg.component
+const List = Tags.list.component
 const Name = Tags.name.component
 const Opener = Tags.opener.component
 const P = Tags.p.component
@@ -227,6 +229,15 @@ createStory("Tags/Passive/LineGroup { type: 'lg' }")
 			<Line annotation={{ attributes: {} }}>Non est occaecat culpa pariatur minim tempor.</Line>
 			<Line annotation={{ attributes: {} }}>Eiusmod tempor consectetur id duis minim mollit ut reprehenderit commodo consectetur occaecat consequat.</Line>
 		</LineGroup>
+	)
+
+createStory("Tags/Passive/List { type: 'list' }")
+	.add('default', () =>
+		<List annotation={{ attributes: {} }}>
+			<Item annotation={{ attributes: {} }}>Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem.</Item>
+			<Item annotation={{ attributes: {} }}>Non est occaecat culpa pariatur minim tempor.</Item>
+			<Item annotation={{ attributes: {} }}>Eiusmod tempor consectetur id duis minim mollit ut reprehenderit commodo consectetur occaecat consequat.</Item>
+		</List>
 	)
 
 createStory("Tags/Passive/Name, { type: Name }")

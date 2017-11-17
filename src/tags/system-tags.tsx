@@ -24,4 +24,26 @@ export const Div: Tag = (props) =>
 		{props.children}
 	</div>
 
+export const Ul: Tag = (props) =>
+	<ul
+		id={props.id}
+		style={{
+			...rendStyle(props),
+			...props.style,
+		}}
+	>
+		{props.children}
+	</ul>
+
+export const Li: Tag = (props) =>
+	<li
+		id={props.id}
+		style={{
+			...rendStyle(props),
+			...props.style,
+		}}
+	>
+		{props.children}
+	</li>
+
 export const None: React.SFC = () => null

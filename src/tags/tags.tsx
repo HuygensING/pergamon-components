@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { basicAnnotation } from '../default-styles'
-import { Tag } from '../interfaces';
-import { Div, Span, None } from './system-tags';
-import NotImplemented from './not-implemented';
+import { Tag } from '../interfaces'
+import { Div, Span, None } from './system-tags'
+import NotImplemented from './not-implemented'
 
 export const Add: Tag = (props) =>
 	<Span

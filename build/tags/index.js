@@ -61,6 +61,10 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         component: system_tags_1.Span,
         display: system_components_by_tags_1.Display.Inline,
     },
+    item: {
+        component: system_tags_1.Li,
+        display: system_components_by_tags_1.Display.Block,
+    },
     l: {
         component: tags_1.Line,
         display: system_components_by_tags_1.Display.Block,
@@ -71,6 +75,10 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
     },
     lg: {
         component: tags_1.LineGroup,
+        display: system_components_by_tags_1.Display.Block,
+    },
+    list: {
+        component: system_tags_1.Ul,
         display: system_components_by_tags_1.Display.Block,
     },
     meta: {

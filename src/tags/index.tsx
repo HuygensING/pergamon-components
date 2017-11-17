@@ -22,7 +22,7 @@ import {
 	Sic,
 } from './tags'
 import Anchor from "./anchor"
-import { Div, None, Span } from './system-tags'
+import { Div, None, Span, Li, Ul } from './system-tags'
 
 const componentsByTags: IComponentsByTags = {
 	...systemComponentsByTags,
@@ -83,6 +83,10 @@ const componentsByTags: IComponentsByTags = {
 			component: Span,
 			display: Display.Inline,
 		},
+		item: {
+			component: Li,
+			display: Display.Block,
+		},
 		l: {
 			component: Line,
 			display: Display.Block,
@@ -93,6 +97,10 @@ const componentsByTags: IComponentsByTags = {
 		},
 		lg: {
 			component: LineGroup,
+			display: Display.Block,
+		},
+		list: {
+			component: Ul,
 			display: Display.Block,
 		},
 		meta: {
