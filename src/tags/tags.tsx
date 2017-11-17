@@ -16,12 +16,13 @@ export const Add: Tag = (props) =>
 
 export const Cell: Tag = (props) =>
 	<td
-	style={{
-		borderBottom: '1px solid #ddd',
-		paddingRight: '.5em',
-	}}
-
-	>{props.children}</td>
+		style={{
+			borderBottom: '1px solid #ddd',
+			paddingRight: '.5em',
+		}}
+	>
+		{props.children}
+	</td>
 
 export const Corr: Tag = (props) =>
 	<Span
@@ -164,10 +165,12 @@ export const Sic: Tag = (props) =>
 
 export const Table: Tag = (props) =>
 	<table
-	style={{
-		fontFamily: "'Roboto', sans-serif",
-	}}
-	>{props.children}</table>
+		style={{
+			fontFamily: "'Roboto', sans-serif",
+		}}
+	>
+		{props.children}
+	</table>
 
 export const Title: Tag = (props) =>
 	<Span
