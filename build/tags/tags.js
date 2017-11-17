@@ -34,7 +34,11 @@ exports.Graphic = (props) => React.createElement("img", { id: props.id, src: `/s
     } });
 exports.Formula = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: { fontStyle: 'italic' } }, props));
 exports.Line = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: { lineHeight: '2em' } }, props), props.children);
-exports.LineGroup = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: { margin: '2em 0' } }, props));
+exports.LineGroup = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: {
+        margin: '2em 0',
+        textIndent: props.annotation.attributes.type === 'poem' ? '1em' : 'initial',
+        fontStyle: props.annotation.attributes.type === 'poem' ? 'italic' : 'initial',
+    } }, props));
 exports.Name = (props) => props.annotation.attributes.type === 'person' ?
     React.createElement(exports.PersName, Object.assign({}, props)) :
     props.annotation.attributes.type === 'place' ?

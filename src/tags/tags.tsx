@@ -84,7 +84,11 @@ export const Line: Tag = (props) =>
 
 export const LineGroup: Tag = (props) =>
 	<Div
-		style={{ margin: '2em 0' }}
+		style={{
+			margin: '2em 0',
+			textIndent: props.annotation.attributes.type === 'poem' ? '1em' : 'initial',
+			fontStyle: props.annotation.attributes.type === 'poem' ? 'italic' : 'initial',
+			}}
 		{...props}
 	/>
 
