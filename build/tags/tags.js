@@ -14,9 +14,14 @@ exports.Cell = (props) => React.createElement("td", { style: {
         paddingRight: '.5em',
     } }, props.children);
 exports.Corr = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: {
-        border: '1px solid #AAA',
-        padding: '0 .6em',
-    } }, props));
+        borderBottom: '1px solid #ddd',
+        marginRight: '.2em',
+    } }, props),
+    props.children,
+    React.createElement("sup", { style: {
+            paddingLeft: '.3em',
+            color: '#aaa',
+        } }, "corr"));
 exports.DivTag = (props) => (props.annotation.attributes.type === 'comment' ||
     props.annotation.attributes.type === 'provenance') ?
     React.createElement(system_tags_1.None, null) :
@@ -66,9 +71,14 @@ exports.Rs = (props) => props.annotation.attributes.type === 'person' ?
         React.createElement(exports.PlaceName, Object.assign({}, props)) :
         null;
 exports.Sic = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: {
-        borderBottom: '1px solid #AAA',
-        paddingRight: '.6em',
-    } }, props));
+        borderBottom: '1px solid #ddd',
+        marginRight: '.2em',
+    } }, props),
+    props.children,
+    React.createElement("sup", { style: {
+            paddingLeft: '.3em',
+            color: '#aaa',
+        } }, "sic"));
 exports.Table = (props) => React.createElement("table", { style: {
         fontFamily: "'Roboto', sans-serif",
     } }, props.children);

@@ -26,11 +26,19 @@ export const Cell: Tag = (props) =>
 export const Corr: Tag = (props) =>
 	<Span
 		style={{
-			border: '1px solid #AAA',
-			padding: '0 .6em',
+			borderBottom: '1px solid #ddd',
+			marginRight: '.2em',
 		}}
 		{...props}
-	/>
+		>
+		{props.children}
+		<sup
+			style={{
+				paddingLeft: '.3em',
+				color: '#aaa',
+			}}
+		>corr</sup>
+	</Span>
 
 // DivTag is the TEI <div> tag (there is also a Div tag which represents the HTML <div> tag)
 export const DivTag: Tag = (props) =>
@@ -156,11 +164,19 @@ export const Rs: Tag = (props) =>
 export const Sic: Tag = (props) =>
 	<Span
 		style={{
-			borderBottom: '1px solid #AAA',
-			paddingRight: '.6em',
+			borderBottom: '1px solid #ddd',
+			marginRight: '.2em',
 		}}
 		{...props}
-	/>
+		>
+		{props.children}
+		<sup
+			style={{
+				paddingLeft: '.3em',
+				color: '#aaa',
+			}}
+		>sic</sup>
+		</Span>
 
 export const Table: Tag = (props) =>
 	<table
