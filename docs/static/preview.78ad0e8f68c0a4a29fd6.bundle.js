@@ -7863,8 +7863,10 @@ var Corr = _tags2.default.corr.component;
 var DateTag = _tags2.default.date.component;
 var Formula = _tags2.default.formula.component;
 var Hi = _tags2.default.hi.component;
+var Item = _tags2.default.item.component;
 var Line = _tags2.default.l.component;
 var LineGroup = _tags2.default.lg.component;
+var List = _tags2.default.list.component;
 var Name = _tags2.default.name.component;
 var Opener = _tags2.default.opener.component;
 var P = _tags2.default.p.component;
@@ -8154,6 +8156,28 @@ createStory("Tags/Passive/LineGroup { type: 'lg' }").add('default', function () 
 		),
 		_react2.default.createElement(
 			Line,
+			{ annotation: { attributes: {} } },
+			'Eiusmod tempor consectetur id duis minim mollit ut reprehenderit commodo consectetur occaecat consequat.'
+		)
+	);
+});
+
+createStory("Tags/Passive/List { type: 'list' }").add('default', function () {
+	return _react2.default.createElement(
+		List,
+		{ annotation: { attributes: {} } },
+		_react2.default.createElement(
+			Item,
+			{ annotation: { attributes: {} } },
+			'Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem.'
+		),
+		_react2.default.createElement(
+			Item,
+			{ annotation: { attributes: {} } },
+			'Non est occaecat culpa pariatur minim tempor.'
+		),
+		_react2.default.createElement(
+			Item,
 			{ annotation: { attributes: {} } },
 			'Eiusmod tempor consectetur id duis minim mollit ut reprehenderit commodo consectetur occaecat consequat.'
 		)
@@ -8667,9 +8691,14 @@ exports.Cell = (props) => React.createElement("td", { style: {
         paddingRight: '.5em',
     } }, props.children);
 exports.Corr = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: {
-        border: '1px solid #AAA',
-        padding: '0 .6em',
-    } }, props));
+        borderBottom: '1px solid #ddd',
+        marginRight: '.2em',
+    } }, props),
+    props.children,
+    React.createElement("sup", { style: {
+            paddingLeft: '.3em',
+            color: '#aaa',
+        } }, "corr"));
 // DivTag is the TEI <div> tag (there is also a Div tag which represents the HTML <div> tag)
 exports.DivTag = (props) => (props.annotation.attributes.type === 'comment' ||
     props.annotation.attributes.type === 'provenance') ?
@@ -8720,9 +8749,14 @@ exports.Rs = (props) => props.annotation.attributes.type === 'person' ?
         React.createElement(exports.PlaceName, Object.assign({}, props)) :
         null;
 exports.Sic = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: {
-        borderBottom: '1px solid #AAA',
-        paddingRight: '.6em',
-    } }, props));
+        borderBottom: '1px solid #ddd',
+        marginRight: '.2em',
+    } }, props),
+    props.children,
+    React.createElement("sup", { style: {
+            paddingLeft: '.3em',
+            color: '#aaa',
+        } }, "sic"));
 exports.Table = (props) => React.createElement("table", { style: {
         fontFamily: "'Roboto', sans-serif",
     } }, props.children);
@@ -13773,6 +13807,8 @@ const React = __webpack_require__(0);
 const rend_1 = __webpack_require__(839);
 exports.Span = (props) => React.createElement("span", { id: props.id, style: Object.assign({}, rend_1.default(props), props.style) }, props.children);
 exports.Div = (props) => React.createElement("div", { id: props.id, style: Object.assign({}, rend_1.default(props), props.style) }, props.children);
+exports.Ul = (props) => React.createElement("ul", { id: props.id, style: Object.assign({}, rend_1.default(props), props.style) }, props.children);
+exports.Li = (props) => React.createElement("li", { id: props.id, style: Object.assign({}, rend_1.default(props), props.style) }, props.children);
 exports.None = () => null;
 
 
@@ -40069,6 +40105,10 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         component: system_tags_1.Span,
         display: system_components_by_tags_1.Display.Inline,
     },
+    item: {
+        component: system_tags_1.Li,
+        display: system_components_by_tags_1.Display.Block,
+    },
     l: {
         component: tags_1.Line,
         display: system_components_by_tags_1.Display.Block,
@@ -40079,6 +40119,10 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
     },
     lg: {
         component: tags_1.LineGroup,
+        display: system_components_by_tags_1.Display.Block,
+    },
+    list: {
+        component: system_tags_1.Ul,
         display: system_components_by_tags_1.Display.Block,
     },
     meta: {
@@ -42503,7 +42547,7 @@ const Metadata = (props) => React.createElement(MetadataList, null,
     React.createElement(MetadataItem, null,
         React.createElement(Label, null, "TO"),
         React.createElement("div", null,
-            React.createElement("div", null, props.rootAnnotation.metadata.recipient),
+            React.createElement(Bold, null, props.rootAnnotation.metadata.recipient),
             React.createElement("div", null, props.rootAnnotation.metadata.recipientloc))),
     React.createElement(MetadataItem, null,
         React.createElement(Label, null, "DATE"),
@@ -46205,4 +46249,4 @@ module.exports = __webpack_require__(747);
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=preview.e783bc2fa8a4525ffbc3.bundle.js.map
+//# sourceMappingURL=preview.78ad0e8f68c0a4a29fd6.bundle.js.map
