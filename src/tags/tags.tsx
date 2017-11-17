@@ -139,7 +139,12 @@ export const PlaceName: Tag = (props) =>
 	</Span>
 
 export const Row: Tag = (props) =>
-	<tr>{props.children}</tr>
+	<tr
+		style={{
+			borderBottom: '1px solid #aaa',
+			padding: '.5em',
+		}}
+	>{props.children}</tr>
 
 export const Rs: Tag = (props) =>
 	props.annotation.attributes.type === 'person' ?
