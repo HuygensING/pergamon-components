@@ -1,6 +1,6 @@
 {
   "name": "pergamon-ui-components",
-  "version": "1.6.3",
+  "version": "1.6.4",
   "description": "",
   "main": "build/index.js",
   "scripts": {
@@ -25,7 +25,7 @@
     "hire-forms-input": "^3.0.4",
     "hire-forms-select": "^2.2.10",
     "hire-forms-textarea": "^2.3.0",
-    "hire-tooltip": "^1.2.0",
+    "huc-ui-components": "^1.1.0",
     "lodash.debounce": "^4.0.8",
     "react": "^15.6.1",
     "uuid": "^3.1.0"

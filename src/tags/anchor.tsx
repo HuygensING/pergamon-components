@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Tooltip from 'hire-tooltip';
+import { HucTooltip } from 'huc-ui-components'
 import { IGNORE_CLASSNAME } from "../constants";
 import { ITag } from '../interfaces';
 import RenderedText from '../rendered-text';
@@ -86,7 +86,7 @@ class Anchor extends React.Component<ITag, IState> {
 				</AnchorComp>
 				{
 					active &&
-					<Tooltip
+					<HucTooltip
 						shift={shift}
 						style={{
 							left,
@@ -105,7 +105,7 @@ class Anchor extends React.Component<ITag, IState> {
                            
 							tags={this.props.tags}
 						/>
-					</Tooltip>
+					</HucTooltip>
 				}
 			</span>
 		)
