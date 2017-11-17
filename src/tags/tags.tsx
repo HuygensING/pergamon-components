@@ -15,7 +15,13 @@ export const Add: Tag = (props) =>
 	</Span>
 
 export const Cell: Tag = (props) =>
-	<td>{props.children}</td>
+	<td
+	style={{
+		borderBottom: '1px solid #ddd',
+		paddingRight: '.5em',
+	}}
+
+	>{props.children}</td>
 
 export const Sic: Tag = (props) =>
 	<Span
@@ -142,7 +148,6 @@ export const Row: Tag = (props) =>
 	<tr
 		style={{
 			borderBottom: '1px solid #aaa',
-			padding: '.5em',
 		}}
 	>{props.children}</tr>
 
@@ -154,7 +159,11 @@ export const Rs: Tag = (props) =>
 			null
 
 export const Table: Tag = (props) =>
-	<table>{props.children}</table>
+	<table
+	style={{
+		fontFamily: "'Roboto', sans-serif",
+	}}
+	>{props.children}</table>
 
 export const Title: Tag = (props) =>
 	<Span
