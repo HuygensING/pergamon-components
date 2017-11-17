@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
-const hire_tooltip_1 = require("hire-tooltip");
+const huc_ui_components_1 = require("huc-ui-components");
 const constants_1 = require("../constants");
 const rendered_text_1 = require("../rendered-text");
 const AnchorComp = (props) => React.createElement("span", { className: constants_1.IGNORE_CLASSNAME, onClick: props.onClick, ref: props.setRef, style: {
@@ -54,7 +54,7 @@ class Anchor extends React.Component {
                     }
                 } }, this.props.annotation.attributes.n),
             active &&
-                React.createElement(hire_tooltip_1.default, { shift: shift, style: {
+                React.createElement(huc_ui_components_1.HucTooltip, { shift: shift, style: {
                         left,
                         top: this.state.top + this.state.height + 16 + window.scrollY,
                         width: `${tooltipWidth}px`,
