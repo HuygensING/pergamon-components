@@ -81,19 +81,6 @@ export const Line: Tag = (props) =>
 		style={{ lineHeight: '2em' }}
 		{...props}
 	>
-
-	<span
-		style={{
-				width:'1em',
-				textAline: 'right',
-				fontFamily: "'Roboto', sans-serif",
-				fontSize:'.8em',
-				color: '#aaa',
-				marginRight: '.5em',
-			 }}
-	>
-		1
-	</span>
 	{props.children}
 	</Div>
 
