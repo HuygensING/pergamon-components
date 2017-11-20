@@ -34,6 +34,7 @@ const PlaceName = Tags.placeName.component
 const Row = Tags.row.component
 const Rs = Tags.rs.component
 const Sic = Tags.sic.component
+const Space = Tags.space.component
 const Table = Tags.table.component
 const Title = Tags.title.component
 
@@ -303,6 +304,20 @@ createStory("Tags/Passive/Rs, { type: rs }")
 
 import storiesOfSeg from './tags/seg'
 storiesOfSeg(createStory)
+
+createStory("Tags/Passive/Space, { type: space }")
+	.add('default', () =>
+		<div>
+			Elit id consectetur nisi quis laborum adipisicing ipsum adipisicing.
+			Deserunt voluptate exercitation cupidatat nisi sunt esse eu eiusmod ex mollit.
+			Incididunt sunt dolor irure amet proident velit Lorem quis.
+			<Space annotation={{attributes: {}}} />
+			Esse in sit nostrud et sit laborum.
+			Id proident do aliqua aliqua cillum quis veniam culpa et tempor.
+			Consectetur laboris id incididunt commodo ut velit consectetur labore proident occaecat occaecat tempor nostrud ad.
+			Sit amet mollit magna pariatur reprehenderit laboris qui et ullamco officia sit et.
+		</div>
+	)
 
 createStory("Tags/Passive/Table, { type: table }")
 	.add('default', () =>

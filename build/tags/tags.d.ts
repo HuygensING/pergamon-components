@@ -17,5 +17,6 @@ export declare const PlaceName: Tag;
 export declare const Row: Tag;
 export declare const Rs: Tag;
 export declare const Sic: Tag;
+export declare const Space: Tag;
 export declare const Table: Tag;
 export declare const Title: Tag;

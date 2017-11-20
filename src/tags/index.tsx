@@ -20,6 +20,7 @@ import {
 	Table,
 	Title,
 	Sic,
+	Space,
 } from './tags'
 import Anchor from "./anchor"
 import { Div, None, Span, Li, Ul } from './system-tags'
@@ -154,6 +155,10 @@ const componentsByTags: IComponentsByTags = {
 		sic: {
 			component: Sic,
 			display: Display.Inline,
+		},
+		space: {
+			component: Space,
+			display: Display.Block,
 		},
 		table: {
 			component: Table,

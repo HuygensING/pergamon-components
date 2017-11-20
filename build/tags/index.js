@@ -133,6 +133,10 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         component: tags_1.Sic,
         display: system_components_by_tags_1.Display.Inline,
     },
+    space: {
+        component: tags_1.Space,
+        display: system_components_by_tags_1.Display.Block,
+    },
     table: {
         component: tags_1.Table,
         display: system_components_by_tags_1.Display.Block,

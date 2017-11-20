@@ -179,13 +179,23 @@ export const Sic: Tag = (props) =>
 		>sic</sup>
 		</Span>
 
+export const Space: Tag = (props) =>
+	<Div
+		style={{
+			height: '2em',
+		}}
+		{...props}
+	/>
+
 export const Table: Tag = (props) =>
 	<table
 		style={{
 			fontFamily: "'Roboto', sans-serif",
 		}}
 	>
-		{props.children}
+		<tbody>
+			{props.children}
+		</tbody>
 	</table>
 
 export const Title: Tag = (props) =>
