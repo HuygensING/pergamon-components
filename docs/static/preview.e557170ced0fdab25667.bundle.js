@@ -7875,6 +7875,7 @@ var PlaceName = _tags2.default.placeName.component;
 var Row = _tags2.default.row.component;
 var Rs = _tags2.default.rs.component;
 var Sic = _tags2.default.sic.component;
+var Space = _tags2.default.space.component;
 var Table = _tags2.default.table.component;
 var Title = _tags2.default.title.component;
 
@@ -8311,6 +8312,16 @@ createStory("Tags/Passive/Rs, { type: rs }").add('attributes: type: person', fun
 });
 
 (0, _seg2.default)(createStory);
+
+createStory("Tags/Passive/Space, { type: space }").add('default', function () {
+	return _react2.default.createElement(
+		'div',
+		null,
+		'Elit id consectetur nisi quis laborum adipisicing ipsum adipisicing. Deserunt voluptate exercitation cupidatat nisi sunt esse eu eiusmod ex mollit. Incididunt sunt dolor irure amet proident velit Lorem quis.',
+		_react2.default.createElement(Space, { annotation: { attributes: {} } }),
+		'Esse in sit nostrud et sit laborum. Id proident do aliqua aliqua cillum quis veniam culpa et tempor. Consectetur laboris id incididunt commodo ut velit consectetur labore proident occaecat occaecat tempor nostrud ad. Sit amet mollit magna pariatur reprehenderit laboris qui et ullamco officia sit et.'
+	);
+});
 
 createStory("Tags/Passive/Table, { type: table }").add('default', function () {
 	return _react2.default.createElement(
@@ -8757,9 +8768,13 @@ exports.Sic = (props) => React.createElement(system_tags_1.Span, Object.assign({
             paddingLeft: '.3em',
             color: '#aaa',
         } }, "sic"));
+exports.Space = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: {
+        height: '2em',
+    } }, props));
 exports.Table = (props) => React.createElement("table", { style: {
         fontFamily: "'Roboto', sans-serif",
-    } }, props.children);
+    } },
+    React.createElement("tbody", null, props.children));
 exports.Title = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: default_styles_1.basicAnnotation }, props),
     React.createElement(Icon, { src: "http://design.huygens.knaw.nl/static/icons/book.svg" }),
     props.children);
@@ -39987,6 +40002,7 @@ const AnchorComp = (props) => React.createElement("span", { className: constants
         marginRight: '.4em',
         padding: '.5em .5em',
         verticalAlign: 'top',
+        whiteSpace: 'nowrap'
     } }, props.children);
 const minLeft = 18;
 const tooltipWidth = 400;
@@ -40113,6 +40129,10 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         component: tags_1.Line,
         display: system_components_by_tags_1.Display.Block,
     },
+    label: {
+        component: system_tags_1.Span,
+        display: system_components_by_tags_1.Display.Inline,
+    },
     lb: {
         component: system_tags_1.Div,
         display: system_components_by_tags_1.Display.Block,
@@ -40172,6 +40192,10 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
     sic: {
         component: tags_1.Sic,
         display: system_components_by_tags_1.Display.Inline,
+    },
+    space: {
+        component: tags_1.Space,
+        display: system_components_by_tags_1.Display.Block,
     },
     table: {
         component: tags_1.Table,
@@ -46249,4 +46273,4 @@ module.exports = __webpack_require__(747);
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=preview.78ad0e8f68c0a4a29fd6.bundle.js.map
+//# sourceMappingURL=preview.e557170ced0fdab25667.bundle.js.map
