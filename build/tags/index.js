@@ -69,6 +69,10 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         component: tags_1.Line,
         display: system_components_by_tags_1.Display.Block,
     },
+    label: {
+        component: system_tags_1.Span,
+        display: system_components_by_tags_1.Display.Inline,
+    },
     lb: {
         component: system_tags_1.Div,
         display: system_components_by_tags_1.Display.Block,

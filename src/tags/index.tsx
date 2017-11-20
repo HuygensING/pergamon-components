@@ -91,6 +91,10 @@ const componentsByTags: IComponentsByTags = {
 			component: Line,
 			display: Display.Block,
 		},
+		label: {
+			component: Span,
+			display: Display.Inline,
+		},
 		lb: {
 			component: Div,
 			display: Display.Block,
