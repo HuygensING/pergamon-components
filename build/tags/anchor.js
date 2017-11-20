@@ -15,6 +15,7 @@ const AnchorComp = (props) => React.createElement("span", { className: constants
         marginRight: '.4em',
         padding: '.5em .5em',
         verticalAlign: 'top',
+        whiteSpace: 'nowrap'
     } }, props.children);
 const minLeft = 18;
 const tooltipWidth = 400;

@@ -24,6 +24,7 @@ const AnchorComp: React.SFC<IAnchorComp> = (props) =>
             marginRight: '.4em',
 			padding: '.5em .5em',
 			verticalAlign: 'top',
+			whiteSpace: 'nowrap'
 		}}
 	>
 		{props.children}
