@@ -16073,17 +16073,17 @@ class RenderedText extends React.Component {
             return;
         if (this.state.textTree == null ||
             this.props.root.id !== props.root.id ||
-            (this.props.activeAnnotation !== props.activeAnnotation)) {
+            this.props.activeAnnotation !== props.activeAnnotation) {
             const root = index_1.default(JSON.parse(JSON.stringify(props.root)), props.tags);
-            const textTree = this.textTree(root, props.root.text, props);
+            const textTree = this.textTree(root, root, root.text, props.tags);
             this.setState({ textTree });
         }
     }
-    textTree(root, text, props) {
-        const children = (root.hasOwnProperty('children') && root.children.length) ?
-            root.children.map((child, i) => this.textTree(child, text, props)) :
-            text.slice(root.start, root.end);
-        return (React.createElement(node_1.default, Object.assign({}, props, { annotation: root, key: root._tagId }), children));
+    textTree(annotation, root, text, tags) {
+        const children = (annotation.hasOwnProperty('children') && annotation.children.length) ?
+            annotation.children.map((child, i) => this.textTree(child, root, text, tags)) :
+            text.slice(annotation.start, annotation.end);
+        return (React.createElement(node_1.default, { annotation: annotation, key: root._tagId + Math.random().toString(), root: root, tags: tags }, children));
     }
 }
 exports.default = RenderedText;
@@ -42463,8 +42463,8 @@ const index_1 = __webpack_require__(275);
 const default_styles_1 = __webpack_require__(152);
 const Annotation = (props) => React.createElement("li", { style: { minHeight: '2em' } },
     React.createElement("h4", { onClick: () => props.activateAnnotation(props.annotation), style: Object.assign({}, default_styles_1.fontStyle) },
-        props.annotation.type !== 'persName' &&
-            React.createElement("div", { style: { color: '#444', fontSize: '.85em' } }, "34"),
+        (props.annotation.type === 'note' && props.annotation.attributes.hasOwnProperty('n')) &&
+            React.createElement("div", { style: { color: '#444', fontSize: '.85em' } }, props.annotation.attributes.n),
         props.annotation.type === 'persName' &&
             React.createElement("img", { style: {
                     width: "12px",
@@ -42507,7 +42507,11 @@ const AnnotationList = (props) => {
     if (props.sort != null) {
         annotations = annotations.sort(props.sort);
     }
-    return (React.createElement("ul", null, annotations
+    return (React.createElement("ul", { style: {
+            listStyle: 'none',
+            margin: 0,
+            padding: 0,
+        } }, annotations
         .map((annotation, index) => React.createElement(annotation_1.default, { activateAnnotation: props.activateAnnotation, activeAnnotation: props.activeAnnotation, annotation: annotation, key: index, rootAnnotation: props.rootAnnotation, tags: props.tags }))));
 };
 exports.default = AnnotationList;
@@ -42527,7 +42531,7 @@ const Keywords = (props) => React.createElement("section", null,
     React.createElement("h3", { style: {
             fontSize: '1em',
         } }, "Keywords"),
-    React.createElement("ul", { style: default_styles_1.blueFontStyle },
+    React.createElement("ul", { style: Object.assign({}, default_styles_1.blueFontStyle, { margin: 0, padding: 0 }) },
         props.keywords &&
             props.keywords
                 .reduce((prev, curr) => {
@@ -42549,8 +42553,10 @@ const React = __webpack_require__(0);
 const MetadataList = (props) => React.createElement("ul", { style: {
         color: '#888',
         fontFamily: "'Roboto', sans-serif",
+        listStyle: 'none',
         margin: '3em auto',
         maxWidth: '550px',
+        padding: 0,
     } }, props.children);
 const MetadataItem = (props) => React.createElement("li", { style: {
         marginBottom: '1em',
@@ -46273,4 +46279,4 @@ module.exports = __webpack_require__(747);
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=preview.e557170ced0fdab25667.bundle.js.map
+//# sourceMappingURL=preview.e728aa653e54517d7062.bundle.js.map
