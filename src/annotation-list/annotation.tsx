@@ -26,8 +26,10 @@ const Annotation: React.SFC<IAnnotationProps> = (props) =>
 			}}
 		>
 			{
-				props.annotation.type !== 'persName' &&
-				<div style={{ color: '#444', fontSize:'.85em'}}>34</div>
+				(props.annotation.type === 'note' && props.annotation.attributes.hasOwnProperty('n')) &&
+				<div style={{ color: '#444', fontSize:'.85em'}}>
+					{props.annotation.attributes.n}
+				</div>
 			}
 			{
 				props.annotation.type === 'persName' &&

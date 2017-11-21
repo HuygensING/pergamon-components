@@ -6,8 +6,8 @@ const index_1 = require("../rendered-text/index");
 const default_styles_1 = require("../default-styles");
 const Annotation = (props) => React.createElement("li", { style: { minHeight: '2em' } },
     React.createElement("h4", { onClick: () => props.activateAnnotation(props.annotation), style: Object.assign({}, default_styles_1.fontStyle) },
-        props.annotation.type !== 'persName' &&
-            React.createElement("div", { style: { color: '#444', fontSize: '.85em' } }, "34"),
+        (props.annotation.type === 'note' && props.annotation.attributes.hasOwnProperty('n')) &&
+            React.createElement("div", { style: { color: '#444', fontSize: '.85em' } }, props.annotation.attributes.n),
         props.annotation.type === 'persName' &&
             React.createElement("img", { style: {
                     width: "12px",
