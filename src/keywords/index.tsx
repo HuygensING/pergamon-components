@@ -12,12 +12,18 @@ export interface IKeywords {
 const Keywords: React.SFC<IKeywords> = (props) =>
 	<section>
 		<h3
-		style={{
-			fontSize: '1em',
-		}}
-		>Keywords</h3>
+			style={{
+				fontSize: '1em',
+			}}
+		>
+			Keywords
+		</h3>
 		<ul
-			style={blueFontStyle}
+			style={{
+				...blueFontStyle,
+				margin: 0,
+				padding: 0,
+			}}
 		>
 			{
 				props.keywords &&

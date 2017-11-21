@@ -7,7 +7,7 @@ const Keywords = (props) => React.createElement("section", null,
     React.createElement("h3", { style: {
             fontSize: '1em',
         } }, "Keywords"),
-    React.createElement("ul", { style: default_styles_1.blueFontStyle },
+    React.createElement("ul", { style: Object.assign({}, default_styles_1.blueFontStyle, { margin: 0, padding: 0 }) },
         props.keywords &&
             props.keywords
                 .reduce((prev, curr) => {

@@ -10,7 +10,11 @@ const AnnotationList = (props) => {
     if (props.sort != null) {
         annotations = annotations.sort(props.sort);
     }
-    return (React.createElement("ul", null, annotations
+    return (React.createElement("ul", { style: {
+            listStyle: 'none',
+            margin: 0,
+            padding: 0,
+        } }, annotations
         .map((annotation, index) => React.createElement(annotation_1.default, { activateAnnotation: props.activateAnnotation, activeAnnotation: props.activeAnnotation, annotation: annotation, key: index, rootAnnotation: props.rootAnnotation, tags: props.tags }))));
 };
 exports.default = AnnotationList;

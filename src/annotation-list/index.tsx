@@ -20,7 +20,13 @@ const AnnotationList: React.SFC<IAnnotationListProps> = (props) => {
 	}
 
 	return (
-		<ul>
+		<ul
+			style={{
+				listStyle: 'none',
+				margin: 0,
+				padding: 0,
+			}}	
+		>
 			{
 				annotations
 					.map((annotation, index) =>
