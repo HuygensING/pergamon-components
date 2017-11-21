@@ -24,6 +24,6 @@ declare class RenderedText extends React.Component<IProps, IState> {
     componentWillReceiveProps(nextProps: IProps): void;
     render(): JSX.Element;
     private init(props);
-    private textTree(root, text, props);
+    private textTree(annotation, root, text, tags);
 }
 export default RenderedText;

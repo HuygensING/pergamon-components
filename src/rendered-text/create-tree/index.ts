@@ -1,9 +1,9 @@
 import {byDisplayStartEnd, byRowStartEnd} from "./sort";
 import {splitAnnotations} from "./split-annotations";
 import toTree from "./to-tree";
-import {addRow} from "./add-row";
+import { addRow } from "./add-row";
 import fillGaps from "./fill-gaps";
-import {IAnnotation} from "../../interfaces";
+import { IAnnotation } from "../../interfaces";
 import { IComponentsByTags } from "../../tags/system-components-by-tags";
 
 export const hasOverlap = (a, b) => !(a.end <= b.start || a.start >= b.end);
@@ -33,11 +33,13 @@ const orderAnnotations = (annotations, tags) =>
 		.reduce(splitAnnotations(), [])
 		.map(addRow(tags))
 		.sort(byRowStartEnd)
-		.map(addTagId);
+		.map(addTagId)
+
+
 
 const createTree = (annotation: IAnnotation, tags: IComponentsByTags): IAnnotation => {
 	annotation.children = orderAnnotations(annotation.children, tags)
-	 .reduce(toTree, []);
+		.reduce(toTree, []);
 
 	return fillGaps(annotation);
 };

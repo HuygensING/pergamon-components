@@ -25,17 +25,17 @@ class RenderedText extends React.Component {
             return;
         if (this.state.textTree == null ||
             this.props.root.id !== props.root.id ||
-            (this.props.activeAnnotation !== props.activeAnnotation)) {
+            this.props.activeAnnotation !== props.activeAnnotation) {
             const root = index_1.default(JSON.parse(JSON.stringify(props.root)), props.tags);
-            const textTree = this.textTree(root, props.root.text, props);
+            const textTree = this.textTree(root, root, root.text, props.tags);
             this.setState({ textTree });
         }
     }
-    textTree(root, text, props) {
-        const children = (root.hasOwnProperty('children') && root.children.length) ?
-            root.children.map((child, i) => this.textTree(child, text, props)) :
-            text.slice(root.start, root.end);
-        return (React.createElement(node_1.default, Object.assign({}, props, { annotation: root, key: root._tagId }), children));
+    textTree(annotation, root, text, tags) {
+        const children = (annotation.hasOwnProperty('children') && annotation.children.length) ?
+            annotation.children.map((child, i) => this.textTree(child, root, text, tags)) :
+            text.slice(annotation.start, annotation.end);
+        return (React.createElement(node_1.default, { annotation: annotation, key: root._tagId + Math.random().toString(), root: root, tags: tags }, children));
     }
 }
 exports.default = RenderedText;
