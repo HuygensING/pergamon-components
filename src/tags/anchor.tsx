@@ -30,29 +30,40 @@ const AnchorComp: React.SFC<IAnchorComp> = (props) =>
 		{props.children}
 	</span>
 
+
+const minLeft: number = 18
+const tooltipWidth: number = 400
+
 export interface IState {
+	active: boolean
 	height: number
 	left: number
 	top: number
 	width: number
 }
-
-const minLeft: number = 18
-const tooltipWidth: number = 400
-
 class Anchor extends React.Component<ITag, IState> {
+	private el: Element
 	public state = {
+		active: false,
 		height: null,
 		left: null,
 		top: null,
 		width: null,
 	}
 
-	public render() {
+	componentDidMount() {
 		const active = 
-			this.props.activeAnnotation &&
-			(this.props.activeAnnotation.id === this.props.annotation.id)
+			this.props.activeAnnotation != null &&
+			this.props.activeAnnotation.id === this.props.annotation.id
+		this.setState({ active })
+		if (active) window.addEventListener('resize', this.onResize)
+	}
 
+	componentWillUnmount() {
+		window.removeEventListener('resize', this.onResize)	
+	}
+
+	public render() {
 		let left: number = this.state.left - (tooltipWidth/2) + this.state.width/2
 		let shift: number = .5 
 		if (left < 0) {
@@ -61,7 +72,7 @@ class Anchor extends React.Component<ITag, IState> {
 		}
 
 		let note;
-		if (active) {
+		if (this.state.active) {
 			note = this.props.root.children.find(a =>
 				a.type === 'note' &&
 				a.hasOwnProperty('attributes') &&
@@ -77,7 +88,8 @@ class Anchor extends React.Component<ITag, IState> {
 						this.props.activateAnnotation(this.props.annotation)
 					}}
 					setRef={(el) => {
-						if (active && el && this.state.top == null) {
+						if (this.state.active && el && this.state.top == null) {
+							this.el = el
 							const { height, left, top, width } = el.getBoundingClientRect()
 							this.setState({ height, left, top, width })
 						}
@@ -86,7 +98,7 @@ class Anchor extends React.Component<ITag, IState> {
 					{this.props.annotation.attributes.n}	
 				</AnchorComp>
 				{
-					active &&
+					this.state.active &&
 					<HucTooltip
 						shift={shift}
 						style={{
@@ -109,6 +121,11 @@ class Anchor extends React.Component<ITag, IState> {
 				}
 			</span>
 		)
+	}
+
+	private onResize = (ev) => {
+		const { height, left, top, width } = this.el.getBoundingClientRect()
+		this.setState({ height, left, top, width })
 	}
 }
 
