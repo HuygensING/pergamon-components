@@ -103,7 +103,6 @@ class Anchor extends React.Component<ITag, IState> {
 								children: [note],
 								text: this.props.root.text
 							}}
-                           
 							tags={this.props.tags}
 						/>
 					</HucTooltip>
