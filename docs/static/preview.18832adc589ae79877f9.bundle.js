@@ -16075,15 +16075,15 @@ class RenderedText extends React.Component {
             this.props.root.id !== props.root.id ||
             this.props.activeAnnotation !== props.activeAnnotation) {
             const root = index_1.default(JSON.parse(JSON.stringify(props.root)), props.tags);
-            const textTree = this.textTree(root, root, root.text, props.tags);
+            const textTree = this.textTree(root, props.root, props);
             this.setState({ textTree });
         }
     }
-    textTree(annotation, root, text, tags) {
+    textTree(annotation, root, props) {
         const children = (annotation.hasOwnProperty('children') && annotation.children.length) ?
-            annotation.children.map((child, i) => this.textTree(child, root, text, tags)) :
-            text.slice(annotation.start, annotation.end);
-        return (React.createElement(node_1.default, { annotation: annotation, key: root._tagId + Math.random().toString(), root: root, tags: tags }, children));
+            annotation.children.map((child, i) => this.textTree(child, root, props)) :
+            root.text.slice(annotation.start, annotation.end);
+        return (React.createElement(node_1.default, { activateAnnotation: props.activateAnnotation, activeAnnotation: props.activeAnnotation, annotation: annotation, key: root._tagId + Math.random().toString(), root: root, tags: props.tags }, children));
     }
 }
 exports.default = RenderedText;
@@ -46279,4 +46279,4 @@ module.exports = __webpack_require__(747);
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=preview.e728aa653e54517d7062.bundle.js.map
+//# sourceMappingURL=preview.18832adc589ae79877f9.bundle.js.map
