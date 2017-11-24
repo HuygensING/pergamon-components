@@ -40010,15 +40010,28 @@ class Anchor extends React.Component {
     constructor() {
         super(...arguments);
         this.state = {
+            active: false,
             height: null,
             left: null,
             top: null,
             width: null,
         };
+        this.onResize = (ev) => {
+            const { height, left, top, width } = this.el.getBoundingClientRect();
+            this.setState({ height, left, top, width });
+        };
+    }
+    componentDidMount() {
+        const active = this.props.activeAnnotation != null &&
+            this.props.activeAnnotation.id === this.props.annotation.id;
+        this.setState({ active });
+        if (active)
+            window.addEventListener('resize', this.onResize);
+    }
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.onResize);
     }
     render() {
-        const active = this.props.activeAnnotation &&
-            (this.props.activeAnnotation.id === this.props.annotation.id);
         let left = this.state.left - (tooltipWidth / 2) + this.state.width / 2;
         let shift = .5;
         if (left < 0) {
@@ -40026,7 +40039,7 @@ class Anchor extends React.Component {
             left = minLeft;
         }
         let note;
-        if (active) {
+        if (this.state.active) {
             note = this.props.root.children.find(a => a.type === 'note' &&
                 a.hasOwnProperty('attributes') &&
                 a.attributes.n === this.props.activeAnnotation.attributes.n);
@@ -40036,12 +40049,13 @@ class Anchor extends React.Component {
                     ev.stopPropagation();
                     this.props.activateAnnotation(this.props.annotation);
                 }, setRef: (el) => {
-                    if (active && el && this.state.top == null) {
+                    if (this.state.active && el && this.state.top == null) {
+                        this.el = el;
                         const { height, left, top, width } = el.getBoundingClientRect();
                         this.setState({ height, left, top, width });
                     }
                 } }, this.props.annotation.attributes.n),
-            active &&
+            this.state.active &&
                 React.createElement(huc_ui_components_1.HucTooltip, { shift: shift, style: {
                         left,
                         top: this.state.top + this.state.height + 16 + window.scrollY,
@@ -46279,4 +46293,4 @@ module.exports = __webpack_require__(747);
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=preview.18832adc589ae79877f9.bundle.js.map
+//# sourceMappingURL=preview.5a465a652885291aba57.bundle.js.map
