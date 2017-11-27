@@ -7,8 +7,6 @@ const MetadataList = (props) =>
 			color: '#888',
 			fontFamily: "'Roboto', sans-serif",
 			listStyle: 'none',
-			margin: '3em auto',
-			maxWidth: '550px',
 			padding: 0,
 		}}>
 		{props.children}
