@@ -42568,8 +42568,7 @@ const MetadataList = (props) => React.createElement("ul", { style: {
         color: '#888',
         fontFamily: "'Roboto', sans-serif",
         listStyle: 'none',
-        margin: '3em auto',
-        maxWidth: '550px',
+        margin: 0,
         padding: 0,
     } }, props.children);
 const MetadataItem = (props) => React.createElement("li", { style: {
@@ -46293,4 +46292,4 @@ module.exports = __webpack_require__(747);
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=preview.5a465a652885291aba57.bundle.js.map
+//# sourceMappingURL=preview.59fa89710d7d809a7469.bundle.js.map
