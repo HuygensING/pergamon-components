@@ -5,6 +5,7 @@ const MetadataList = (props) => React.createElement("ul", { style: {
         color: '#888',
         fontFamily: "'Roboto', sans-serif",
         listStyle: 'none',
+        margin: 0,
         padding: 0,
     } }, props.children);
 const MetadataItem = (props) => React.createElement("li", { style: {
