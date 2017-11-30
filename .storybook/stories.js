@@ -20,6 +20,7 @@ const Choice = Tags.choice.component
 const Closer = Tags.closer.component
 const Corr = Tags.corr.component
 const DateTag = Tags.date.component
+const DivTag = Tags.div.component
 const Formula = Tags.formula.component
 const GeogName = Tags.geogName.component
 const Head = Tags.head.component
@@ -180,16 +181,16 @@ createStory("Tags/Passive/DateTag, { type: date }")
 createStory("Tags/Passive/Div, { type: div }")
 	.add('default', () =>
 		<div>
-			<Div annotation={{ attributes: {} }}>
+			<DivTag annotation={{ attributes: { type: 'para' } }}>
 				Fugiat non commodo non tempor. Esse nisi et sit aute.
 				Adipisicing duis labore commodo aliqua cupidatat officia eiusmod proident aliqua do.
 				Velit eu aute cupidatat adipisicing voluptate in ullamco.
-			</Div>
-			<Div annotation={{ attributes: {} }}>
+			</DivTag>
+			<DivTag annotation={{ attributes: {} }}>
 				Minim minim eiusmod ad dolore tempor.
 				Eiusmod id occaecat sint qui aliqua sint minim.
 				Voluptate ullamco fugiat pariatur voluptate occaecat laborum ipsum culpa dolore quis dolor sit sunt.
-			</Div>
+			</DivTag>
 		</div>
 	)
 	.add('para', () =>
