@@ -8,6 +8,7 @@ export declare const Figure: Tag;
 export declare const Graphic: Tag;
 export declare const Formula: Tag;
 export declare const GeogName: Tag;
+export declare const Item: Tag;
 export declare const Line: Tag;
 export declare const List: Tag;
 export declare const LineGroup: Tag;

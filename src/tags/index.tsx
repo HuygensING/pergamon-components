@@ -23,9 +23,10 @@ import {
 	Sic,
 	Space,
 	GeogName,
+	Item,
 } from './tags'
 import Anchor from "./anchor"
-import { Div, None, Span, Li, Ul } from './system-tags'
+import { Div, None, Span } from './system-tags'
 
 const componentsByTags: IComponentsByTags = {
 	...systemComponentsByTags,
@@ -95,7 +96,7 @@ const componentsByTags: IComponentsByTags = {
 			display: Display.Inline,
 		},
 		item: {
-			component: Li,
+			component: Item,
 			display: Display.Block,
 		},
 		l: {

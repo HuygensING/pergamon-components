@@ -41,6 +41,10 @@ exports.Formula = (props) => React.createElement(system_tags_1.Span, Object.assi
 exports.GeogName = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: default_styles_1.basicAnnotation }, props),
     React.createElement(Icon, { src: "" }),
     props.children);
+exports.Item = (props) => React.createElement(system_tags_1.Li, Object.assign({ style: {
+        padding: '0 0 0 0em',
+        margin: '0 0 .5em 1em',
+    } }, props));
 exports.Line = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: { lineHeight: '2em' } }, props), props.children);
 exports.List = (props) => React.createElement(system_tags_1.Ul, Object.assign({ style: {
         padding: '0',

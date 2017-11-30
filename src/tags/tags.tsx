@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { basicAnnotation } from '../default-styles'
 import { Tag } from '../interfaces'
-import { Div, Span, None, Ul } from './system-tags'
+import { Div, Span, None, Ul, Li } from './system-tags'
 import NotImplemented from './not-implemented'
 
 export const Add: Tag = (props) =>
@@ -90,6 +90,15 @@ export const GeogName: Tag = (props) =>
 		<Icon src="" />
 		{props.children}
 	</Span>
+
+export const Item: Tag = (props) =>
+	<Li
+		style={{
+			padding: '0 0 0 0em',
+			margin: '0 0 .5em 1em',
+		}}
+		{...props}
+	/>
 
 export const Line: Tag = (props) =>
 	<Div

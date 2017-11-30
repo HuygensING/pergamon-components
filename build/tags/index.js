@@ -70,7 +70,7 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Inline,
     },
     item: {
-        component: system_tags_1.Li,
+        component: tags_1.Item,
         display: system_components_by_tags_1.Display.Block,
     },
     l: {

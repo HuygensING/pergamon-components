@@ -41,8 +41,6 @@ export const Li: Tag = (props) =>
 		style={{
 			...rendStyle(props),
 			...props.style,
-			padding: '0 0 0 0em',
-			margin: '0 0 .5em 1em',
 		}}
 	>
 		<label
