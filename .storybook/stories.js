@@ -25,6 +25,7 @@ const GeogName = Tags.geogName.component
 const Head = Tags.head.component
 const Hi = Tags.hi.component
 const Item = Tags.item.component
+const Label = Tags.label.component
 const Line = Tags.l.component
 const LineGroup = Tags.lg.component
 const List = Tags.list.component
@@ -260,6 +261,17 @@ createStory("Tags/Passive/List { type: 'list' }")
 				<Item annotation={{ attributes: {} }}>Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem.</Item>
 				<Item annotation={{ attributes: {} }}>Non est occaecat culpa pariatur minim tempor.</Item>
 				<Item annotation={{ attributes: {} }}>Eiusmod tempor consectetur id duis minim mollit ut reprehenderit commodo consectetur occaecat consequat.</Item>
+			</List>
+			Voti mei memor iudicavi hasce qualescunque oratiunculas tibi offerre, ut hae exstarent monumentum grati mei erga te animi. Suscipe igitur primitias studiorum meorum benevolo animo.
+		</div>
+	)
+	.add('with labels', () =>
+		<div>
+			Voti mei memor iudicavi hasce qualescunque oratiunculas tibi offerre, ut hae exstarent monumentum grati mei erga te animi. Suscipe igitur primitias studiorum meorum benevolo animo.
+			<List annotation={{ attributes: {} }}>
+				<Label annotation={{ attributes: {} }}>a</Label><Item annotation={{ attributes: {} }}>Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem.</Item>
+				<Label annotation={{ attributes: {} }}>b</Label><Item annotation={{ attributes: {} }}>Non est occaecat culpa pariatur minim tempor.</Item>
+				<Label annotation={{ attributes: {} }}>c</Label><Item annotation={{ attributes: {} }}>Eiusmod tempor consectetur id duis minim mollit ut reprehenderit commodo consectetur occaecat consequat.</Item>
 			</List>
 			Voti mei memor iudicavi hasce qualescunque oratiunculas tibi offerre, ut hae exstarent monumentum grati mei erga te animi. Suscipe igitur primitias studiorum meorum benevolo animo.
 		</div>
