@@ -151,6 +151,10 @@ const componentsByTags: IComponentsByTags = {
 			component: PlaceName,
 			display: Display.Inline,
 		},
+		q: {
+			component: Div,
+			display: Display.Block,
+		},
 		row: {
 			component: Row,
 			display: Display.Block,
