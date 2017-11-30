@@ -90,7 +90,7 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Block,
     },
     list: {
-        component: system_tags_1.Ul,
+        component: tags_1.List,
         display: system_components_by_tags_1.Display.Block,
     },
     meta: {

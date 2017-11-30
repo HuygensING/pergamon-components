@@ -10,6 +10,7 @@ import {
 	Graphic,
 	Line,
 	LineGroup,
+	List,
 	Name,
 	Opener,
 	P,
@@ -114,7 +115,7 @@ const componentsByTags: IComponentsByTags = {
 			display: Display.Block,
 		},
 		list: {
-			component: Ul,
+			component: List,
 			display: Display.Block,
 		},
 		meta: {

@@ -30,8 +30,6 @@ export const Ul: Tag = (props) =>
 		style={{
 			...rendStyle(props),
 			...props.style,
-			padding: '0',
-			margin: '.5em 0 .5em 0 ',
 		}}
 	>
 		{props.children}

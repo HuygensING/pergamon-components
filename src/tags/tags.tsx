@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { basicAnnotation } from '../default-styles'
 import { Tag } from '../interfaces'
-import { Div, Span, None } from './system-tags'
+import { Div, Span, None, Ul } from './system-tags'
 import NotImplemented from './not-implemented'
 
 export const Add: Tag = (props) =>
@@ -99,6 +99,14 @@ export const Line: Tag = (props) =>
 	{props.children}
 	</Div>
 
+export const List: Tag = (props) =>
+	<Ul
+		style={{
+			padding: '0',
+			margin: '.5em 0 .5em 0 ',
+		}}
+		{...props}
+	/>
 
 export const LineGroup: Tag = (props) =>
 	<Div

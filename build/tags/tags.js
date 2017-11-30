@@ -42,6 +42,10 @@ exports.GeogName = (props) => React.createElement(system_tags_1.Span, Object.ass
     React.createElement(Icon, { src: "" }),
     props.children);
 exports.Line = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: { lineHeight: '2em' } }, props), props.children);
+exports.List = (props) => React.createElement(system_tags_1.Ul, Object.assign({ style: {
+        padding: '0',
+        margin: '.5em 0 .5em 0 ',
+    } }, props));
 exports.LineGroup = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: {
         margin: '2em 0',
         textIndent: props.annotation.attributes.type === 'poem' ? '1em' : 'initial',
