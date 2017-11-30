@@ -21,6 +21,7 @@ import {
 	Title,
 	Sic,
 	Space,
+	GeogName,
 } from './tags'
 import Anchor from "./anchor"
 import { Div, None, Span, Li, Ul } from './system-tags'
@@ -76,8 +77,16 @@ const componentsByTags: IComponentsByTags = {
 			component: Formula,
 			display: Display.Inline,
 		},
+		geogName: {
+			component: GeogName,
+			display: Display.Block,
+		},
 		graphic: {
 			component: Graphic,
+			display: Display.Block,
+		},
+		head: {
+			component: Div,
 			display: Display.Block,
 		},
 		hi: {
@@ -129,8 +138,8 @@ const componentsByTags: IComponentsByTags = {
 			display: Display.Block,
 		},
 		pb: {
-			component: Div,
-			display: Display.Block,
+			component: None,
+			display: Display.None,
 		},
 		persName: {
 			component: PersName,

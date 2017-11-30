@@ -38,6 +38,9 @@ exports.Graphic = (props) => React.createElement("img", { id: props.id, src: `/s
         width: '100%',
     } });
 exports.Formula = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: { fontStyle: 'italic' } }, props));
+exports.GeogName = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: default_styles_1.basicAnnotation }, props),
+    React.createElement(Icon, { src: "" }),
+    props.children);
 exports.Line = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: { lineHeight: '2em' } }, props), props.children);
 exports.LineGroup = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: {
         margin: '2em 0',

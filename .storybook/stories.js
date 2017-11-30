@@ -21,6 +21,8 @@ const Closer = Tags.closer.component
 const Corr = Tags.corr.component
 const DateTag = Tags.date.component
 const Formula = Tags.formula.component
+const GeogName = Tags.geogName.component
+const Head = Tags.head.component
 const Hi = Tags.hi.component
 const Item = Tags.item.component
 const Line = Tags.l.component
@@ -204,6 +206,24 @@ createStory("Tags/Passive/Formula, { type: formula }")
 			Excepteur esse incididunt officia ad laborum id.
 			<Formula annotation={{attributes: {}}}>Euler is unpronouncable</Formula>
 			Dolore consequat voluptate do mollit aliqua exercitation culpa duis cupidatat.
+		</div>
+	)
+
+createStory("Tags/Passive/GeogName, { type: geogName }")
+	.add('default', () =>
+		<div>Consectetur minim adipisicing <GeogName annotation={{ attributes: { type: 'person' }}}>Cape of Good Hope</GeogName> enim consequat ex aute voluptate do.</div>
+	)
+
+createStory("Tags/Passive/Head, { type: 'head' }")
+	.add('default', () =>
+		<div>
+			Elit dolore dolore id aute non.
+			Labore ipsum minim laboris irure consectetur dolor eu mollit veniam veniam cillum non ullamco.
+			Sit nulla mollit amet aute incididunt sit.
+			<Head annotation={{ attributes: {} }}>Aute excepteur quis.</Head>
+			Minim magna culpa cillum aliqua ad sint irure.
+			Sint proident Lorem id mollit laborum eu esse laboris magna culpa.
+			Est non incididunt nulla minim.
 		</div>
 	)
 

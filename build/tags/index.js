@@ -53,8 +53,16 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         component: tags_1.Formula,
         display: system_components_by_tags_1.Display.Inline,
     },
+    geogName: {
+        component: tags_1.GeogName,
+        display: system_components_by_tags_1.Display.Block,
+    },
     graphic: {
         component: tags_1.Graphic,
+        display: system_components_by_tags_1.Display.Block,
+    },
+    head: {
+        component: system_tags_1.Div,
         display: system_components_by_tags_1.Display.Block,
     },
     hi: {
@@ -106,8 +114,8 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Block,
     },
     pb: {
-        component: system_tags_1.Div,
-        display: system_components_by_tags_1.Display.Block,
+        component: system_tags_1.None,
+        display: system_components_by_tags_1.Display.None,
     },
     persName: {
         component: tags_1.PersName,

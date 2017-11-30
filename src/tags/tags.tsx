@@ -82,6 +82,15 @@ export const Formula: Tag = (props) =>
 		{...props}
 	/>
 
+export const GeogName: Tag = (props) =>
+	<Span
+		style={basicAnnotation}
+		{...props}
+	>
+		<Icon src="" />
+		{props.children}
+	</Span>
+
 export const Line: Tag = (props) =>
 	<Div
 		style={{ lineHeight: '2em' }}

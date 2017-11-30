@@ -9,6 +9,9 @@ const rendStyle = (props) => {
     if (rend == null)
         return {};
     return {
+        fontSize: rend === 'superscript' || rend === 'subscript' ?
+            '.8em' :
+            'initial',
         fontStyle: rend === 'italic' ?
             'italic' :
             'initial',

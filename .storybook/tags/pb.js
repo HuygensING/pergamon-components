@@ -1,9 +1,10 @@
 import React from 'react'
-import { Pb } from '../../src/tags/tags'
+import Tags from '../../src/tags'
+const Pb = Tags.pb.component
 import createStory from '../stories'
 
 export default (createStory) => createStory("Tags/Passive/Pb, { type: pb }")
-	.add('default', () =>
+	.add('None', () =>
 		<div>
 			Proident Lorem ut cillum duis. Eiusmod reprehenderit ea mollit id excepteur occaecat dolor consequat.
 			Est culpa ea consequat nulla est eiusmod ex incididunt laboris.
