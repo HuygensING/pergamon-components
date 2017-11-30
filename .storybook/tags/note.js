@@ -1,5 +1,6 @@
 import React from 'react'
-import Anchor from '../../src/tags/anchor'
+import Tags from '../../src/tags'
+const Anchor = Tags.anchor.component
 import createStory from '../stories'
 import { action } from '@storybook/addon-actions'
 import { PergamonUITags } from '../../src'

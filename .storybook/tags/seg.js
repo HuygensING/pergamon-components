@@ -1,5 +1,6 @@
 import React from 'react'
-import { Seg } from '../../src/tags/tags'
+import Tags from '../../src/tags'
+const Seg = Tags.seg.component
 import createStory from '../stories'
 
 export default (createStory) => createStory("Tags/Passive/Seg, { type: seg }")

@@ -1,5 +1,7 @@
 import React from 'react'
-import { Figure, Graphic } from '../../src/tags/tags'
+import Tags from '../../src/tags'
+const Figure = Tags.figure.component
+const Graphic = Tags.graphic.component
 import createStory from '../stories'
 
 export default (createStory, title) => createStory(title)
