@@ -5317,6 +5317,10 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         component: tags_1.PlaceName,
         display: system_components_by_tags_1.Display.Inline,
     },
+    q: {
+        component: system_tags_1.Div,
+        display: system_components_by_tags_1.Display.Block,
+    },
     row: {
         component: tags_1.Row,
         display: system_components_by_tags_1.Display.Block,
@@ -42850,17 +42854,17 @@ const huc_ui_components_1 = __webpack_require__(925);
 const constants_1 = __webpack_require__(274);
 const rendered_text_1 = __webpack_require__(275);
 const AnchorComp = (props) => React.createElement("span", { className: constants_1.IGNORE_CLASSNAME, onClick: props.onClick, ref: props.setRef, style: {
-        fontFamily: "'Roboto', sans-serif",
         backgroundColor: '#fff',
-        border: '1px solid #aaa',
         borderRadius: '50%',
         cursor: 'pointer',
         fontSize: '10px',
         marginLeft: '.2em',
-        marginRight: '.4em',
         padding: '.5em .5em',
         verticalAlign: 'top',
-        whiteSpace: 'nowrap'
+        whiteSpace: 'nowrap',
+        border: '1px solid #aaa',
+        fontFamily: "'Roboto', sans-serif",
+        marginRight: '.4em',
     } }, props.children);
 const minLeft = 18;
 const tooltipWidth = 400;
@@ -42997,11 +43001,18 @@ exports.Corr = (props) => React.createElement(system_tags_1.Span, Object.assign(
             paddingLeft: '.3em',
             color: '#aaa',
         } }, "corr"));
+const ParaDivTag = (props) => React.createElement(system_tags_1.Div, Object.assign({}, props, { style: {} }));
+const TranslationDivTag = (props) => React.createElement(system_tags_1.Div, Object.assign({}, props, { style: {} }));
 // DivTag is the TEI <div> tag (there is also a Div tag which represents the HTML <div> tag)
 exports.DivTag = (props) => (props.annotation.attributes.type === 'comment' ||
+    props.annotation.attributes.type === 'notes' ||
     props.annotation.attributes.type === 'provenance') ?
     React.createElement(system_tags_1.None, null) :
-    React.createElement(system_tags_1.Div, Object.assign({}, props));
+    props.annotation.attributes.type === 'para' ?
+        React.createElement(ParaDivTag, Object.assign({}, props)) :
+        props.annotation.attributes.type === 'translation' ?
+            React.createElement(TranslationDivTag, Object.assign({}, props)) :
+            React.createElement(system_tags_1.Div, Object.assign({}, props));
 exports.DateTag = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: default_styles_1.basicAnnotation }, props),
     React.createElement(Icon, { src: "http://design.huygens.knaw.nl/static/icons/date.svg" }),
     props.children);
@@ -46411,4 +46422,4 @@ module.exports = __webpack_require__(745);
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=preview.b9f93c6ae080722652b4.bundle.js.map
+//# sourceMappingURL=preview.3e0ee8e2363959791ff9.bundle.js.map
