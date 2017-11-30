@@ -5,17 +5,17 @@ const huc_ui_components_1 = require("huc-ui-components");
 const constants_1 = require("../constants");
 const rendered_text_1 = require("../rendered-text");
 const AnchorComp = (props) => React.createElement("span", { className: constants_1.IGNORE_CLASSNAME, onClick: props.onClick, ref: props.setRef, style: {
-        fontFamily: "'Roboto', sans-serif",
         backgroundColor: '#fff',
-        border: '1px solid #aaa',
         borderRadius: '50%',
         cursor: 'pointer',
         fontSize: '10px',
         marginLeft: '.2em',
-        marginRight: '.4em',
         padding: '.5em .5em',
         verticalAlign: 'top',
-        whiteSpace: 'nowrap'
+        whiteSpace: 'nowrap',
+        border: '1px solid #aaa',
+        fontFamily: "'Roboto', sans-serif",
+        marginRight: '.4em',
     } }, props.children);
 const minLeft = 18;
 const tooltipWidth = 400;

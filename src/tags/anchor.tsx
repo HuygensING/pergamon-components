@@ -14,17 +14,17 @@ const AnchorComp: React.SFC<IAnchorComp> = (props) =>
 		onClick={props.onClick}
 		ref={props.setRef}
 		style={{
-            fontFamily: "'Roboto', sans-serif",
 			backgroundColor: '#fff',
-            border: '1px solid #aaa',
 			borderRadius: '50%',
 			cursor: 'pointer',
 			fontSize: '10px',
 			marginLeft: '.2em',
-            marginRight: '.4em',
 			padding: '.5em .5em',
 			verticalAlign: 'top',
-			whiteSpace: 'nowrap'
+			whiteSpace: 'nowrap',
+            border: '1px solid #aaa',
+            fontFamily: "'Roboto', sans-serif",
+            marginRight: '.4em',
 		}}
 	>
 		{props.children}
