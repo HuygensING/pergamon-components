@@ -43,12 +43,6 @@ export const Li: Tag = (props) =>
 			...props.style,
 		}}
 	>
-		<label
-			style={{
-				fontStyle: 'italic',
-				display: 'block',
-			}}
-		>a</label>
 		{props.children}
 	</li>
 
