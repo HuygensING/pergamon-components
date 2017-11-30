@@ -29,7 +29,9 @@ exports.DivTag = (props) => (props.annotation.attributes.type === 'comment' ||
     props.annotation.attributes.type === 'provenance') ?
     React.createElement(system_tags_1.None, null) :
     props.annotation.attributes.type === 'para' ?
-        React.createElement(ParaDivTag, Object.assign({}, props)) :
+        React.createElement(ParaDivTag, Object.assign({}, props, { style: {
+                color: 'red',
+            } }), props.children) :
         props.annotation.attributes.type === 'translation' ?
             React.createElement(TranslationDivTag, Object.assign({}, props)) :
             React.createElement(system_tags_1.Div, Object.assign({}, props));
