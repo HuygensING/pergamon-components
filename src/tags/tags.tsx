@@ -41,6 +41,21 @@ export const Corr: Tag = (props) =>
 		>corr</sup>
 	</Span>
 
+const ParaDivTag: Tag = (props) =>
+	<Div
+		{...props}
+		style={{
+			// ...
+		}}
+	/>
+
+const TranslationDivTag: Tag = (props) =>
+	<Div
+		{...props}
+		style={{
+			// ...
+		}}
+	/>
 // DivTag is the TEI <div> tag (there is also a Div tag which represents the HTML <div> tag)
 export const DivTag: Tag = (props) =>
 	(
@@ -49,7 +64,11 @@ export const DivTag: Tag = (props) =>
 		props.annotation.attributes.type === 'provenance'
 	) ?
 		<None /> :
-		<Div {...props} />
+		props.annotation.attributes.type === 'para' ?
+			<ParaDivTag {...props} /> :
+			props.annotation.attributes.type === 'translation' ?
+				<TranslationDivTag {...props} /> :
+				<Div {...props} />
 
 export const DateTag: Tag = (props) =>
 	<Span

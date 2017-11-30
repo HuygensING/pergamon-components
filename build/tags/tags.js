@@ -22,11 +22,17 @@ exports.Corr = (props) => React.createElement(system_tags_1.Span, Object.assign(
             paddingLeft: '.3em',
             color: '#aaa',
         } }, "corr"));
+const ParaDivTag = (props) => React.createElement(system_tags_1.Div, Object.assign({}, props, { style: {} }));
+const TranslationDivTag = (props) => React.createElement(system_tags_1.Div, Object.assign({}, props, { style: {} }));
 exports.DivTag = (props) => (props.annotation.attributes.type === 'comment' ||
     props.annotation.attributes.type === 'notes' ||
     props.annotation.attributes.type === 'provenance') ?
     React.createElement(system_tags_1.None, null) :
-    React.createElement(system_tags_1.Div, Object.assign({}, props));
+    props.annotation.attributes.type === 'para' ?
+        React.createElement(ParaDivTag, Object.assign({}, props)) :
+        props.annotation.attributes.type === 'translation' ?
+            React.createElement(TranslationDivTag, Object.assign({}, props)) :
+            React.createElement(system_tags_1.Div, Object.assign({}, props));
 exports.DateTag = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: default_styles_1.basicAnnotation }, props),
     React.createElement(Icon, { src: "http://design.huygens.knaw.nl/static/icons/date.svg" }),
     props.children);
