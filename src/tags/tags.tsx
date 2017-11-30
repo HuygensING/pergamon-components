@@ -43,8 +43,11 @@ export const Corr: Tag = (props) =>
 
 // DivTag is the TEI <div> tag (there is also a Div tag which represents the HTML <div> tag)
 export const DivTag: Tag = (props) =>
-	(props.annotation.attributes.type === 'comment' ||
-	props.annotation.attributes.type === 'provenance') ?
+	(
+		props.annotation.attributes.type === 'comment' ||
+		props.annotation.attributes.type === 'notes' ||
+		props.annotation.attributes.type === 'provenance'
+	) ?
 		<None /> :
 		<Div {...props} />
 

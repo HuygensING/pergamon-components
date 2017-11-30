@@ -23,6 +23,7 @@ exports.Corr = (props) => React.createElement(system_tags_1.Span, Object.assign(
             color: '#aaa',
         } }, "corr"));
 exports.DivTag = (props) => (props.annotation.attributes.type === 'comment' ||
+    props.annotation.attributes.type === 'notes' ||
     props.annotation.attributes.type === 'provenance') ?
     React.createElement(system_tags_1.None, null) :
     React.createElement(system_tags_1.Div, Object.assign({}, props));
