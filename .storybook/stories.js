@@ -254,15 +254,15 @@ createStory("Tags/Passive/LineGroup { type: 'lg' }")
 
 createStory("Tags/Passive/List { type: 'list' }")
 	.add('default', () =>
-		<span>
-		Voti mei memor iudicavi hasce qualescunque oratiunculas tibi offerre, ut hae exstarent monumentum grati mei erga te animi. Suscipe igitur primitias studiorum meorum benevolo animo.
-		<List annotation={{ attributes: {} }}>
-			<Item annotation={{ attributes: {} }}>Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem.</Item>
-			<Item annotation={{ attributes: {} }}>Non est occaecat culpa pariatur minim tempor.</Item>
-			<Item annotation={{ attributes: {} }}>Eiusmod tempor consectetur id duis minim mollit ut reprehenderit commodo consectetur occaecat consequat.</Item>
-		</List>
-		Voti mei memor iudicavi hasce qualescunque oratiunculas tibi offerre, ut hae exstarent monumentum grati mei erga te animi. Suscipe igitur primitias studiorum meorum benevolo animo.
-		</span>
+		<div>
+			Voti mei memor iudicavi hasce qualescunque oratiunculas tibi offerre, ut hae exstarent monumentum grati mei erga te animi. Suscipe igitur primitias studiorum meorum benevolo animo.
+			<List annotation={{ attributes: {} }}>
+				<Item annotation={{ attributes: {} }}>Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem.</Item>
+				<Item annotation={{ attributes: {} }}>Non est occaecat culpa pariatur minim tempor.</Item>
+				<Item annotation={{ attributes: {} }}>Eiusmod tempor consectetur id duis minim mollit ut reprehenderit commodo consectetur occaecat consequat.</Item>
+			</List>
+			Voti mei memor iudicavi hasce qualescunque oratiunculas tibi offerre, ut hae exstarent monumentum grati mei erga te animi. Suscipe igitur primitias studiorum meorum benevolo animo.
+		</div>
 	)
 
 createStory("Tags/Passive/Name, { type: Name }")
