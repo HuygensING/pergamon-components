@@ -45,7 +45,9 @@ const ParaDivTag: Tag = (props) =>
 	<Div
 		{...props}
 		style={{
-			color: 'red',
+			borderLeft: '1px solid #eee',
+			paddingLeft: '.5em',
+			marginLeft: '-.5em',
 		}}
 	/>
 
