@@ -65,7 +65,14 @@ export const DivTag: Tag = (props) =>
 	) ?
 		<None /> :
 		props.annotation.attributes.type === 'para' ?
-			<ParaDivTag {...props} /> :
+			<ParaDivTag
+			{...props}
+			style={{
+				color: 'red',
+			}}
+			 >
+			 {props.children}
+			</ParaDivTag> :
 			props.annotation.attributes.type === 'translation' ?
 				<TranslationDivTag {...props} /> :
 				<Div {...props} />

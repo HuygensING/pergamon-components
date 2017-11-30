@@ -192,6 +192,20 @@ createStory("Tags/Passive/Div, { type: div }")
 			</Div>
 		</div>
 	)
+	.add('para', () =>
+		<div>
+			<Div annotation={{ attributes: { type: 'para' } }}>
+				Fugiat non commodo non tempor. Esse nisi et sit aute.
+				Adipisicing duis labore commodo aliqua cupidatat officia eiusmod proident aliqua do.
+				Velit eu aute cupidatat adipisicing voluptate in ullamco.
+			</Div>
+			<Div annotation={{ attributes: {} }}>
+				Minim minim eiusmod ad dolore tempor.
+				Eiusmod id occaecat sint qui aliqua sint minim.
+				Voluptate ullamco fugiat pariatur voluptate occaecat laborum ipsum culpa dolore quis dolor sit sunt.
+			</Div>
+		</div>
+	)
 
 // createStory('Del')
 // 	.add('default', () => <Del>This is deleted</Del>);
