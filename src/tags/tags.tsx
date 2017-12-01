@@ -90,15 +90,36 @@ export const Figure: Tag = (props) =>
 		{...props}
 	/>
 
-export const Graphic: Tag = (props) =>
-	<img
-		id={props.id}
-		src={`/static/graphics/${props.annotation.attributes.url}`}
-		style={{
-			height: '100%',
-			width: '100%',
-		}}
-	/>
+export const Graphic: Tag = (props) => {
+	let width: number
+	let height: number
+	const attrs = props.annotation.attributes
+	const exts = ['px', 'em', 'ex', 'vw', 'vh', '%', 'cm', 'mm', 'in', 'pt', 'rem', 'vm', 'pc', 'gd']
+
+	if (attrs.height != null && attrs.width != null) {
+		const widthExt: string = exts.find(e => attrs.width.slice(-e.length) === e)
+		const heightExt: string = exts.find(e => attrs.height.slice(-e.length) === e)
+		if (
+			exts.some(e => widthExt === e) &&
+			exts.some(e => heightExt === e)
+		) {
+			const scale = attrs.scale != null ? Number.parseFloat(attrs.scale) : 1
+			width = Number.parseInt(attrs.width.slice(0, -widthExt.length)) * scale
+			height = Number.parseInt(attrs.height.slice(0, -heightExt.length)) * scale
+		}
+	}
+
+	return (
+		<img
+			id={props.id}
+			src={`/static/graphics/${props.annotation.attributes.url}`}
+			style={{
+				height: height != null ? height : '100%',
+				width: width != null ? width : '100%',
+			}}
+		/>
+	)
+}
 
 export const Formula: Tag = (props) =>
 	<Span

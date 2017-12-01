@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {IAnnotation, Tag, ITag} from "../interfaces";
+import {IAnnotation, Tag} from "../interfaces";
 import { IComponentsByTags } from '../tags/system-components-by-tags';
 import { IRenderedTextCommon } from './index';
 import NotImplemented from '../tags/not-implemented'
@@ -15,12 +15,12 @@ const TextTreeNode: React.SFC<ITextTreeNode> = (props) => {
 		console.error(`Component not found: ${props.annotation.type}`)
 	}
 
-	const Tag: Tag | React.ComponentClass<ITag> = props.tags.hasOwnProperty(props.annotation.type) ?
+	const TTag: Tag = props.tags.hasOwnProperty(props.annotation.type) ?
 		props.tags[props.annotation.type].component :
 		NotImplemented
 
 	return (
-		<Tag
+		<TTag
 			activateAnnotation={props.activateAnnotation}
 			activeAnnotation={props.activeAnnotation}
 			annotation={props.annotation}
@@ -29,7 +29,7 @@ const TextTreeNode: React.SFC<ITextTreeNode> = (props) => {
 			tags={props.tags}
 		>
 			{props.children}
-		</Tag>
+		</TTag>
 	);
 };
 

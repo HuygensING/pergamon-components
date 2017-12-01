@@ -9,7 +9,7 @@ module.exports = (baseConfig, env) => {
     test: /\.(ts|tsx)$/,
     loader: require.resolve('awesome-typescript-loader'),
     query: {
-      configFileName: './tsconfig.storybook.json'
+      configFileName: './.storybook/tsconfig.storybook.json'
     }
   });
   config.resolve.extensions.push('.ts', '.tsx');

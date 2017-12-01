@@ -1,34 +1,38 @@
-import React from 'react'
+import * as React from 'react'
+import { storiesOf } from '@storybook/react'
 import Tags from '../../src/tags'
 const Anchor = Tags.anchor.component
-import createStory from '../stories'
-import { action } from '@storybook/addon-actions'
-import { PergamonUITags } from '../../src'
+import Dummy, { defaultAnnotation } from '../dummy'
 
-export default (createStory) => createStory("Tags/Interactive/Anchor { type: 'anchor' }")
+storiesOf("Tags/Active/{ type: anchor }", module)
 	.add('default', () =>
 		<div>
 			Laboris commodo ullamco incididunt sint voluptate incididunt non adipisicing magna non nostrud.
-			<Anchor
-				activateAnnotation={action('activateAnnotation')}
+			<Dummy
+				comp={Anchor}
 				annotation={{
+					...defaultAnnotation,
 					attributes: { n: 'n1' },
 					id: 'id-n1'
 				}}
 			/>
 			Velit esse adipisicing
-			<Anchor
-				activateAnnotation={action('activateAnnotation')}
+			<Dummy
 				activeAnnotation={{
+					...defaultAnnotation,
 					attributes: { n: 'n2' },
 					id: 'id-n2',
 				}}
 				annotation={{
+					...defaultAnnotation,
 					attributes: { n: 'n2' },
 					id: 'id-n2',
 				}}
+				comp={Anchor}
 				root={{
+					...defaultAnnotation,
 					children: [{
+						...defaultAnnotation,
 						attributes: {
 							n: 'n2'
 						},
@@ -40,16 +44,17 @@ export default (createStory) => createStory("Tags/Interactive/Anchor { type: 'an
 					id: 'my-root-id',
 					text: 'This is the text. A part of it is a note. You\'ll see',
 				}}
-				tags={PergamonUITags}
+				tags={Tags}
 			/>
 			ad irure consequat enim incididunt fugiat adipisicing aute. 
 			Eu consectetur in consectetur
-			<Anchor
-				activateAnnotation={action('activateAnnotation')}
+			<Dummy
 				annotation={{
+					...defaultAnnotation,
 					attributes: { n: 'n3' },
 					id: 'id-n3'
 				}}
+				comp={Anchor}
 			/>
 			incididunt.
 		</div>

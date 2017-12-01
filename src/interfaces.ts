@@ -22,7 +22,7 @@ export interface IAnnotation {
 
 	annotations?: IAnnotation[];
 	attributes?: {
-		type: string
+		type?: string
 		[key: string]: any
 	};
 	children?: IAnnotation[];
@@ -57,5 +57,5 @@ export interface ITag {
 	tags: IComponentsByTags
 }
 
-export type Tag = React.SFC<ITag>
+export type Tag = React.SFC<ITag> | React.ComponentClass<ITag>
 	

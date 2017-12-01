@@ -1,14 +1,15 @@
-import React from 'react'
+import * as React from 'react'
+import { storiesOf } from '@storybook/react'
 import Tags from '../../src/tags'
 const Pb = Tags.pb.component
-import createStory from '../stories'
+import Dummy from '../dummy';
 
-export default (createStory) => createStory("Tags/Passive/Pb, { type: pb }")
+storiesOf("Tags/Passive/{ type: pb }", module)
 	.add('None', () =>
 		<div>
 			Proident Lorem ut cillum duis. Eiusmod reprehenderit ea mollit id excepteur occaecat dolor consequat.
 			Est culpa ea consequat nulla est eiusmod ex incididunt laboris.
-			<Pb annotation={{attributes: {}}} />
+			<Dummy comp={Pb} />
 			Dolore nisi sit aliquip reprehenderit proident adipisicing dolore excepteur cupidatat. 
 			Deserunt veniam reprehenderit deserunt exercitation eu ipsum non. 
 			Qui culpa exercitation pariatur commodo adipisicing reprehenderit mollit fugiat anim dolore anim.

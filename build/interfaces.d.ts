@@ -9,7 +9,7 @@ export interface IAnnotation {
     _targetType?: 'annotation' | 'document';
     annotations?: IAnnotation[];
     attributes?: {
-        type: string;
+        type?: string;
         [key: string]: any;
     };
     children?: IAnnotation[];
@@ -41,4 +41,4 @@ export interface ITag {
     style?: React.CSSProperties;
     tags: IComponentsByTags;
 }
-export declare type Tag = React.SFC<ITag>;
+export declare type Tag = React.SFC<ITag> | React.ComponentClass<ITag>;

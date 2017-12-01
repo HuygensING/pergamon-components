@@ -6,9 +6,9 @@ const TextTreeNode = (props) => {
     if (!props.tags.hasOwnProperty(props.annotation.type)) {
         console.error(`Component not found: ${props.annotation.type}`);
     }
-    const Tag = props.tags.hasOwnProperty(props.annotation.type) ?
+    const TTag = props.tags.hasOwnProperty(props.annotation.type) ?
         props.tags[props.annotation.type].component :
         not_implemented_1.default;
-    return (React.createElement(Tag, { activateAnnotation: props.activateAnnotation, activeAnnotation: props.activeAnnotation, annotation: props.annotation, id: props.annotation._tagId, root: props.root, tags: props.tags }, props.children));
+    return (React.createElement(TTag, { activateAnnotation: props.activateAnnotation, activeAnnotation: props.activeAnnotation, annotation: props.annotation, id: props.annotation._tagId, root: props.root, tags: props.tags }, props.children));
 };
 exports.default = TextTreeNode;
