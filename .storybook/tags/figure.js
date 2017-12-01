@@ -2,7 +2,7 @@ import React from 'react'
 import Tags from '../../src/tags'
 const Figure = Tags.figure.component
 const Graphic = Tags.graphic.component
-import createStory from '../stories'
+import { createStory } from '../stories'
 
 export default (createStory, title) => createStory(title)
 	.add('default', () =>

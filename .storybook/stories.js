@@ -131,7 +131,13 @@ createStory('SemanticSuggestions')
 	)
 
 createStory("Tags/Passive/Add, { type: 'add' }")
-	.add('default', () => <Add annotation={{ attributes: {} }}>This is added</Add>);
+	.add('default', () => 
+		<div style={{ maxWidth: '550px' }}>
+			Veniam fugiat aliqua labore est dolore incididunt minim reprehenderit laborum quis excepteur voluptate ut. 
+			Anim minim enim <Add annotation={{ attributes: {} }}>This is added</Add> sit esse tempor mollit.
+			Officia aliqua ut nulla nisi magna sunt laboris irure consectetur cupidatat cupidatat elit magna.
+		</div>
+	)
 
 // createStory('Anchor')
 // 	.add('default', () =>
@@ -145,10 +151,14 @@ createStory("Tags/Passive/Add, { type: 'add' }")
 
 createStory("Tags/Passive/Choice, { type: 'choice' }")
 	.add('default', () =>
-		<Choice annotation={{ attributes: {} }}>
-			<Sic annotation={{ attributes: {} }}>Incorrect</Sic>
-			<Corr annotation={{ attributes: {} }}>Correction</Corr>
-		</Choice>
+		<div style={{ maxWidth: '500px' }}>
+			Nostrud ex est et est cillum veniam ex dolor officia.
+			Mollit duis excepteur laboris <Choice annotation={{ attributes: {} }}>
+				<Sic annotation={{ attributes: {} }}>Incorrect</Sic>
+				<Corr annotation={{ attributes: {} }}>Correction</Corr>
+			</Choice> do nulla aliqua veniam in.
+			Eu aliqua laborum dolore ad non reprehenderit.
+		</div>
 	);
 
 createStory("Tags/Passive/Closer, { type: closer }")
@@ -178,36 +188,6 @@ createStory("Tags/Passive/DateTag, { type: date }")
 		</div>
 	)
 
-createStory("Tags/Passive/Div, { type: div }")
-	.add('default', () =>
-		<div>
-			<DivTag annotation={{ attributes: { type: 'para' } }}>
-				Fugiat non commodo non tempor. Esse nisi et sit aute.
-				Adipisicing duis labore commodo aliqua cupidatat officia eiusmod proident aliqua do.
-				Velit eu aute cupidatat adipisicing voluptate in ullamco.
-			</DivTag>
-			<DivTag annotation={{ attributes: {} }}>
-				Minim minim eiusmod ad dolore tempor.
-				Eiusmod id occaecat sint qui aliqua sint minim.
-				Voluptate ullamco fugiat pariatur voluptate occaecat laborum ipsum culpa dolore quis dolor sit sunt.
-			</DivTag>
-		</div>
-	)
-	.add('para', () =>
-		<div>
-			<Div annotation={{ attributes: { type: 'para' } }}>
-				Fugiat non commodo non tempor. Esse nisi et sit aute.
-				Adipisicing duis labore commodo aliqua cupidatat officia eiusmod proident aliqua do.
-				Velit eu aute cupidatat adipisicing voluptate in ullamco.
-			</Div>
-			<Div annotation={{ attributes: {} }}>
-				Minim minim eiusmod ad dolore tempor.
-				Eiusmod id occaecat sint qui aliqua sint minim.
-				Voluptate ullamco fugiat pariatur voluptate occaecat laborum ipsum culpa dolore quis dolor sit sunt.
-			</Div>
-		</div>
-	)
-
 // createStory('Del')
 // 	.add('default', () => <Del>This is deleted</Del>);
 import storiesOfFigure from './tags/figure'
@@ -227,7 +207,11 @@ createStory("Tags/Passive/Formula, { type: formula }")
 
 createStory("Tags/Passive/GeogName, { type: geogName }")
 	.add('default', () =>
-		<div>Consectetur minim adipisicing <GeogName annotation={{ attributes: { type: 'person' }}}>Cape of Good Hope</GeogName> enim consequat ex aute voluptate do.</div>
+		<div>
+			Consectetur minim 
+			adipisicing <GeogName annotation={{ attributes: { type: 'person' }}}>Cape of Good Hope</GeogName> enim 
+			consequat ex aute voluptate do.
+		</div>
 	)
 
 createStory("Tags/Passive/Head, { type: 'head' }")
@@ -254,18 +238,30 @@ createStory("Tags/Passive/Hi', { type: 'hi' }")
 
 createStory("Tags/Passive/LineGroup { type: 'lg' }")
 	.add('default', () =>
-		<LineGroup annotation={{ attributes: {} }}>
-			<Line annotation={{ attributes: {} }}>Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem.</Line>
-			<Line annotation={{ attributes: {} }}>Non est occaecat culpa pariatur minim tempor.</Line>
-			<Line annotation={{ attributes: {} }}>Eiusmod tempor consectetur id duis minim mollit ut reprehenderit commodo consectetur occaecat consequat.</Line>
-		</LineGroup>
+		<div style={{ maxWidth: '550px' }}>
+			Culpa ut sit adipisicing Lorem non est consectetur proident ea.
+			Nisi elit ipsum cupidatat commodo officia culpa non magna elit ad reprehenderit nostrud.
+			<LineGroup annotation={{ attributes: {} }}>
+				<Line annotation={{ attributes: {} }}>Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem.</Line>
+				<Line annotation={{ attributes: {} }}>Non est occaecat culpa pariatur minim tempor.</Line>
+				<Line annotation={{ attributes: {} }}>Eiusmod tempor consectetur id duis minim mollit ut reprehenderit commodo consectetur occaecat consequat.</Line>
+			</LineGroup>
+			Excepteur mollit nostrud velit amet eu eu ex eu labore eiusmod adipisicing.
+			Dolore anim ad id culpa.
+		</div>
 	)
 	.add('attributes: type: poem', () =>
-		<LineGroup annotation={{ attributes: { type: 'poem' }}}>
-			<Line annotation={{ attributes: {} }}>Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem.</Line>
-			<Line annotation={{ attributes: {} }}>Non est occaecat culpa pariatur minim tempor.</Line>
-			<Line annotation={{ attributes: {} }}>Eiusmod tempor consectetur id duis minim mollit ut reprehenderit commodo consectetur occaecat consequat.</Line>
-		</LineGroup>
+		<div style={{ maxWidth: '550px' }}>
+			Labore dolore Lorem fugiat sint Lorem adipisicing in excepteur reprehenderit.
+			Cupidatat id duis tempor dolor aliqua.
+			<LineGroup annotation={{ attributes: { type: 'poem' }}}>
+				<Line annotation={{ attributes: {} }}>Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem.</Line>
+				<Line annotation={{ attributes: {} }}>Non est occaecat culpa pariatur minim tempor.</Line>
+				<Line annotation={{ attributes: {} }}>Eiusmod tempor consectetur id duis minim mollit ut reprehenderit commodo consectetur occaecat consequat.</Line>
+			</LineGroup>
+			Adipisicing irure ad dolor consequat culpa amet aute mollit commodo culpa qui occaecat.
+			In quis minim officia in ea exercitation ipsum et laborum culpa incididunt nisi.
+		</div>
 	)
 
 createStory("Tags/Passive/List { type: 'list' }")

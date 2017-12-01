@@ -23,7 +23,9 @@ exports.Corr = (props) => React.createElement(system_tags_1.Span, Object.assign(
             color: '#aaa',
         } }, "corr"));
 const ParaDivTag = (props) => React.createElement(system_tags_1.Div, Object.assign({}, props, { style: {
-        color: 'red',
+        borderLeft: '1px solid #eee',
+        paddingLeft: '.5em',
+        marginLeft: '-.5em',
     } }));
 const TranslationDivTag = (props) => React.createElement(system_tags_1.Div, Object.assign({}, props, { style: {} }));
 exports.DivTag = (props) => (props.annotation.attributes.type === 'comment' ||
