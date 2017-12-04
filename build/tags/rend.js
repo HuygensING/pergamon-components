@@ -11,7 +11,7 @@ const rendStyle = (props) => {
     return {
         fontSize: rend === 'superscript' || rend === 'subscript' ?
             '.8em' :
-            'initial',
+            'inherit',
         fontStyle: rend === 'italic' ?
             'italic' :
             'initial',

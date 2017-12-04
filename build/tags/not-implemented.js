@@ -1,13 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
-const NotImplemented = (props) => React.createElement("div", { style: {
-        backgroundColor: '#EC7700',
-        color: 'white',
-        padding: '2em 1.5em',
-        margin: '1em -.5em',
-        fontFamily: "'Roboto', sans-serif",
-    } },
+const default_styles_1 = require("../default-styles");
+const NotImplemented = (props) => React.createElement("div", { style: Object.assign({}, default_styles_1.fontStyle, { backgroundColor: '#EC7700', color: 'white', padding: '2em 1.5em', margin: '1em -.5em' }) },
     React.createElement("div", { style: {
             fontWeight: 'bold',
             fontSize: '1.3em',

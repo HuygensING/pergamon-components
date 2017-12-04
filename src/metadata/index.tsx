@@ -1,14 +1,15 @@
 import * as React from 'react'
 import { IAnnotation } from '../interfaces';
+import { fontStyle } from '../default-styles';
 
 const MetadataList = (props) =>
 	<ul
 		 style={{
 			color: '#888',
-			fontFamily: "'Roboto', sans-serif",
 			listStyle: 'none',
 			margin: 0,
 			padding: 0,
+			...fontStyle
 		}}>
 		{props.children}
 	</ul>

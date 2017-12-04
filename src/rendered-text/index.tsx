@@ -1,9 +1,9 @@
-import * as React from 'react';
-import TextTreeNode from "./node";
-import createTree from "./create-tree/index";
-import {IAnnotation} from "../interfaces";
-import { IComponentsByTags } from '../tags/system-components-by-tags';
-import { fontReadStyle } from '../default-styles';
+import * as React from 'react'
+import TextTreeNode from "./node"
+import createTree from "./create-tree/index"
+import {IAnnotation} from "../interfaces"
+import { IComponentsByTags } from '../tags/system-components-by-tags'
+import { fontReadStyle } from '../default-styles'
 
 export interface IRenderedTextCommon {
 	activateAnnotation?: (a: IAnnotation) => void;

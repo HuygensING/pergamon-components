@@ -1,14 +1,15 @@
 import * as React from 'react'
 import { Tag } from '../interfaces'
+import { fontStyle } from '../default-styles';
 
 const NotImplemented: Tag = (props) =>
 	<div
 		style={{
+			...fontStyle,
 			backgroundColor: '#EC7700',
 			color: 'white',
 			padding: '2em 1.5em',
 			margin: '1em -.5em',
-			fontFamily: "'Roboto', sans-serif",
 		}}
 	>
 		<div

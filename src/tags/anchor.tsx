@@ -3,6 +3,7 @@ import { HucTooltip } from 'huc-ui-components'
 import { IGNORE_CLASSNAME } from "../constants";
 import { ITag } from '../interfaces';
 import RenderedText from '../rendered-text';
+import { fontStyle } from '../default-styles';
 
 interface IAnchorComp {
 	onClick: (ev: any) => void
@@ -14,6 +15,7 @@ const AnchorComp: React.SFC<IAnchorComp> = (props) =>
 		onClick={props.onClick}
 		ref={props.setRef}
 		style={{
+			...fontStyle,
 			backgroundColor: '#fff',
 			borderRadius: '50%',
 			cursor: 'pointer',
@@ -23,8 +25,7 @@ const AnchorComp: React.SFC<IAnchorComp> = (props) =>
 			verticalAlign: 'top',
 			whiteSpace: 'nowrap',
             border: '1px solid #aaa',
-            fontFamily: "'Roboto', sans-serif",
-            marginRight: '.4em',
+			marginRight: '.4em',
 		}}
 	>
 		{props.children}

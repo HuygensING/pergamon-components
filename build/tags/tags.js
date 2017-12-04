@@ -120,9 +120,7 @@ exports.Sic = (props) => React.createElement(system_tags_1.Span, Object.assign({
 exports.Space = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: {
         height: '2em',
     } }, props));
-exports.Table = (props) => React.createElement("table", { style: {
-        fontFamily: "'Roboto', sans-serif",
-    } },
+exports.Table = (props) => React.createElement("table", { style: default_styles_1.fontStyle },
     React.createElement("tbody", null, props.children));
 exports.Title = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: default_styles_1.basicAnnotation }, props),
     React.createElement(Icon, { src: "http://design.huygens.knaw.nl/static/icons/book.svg" }),

@@ -4,19 +4,8 @@ const React = require("react");
 const huc_ui_components_1 = require("huc-ui-components");
 const constants_1 = require("../constants");
 const rendered_text_1 = require("../rendered-text");
-const AnchorComp = (props) => React.createElement("span", { className: constants_1.IGNORE_CLASSNAME, onClick: props.onClick, ref: props.setRef, style: {
-        backgroundColor: '#fff',
-        borderRadius: '50%',
-        cursor: 'pointer',
-        fontSize: '10px',
-        marginLeft: '.2em',
-        padding: '.5em .5em',
-        verticalAlign: 'top',
-        whiteSpace: 'nowrap',
-        border: '1px solid #aaa',
-        fontFamily: "'Roboto', sans-serif",
-        marginRight: '.4em',
-    } }, props.children);
+const default_styles_1 = require("../default-styles");
+const AnchorComp = (props) => React.createElement("span", { className: constants_1.IGNORE_CLASSNAME, onClick: props.onClick, ref: props.setRef, style: Object.assign({}, default_styles_1.fontStyle, { backgroundColor: '#fff', borderRadius: '50%', cursor: 'pointer', fontSize: '10px', marginLeft: '.2em', padding: '.5em .5em', verticalAlign: 'top', whiteSpace: 'nowrap', border: '1px solid #aaa', marginRight: '.4em' }) }, props.children);
 const minLeft = 18;
 const tooltipWidth = 400;
 class Anchor extends React.Component {

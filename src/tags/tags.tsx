@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { basicAnnotation } from '../default-styles'
+import { basicAnnotation, fontStyle } from '../default-styles'
 import { Tag } from '../interfaces'
 import { Div, Span, None, Ul, Li } from './system-tags'
 import NotImplemented from './not-implemented'
@@ -260,9 +260,7 @@ export const Space: Tag = (props) =>
 
 export const Table: Tag = (props) =>
 	<table
-		style={{
-			fontFamily: "'Roboto', sans-serif",
-		}}
+		style={fontStyle}
 	>
 		<tbody>
 			{props.children}

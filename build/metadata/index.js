@@ -1,13 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
-const MetadataList = (props) => React.createElement("ul", { style: {
-        color: '#888',
-        fontFamily: "'Roboto', sans-serif",
-        listStyle: 'none',
-        margin: 0,
-        padding: 0,
-    } }, props.children);
+const default_styles_1 = require("../default-styles");
+const MetadataList = (props) => React.createElement("ul", { style: Object.assign({ color: '#888', listStyle: 'none', margin: 0, padding: 0 }, default_styles_1.fontStyle) }, props.children);
 const MetadataItem = (props) => React.createElement("li", { style: {
         marginBottom: '1em',
     } }, props.children);
