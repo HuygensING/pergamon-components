@@ -1,9 +1,11 @@
-import * as React from 'react';
-import AnnotationForm, {IAnnotationFormProps} from "./annotation-form";
-import {IAnnotation} from "../interfaces";
-import RenderedText from "../rendered-text/index";
-import { IComponentsByTags } from '../tags/system-components-by-tags';
-import { fontStyle } from '../default-styles';
+import * as React from 'react'
+import AnnotationForm, {IAnnotationFormProps} from "./annotation-form"
+import {IAnnotation} from "../interfaces"
+import RenderedText from "../rendered-text/index"
+import { IComponentsByTags } from '../tags/system-components-by-tags'
+import { fontStyle } from '../default-styles'
+import Person from './person'
+import Place from './place'
 
 export interface IAnnotationCommon extends IAnnotationFormProps {
 	activateAnnotation: (string) => void;
@@ -28,35 +30,23 @@ const Annotation: React.SFC<IAnnotationProps> = (props) =>
 			{
 				(props.annotation.type === 'note' && props.annotation.attributes.hasOwnProperty('n')) &&
 				<div style={{ color: '#444', fontSize:'.85em'}}>
-					{props.annotation.attributes.n}
+					{ props.annotation.attributes.n }
+					{ props.rootAnnotation.text.slice(props.annotation.start, props.annotation.end) }
 				</div>
 			}
 			{
 				props.annotation.type === 'persName' &&
-				<img
-					style={{
-						width: "12px",
-						height:'auto',
-						marginRight: '.2em',
-					}}
-					src="http://design.huygens.knaw.nl/static/icons/person.svg"
+				<Person
+					annotation={props.annotation}
+					rootAnnotation={props.rootAnnotation}
 				/>
 			}
 			{
 				props.annotation.type === 'placeName' &&
-				<img
-					style={{
-						width: "12px",
-						height:'auto',
-						marginRight: '.2em',
-					}}
-					src="http://design.huygens.knaw.nl/static/icons/location.svg"
+				<Place
+					annotation={props.annotation}
+					rootAnnotation={props.rootAnnotation}
 				/>
-			}
-			{ props.rootAnnotation.text.slice(props.annotation.start, props.annotation.end) }
-			{
-				props.annotation.type === 'persName' &&
-				<small style={{ color: '#444', marginLeft: '1em' }}>(xxxx - xxxx)</small>
 			}
 		</h4>
 		{
