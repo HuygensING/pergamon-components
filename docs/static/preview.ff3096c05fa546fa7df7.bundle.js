@@ -42296,6 +42296,13 @@ react_1.storiesOf("Tags/Passive/{ type: 'lg' }")
         React.createElement(dummy_1.default, { comp: Line }, "Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem."),
         React.createElement(dummy_1.default, { comp: Line }, "Non est occaecat culpa pariatur minim tempor."),
         React.createElement(dummy_1.default, { comp: Line }, "Eiusmod tempor consectetur id duis minim mollit ut reprehenderit commodo consectetur occaecat consequat.")),
+    "Adipisicing irure ad dolor consequat culpa amet aute mollit commodo culpa qui occaecat. In quis minim officia in ea exercitation ipsum et laborum culpa incididunt nisi."))
+    .add('attributes: type: poem with stanzas', () => React.createElement("div", { style: { maxWidth: '550px' } },
+    "Labore dolore Lorem fugiat sint Lorem adipisicing in excepteur reprehenderit. Cupidatat id duis tempor dolor aliqua.",
+    React.createElement(dummy_1.default, { comp: LineGroup, annotation: Object.assign({}, dummy_1.defaultAnnotation, { attributes: { type: 'poem' } }) },
+        React.createElement(dummy_1.default, { comp: Line, annotation: Object.assign({}, dummy_1.defaultAnnotation, { attributes: { type: 'stanza' } }) }, "Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem. Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem. Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem."),
+        React.createElement(dummy_1.default, { comp: Line, annotation: Object.assign({}, dummy_1.defaultAnnotation, { attributes: { type: 'stanza' } }) }, "Non est occaecat culpa pariatur minim tempor.Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem. Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem."),
+        React.createElement(dummy_1.default, { comp: Line, annotation: Object.assign({}, dummy_1.defaultAnnotation, { attributes: { type: 'stanza' } }) }, "Eiusmod tempor consectetur id duis minim mollit ut reprehenderit commodo consectetur occaecat consequat.")),
     "Adipisicing irure ad dolor consequat culpa amet aute mollit commodo culpa qui occaecat. In quis minim officia in ea exercitation ipsum et laborum culpa incididunt nisi."));
 react_1.storiesOf("Tags/Passive/{ type: 'list' }")
     .add('default', () => React.createElement("div", null,
@@ -43141,14 +43148,18 @@ exports.Item = (props) => React.createElement(system_tags_1.Li, Object.assign({ 
         padding: '0 0 0 0em',
         margin: '0 0 .5em 1em',
     } }, props));
-exports.Line = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: { lineHeight: '2em' } }, props), props.children);
+exports.Line = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: {
+        lineHeight: props.annotation.attributes.type === 'stanza' ? '1em' : '2em',
+        marginTop: props.annotation.attributes.type === 'stanza' ? '.5em' : 'initial',
+        marginBottom: props.annotation.attributes.type === 'stanza' ? '.5em' : 'initial',
+    } }, props), props.children);
 exports.List = (props) => React.createElement(system_tags_1.Ul, Object.assign({ style: {
         padding: '0',
         margin: '.5em 0 .5em 0 ',
     } }, props));
 exports.LineGroup = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: {
-        margin: '2em 0',
-        textIndent: props.annotation.attributes.type === 'poem' ? '1em' : 'initial',
+        marginTop: '2em',
+        marginLeft: props.annotation.attributes.type === 'poem' ? '1em' : 'initial',
         fontStyle: props.annotation.attributes.type === 'poem' ? 'italic' : 'initial',
     } }, props));
 exports.Name = (props) => props.annotation.attributes.type === 'person' ?
@@ -45853,4 +45864,4 @@ module.exports = __webpack_require__(744);
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=preview.9f5747d9a4d0487eb14b.bundle.js.map
+//# sourceMappingURL=preview.ff3096c05fa546fa7df7.bundle.js.map
