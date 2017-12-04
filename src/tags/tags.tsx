@@ -147,7 +147,11 @@ export const Item: Tag = (props) =>
 
 export const Line: Tag = (props) =>
 	<Div
-		style={{ lineHeight: '2em' }}
+		style={{
+			lineHeight: props.annotation.attributes.type === 'stanza' ? '1em' : '2em',
+			marginTop: props.annotation.attributes.type === 'stanza' ? '.5em' : 'initial',
+			marginBottom: props.annotation.attributes.type === 'stanza' ? '.5em' : 'initial',
+			}}
 		{...props}
 	>
 	{props.children}
@@ -165,8 +169,8 @@ export const List: Tag = (props) =>
 export const LineGroup: Tag = (props) =>
 	<Div
 		style={{
-			margin: '2em 0',
-			textIndent: props.annotation.attributes.type === 'poem' ? '1em' : 'initial',
+			marginTop: '2em',
+			marginLeft: props.annotation.attributes.type === 'poem' ? '1em' : 'initial',
 			fontStyle: props.annotation.attributes.type === 'poem' ? 'italic' : 'initial',
 			}}
 		{...props}

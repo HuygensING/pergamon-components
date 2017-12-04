@@ -23,9 +23,9 @@ import NotImplemented from '../../src/tags/not-implemented'
 import Dummy, { defaultAnnotation } from '../dummy'
 
 storiesOf("Tags/Passive/{ type: 'add' }")
-	.add('default', () => 
+	.add('default', () =>
 		<div style={{ maxWidth: '550px' }}>
-			Veniam fugiat aliqua labore est dolore incididunt minim reprehenderit laborum quis excepteur voluptate ut. 
+			Veniam fugiat aliqua labore est dolore incididunt minim reprehenderit laborum quis excepteur voluptate ut.
 			Anim minim enim <Dummy comp={Add}>This is added</Dummy> sit esse tempor mollit.
 			Officia aliqua ut nulla nisi magna sunt laboris irure consectetur cupidatat cupidatat elit magna.
 		</div>
@@ -116,9 +116,22 @@ storiesOf("Tags/Passive/{ type: 'lg' }")
 			Labore dolore Lorem fugiat sint Lorem adipisicing in excepteur reprehenderit.
 			Cupidatat id duis tempor dolor aliqua.
 			<Dummy comp={LineGroup} annotation={{ ...defaultAnnotation, attributes: { type: 'poem' }}}>
-				<Dummy comp={Line}>Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem.</Dummy>
+				<Dummy comp={Line} >Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem.</Dummy>
 				<Dummy comp={Line}>Non est occaecat culpa pariatur minim tempor.</Dummy>
 				<Dummy comp={Line}>Eiusmod tempor consectetur id duis minim mollit ut reprehenderit commodo consectetur occaecat consequat.</Dummy>
+			</Dummy>
+			Adipisicing irure ad dolor consequat culpa amet aute mollit commodo culpa qui occaecat.
+			In quis minim officia in ea exercitation ipsum et laborum culpa incididunt nisi.
+		</div>
+	)
+	.add('attributes: type: poem with stanzas', () =>
+		<div style={{ maxWidth: '550px' }}>
+			Labore dolore Lorem fugiat sint Lorem adipisicing in excepteur reprehenderit.
+			Cupidatat id duis tempor dolor aliqua.
+			<Dummy comp={LineGroup} annotation={{ ...defaultAnnotation, attributes: { type: 'poem' }}}>
+				<Dummy comp={Line} annotation={{ ...defaultAnnotation, attributes: { type: 'stanza' }}}>Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem. Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem. Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem.</Dummy>
+				<Dummy comp={Line} annotation={{ ...defaultAnnotation, attributes: { type: 'stanza' }}}>Non est occaecat culpa pariatur minim tempor.Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem. Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem.</Dummy>
+				<Dummy comp={Line} annotation={{ ...defaultAnnotation, attributes: { type: 'stanza' }}}>Eiusmod tempor consectetur id duis minim mollit ut reprehenderit commodo consectetur occaecat consequat.</Dummy>
 			</Dummy>
 			Adipisicing irure ad dolor consequat culpa amet aute mollit commodo culpa qui occaecat.
 			In quis minim officia in ea exercitation ipsum et laborum culpa incididunt nisi.
@@ -154,14 +167,14 @@ storiesOf("Tags/Passive/{ type: 'list' }")
 storiesOf("Tags/Other/{ type: NotImplemented }")
 	.add('type: unknown-type', () =>
 		<div>Consectetur minim
-			adipisicing <Dummy comp={NotImplemented} annotation={{ ...defaultAnnotation, type: 'unknown-type', attributes: {} }} tags={Tags}>Jan van Riebeeck</Dummy> enim 
+			adipisicing <Dummy comp={NotImplemented} annotation={{ ...defaultAnnotation, type: 'unknown-type', attributes: {} }} tags={Tags}>Jan van Riebeeck</Dummy> enim
 			consequat ex aute voluptate do.</div>
 	)
 	.add('type: name, attributes: { type: "unknown-sub-type" }', () =>
-		<div>Consectetur minim 
+		<div>Consectetur minim
 			adipisicing <Dummy
 				comp={NotImplemented}
-				annotation={{ ...defaultAnnotation, type: 'name', attributes: { type: 'unknown-sub-type' } }} tags={Tags}>Jan van Riebeeck</Dummy> enim 
+				annotation={{ ...defaultAnnotation, type: 'name', attributes: { type: 'unknown-sub-type' } }} tags={Tags}>Jan van Riebeeck</Dummy> enim
 			consequat ex aute voluptate do.</div>
 	)
 
