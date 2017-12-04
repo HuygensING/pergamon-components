@@ -42,22 +42,89 @@ export const Corr: Tag = (props) =>
 	</Span>
 
 const ParaDivTag: Tag = (props) =>
+<Div
+	{...props}
+	style={{
+		margin: '1em 0',
+	}}
+>
 	<Div
-		{...props}
+	{...props}
 		style={{
-			borderLeft: '1px solid #eee',
-			paddingLeft: '.5em',
-			marginLeft: '-.5em',
-		}}
-	/>
+			textTransform: 'uppercase',
+			fontFamily: "'Roboto', sans-serif",
+			color: '#999',
+			fontSize: '.8em',
+			marginBottom: '.5em',
+			}}
+	>
+	<hr style={{
+					height: '1px',
+					backgroundColor: '#ddd',
+					color: '#eee',
+					width: '20px',
+					border: 'none',
+					marginLeft: '-10px',
+					marginTop: '1em',
+					marginBottom: '.5em',
+			}} />
+		Envelope
+	</Div>
+	{props.children}
+	<hr style={{
+					height: '1px',
+					backgroundColor: '#ddd',
+					color: '#eee',
+					width: '20px',
+					border: 'none',
+					marginLeft: '-10px',
+					marginTop: '.5em',
+					marginBottom: '1em',
+			}} />
+</Div>
 
 const TranslationDivTag: Tag = (props) =>
+<Div
+	{...props}
+	style={{
+		margin: '1em 0',
+	}}
+>
 	<Div
-		{...props}
+	{...props}
 		style={{
-			// ...
-		}}
-	/>
+			textTransform: 'uppercase',
+			fontFamily: "'Roboto', sans-serif",
+			color: '#999',
+			fontSize: '.8em',
+			marginBottom: '.5em',
+			}}
+	>
+	<hr style={{
+					height: '1px',
+					backgroundColor: '#ddd',
+					color: '#eee',
+					width: '20px',
+					border: 'none',
+					marginLeft: '-10px',
+					marginTop: '1em',
+					marginBottom: '.5em',
+			}} />
+		Translation
+	</Div>
+	{props.children}
+	<hr style={{
+					height: '1px',
+					backgroundColor: '#ddd',
+					color: '#eee',
+					width: '20px',
+					border: 'none',
+					marginLeft: '-10px',
+					marginTop: '.5em',
+					marginBottom: '1em',
+			}} />
+</Div>
+
 // DivTag is the TEI <div> tag (there is also a Div tag which represents the HTML <div> tag)
 export const DivTag: Tag = (props) =>
 	(
