@@ -72,14 +72,18 @@ exports.Item = (props) => React.createElement(system_tags_1.Li, Object.assign({ 
         padding: '0 0 0 0em',
         margin: '0 0 .5em 1em',
     } }, props));
-exports.Line = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: { lineHeight: '2em' } }, props), props.children);
+exports.Line = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: {
+        lineHeight: props.annotation.attributes.type === 'stanza' ? '1em' : '2em',
+        marginTop: props.annotation.attributes.type === 'stanza' ? '.5em' : 'initial',
+        marginBottom: props.annotation.attributes.type === 'stanza' ? '.5em' : 'initial',
+    } }, props), props.children);
 exports.List = (props) => React.createElement(system_tags_1.Ul, Object.assign({ style: {
         padding: '0',
         margin: '.5em 0 .5em 0 ',
     } }, props));
 exports.LineGroup = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: {
-        margin: '2em 0',
-        textIndent: props.annotation.attributes.type === 'poem' ? '1em' : 'initial',
+        marginTop: '2em',
+        marginLeft: props.annotation.attributes.type === 'poem' ? '1em' : 'initial',
         fontStyle: props.annotation.attributes.type === 'poem' ? 'italic' : 'initial',
     } }, props));
 exports.Name = (props) => props.annotation.attributes.type === 'person' ?
