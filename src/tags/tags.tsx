@@ -199,7 +199,7 @@ export const GeogName: Tag = (props) =>
 		style={basicAnnotation}
 		{...props}
 	>
-		<Icon src="" />
+		<Icon src="http://design.huygens.knaw.nl/static/icons/location.svg" />
 		{props.children}
 	</Span>
 
