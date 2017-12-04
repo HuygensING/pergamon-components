@@ -22,21 +22,6 @@ exports.Corr = (props) => React.createElement(system_tags_1.Span, Object.assign(
             paddingLeft: '.3em',
             color: '#aaa',
         } }, "corr"));
-const ParaDivTag = (props) => React.createElement(system_tags_1.Div, Object.assign({}, props, { style: {
-        borderLeft: '1px solid #eee',
-        paddingLeft: '.5em',
-        marginLeft: '-.5em',
-    } }));
-const TranslationDivTag = (props) => React.createElement(system_tags_1.Div, Object.assign({}, props, { style: {} }));
-exports.DivTag = (props) => (props.annotation.attributes.type === 'comment' ||
-    props.annotation.attributes.type === 'notes' ||
-    props.annotation.attributes.type === 'provenance') ?
-    React.createElement(system_tags_1.None, null) :
-    props.annotation.attributes.type === 'para' ?
-        React.createElement(ParaDivTag, Object.assign({}, props)) :
-        props.annotation.attributes.type === 'translation' ?
-            React.createElement(TranslationDivTag, Object.assign({}, props)) :
-            React.createElement(system_tags_1.Div, Object.assign({}, props));
 exports.DateTag = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: default_styles_1.basicAnnotation }, props),
     React.createElement(Icon, { src: "http://design.huygens.knaw.nl/static/icons/date.svg" }),
     props.children);
@@ -66,7 +51,7 @@ exports.Graphic = (props) => {
 };
 exports.Formula = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: { fontStyle: 'italic' } }, props));
 exports.GeogName = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: default_styles_1.basicAnnotation }, props),
-    React.createElement(Icon, { src: "" }),
+    React.createElement(Icon, { src: "http://design.huygens.knaw.nl/static/icons/location.svg" }),
     props.children);
 exports.Item = (props) => React.createElement(system_tags_1.Li, Object.assign({ style: {
         padding: '0 0 0 0em',

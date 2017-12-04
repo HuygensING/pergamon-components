@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const system_components_by_tags_1 = require("./system-components-by-tags");
 const tags_1 = require("./tags");
+const div_1 = require("./div");
 const anchor_1 = require("./anchor");
 const system_tags_1 = require("./system-tags");
 const componentsByTags = Object.assign({}, system_components_by_tags_1.default, {
@@ -38,7 +39,7 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Inline,
     },
     div: {
-        component: tags_1.DivTag,
+        component: div_1.default,
         display: system_components_by_tags_1.Display.Block,
     },
     date: {

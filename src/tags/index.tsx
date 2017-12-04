@@ -4,7 +4,6 @@ import {
 	Cell,
 	Corr,
 	DateTag,
-	DivTag, // DivTag === TEI <div>, Div === HTML <div>
 	Figure,
 	Formula,
 	Graphic,
@@ -25,6 +24,7 @@ import {
 	GeogName,
 	Item,
 } from './tags'
+import DivTag from './div' // DivTag === TEI <div>, Div === HTML <div>
 import Anchor from "./anchor"
 import { Div, None, Span } from './system-tags'
 

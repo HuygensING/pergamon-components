@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { basicAnnotation, fontStyle } from '../default-styles'
 import { Tag } from '../interfaces'
-import { Div, Span, None, Ul, Li } from './system-tags'
+import { Div, Span, Ul, Li } from './system-tags'
 import NotImplemented from './not-implemented'
 
 export const Add: Tag = (props) =>
@@ -40,104 +40,6 @@ export const Corr: Tag = (props) =>
 			}}
 		>corr</sup>
 	</Span>
-
-const ParaDivTag: Tag = (props) =>
-<Div
-	{...props}
-	style={{
-		margin: '1em 0',
-	}}
->
-	<Div
-	{...props}
-		style={{
-			textTransform: 'uppercase',
-			fontFamily: "'Roboto', sans-serif",
-			color: '#999',
-			fontSize: '.8em',
-			marginBottom: '.5em',
-			}}
-	>
-	<hr style={{
-					height: '1px',
-					backgroundColor: '#ddd',
-					color: '#eee',
-					width: '20px',
-					border: 'none',
-					marginLeft: '-10px',
-					marginTop: '1em',
-					marginBottom: '.5em',
-			}} />
-		Envelope
-	</Div>
-	{props.children}
-	<hr style={{
-					height: '1px',
-					backgroundColor: '#ddd',
-					color: '#eee',
-					width: '20px',
-					border: 'none',
-					marginLeft: '-10px',
-					marginTop: '.5em',
-					marginBottom: '1em',
-			}} />
-</Div>
-
-const TranslationDivTag: Tag = (props) =>
-<Div
-	{...props}
-	style={{
-		margin: '1em 0',
-	}}
->
-	<Div
-	{...props}
-		style={{
-			textTransform: 'uppercase',
-			fontFamily: "'Roboto', sans-serif",
-			color: '#999',
-			fontSize: '.8em',
-			marginBottom: '.5em',
-			}}
-	>
-	<hr style={{
-					height: '1px',
-					backgroundColor: '#ddd',
-					color: '#eee',
-					width: '20px',
-					border: 'none',
-					marginLeft: '-10px',
-					marginTop: '1em',
-					marginBottom: '.5em',
-			}} />
-		Translation
-	</Div>
-	{props.children}
-	<hr style={{
-					height: '1px',
-					backgroundColor: '#ddd',
-					color: '#eee',
-					width: '20px',
-					border: 'none',
-					marginLeft: '-10px',
-					marginTop: '.5em',
-					marginBottom: '1em',
-			}} />
-</Div>
-
-// DivTag is the TEI <div> tag (there is also a Div tag which represents the HTML <div> tag)
-export const DivTag: Tag = (props) =>
-	(
-		props.annotation.attributes.type === 'comment' ||
-		props.annotation.attributes.type === 'notes' ||
-		props.annotation.attributes.type === 'provenance'
-	) ?
-		<None /> :
-		props.annotation.attributes.type === 'para' ?
-			<ParaDivTag {...props} /> :
-			props.annotation.attributes.type === 'translation' ?
-				<TranslationDivTag {...props} /> :
-				<Div {...props} />
 
 export const DateTag: Tag = (props) =>
 	<Span
