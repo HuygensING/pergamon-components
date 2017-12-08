@@ -83,8 +83,9 @@ export const Graphic: Tag = (props) => {
 			id={props.id}
 			src={`/static/graphics/${props.annotation.attributes.url}`}
 			style={{
-				height: height != null ? height : '100%',
-				width: width != null ? width : '100%',
+				height: height != null ? height : 'auto',
+				width: width != null ? width : 'auto',
+				maxWidth: '100%',
 			}}
 		/>
 	)

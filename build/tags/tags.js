@@ -45,8 +45,9 @@ exports.Graphic = (props) => {
         }
     }
     return (React.createElement("img", { id: props.id, src: `/static/graphics/${props.annotation.attributes.url}`, style: {
-            height: height != null ? height : '100%',
-            width: width != null ? width : '100%',
+            height: height != null ? height : 'auto',
+            width: width != null ? width : 'auto',
+            maxWidth: '100%',
         } }));
 };
 exports.Formula = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: { fontStyle: 'italic' } }, props));
