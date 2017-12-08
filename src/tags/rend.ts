@@ -12,33 +12,23 @@ const rendStyle = (props: ITag): React.CSSProperties=> {
 	if (rend == null) return {}
 	return {
 		fontSize:
-			rend === 'superscript' || rend === 'subscript' ?
-				'.8em' :
-				'inherit',
+			rend === 'superscript' || rend === 'subscript' ? '.8em' : null,
 		fontStyle:
-			rend === 'italic' ?
-				'italic' :
-				'initial',
+			rend === 'italic' ? 'italic' : null,
 		fontVariant:
-			rend === 'case(smallcaps)' ?
-				'small-caps' :
-				'initial',
+			rend === 'case(smallcaps)' ? 'small-caps' : null,
 		fontWeight:
-			rend === 'bold' ?
-				'bold' :
-				'initial',
+			rend === 'bold' ? 'bold' : null,
+		lineHeight:
+			rend === 'superscript' || rend === 'subscript' ? 0 : null,
 		textDecoration:
 			rend === 'underline' ?
 				'underline' :
-				rend === 'strikethrough' ?
-					'line-through' :
-					'initial',
+				rend === 'strikethrough' ? 'line-through' : null,
 		verticalAlign:
 			rend === 'superscript' ?
 				'super' :
-				rend === 'subscript' ?
-					'sub' :
-					'initial',
+				rend === 'subscript' ? 'sub' : null,
 	}
 }
 
