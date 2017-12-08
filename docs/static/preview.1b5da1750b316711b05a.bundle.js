@@ -42250,6 +42250,7 @@ const LineGroup = tags_1.default.lg.component;
 const List = tags_1.default.list.component;
 const Opener = tags_1.default.opener.component;
 const Row = tags_1.default.row.component;
+const Quote = tags_1.default.q.component;
 const Sic = tags_1.default.sic.component;
 const Space = tags_1.default.space.component;
 const Table = tags_1.default.table.component;
@@ -42341,6 +42342,11 @@ react_1.storiesOf("Tags/Passive/{ type: opener }")
     "Commodo enim adipisicing nostrud labore. Ad deserunt commodo cillum Lorem sunt Lorem reprehenderit sint. Ut dolor nulla est consequat consectetur magna in culpa eiusmod pariatur.",
     React.createElement(dummy_1.default, { comp: Opener }, "Est tempor anim in id anim reprehenderit laboris. Eiusmod sit velit pariatur incididunt. In adipisicing consequat ullamco duis non occaecat non magna dolore nostrud magna exercitation. Ipsum cillum adipisicing est ullamco et aliqua."),
     "Minim eu cillum laboris reprehenderit consequat labore ipsum qui cillum ad tempor non. Aute exercitation incididunt irure aute dolore culpa consequat. Est laborum quis laboris sint enim incididunt minim Lorem ut qui ea proident enim anim."));
+react_1.storiesOf("Tags/Passive/{ type: q }")
+    .add('default', () => React.createElement("div", null,
+    "Elit id consectetur nisi quis laborum adipisicing ipsum adipisicing. Deserunt voluptate exercitation cupidatat nisi sunt esse eu eiusmod ex mollit. Incididunt sunt dolor irure amet proident velit Lorem quis.",
+    React.createElement(dummy_1.default, { comp: Quote }, "Esse in sit nostrud et sit laborum."),
+    "Id proident do aliqua aliqua cillum quis veniam culpa et tempor. Consectetur laboris id incididunt commodo ut velit consectetur labore proident occaecat occaecat tempor nostrud ad. Sit amet mollit magna pariatur reprehenderit laboris qui et ullamco officia sit et."));
 react_1.storiesOf("Tags/Passive/{ type: space }")
     .add('default', () => React.createElement("div", null,
     "Elit id consectetur nisi quis laborum adipisicing ipsum adipisicing. Deserunt voluptate exercitation cupidatat nisi sunt esse eu eiusmod ex mollit. Incididunt sunt dolor irure amet proident velit Lorem quis.",
@@ -43083,28 +43089,17 @@ const rendStyle = (props) => {
     if (rend == null)
         return {};
     return {
-        fontSize: rend === 'superscript' || rend === 'subscript' ?
-            '.8em' :
-            'inherit',
-        fontStyle: rend === 'italic' ?
-            'italic' :
-            'initial',
-        fontVariant: rend === 'case(smallcaps)' ?
-            'small-caps' :
-            'initial',
-        fontWeight: rend === 'bold' ?
-            'bold' :
-            'initial',
+        fontSize: rend === 'superscript' || rend === 'subscript' ? '.8em' : null,
+        fontStyle: rend === 'italic' ? 'italic' : null,
+        fontVariant: rend === 'case(smallcaps)' ? 'small-caps' : null,
+        fontWeight: rend === 'bold' ? 'bold' : null,
+        lineHeight: rend === 'superscript' || rend === 'subscript' ? 0 : null,
         textDecoration: rend === 'underline' ?
             'underline' :
-            rend === 'strikethrough' ?
-                'line-through' :
-                'initial',
+            rend === 'strikethrough' ? 'line-through' : null,
         verticalAlign: rend === 'superscript' ?
             'super' :
-            rend === 'subscript' ?
-                'sub' :
-                'initial',
+            rend === 'subscript' ? 'sub' : null,
     };
 };
 exports.default = rendStyle;
@@ -43162,8 +43157,9 @@ exports.Graphic = (props) => {
         }
     }
     return (React.createElement("img", { id: props.id, src: `/static/graphics/${props.annotation.attributes.url}`, style: {
-            height: height != null ? height : '100%',
-            width: width != null ? width : '100%',
+            height: height != null ? height : 'auto',
+            width: width != null ? width : 'auto',
+            maxWidth: '100%',
         } }));
 };
 exports.Formula = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: { fontStyle: 'italic' } }, props));
@@ -45890,4 +45886,4 @@ module.exports = __webpack_require__(744);
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=preview.d5e27d9382f041782ef5.bundle.js.map
+//# sourceMappingURL=preview.1b5da1750b316711b05a.bundle.js.map
