@@ -15,6 +15,7 @@ const LineGroup = Tags.lg.component
 const List = Tags.list.component
 const Opener = Tags.opener.component
 const Row = Tags.row.component
+const Quote = Tags.q.component
 const Sic = Tags.sic.component
 const Space = Tags.space.component
 const Table = Tags.table.component
@@ -193,6 +194,19 @@ storiesOf("Tags/Passive/{ type: opener }")
 			Minim eu cillum laboris reprehenderit consequat labore ipsum qui cillum ad tempor non.
 			Aute exercitation incididunt irure aute dolore culpa consequat.
 			Est laborum quis laboris sint enim incididunt minim Lorem ut qui ea proident enim anim.
+		</div>
+	)
+
+storiesOf("Tags/Passive/{ type: q }")
+	.add('default', () =>
+		<div>
+			Elit id consectetur nisi quis laborum adipisicing ipsum adipisicing.
+			Deserunt voluptate exercitation cupidatat nisi sunt esse eu eiusmod ex mollit.
+			Incididunt sunt dolor irure amet proident velit Lorem quis.
+			<Dummy comp={Quote}>Esse in sit nostrud et sit laborum.</Dummy>
+			Id proident do aliqua aliqua cillum quis veniam culpa et tempor.
+			Consectetur laboris id incididunt commodo ut velit consectetur labore proident occaecat occaecat tempor nostrud ad.
+			Sit amet mollit magna pariatur reprehenderit laboris qui et ullamco officia sit et.
 		</div>
 	)
 
