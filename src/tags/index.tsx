@@ -81,7 +81,7 @@ const componentsByTags: IComponentsByTags = {
 		},
 		geogName: {
 			component: GeogName,
-			display: Display.Block,
+			display: Display.Inline,
 		},
 		graphic: {
 			component: Graphic,

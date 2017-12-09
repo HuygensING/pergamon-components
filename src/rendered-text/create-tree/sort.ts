@@ -1,5 +1,5 @@
 import { IAnnotation } from '../../interfaces';
-import { Display } from '../../tags/system-components-by-tags';
+import { Display, IComponentsByTags } from '../../tags/system-components-by-tags';
 
 export const byStartEnd = (a: IAnnotation, b: IAnnotation) => {
 	if (a.start > b.start) return 1;
@@ -11,22 +11,7 @@ export const byStartEnd = (a: IAnnotation, b: IAnnotation) => {
 	return 0;
 };
 
-export const byDisplayStartEnd = (tags) => (a: IAnnotation, b: IAnnotation) => {
-	// if (!tags.hasOwnProperty(a.type)) {
-	// 	console.error(`Annotation type not found: "${a.type}"`)
-	// 	tags[a.type] = {
-	// 		component: NotImplemented,
-	// 		display: Display.Block,
-	// 	}
-	// }
-
-	// if (!tags.hasOwnProperty(b.type)) {
-	// 	console.error(`Annotation type not found: "${b.type}"`)
-	// 	tags[b.type] = {
-	// 		component: NotImplemented,
-	// 		display: Display.Block,
-	// 	}
-	// }
+export const byDisplayStartEnd = (tags: IComponentsByTags) => (a: IAnnotation, b: IAnnotation) => {
 	const aDisplay = tags.hasOwnProperty(a.type) ? tags[a.type].display : Display.Inline
 	const bDisplay = tags.hasOwnProperty(b.type) ? tags[b.type].display : Display.Inline
 
@@ -40,11 +25,9 @@ export const byDisplayStartEnd = (tags) => (a: IAnnotation, b: IAnnotation) => {
 };
 
 export const byRowStartEnd = (a, b) => {
-	if (a.row > b.row) return 1;
-	if (b.row > a.row) return -1;
-	if (a.row === b.row) {
-		return byStartEnd(a, b);
-	}
+	if (a.row > b.row) return 1
+	else if (a.row < b.row) return -1
+	else return byStartEnd(a, b)
 };
 
 // export const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
