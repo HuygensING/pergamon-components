@@ -1,5 +1,3 @@
-export const debounceWait: number = 1000;
-
 // Classname given to elements which should be ignored when present in a selection.
 // A selection is made by the user to create an annotation.
 export const IGNORE_CLASSNAME = '__ignore';
