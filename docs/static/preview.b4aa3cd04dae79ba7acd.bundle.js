@@ -41923,13 +41923,12 @@ exports.rootAnnotation = toAnnotation({
     ],
     "end": 1339,
     "id": "AV8Fr6BvzCK540LqWxIx",
-    "metadata": {
-        "sender": "Piet Plezier",
-        "senderloc": "Enkhuizen",
-        "recipient": "Andre van Duin",
-        "recipientloc": "Bonaire",
-        "date": "2011-04-18",
-    },
+    "metadata": new Map()
+        .set("sender", "Piet Plezier")
+        .set("senderloc", "Enkhuizen")
+        .set("recipient", "Andre van Duin")
+        .set("recipientloc", "Bonaire")
+        .set("date", "2011-04-18"),
     "source": "xml",
     "start": 0,
     "target": null,
@@ -42647,8 +42646,8 @@ const MetadataItem = (props) => React.createElement("li", { style: {
         marginBottom: '1em',
     } }, props.children);
 const Label = (props) => React.createElement("label", { style: {
-        marginLeft: '-65px',
-        position: 'absolute',
+        marginLeft: props.width < 400 ? 0 : '-65px',
+        position: props.width < 400 ? 'static' : 'absolute',
         textAlign: 'right',
         width: '50px',
     } }, props.children);
@@ -46066,4 +46065,4 @@ module.exports = __webpack_require__(745);
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=preview.1e76ce4a563c6539459d.bundle.js.map
+//# sourceMappingURL=preview.b4aa3cd04dae79ba7acd.bundle.js.map
