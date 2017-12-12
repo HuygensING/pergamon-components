@@ -4,7 +4,7 @@ import Annotation from "../models/annotation"
 import TreeNode from "../models/tree-node"
 import { IComponentsByTags } from '../tags/system-components-by-tags'
 import { fontReadStyle } from '../default-styles'
-import createTree from 'pergamon-annotation-tree-builder'
+import createTree from './tree-builder'
 
 export interface IRenderedTextCommon {
 	activateAnnotation?: (id: string) => void;

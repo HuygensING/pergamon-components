@@ -11,7 +11,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
 const node_1 = require("./node");
 const default_styles_1 = require("../default-styles");
-const pergamon_annotation_tree_builder_1 = require("pergamon-annotation-tree-builder");
+const tree_builder_1 = require("./tree-builder");
 class RenderedText extends React.Component {
     constructor() {
         super(...arguments);
@@ -35,7 +35,7 @@ class RenderedText extends React.Component {
             if (this.state.componentTree == null ||
                 this.props.root.id !== props.root.id ||
                 this.props.activeAnnotation !== props.activeAnnotation) {
-                const tree = pergamon_annotation_tree_builder_1.default(props.root);
+                const tree = tree_builder_1.default(props.root);
                 const componentTree = tree.map(branch => this.nodeTreeToComponentTree(branch, props.root, props));
                 this.setState({ componentTree });
             }
