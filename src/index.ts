@@ -2,6 +2,7 @@ import RenderedText from './rendered-text'
 import AnnotationList from './annotation-list'
 import Button from './ui/button';
 import Annotation from './models/annotation'
+import TreeNode from './models/tree-node'
 import PergamonUITags from './tags'
 import SemanticSuggestions from './semantic-suggestions'
 import { ISuggestion } from './semantic-suggestions/suggestion'
@@ -21,5 +22,6 @@ export {
    PergamonUITags,
    RenderedText,
    SemanticSuggestions,
+   TreeNode,
 };
 

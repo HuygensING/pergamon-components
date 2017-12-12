@@ -1,14 +1,12 @@
 // import { IAnnotation } from "../src/interfaces"
+import Annotation from '../src/models/annotation'
 
-import { IAnnotation } from "../src/interfaces"
-
-export const activeAnnotation: IAnnotation = {
-	"attributes": {
-    "key": "PE00873",
-    "resp": "#ckcc",
-    "resp_key": "#ckcc"
-  },
-  children: [],
+export const activeAnnotation: Annotation = new Annotation({
+	"attributes": new Map()
+    .set("key", "PE00873")
+    .set("resp", "#ckcc")
+    .set("resp_key", "#ckcc")
+  ,
 	"id": "AV8Fr6Y2zCK540LqWxJ_",
 	"start": 596,
 	"end": 606,
@@ -16,10 +14,16 @@ export const activeAnnotation: IAnnotation = {
   "target": "AV8Fr6BvzCK540LqWxIx",
   "text": "",
 	"source": 'xml' 
-}
+})
 
-export const rootAnnotation: IAnnotation = { 
-  "children": [
+const toAnnotation = (root) => {
+  if (root.hasOwnProperty('annotations')) {
+    root.annotations = root.annotations.map(toAnnotation)
+  }
+  return new Annotation(root)
+}
+export const rootAnnotation = toAnnotation({ 
+  "annotations": [
     {
       "attributes": {
         "type": "sender",
@@ -341,4 +345,4 @@ export const rootAnnotation: IAnnotation = {
   "target": null,
   "text": "nnnnnnnnnnnnnnNobilissime Hugeni,nBacchum olim antiquitas laetitiae datorem dixit, coluitque, ego Te. Adeo beneficium beneficio, gaudium gaudio cumulas: ut jam de mutando foro cogitem, cum rationibus subductis non videam, qua me via tuo aere extricem. Cum Aeschine meipsum offero, pene dixissem vernam, imo mediastinum: nisi, quae tua est humanitas, manumittendos esse putes poetas, vel propter mediocre ingenium. Quod si nolis, age, vel pedes meos creta alba nota, Romanorum more; vel Iudaeorum ritu aurem mihi pertunde, ut me non mei amplius, sed tui juris esse publice constet. Illustrissimum Carletonum intra biduum aut triduum Scazonte compellabo, eique adventum in Batavis gratulabor, unaque pro perlato ad me regio munere gratias agam. Postea Penbrociae Comes & Oldisworthis luculentiore vel carmine vel epistola compellandi erunt. Verum, quod regiam istam liberalitatem silentio premi cupis, gravate obsequar. Citius ringar, quam ut insignem Regis summi munificentiam, & ingentia tua erga me merita ingrato silentio involvam. Quid enim? vis me cogitasse, quid optandum fuerit, non quid impetratum sit? vis me aestimasse beneficium, non benefactorem? praeterquam quod sciri expediat, aliquod quoque precium esse studiorum meorum apud exteros.nVale, mi Hugeni & Patriae, Principi, tuisque charus vive. Lugd. Bat. Cal. Maji, 1627.nnnn",
   "type": "__root"
-}
+})

@@ -21,7 +21,8 @@ const Space = Tags.space.component
 const Table = Tags.table.component
 const Title = Tags.title.component
 import NotImplemented from '../../src/tags/not-implemented'
-import Dummy, { defaultAnnotation } from '../dummy'
+import Dummy from '../dummy'
+import TreeNode from '../../src/models/tree-node'
 
 storiesOf("Tags/Passive/{ type: 'add' }")
 	.add('default', () =>
@@ -116,7 +117,7 @@ storiesOf("Tags/Passive/{ type: 'lg' }")
 		<div style={{ maxWidth: '550px' }}>
 			Labore dolore Lorem fugiat sint Lorem adipisicing in excepteur reprehenderit.
 			Cupidatat id duis tempor dolor aliqua.
-			<Dummy comp={LineGroup} annotation={{ ...defaultAnnotation, attributes: { type: 'poem' }}}>
+			<Dummy comp={LineGroup} node={new TreeNode({ attributes: new Map().set('type', 'poem') })}>
 				<Dummy comp={Line} >Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem.</Dummy>
 				<Dummy comp={Line}>Non est occaecat culpa pariatur minim tempor.</Dummy>
 				<Dummy comp={Line}>Eiusmod tempor consectetur id duis minim mollit ut reprehenderit commodo consectetur occaecat consequat.</Dummy>
@@ -129,10 +130,10 @@ storiesOf("Tags/Passive/{ type: 'lg' }")
 		<div style={{ maxWidth: '550px' }}>
 			Labore dolore Lorem fugiat sint Lorem adipisicing in excepteur reprehenderit.
 			Cupidatat id duis tempor dolor aliqua.
-			<Dummy comp={LineGroup} annotation={{ ...defaultAnnotation, attributes: { type: 'poem' }}}>
-				<Dummy comp={Line} annotation={{ ...defaultAnnotation, attributes: { type: 'stanza' }}}>Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem. Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem. Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem.</Dummy>
-				<Dummy comp={Line} annotation={{ ...defaultAnnotation, attributes: { type: 'stanza' }}}>Non est occaecat culpa pariatur minim tempor.Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem. Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem.</Dummy>
-				<Dummy comp={Line} annotation={{ ...defaultAnnotation, attributes: { type: 'stanza' }}}>Eiusmod tempor consectetur id duis minim mollit ut reprehenderit commodo consectetur occaecat consequat.</Dummy>
+			<Dummy comp={LineGroup} node={new TreeNode({ attributes: new Map().set('type', 'poem') })}>
+				<Dummy comp={Line} node={new TreeNode({ attributes: new Map().set('type', 'stanza') })}>Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem. Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem. Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem.</Dummy>
+				<Dummy comp={Line} node={new TreeNode({ attributes: new Map().set('type', 'stanza') })}>Non est occaecat culpa pariatur minim tempor.Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem. Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem.</Dummy>
+				<Dummy comp={Line} node={new TreeNode({ attributes: new Map().set('type', 'stanza') })}>Eiusmod tempor consectetur id duis minim mollit ut reprehenderit commodo consectetur occaecat consequat.</Dummy>
 			</Dummy>
 			Adipisicing irure ad dolor consequat culpa amet aute mollit commodo culpa qui occaecat.
 			In quis minim officia in ea exercitation ipsum et laborum culpa incididunt nisi.
@@ -168,14 +169,14 @@ storiesOf("Tags/Passive/{ type: 'list' }")
 storiesOf("Tags/Other/{ type: NotImplemented }")
 	.add('type: unknown-type', () =>
 		<div>Consectetur minim
-			adipisicing <Dummy comp={NotImplemented} annotation={{ ...defaultAnnotation, type: 'unknown-type', attributes: {} }} tags={Tags}>Jan van Riebeeck</Dummy> enim
+			adipisicing <Dummy comp={NotImplemented} node={new TreeNode({ type: 'unknown-type', attributes: new Map() })} tags={Tags}>Jan van Riebeeck</Dummy> enim
 			consequat ex aute voluptate do.</div>
 	)
 	.add('type: name, attributes: { type: "unknown-sub-type" }', () =>
 		<div>Consectetur minim
 			adipisicing <Dummy
 				comp={NotImplemented}
-				annotation={{ ...defaultAnnotation, type: 'name', attributes: { type: 'unknown-sub-type' } }} tags={Tags}>Jan van Riebeeck</Dummy> enim
+				node={new TreeNode({type: 'name', attributes: new Map().set('type', 'unknown-sub-type') })} tags={Tags}>Jan van Riebeeck</Dummy> enim
 			consequat ex aute voluptate do.</div>
 	)
 

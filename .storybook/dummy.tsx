@@ -1,28 +1,19 @@
 import * as React from 'react'
-import { IAnnotation, Tag, ITag } from '../src/interfaces';
+import { Tag, ITagProps } from '../src/interfaces';
 import Tags from '../src/tags'
+import Annotation from '../src/models/annotation'
+import TreeNode from '../src/models/tree-node'
 
-export const defaultAnnotation: IAnnotation = {
-	attributes: {},
-	end: 0,
-	id: 'some-default-id',
-	source: 'xml',
-	start: 0,
-	target: 'some-target-id',
-	text: 'some-text',
-	type: 'some-type',
-}
-
-export interface IDummyTag extends ITag {
+export interface IDummyTag extends ITagProps {
 	comp: Tag
 }
 const Dummy: React.SFC<Partial<IDummyTag>> = (props) => {
 	props = {
-		activeAnnotation: defaultAnnotation,
+		activeAnnotation: new Annotation(),
 		activateAnnotation: (defaultAnnotation) => {},
-		annotation: defaultAnnotation,
+		node: new TreeNode(),
 		id: null,
-		root: defaultAnnotation,
+		root: new Annotation(),
 		...props
 	}
 
@@ -30,7 +21,7 @@ const Dummy: React.SFC<Partial<IDummyTag>> = (props) => {
 		<props.comp
 			activeAnnotation={props.activeAnnotation}
 			activateAnnotation={props.activateAnnotation}
-			annotation={props.annotation}
+			node={props.node}
 			id={props.id}
 			root={props.root}
 			tags={Tags}

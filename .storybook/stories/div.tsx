@@ -2,7 +2,8 @@ import * as React from 'react'
 import Tags from '../../src/tags'
 const DivTag = Tags.div.component
 import { storiesOf } from '@storybook/react'
-import Dummy, { defaultAnnotation } from '../dummy'
+import Dummy from '../dummy'
+import TreeNode from '../../src/models/tree-node'
 
 storiesOf("Tags/Passive/{ type: div }", module)
 	.add('default', () =>
@@ -27,7 +28,7 @@ storiesOf("Tags/Passive/{ type: div }", module)
 				Qui non amet enim ex sit culpa qui sint quis est anim velit ex.
 			</Dummy>
 			<Dummy
-				annotation={{ ...defaultAnnotation, attributes: { type: 'para' }}}
+				node={new TreeNode({attributes: new Map().set('type', 'para') })}
 				comp={DivTag}
 			>
 				Fugiat non commodo non tempor. Esse nisi et sit aute.
@@ -49,7 +50,7 @@ storiesOf("Tags/Passive/{ type: div }", module)
 				Qui non amet enim ex sit culpa qui sint quis est anim velit ex.
 			</Dummy>
 			<Dummy
-				annotation={{ ...defaultAnnotation, attributes: { type: 'translation' }}}
+				node={new TreeNode({ attributes: new Map().set('type', 'translation') })}
 				comp={DivTag}
 			>
 				Fugiat non commodo non tempor. Esse nisi et sit aute.
