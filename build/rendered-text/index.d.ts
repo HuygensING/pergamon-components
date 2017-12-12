@@ -1,29 +1,26 @@
 /// <reference types="react" />
 import * as React from 'react';
-import { IAnnotation } from "../interfaces";
+import Annotation from "../models/annotation";
 import { IComponentsByTags } from '../tags/system-components-by-tags';
 export interface IRenderedTextCommon {
-    activateAnnotation?: (a: IAnnotation) => void;
-    activeAnnotation?: IAnnotation;
+    activateAnnotation?: (id: string) => void;
+    activeAnnotation?: Annotation;
 }
 export interface IProps extends IRenderedTextCommon {
-    root: IAnnotation;
+    root: Annotation;
     tags: IComponentsByTags;
 }
-export interface ITree extends IProps {
-    text: string;
-}
 export interface IState {
-    textTree: Object;
+    componentTree: any;
 }
 declare class RenderedText extends React.Component<IProps, IState> {
     state: {
-        textTree: any;
+        componentTree: any;
     };
     componentDidMount(): void;
     componentWillReceiveProps(nextProps: IProps): void;
     render(): JSX.Element;
     private init(props);
-    private textTree(annotation, root, props);
+    private nodeTreeToComponentTree(node, root, props);
 }
 export default RenderedText;

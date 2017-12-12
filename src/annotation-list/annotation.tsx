@@ -1,26 +1,26 @@
 import * as React from 'react'
 import AnnotationForm, {IAnnotationFormProps} from "./annotation-form"
-import {IAnnotation} from "../interfaces"
 import RenderedText from "../rendered-text/index"
 import { IComponentsByTags } from '../tags/system-components-by-tags'
 import { fontStyle } from '../default-styles'
 import Person from './person'
 import Place from './place'
+import { Annotation } from '../index';
 
 export interface IAnnotationCommon extends IAnnotationFormProps {
-	activateAnnotation: (string) => void;
+	activateAnnotation: (id: string) => void;
 	tags: IComponentsByTags;
 }
 
 export interface IAnnotationProps extends IAnnotationCommon {
-	annotation: IAnnotation;
+	annotation: Annotation;
 }
 
-const Annotation: React.SFC<IAnnotationProps> = (props) =>
+const AnnotationItem: React.SFC<IAnnotationProps> = (props) =>
 	<li style={{ minHeight: '2em' }}>
 		<h4
 			onClick={() =>
-				props.activateAnnotation(props.annotation)
+				props.activateAnnotation(props.annotation.id)
 			}
 			style={{
 				...fontStyle,
@@ -28,9 +28,10 @@ const Annotation: React.SFC<IAnnotationProps> = (props) =>
 			}}
 		>
 			{
-				(props.annotation.type === 'note' && props.annotation.attributes.hasOwnProperty('n')) &&
+				(props.annotation.type === 'note' && props.annotation.attributes.has('n')) &&
 				<div style={{ color: '#444', fontSize:'.85em'}}>
-					{ props.annotation.attributes.n }
+					{ props.annotation.attributes.get('n') }
+					<br />
 					{ props.rootAnnotation.text.slice(props.annotation.start, props.annotation.end) }
 				</div>
 			}
@@ -70,4 +71,4 @@ const Annotation: React.SFC<IAnnotationProps> = (props) =>
 		}
 	</li>;
 
-export default Annotation;
+export default AnnotationItem

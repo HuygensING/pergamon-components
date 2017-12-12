@@ -1,15 +1,14 @@
-import * as React from 'react';
-import {default as Annotation, IAnnotationCommon} from "./annotation";
-import {IAnnotation} from "../interfaces";
+import * as React from 'react'
+import AnnotationItem, {IAnnotationCommon} from "./annotation"
+import { Annotation } from '../index'
 
 export interface IAnnotationListProps extends IAnnotationCommon {
-	filter?: (a: IAnnotation) => boolean
-	rootAnnotation: IAnnotation
-	sort?: (a: IAnnotation, b: IAnnotation) => -1 | 0 | 1
+	filter?: (a: Annotation) => boolean
+	rootAnnotation: Annotation
+	sort?: (a: Annotation, b: Annotation) => -1 | 0 | 1
 }
-
 const AnnotationList: React.SFC<IAnnotationListProps> = (props) => {
-	let annotations = props.rootAnnotation.children
+	let annotations = props.rootAnnotation.annotations
 	
 	if (props.filter != null) {
 		annotations = annotations.filter(props.filter)
@@ -30,7 +29,7 @@ const AnnotationList: React.SFC<IAnnotationListProps> = (props) => {
 			{
 				annotations
 					.map((annotation, index) =>
-						<Annotation
+						<AnnotationItem
 							activateAnnotation={props.activateAnnotation}
 							activeAnnotation={props.activeAnnotation}
 							annotation={annotation}

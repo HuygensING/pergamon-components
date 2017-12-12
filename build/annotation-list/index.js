@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
 const annotation_1 = require("./annotation");
 const AnnotationList = (props) => {
-    let annotations = props.rootAnnotation.children;
+    let annotations = props.rootAnnotation.annotations;
     if (props.filter != null) {
         annotations = annotations.filter(props.filter);
     }

@@ -1,17 +1,20 @@
 /// <reference types="react" />
 import * as React from 'react';
-import { ITag } from '../interfaces';
+import { ITagProps } from '../interfaces';
+import Annotation from '../models/annotation';
 export interface IState {
     active: boolean;
+    activeNote: Annotation;
     height: number;
     left: number;
     top: number;
     width: number;
 }
-declare class Anchor extends React.Component<ITag, IState> {
+declare class Anchor extends React.Component<ITagProps, IState> {
     private el;
     state: {
         active: boolean;
+        activeNote: any;
         height: any;
         left: any;
         top: any;

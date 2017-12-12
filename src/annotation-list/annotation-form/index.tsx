@@ -1,5 +1,5 @@
-import * as React from 'react';
-import {IAnnotation} from "../../interfaces";
+import * as React from 'react'
+import Annotation from '../../models/annotation'
 
 const Ul = (props) => <ul style={{ margin: '1em 0'}}>{props.children}</ul>
 const Li = (props) =>
@@ -24,8 +24,8 @@ const Immutable = (props) =>
 	</div>
 
 export interface IAnnotationFormProps {
-	activeAnnotation: IAnnotation;
-	rootAnnotation: IAnnotation;
+	activeAnnotation: Annotation
+	rootAnnotation: Annotation
 }
 
 const AnnotationForm: React.SFC<IAnnotationFormProps> = (props) =>

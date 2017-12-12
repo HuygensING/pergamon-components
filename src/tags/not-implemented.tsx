@@ -39,15 +39,15 @@ const NotImplemented: Tag = (props) =>
 				>Warning</span>
 			</div>
 			{
-				props.tags.hasOwnProperty(props.annotation.type) ?
+				props.tags.hasOwnProperty(props.node.type) ?
 					<span>
-						The tag &lt;{props.annotation.type}&gt; is implemented,
+						The tag &lt;{props.node.type}&gt; is implemented,
 						but the attributes are invalid:
 						<pre>
-							{JSON.stringify(props.annotation.attributes, null, 2)}
+							{JSON.stringify(props.node.attributes, null, 2)}
 						</pre>
 					</span> :
-					<span>The tag &lt;{props.annotation.type}&gt; is not implemented!</span>
+					<span>The tag &lt;{props.node.type}&gt; is not implemented!</span>
 			}
 		</div>
 		<br/>

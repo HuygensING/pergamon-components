@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import { Tag, ITag } from "../interfaces";
+import { Tag, ITagProps } from "../interfaces";
 export declare enum Display {
     None = 0,
     Inline = 1,
@@ -7,7 +7,7 @@ export declare enum Display {
 }
 export interface IComponentsByTags {
     [name: string]: {
-        component: Tag | React.ComponentClass<ITag>;
+        component: Tag | React.ComponentClass<ITagProps>;
         display: Display;
     };
 }

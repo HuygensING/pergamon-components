@@ -6,8 +6,13 @@ const Li: React.SFC = (props) =>
 		{props.children}
 	</li>
 
+export interface IKeyword {
+	terms: string[],
+	weight: number,
+}
+
 export interface IKeywords {
-	keywords: { weight: number, terms: string[] }[]
+	keywords: Set<IKeyword>
 }
 const Keywords: React.SFC<IKeywords> = (props) =>
 	<section>
@@ -26,11 +31,9 @@ const Keywords: React.SFC<IKeywords> = (props) =>
 			}}
 		>
 			{
-				props.keywords &&
-				props.keywords
-					.reduce((prev, curr) => {
-						return prev.concat(curr.terms)
-					}, [])
+				props.keywords != null &&
+				[...props.keywords]
+					.reduce((prev, curr) => { return prev.concat(curr.terms) }, [])
 					.map(k => <Li key={k}>{k}</Li>)
 			}
 			{props.children}

@@ -1,17 +1,20 @@
-import * as React from 'react';
+import * as React from 'react'
 import { HucTooltip } from 'huc-ui-components'
-import { IGNORE_CLASSNAME } from "../constants";
-import { ITag } from '../interfaces';
-import RenderedText from '../rendered-text';
-import { fontStyle } from '../default-styles';
+import { IGNORE_CLASSNAME } from "../constants"
+import { ITagProps } from '../interfaces'
+import RenderedText from '../rendered-text'
+import { fontStyle } from '../default-styles'
+import Annotation from '../models/annotation'
 
 interface IAnchorComp {
+	id: string
 	onClick: (ev: any) => void
 	setRef: (el: Element) => void
 }
 const AnchorComp: React.SFC<IAnchorComp> = (props) =>
 	<span
 		className={IGNORE_CLASSNAME}
+		id={props.id}
 		onClick={props.onClick}
 		ref={props.setRef}
 		style={{
@@ -37,15 +40,17 @@ const tooltipWidth: number = 400
 
 export interface IState {
 	active: boolean
+	activeNote: Annotation
 	height: number
 	left: number
 	top: number
 	width: number
 }
-class Anchor extends React.Component<ITag, IState> {
+class Anchor extends React.Component<ITagProps, IState> {
 	private el: Element
 	public state = {
 		active: false,
+		activeNote: null,
 		height: null,
 		left: null,
 		top: null,
@@ -55,7 +60,7 @@ class Anchor extends React.Component<ITag, IState> {
 	componentDidMount() {
 		const active = 
 			this.props.activeAnnotation != null &&
-			this.props.activeAnnotation.id === this.props.annotation.id
+			this.props.activeAnnotation.id === this.props.node.annotationId
 		this.setState({ active })
 		if (active) window.addEventListener('resize', this.onResize)
 	}
@@ -72,21 +77,22 @@ class Anchor extends React.Component<ITag, IState> {
 			left = minLeft
 		}
 
-		let note;
+		let noteAnnotation: Annotation
 		if (this.state.active) {
-			note = this.props.root.children.find(a =>
+			noteAnnotation = this.props.root.annotations.find(a =>
 				a.type === 'note' &&
 				a.hasOwnProperty('attributes') &&
-				a.attributes.n === this.props.activeAnnotation.attributes.n
+				a.attributes.get('n') === this.props.activeAnnotation.attributes.get('n')
 			)
-		}
+		} 
 
 		return (
 			<span>
 				<AnchorComp
+					id={this.props.node.id}
 					onClick={ev => {
 						ev.stopPropagation()
-						this.props.activateAnnotation(this.props.annotation)
+						this.props.activateAnnotation(this.props.node.annotationId)
 					}}
 					setRef={(el) => {
 						if (this.state.active && el && this.state.top == null) {
@@ -96,7 +102,7 @@ class Anchor extends React.Component<ITag, IState> {
 						}
 					}}
 				>
-					{this.props.annotation.attributes.n}	
+					{this.props.node.attributes.get('n')}	
 				</AnchorComp>
 				{
 					this.state.active &&
@@ -110,12 +116,11 @@ class Anchor extends React.Component<ITag, IState> {
 						}}
 					>
 						<RenderedText
-							root={{
-								...note,
-								annotations: [note],
-								children: [note],
-								text: this.props.root.text
-							}}
+							root={new Annotation({
+								...noteAnnotation,
+								annotations: [{...noteAnnotation}],
+								text: this.props.root.text,
+							})}
 							tags={this.props.tags}
 						/>
 					</HucTooltip>

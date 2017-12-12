@@ -1,9 +1,9 @@
 import * as React from 'react'
-import {IAnnotation} from "../interfaces";
+import { Annotation } from '../index'
 
 export interface IProps {
-	annotation: IAnnotation
-	rootAnnotation: IAnnotation
+	annotation: Annotation
+	rootAnnotation: Annotation
 }
 class Place extends React.PureComponent<IProps, null> {
 	public render() {

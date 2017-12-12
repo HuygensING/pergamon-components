@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {IAnnotation} from "../interfaces";
+import { Annotation } from '../index'
 
 const labelFromKey = (str: string) => {
 	const index = str.lastIndexOf('.')
@@ -8,13 +8,13 @@ const labelFromKey = (str: string) => {
 }
 
 export interface IProps {
-	annotation: IAnnotation
-	rootAnnotation: IAnnotation
+	annotation: Annotation
+	rootAnnotation: Annotation
 }
 class Person extends React.PureComponent<IProps, null> {
 	public render() {
 		return (
-			<div title={this.props.annotation.attributes.key}>
+			<div title={this.props.annotation.attributes.get('key')}>
 				<img
 					style={{
 						width: "12px",
@@ -24,8 +24,8 @@ class Person extends React.PureComponent<IProps, null> {
 					src="http://design.huygens.knaw.nl/static/icons/person.svg"
 				/>
 				{
-					this.props.annotation.attributes.hasOwnProperty('key') ?
-						labelFromKey(this.props.annotation.attributes.key) :
+					this.props.annotation.attributes.has('key') ?
+						labelFromKey(this.props.annotation.attributes.get('key')) :
 						this.props.rootAnnotation.text.slice(this.props.annotation.start, this.props.annotation.end)
 				}
 			</div>

@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { IAnnotation } from '../interfaces';
-import { fontStyle } from '../default-styles';
+import { fontStyle } from '../default-styles'
+import { Annotation } from '../index'
 
 const MetadataList = (props) =>
 	<ul
@@ -38,27 +38,27 @@ const Bold = (props) =>
 	<div style={{color: '#444', fontWeight: 700}}>{props.children}</div>
 
 export interface IMetadata {
-	rootAnnotation: IAnnotation
+	rootAnnotation: Annotation
 }
 const Metadata: React.SFC<IMetadata> = (props) =>
 	<MetadataList>
 		<MetadataItem>
 			<Label>FROM</Label>
 			<div>
-				<Bold>{props.rootAnnotation.metadata.sender}</Bold>
-				<div>{props.rootAnnotation.metadata.senderloc}</div>
+				<Bold>{props.rootAnnotation.metadata.get('sender')}</Bold>
+				<div>{props.rootAnnotation.metadata.get('senderloc')}</div>
 			</div>
 		</MetadataItem>
 		<MetadataItem>
 			<Label>TO</Label>
 			<div>
-				<Bold>{props.rootAnnotation.metadata.recipient}</Bold>
-				<div>{props.rootAnnotation.metadata.recipientloc}</div>
+				<Bold>{props.rootAnnotation.metadata.get('recipient')}</Bold>
+				<div>{props.rootAnnotation.metadata.get('recipientloc')}</div>
 			</div>
 		</MetadataItem>
 		<MetadataItem>
 			<Label>DATE</Label>
-			<Bold>{props.rootAnnotation.metadata.date}</Bold>
+			<Bold>{props.rootAnnotation.metadata.get('date')}</Bold>
 		</MetadataItem>
 	</MetadataList>
 export default Metadata

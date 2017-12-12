@@ -8,14 +8,14 @@ const labelFromKey = (str) => {
 };
 class Person extends React.PureComponent {
     render() {
-        return (React.createElement("div", { title: this.props.annotation.attributes.key },
+        return (React.createElement("div", { title: this.props.annotation.attributes.get('key') },
             React.createElement("img", { style: {
                     width: "12px",
                     height: 'auto',
                     marginRight: '.2em',
                 }, src: "http://design.huygens.knaw.nl/static/icons/person.svg" }),
-            this.props.annotation.attributes.hasOwnProperty('key') ?
-                labelFromKey(this.props.annotation.attributes.key) :
+            this.props.annotation.attributes.has('key') ?
+                labelFromKey(this.props.annotation.attributes.get('key')) :
                 this.props.rootAnnotation.text.slice(this.props.annotation.start, this.props.annotation.end)));
     }
 }

@@ -27,9 +27,8 @@ exports.byDisplayStartEnd = (tags) => (a, b) => {
 exports.byRowStartEnd = (a, b) => {
     if (a.row > b.row)
         return 1;
-    if (b.row > a.row)
+    else if (a.row < b.row)
         return -1;
-    if (a.row === b.row) {
+    else
         return exports.byStartEnd(a, b);
-    }
 };

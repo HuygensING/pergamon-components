@@ -32,19 +32,19 @@ exports.Figure = (props) => React.createElement(system_tags_1.Div, Object.assign
 exports.Graphic = (props) => {
     let width;
     let height;
-    const attrs = props.annotation.attributes;
+    const attrs = props.node.attributes;
     const exts = ['px', 'em', 'ex', 'vw', 'vh', '%', 'cm', 'mm', 'in', 'pt', 'rem', 'vm', 'pc', 'gd'];
-    if (attrs.height != null && attrs.width != null) {
-        const widthExt = exts.find(e => attrs.width.slice(-e.length) === e);
-        const heightExt = exts.find(e => attrs.height.slice(-e.length) === e);
+    if (attrs.get('height') != null && attrs.get('width') != null) {
+        const widthExt = exts.find(e => attrs.get('width').slice(-e.length) === e);
+        const heightExt = exts.find(e => attrs.get('height').slice(-e.length) === e);
         if (exts.some(e => widthExt === e) &&
             exts.some(e => heightExt === e)) {
-            const scale = attrs.scale != null ? Number.parseFloat(attrs.scale) : 1;
-            width = Number.parseInt(attrs.width.slice(0, -widthExt.length)) * scale;
-            height = Number.parseInt(attrs.height.slice(0, -heightExt.length)) * scale;
+            const scale = attrs.get('scale') != null ? Number.parseFloat(attrs.get('scale')) : 1;
+            width = Number.parseInt(attrs.get('width').slice(0, -widthExt.length)) * scale;
+            height = Number.parseInt(attrs.get('height').slice(0, -heightExt.length)) * scale;
         }
     }
-    return (React.createElement("img", { id: props.id, src: `/static/graphics/${props.annotation.attributes.url}`, style: {
+    return (React.createElement("img", { id: props.id, src: `/static/graphics/${props.node.attributes.get('url')}`, style: {
             height: height != null ? height : 'auto',
             width: width != null ? width : 'auto',
             maxWidth: '100%',
@@ -59,9 +59,9 @@ exports.Item = (props) => React.createElement(system_tags_1.Li, Object.assign({ 
         margin: '0 0 .5em 1em',
     } }, props));
 exports.Line = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: {
-        lineHeight: props.annotation.attributes.type === 'stanza' ? '1em' : '2em',
-        marginTop: props.annotation.attributes.type === 'stanza' ? '.5em' : 'initial',
-        marginBottom: props.annotation.attributes.type === 'stanza' ? '.5em' : 'initial',
+        lineHeight: props.node.attributes.get('type') === 'stanza' ? '1em' : '2em',
+        marginTop: props.node.attributes.get('type') === 'stanza' ? '.5em' : 'initial',
+        marginBottom: props.node.attributes.get('type') === 'stanza' ? '.5em' : 'initial',
     } }, props), props.children);
 exports.List = (props) => React.createElement(system_tags_1.Ul, Object.assign({ style: {
         padding: '0',
@@ -69,12 +69,12 @@ exports.List = (props) => React.createElement(system_tags_1.Ul, Object.assign({ 
     } }, props));
 exports.LineGroup = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: {
         marginTop: '2em',
-        marginLeft: props.annotation.attributes.type === 'poem' ? '1em' : 'initial',
-        fontStyle: props.annotation.attributes.type === 'poem' ? 'italic' : 'initial',
+        marginLeft: props.node.attributes.get('type') === 'poem' ? '1em' : 'initial',
+        fontStyle: props.node.attributes.get('type') === 'poem' ? 'italic' : 'initial',
     } }, props));
-exports.Name = (props) => props.annotation.attributes.type === 'person' ?
+exports.Name = (props) => props.node.attributes.get('type') === 'person' ?
     React.createElement(exports.PersName, Object.assign({}, props)) :
-    props.annotation.attributes.type === 'place' ?
+    props.node.attributes.get('type') === 'place' ?
         React.createElement(exports.PlaceName, Object.assign({}, props)) :
         React.createElement(not_implemented_1.default, Object.assign({}, props));
 exports.Opener = system_tags_1.Div;
@@ -93,9 +93,9 @@ exports.PlaceName = (props) => React.createElement(system_tags_1.Span, Object.as
 exports.Row = (props) => React.createElement("tr", { style: {
         borderBottom: '1px solid #aaa',
     } }, props.children);
-exports.Rs = (props) => props.annotation.attributes.type === 'person' ?
+exports.Rs = (props) => props.node.attributes.get('type') === 'person' ?
     React.createElement(exports.PersName, Object.assign({}, props)) :
-    props.annotation.attributes.type === 'place' ?
+    props.node.attributes.get('type') === 'place' ?
         React.createElement(exports.PlaceName, Object.assign({}, props)) :
         null;
 exports.Sic = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: {

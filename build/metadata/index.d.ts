@@ -1,8 +1,8 @@
 /// <reference types="react" />
 import * as React from 'react';
-import { IAnnotation } from '../interfaces';
+import { Annotation } from '../index';
 export interface IMetadata {
-    rootAnnotation: IAnnotation;
+    rootAnnotation: Annotation;
 }
 declare const Metadata: React.SFC<IMetadata>;
 export default Metadata;

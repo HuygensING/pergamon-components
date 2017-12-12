@@ -1,44 +1,15 @@
 /// <reference types="react" />
 import { IComponentsByTags } from "./tags/system-components-by-tags";
+import Annotation from './models/annotation';
+import TreeNode from './models/tree-node';
 export declare type SourceType = 'system' | 'xml' | 'user';
-export interface IAnnotation {
-    _first?: boolean;
-    _last?: boolean;
-    _segment?: boolean;
-    _tagId?: string;
-    _targetType?: 'annotation' | 'document';
-    annotations?: IAnnotation[];
-    attributes?: {
-        type?: string;
-        [key: string]: any;
-    };
-    children?: IAnnotation[];
-    body?: string;
-    end: number;
-    id?: number | string;
-    metadata?: {
-        [key: string]: string;
-    };
-    source: SourceType;
-    start: number;
-    target: string;
-    text: string;
-    type: string;
-}
-export interface IDocument {
-    _activeNoteId?: string;
+export interface ITagProps {
+    activateAnnotation: (id: string) => void;
+    activeAnnotation: Annotation;
+    node: TreeNode;
     id: string;
-    annotations: IAnnotation[];
-    text: string;
-    tree: IAnnotation;
-}
-export interface ITag {
-    activateAnnotation: (a: IAnnotation) => void;
-    activeAnnotation: IAnnotation;
-    annotation: IAnnotation;
-    id: string;
-    root: IAnnotation;
+    root: Annotation;
     style?: React.CSSProperties;
     tags: IComponentsByTags;
 }
-export declare type Tag = React.SFC<ITag> | React.ComponentClass<ITag>;
+export declare type Tag = React.SFC<ITagProps> | React.ComponentClass<ITagProps>;

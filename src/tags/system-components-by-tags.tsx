@@ -1,10 +1,10 @@
 import { Span, Div } from "./system-tags";
-import { Tag, ITag } from "../interfaces";
+import { Tag, ITagProps } from "../interfaces";
 
 export enum Display { None, Inline, Block };
 export interface IComponentsByTags {
 	[name: string]: {
-		component: Tag | React.ComponentClass<ITag>
+		component: Tag | React.ComponentClass<ITagProps>
 		display: Display
 	}
 }

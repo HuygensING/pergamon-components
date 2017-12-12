@@ -6,11 +6,12 @@ const index_1 = require("../rendered-text/index");
 const default_styles_1 = require("../default-styles");
 const person_1 = require("./person");
 const place_1 = require("./place");
-const Annotation = (props) => React.createElement("li", { style: { minHeight: '2em' } },
-    React.createElement("h4", { onClick: () => props.activateAnnotation(props.annotation), style: Object.assign({}, default_styles_1.fontStyle) },
-        (props.annotation.type === 'note' && props.annotation.attributes.hasOwnProperty('n')) &&
+const AnnotationItem = (props) => React.createElement("li", { style: { minHeight: '2em' } },
+    React.createElement("h4", { onClick: () => props.activateAnnotation(props.annotation.id), style: Object.assign({}, default_styles_1.fontStyle) },
+        (props.annotation.type === 'note' && props.annotation.attributes.has('n')) &&
             React.createElement("div", { style: { color: '#444', fontSize: '.85em' } },
-                props.annotation.attributes.n,
+                props.annotation.attributes.get('n'),
+                React.createElement("br", null),
                 props.rootAnnotation.text.slice(props.annotation.start, props.annotation.end)),
         props.annotation.type === 'persName' &&
             React.createElement(person_1.default, { annotation: props.annotation, rootAnnotation: props.rootAnnotation }),
@@ -23,4 +24,4 @@ const Annotation = (props) => React.createElement("li", { style: { minHeight: '2
             props.activeAnnotation.text != null) ?
             React.createElement(index_1.default, { root: props.activeAnnotation, tags: props.tags }) :
             null);
-exports.default = Annotation;
+exports.default = AnnotationItem;

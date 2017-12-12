@@ -21,15 +21,15 @@ const NotImplemented = (props) => React.createElement("div", { style: Object.ass
                     paddingLeft: '.5em',
                     verticalAlign: 'top',
                 } }, "Warning")),
-        props.tags.hasOwnProperty(props.annotation.type) ?
+        props.tags.hasOwnProperty(props.node.type) ?
             React.createElement("span", null,
                 "The tag <",
-                props.annotation.type,
+                props.node.type,
                 "> is implemented, but the attributes are invalid:",
-                React.createElement("pre", null, JSON.stringify(props.annotation.attributes, null, 2))) :
+                React.createElement("pre", null, JSON.stringify(props.node.attributes, null, 2))) :
             React.createElement("span", null,
                 "The tag <",
-                props.annotation.type,
+                props.node.type,
                 "> is not implemented!")),
     React.createElement("br", null),
     "Wrapped on: \"",

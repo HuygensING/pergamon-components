@@ -34,7 +34,7 @@ const AuxDivTag: Tag = (props) =>
 	<div style={{ margin: '1em 0' }}>
 		<Hr top />
 		<Label>
-			{ props.annotation.attributes.type === 'para' ? 'ENVELOPE' : 'TRANSLATION' }	
+			{ props.node.attributes.get('type') === 'para' ? 'ENVELOPE' : 'TRANSLATION' }	
 		</Label>
 		<Div {...props} />
 		<Hr />
@@ -43,13 +43,13 @@ const AuxDivTag: Tag = (props) =>
 // DivTag is the TEI <div> tag (there is also a Div tag which represents the HTML <div> tag)
 const DivTag: Tag = (props) =>
 	(
-		props.annotation.attributes.type === 'comment' ||
-		props.annotation.attributes.type === 'notes'
+		props.node.attributes.get('type') === 'comment' ||
+		props.node.attributes.get('type') === 'notes'
 	) ?
 		<None /> :
 		(
-			props.annotation.attributes.type === 'para' ||
-			props.annotation.attributes.type === 'translation'
+			props.node.attributes.get('type') === 'para' ||
+			props.node.attributes.get('type') === 'translation'
 		) ?
 			<AuxDivTag {...props} /> :
 			<Div {...props} />

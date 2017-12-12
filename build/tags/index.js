@@ -56,7 +56,7 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
     },
     geogName: {
         component: tags_1.GeogName,
-        display: system_components_by_tags_1.Display.Block,
+        display: system_components_by_tags_1.Display.Inline,
     },
     graphic: {
         component: tags_1.Graphic,

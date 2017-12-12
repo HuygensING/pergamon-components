@@ -1,14 +1,22 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
 const node_1 = require("./node");
-const index_1 = require("./create-tree/index");
 const default_styles_1 = require("../default-styles");
+const pergamon_annotation_tree_builder_1 = require("pergamon-annotation-tree-builder");
 class RenderedText extends React.Component {
     constructor() {
         super(...arguments);
         this.state = {
-            textTree: null,
+            componentTree: null,
         };
     }
     componentDidMount() {
@@ -18,24 +26,26 @@ class RenderedText extends React.Component {
         this.init(nextProps);
     }
     render() {
-        return (React.createElement("div", { style: default_styles_1.fontReadStyle }, this.state.textTree));
+        return (React.createElement("div", { style: default_styles_1.fontReadStyle }, this.state.componentTree));
     }
     init(props) {
-        if (props.root.id == null)
-            return;
-        if (this.state.textTree == null ||
-            this.props.root.id !== props.root.id ||
-            this.props.activeAnnotation !== props.activeAnnotation) {
-            const root = index_1.default(JSON.parse(JSON.stringify(props.root)), props.tags);
-            const textTree = this.textTree(root, props.root, props);
-            this.setState({ textTree });
-        }
+        return __awaiter(this, void 0, void 0, function* () {
+            if (props.root.id == null)
+                return;
+            if (this.state.componentTree == null ||
+                this.props.root.id !== props.root.id ||
+                this.props.activeAnnotation !== props.activeAnnotation) {
+                const tree = pergamon_annotation_tree_builder_1.default(props.root);
+                const componentTree = tree.map(branch => this.nodeTreeToComponentTree(branch, props.root, props));
+                this.setState({ componentTree });
+            }
+        });
     }
-    textTree(annotation, root, props) {
-        const children = (annotation.hasOwnProperty('children') && annotation.children.length) ?
-            annotation.children.map((child, i) => this.textTree(child, root, props)) :
-            root.text.slice(annotation.start, annotation.end);
-        return (React.createElement(node_1.default, { activateAnnotation: props.activateAnnotation, activeAnnotation: props.activeAnnotation, annotation: annotation, key: root._tagId + Math.random().toString(), root: root, tags: props.tags }, children));
+    nodeTreeToComponentTree(node, root, props) {
+        const nodes = (node.hasOwnProperty('children') && node.children.length) ?
+            node.children.map((child) => this.nodeTreeToComponentTree(child, root, props)) :
+            root.text.slice(node.start, node.end);
+        return (React.createElement(node_1.default, { activateAnnotation: props.activateAnnotation, activeAnnotation: props.activeAnnotation, node: node, key: node.id + Math.random().toString(), root: root, tags: props.tags }, nodes));
     }
 }
 exports.default = RenderedText;

@@ -62,26 +62,26 @@ export const Figure: Tag = (props) =>
 export const Graphic: Tag = (props) => {
 	let width: number
 	let height: number
-	const attrs = props.annotation.attributes
+	const attrs = props.node.attributes
 	const exts = ['px', 'em', 'ex', 'vw', 'vh', '%', 'cm', 'mm', 'in', 'pt', 'rem', 'vm', 'pc', 'gd']
 
-	if (attrs.height != null && attrs.width != null) {
-		const widthExt: string = exts.find(e => attrs.width.slice(-e.length) === e)
-		const heightExt: string = exts.find(e => attrs.height.slice(-e.length) === e)
+	if (attrs.get('height') != null && attrs.get('width') != null) {
+		const widthExt: string = exts.find(e => attrs.get('width').slice(-e.length) === e)
+		const heightExt: string = exts.find(e => attrs.get('height').slice(-e.length) === e)
 		if (
 			exts.some(e => widthExt === e) &&
 			exts.some(e => heightExt === e)
 		) {
-			const scale = attrs.scale != null ? Number.parseFloat(attrs.scale) : 1
-			width = Number.parseInt(attrs.width.slice(0, -widthExt.length)) * scale
-			height = Number.parseInt(attrs.height.slice(0, -heightExt.length)) * scale
+			const scale = attrs.get('scale') != null ? Number.parseFloat(attrs.get('scale')) : 1
+			width = Number.parseInt(attrs.get('width').slice(0, -widthExt.length)) * scale
+			height = Number.parseInt(attrs.get('height').slice(0, -heightExt.length)) * scale
 		}
 	}
 
 	return (
 		<img
 			id={props.id}
-			src={`/static/graphics/${props.annotation.attributes.url}`}
+			src={`/static/graphics/${props.node.attributes.get('url')}`}
 			style={{
 				height: height != null ? height : 'auto',
 				width: width != null ? width : 'auto',
@@ -118,9 +118,9 @@ export const Item: Tag = (props) =>
 export const Line: Tag = (props) =>
 	<Div
 		style={{
-			lineHeight: props.annotation.attributes.type === 'stanza' ? '1em' : '2em',
-			marginTop: props.annotation.attributes.type === 'stanza' ? '.5em' : 'initial',
-			marginBottom: props.annotation.attributes.type === 'stanza' ? '.5em' : 'initial',
+			lineHeight: props.node.attributes.get('type') === 'stanza' ? '1em' : '2em',
+			marginTop: props.node.attributes.get('type') === 'stanza' ? '.5em' : 'initial',
+			marginBottom: props.node.attributes.get('type') === 'stanza' ? '.5em' : 'initial',
 			}}
 		{...props}
 	>
@@ -140,16 +140,16 @@ export const LineGroup: Tag = (props) =>
 	<Div
 		style={{
 			marginTop: '2em',
-			marginLeft: props.annotation.attributes.type === 'poem' ? '1em' : 'initial',
-			fontStyle: props.annotation.attributes.type === 'poem' ? 'italic' : 'initial',
+			marginLeft: props.node.attributes.get('type') === 'poem' ? '1em' : 'initial',
+			fontStyle: props.node.attributes.get('type') === 'poem' ? 'italic' : 'initial',
 			}}
 		{...props}
 	/>
 
 export const Name: Tag = (props) =>
-	props.annotation.attributes.type === 'person' ?
+	props.node.attributes.get('type') === 'person' ?
 		<PersName {...props} /> :
-		props.annotation.attributes.type === 'place' ?
+		props.node.attributes.get('type') === 'place' ?
 			<PlaceName {...props} /> :
 			<NotImplemented {...props} />
 
@@ -201,9 +201,9 @@ export const Row: Tag = (props) =>
 	>{props.children}</tr>
 
 export const Rs: Tag = (props) =>
-	props.annotation.attributes.type === 'person' ?
+	props.node.attributes.get('type') === 'person' ?
 		<PersName {...props} /> :
-		props.annotation.attributes.type === 'place' ?
+		props.node.attributes.get('type') === 'place' ?
 			<PlaceName {...props} /> :
 			null
 

@@ -1,35 +1,37 @@
 import * as React from 'react';
-import {IAnnotation, Tag} from "../interfaces";
+import { Tag } from "../interfaces";
+import Annotation from '../models/annotation'
 import { IComponentsByTags } from '../tags/system-components-by-tags';
 import { IRenderedTextCommon } from './index';
 import NotImplemented from '../tags/not-implemented'
+import TreeNode from '../models/tree-node'
 
 export interface ITextTreeNode extends IRenderedTextCommon {
-	annotation: IAnnotation
-	root: IAnnotation
+	node: TreeNode
+	root: Annotation
 	tags: IComponentsByTags
 }
 
 const TextTreeNode: React.SFC<ITextTreeNode> = (props) => {
-	if (!props.tags.hasOwnProperty(props.annotation.type)) {
-		console.error(`Component not found: ${props.annotation.type}`)
+	if (!props.tags.hasOwnProperty(props.node.type)) {
+		console.error(`Component not found: ${props.node.type}`)
 	}
 
-	const TTag: Tag = props.tags.hasOwnProperty(props.annotation.type) ?
-		props.tags[props.annotation.type].component :
+	const TextTreeTag: Tag = props.tags.hasOwnProperty(props.node.type) ?
+		props.tags[props.node.type].component :
 		NotImplemented
 
 	return (
-		<TTag
+		<TextTreeTag
 			activateAnnotation={props.activateAnnotation}
 			activeAnnotation={props.activeAnnotation}
-			annotation={props.annotation}
-			id={props.annotation._tagId}
+			node={props.node}
+			id={props.node.id}
 			root={props.root}
 			tags={props.tags}
 		>
 			{props.children}
-		</TTag>
+		</TextTreeTag>
 	);
 };
 

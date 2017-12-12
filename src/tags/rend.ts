@@ -1,13 +1,13 @@
 import * as React from 'react'
-import { ITag } from '../interfaces';
+import { ITagProps } from '../interfaces';
 
-const getRendAttr = (props) =>
-	props.annotation.hasOwnProperty('attributes') &&
-	props.annotation.attributes.hasOwnProperty('rend') ?
-		props.annotation.attributes.rend :
+const getRendAttr = (props: ITagProps) =>
+	props.node.hasOwnProperty('attributes') &&
+	props.node.attributes.hasOwnProperty('rend') ?
+		props.node.attributes.get('rend') :
 		undefined
 
-const rendStyle = (props: ITag): React.CSSProperties=> {
+const rendStyle = (props: ITagProps): React.CSSProperties=> {
 	const rend = getRendAttr(props)
 	if (rend == null) return {}
 	return {
