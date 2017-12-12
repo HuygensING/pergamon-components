@@ -25,8 +25,8 @@ const MetadataItem = (props) =>
 const Label = (props) =>
 	<label
 		style={{
-			marginLeft: '-65px',
-			position: 'absolute',
+			marginLeft: props.width < 400 ? 0 : '-65px',
+			position: props.width < 400 ? 'static' : 'absolute',
 			textAlign: 'right',
 			width: '50px',
 		}}
