@@ -39,8 +39,7 @@ createStoryWithKnobs('Components/AnnotationList')
 
 createStory('Components/Keywords')
 	.add('default', () =>
-		<Keywords keywords={
-			new Set([
+		<Keywords keywords={[
 				{ weight: 0.9, terms: ['oliebol', 'africa'] },
 				{ weight: 0.8, terms: ['brief', 'scherm'] },
 				{ weight: 0.7, terms: ['opstapje', 'geheugen'] },
@@ -51,7 +50,7 @@ createStory('Components/Keywords')
 				{ weight: 0.3, terms: ['vakantiepark'] },
 				{ weight: 0.3, terms: ['pech'] },
 				{ weight: 0.1, terms: ['rond', 'stoel', 'rsa', 'filter', 'groente'] },
-			])}
+			]}
 		/>
 	)
 
