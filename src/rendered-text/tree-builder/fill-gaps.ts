@@ -1,7 +1,7 @@
 import * as uuidv4 from 'uuid/v4'
 import TreeNode from '../../models/tree-node'
+import { SYSTEM_TEXT_TYPE } from '../../constants';
 
-const SYSTEM_TEXT_TYPE = '__text'
 const generateNodeId = (suffix: string) => `${SYSTEM_TEXT_TYPE}_${uuidv4()}_${suffix}`
 
 // Export for __tests__/fill-gaps.test.ts

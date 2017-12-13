@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const uuidv4 = require("uuid/v4");
 const tree_node_1 = require("../../models/tree-node");
-const SYSTEM_TEXT_TYPE = '__text';
-const generateNodeId = (suffix) => `${SYSTEM_TEXT_TYPE}_${uuidv4()}_${suffix}`;
+const constants_1 = require("../../constants");
+const generateNodeId = (suffix) => `${constants_1.SYSTEM_TEXT_TYPE}_${uuidv4()}_${suffix}`;
 exports.reducer = (parent) => {
     let prevEnd = parent.start;
     return (agg, curr, index, arr) => {
@@ -15,7 +15,7 @@ exports.reducer = (parent) => {
                 end: curr.start,
                 id: generateNodeId('first'),
                 start: parent.start,
-                type: SYSTEM_TEXT_TYPE,
+                type: constants_1.SYSTEM_TEXT_TYPE,
             }));
             prevEnd = curr.start;
         }
@@ -26,7 +26,7 @@ exports.reducer = (parent) => {
                 end,
                 id: generateNodeId('segment'),
                 start,
-                type: SYSTEM_TEXT_TYPE,
+                type: constants_1.SYSTEM_TEXT_TYPE,
             }));
         }
         agg.push(curr);
@@ -36,7 +36,7 @@ exports.reducer = (parent) => {
                 end: parent.end,
                 id: generateNodeId('last'),
                 start: prevEnd,
-                type: SYSTEM_TEXT_TYPE,
+                type: constants_1.SYSTEM_TEXT_TYPE,
             }));
         }
         return agg;

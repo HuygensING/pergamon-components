@@ -1,4 +1,4 @@
-// import { SYSTEM_ROOT_TYPE } from "../../src/constants"
+import { SYSTEM_ROOT_TYPE } from "../../src/constants"
 
 class Annotation {
 	public annotations: Annotation[] = []
@@ -11,7 +11,7 @@ class Annotation {
 	public start: number = 0
 	public target: string
 	public text: string
-	public type: string = '__root'
+	public type: string = SYSTEM_ROOT_TYPE
 
 	constructor(raw?: Partial<Annotation>) {
 		if (raw == null) return

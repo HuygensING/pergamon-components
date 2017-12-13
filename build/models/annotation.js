@@ -1,12 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const constants_1 = require("../../src/constants");
 class Annotation {
     constructor(raw) {
         this.annotations = [];
         this.attributes = new Map();
         this.metadata = new Map();
         this.start = 0;
-        this.type = '__root';
+        this.type = constants_1.SYSTEM_ROOT_TYPE;
         if (raw == null)
             return;
         Object.keys(raw).forEach(k => {
