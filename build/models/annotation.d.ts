@@ -1,9 +1,13 @@
+export interface IKeyword {
+    terms: string[];
+    weight: number;
+}
 declare class Annotation {
     annotations: Annotation[];
     attributes: Map<string, string>;
     end: number;
     id: string;
-    keywords: Set<string>;
+    keywords: IKeyword[];
     metadata: Map<string, string>;
     source: 'xml' | 'user';
     start: number;

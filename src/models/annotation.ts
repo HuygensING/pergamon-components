@@ -1,11 +1,16 @@
 import { SYSTEM_ROOT_TYPE } from "../../src/constants"
 
+export interface IKeyword {
+	terms: string[]
+	weight: number
+}
+
 class Annotation {
 	public annotations: Annotation[] = []
 	public attributes: Map<string, string> = new Map()
 	public end: number
 	public id: string
-	public keywords: Set<string>
+	public keywords: IKeyword[]
 	public metadata: Map<string, string> = new Map()
 	public source: 'xml' | 'user'
 	public start: number = 0
@@ -33,7 +38,7 @@ class Annotation {
 			else this[k] = raw[k]
 		})
 
-		if (this.end == null && this.text != null && this.metadata.has('body')) this.end = this.metadata.get('body').length
+		if (this.end == null && this.text != null) this.end = this.text.length
 	}
 }
 

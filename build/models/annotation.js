@@ -30,8 +30,8 @@ class Annotation {
             else
                 this[k] = raw[k];
         });
-        if (this.end == null && this.text != null && this.metadata.has('body'))
-            this.end = this.metadata.get('body').length;
+        if (this.end == null && this.text != null)
+            this.end = this.text.length;
     }
 }
 exports.default = Annotation;

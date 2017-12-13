@@ -1,11 +1,8 @@
 /// <reference types="react" />
 import * as React from 'react';
-export interface IKeyword {
-    terms: string[];
-    weight: number;
-}
+import { IKeyword } from '../models/annotation';
 export interface IKeywords {
-    keywords: Set<IKeyword>;
+    keywords: IKeyword[];
 }
 declare const Keywords: React.SFC<IKeywords>;
 export default Keywords;

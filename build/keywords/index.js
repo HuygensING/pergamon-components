@@ -9,7 +9,7 @@ const Keywords = (props) => React.createElement("section", null,
         } }, "Keywords"),
     React.createElement("ul", { style: Object.assign({}, default_styles_1.blueFontStyle, { margin: 0, padding: 0 }) },
         props.keywords != null &&
-            [...props.keywords]
+            props.keywords
                 .reduce((prev, curr) => { return prev.concat(curr.terms); }, [])
                 .map(k => React.createElement(Li, { key: k }, k)),
         props.children));

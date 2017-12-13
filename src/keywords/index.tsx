@@ -1,18 +1,14 @@
 import * as React from 'react'
 import { blueFontStyle} from '../default-styles';
+import { IKeyword } from '../models/annotation';
 
 const Li: React.SFC = (props) =>
 	<li style={{ display: 'inline-block', marginRight: '.5em' }}>
 		{props.children}
 	</li>
 
-export interface IKeyword {
-	terms: string[],
-	weight: number,
-}
-
 export interface IKeywords {
-	keywords: Set<IKeyword>
+	keywords: IKeyword[]
 }
 const Keywords: React.SFC<IKeywords> = (props) =>
 	<section>
@@ -32,7 +28,7 @@ const Keywords: React.SFC<IKeywords> = (props) =>
 		>
 			{
 				props.keywords != null &&
-				[...props.keywords]
+				props.keywords
 					.reduce((prev, curr) => { return prev.concat(curr.terms) }, [])
 					.map(k => <Li key={k}>{k}</Li>)
 			}
