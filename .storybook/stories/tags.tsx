@@ -8,11 +8,8 @@ const Closer = Tags.closer.component
 const Corr = Tags.corr.component
 const Formula = Tags.formula.component
 const Head = Tags.head.component
-const Item = Tags.item.component
-const Label = Tags.label.component
 const Line = Tags.l.component
 const LineGroup = Tags.lg.component
-const List = Tags.list.component
 const Opener = Tags.opener.component
 const Row = Tags.row.component
 const Quote = Tags.q.component
@@ -92,13 +89,6 @@ storiesOf("Tags/Passive/{ type: 'hi' }")
 		</div>
 	)
 
-storiesOf("Tags/Passive/{ type: 'item' }")
-	.add('default', () =>
-		<div>
-			{`See => /Tags/Passive/{ type: 'list' }`}
-		</div>
-	)
-
 storiesOf("Tags/Passive/{ type: 'lg' }")
 	.add('default', () =>
 		<div style={{ maxWidth: '550px' }}>
@@ -137,32 +127,6 @@ storiesOf("Tags/Passive/{ type: 'lg' }")
 			</Dummy>
 			Adipisicing irure ad dolor consequat culpa amet aute mollit commodo culpa qui occaecat.
 			In quis minim officia in ea exercitation ipsum et laborum culpa incididunt nisi.
-		</div>
-	)
-
-storiesOf("Tags/Passive/{ type: 'list' }")
-	.add('default', () =>
-		<div>
-			Voti mei memor iudicavi hasce qualescunque oratiunculas tibi offerre, ut hae exstarent monumentum grati mei erga te animi. Suscipe igitur primitias studiorum meorum benevolo animo.
-			<Dummy comp={List}>
-				<Dummy comp={Item}>Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem.</Dummy>
-				<Dummy comp={Item}>Non est occaecat culpa pariatur minim tempor.</Dummy>
-				<Dummy comp={Item}>Eiusmod tempor consectetur id duis minim mollit ut reprehenderit commodo consectetur occaecat consequat.</Dummy>
-			</Dummy>
-			Do dolor esse non irure quis.
-			Minim amet et duis dolor elit laboris pariatur cillum.
-		</div>
-	)
-	.add('with labels', () =>
-		<div>
-			Voti mei memor iudicavi hasce qualescunque oratiunculas tibi offerre, ut hae exstarent monumentum grati mei erga te animi. Suscipe igitur primitias studiorum meorum benevolo animo.
-			<Dummy comp={List}>
-				<Dummy comp={Label}>a</Dummy><Dummy comp={Item}>Deserunt ipsum incididunt excepteur aliqua tempor consequat Lorem.</Dummy>
-				<Dummy comp={Label}>a</Dummy><Dummy comp={Item}>Non est occaecat culpa pariatur minim tempor.</Dummy>
-				<Dummy comp={Label}>a</Dummy><Dummy comp={Item}>Eiusmod tempor consectetur id duis minim mollit ut reprehenderit commodo consectetur occaecat consequat.</Dummy>
-			</Dummy>
-			Do dolor esse non irure quis.
-			Minim amet et duis dolor elit laboris pariatur cillum.
 		</div>
 	)
 

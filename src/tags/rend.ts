@@ -7,10 +7,10 @@ const getRendAttr = (props: ITagProps) =>
 		props.node.attributes.get('rend') :
 		undefined
 
-const rendStyle = (props: ITagProps): React.CSSProperties=> {
+const rendStyle = (props: ITagProps): React.CSSProperties => {
 	const rend = getRendAttr(props)
 	if (rend == null) return {}
-	return {
+	let rendStyle: React.CSSProperties = {
 		fontSize:
 			rend === 'superscript' || rend === 'subscript' ? '.8em' : null,
 		fontStyle:
@@ -30,6 +30,16 @@ const rendStyle = (props: ITagProps): React.CSSProperties=> {
 				'super' :
 				rend === 'subscript' ? 'sub' : null,
 	}
+
+	if (props.node.type === 'list') {
+		console.log('HERE')
+		let listStyleType: string = 'disc'
+		if (rend === 'simple') listStyleType = 'none'
+		else if (rend === 'numbered') listStyleType = 'decimal'
+		rendStyle = { ...rendStyle, listStyleType }
+	}
+
+	return rendStyle
 }
 
 export default rendStyle

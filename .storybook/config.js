@@ -8,6 +8,7 @@ function loadStories() {
 	require('./stories/anchor.tsx')
 	require('./stories/div.tsx')
 	require('./stories/figure.tsx')
+	require('./stories/list.tsx')
 	require('./stories/p.tsx')
 	require('./stories/pb.tsx')
 	require('./stories/seg.tsx')

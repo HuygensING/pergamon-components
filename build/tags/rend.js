@@ -8,7 +8,7 @@ const rendStyle = (props) => {
     const rend = getRendAttr(props);
     if (rend == null)
         return {};
-    return {
+    let rendStyle = {
         fontSize: rend === 'superscript' || rend === 'subscript' ? '.8em' : null,
         fontStyle: rend === 'italic' ? 'italic' : null,
         fontVariant: rend === 'case(smallcaps)' ? 'small-caps' : null,
@@ -21,5 +21,15 @@ const rendStyle = (props) => {
             'super' :
             rend === 'subscript' ? 'sub' : null,
     };
+    if (props.node.type === 'list') {
+        console.log('HERE');
+        let listStyleType = 'disc';
+        if (rend === 'simple')
+            listStyleType = 'none';
+        else if (rend === 'numbered')
+            listStyleType = 'decimal';
+        rendStyle = Object.assign({}, rendStyle, { listStyleType });
+    }
+    return rendStyle;
 };
 exports.default = rendStyle;
