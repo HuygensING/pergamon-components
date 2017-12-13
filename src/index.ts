@@ -9,12 +9,14 @@ import { ISuggestion } from './semantic-suggestions/suggestion'
 import Keywords from './keywords'
 import Metadata from './metadata'
 import { Display, IComponentsByTags } from './tags/system-components-by-tags'
+import { fontStyle } from './default-styles';
 
 export {
    Annotation,
    AnnotationList,
    Button,
    Display,
+   fontStyle,
    IComponentsByTags,
    ISuggestion,
    Keywords,

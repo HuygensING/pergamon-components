@@ -20,3 +20,5 @@ const metadata_1 = require("./metadata");
 exports.Metadata = metadata_1.default;
 const system_components_by_tags_1 = require("./tags/system-components-by-tags");
 exports.Display = system_components_by_tags_1.Display;
+const default_styles_1 = require("./default-styles");
+exports.fontStyle = default_styles_1.fontStyle;
