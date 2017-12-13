@@ -3,8 +3,7 @@ import AnnotationForm, {IAnnotationFormProps} from "./annotation-form"
 import RenderedText from "../rendered-text/index"
 import { IComponentsByTags } from '../tags/system-components-by-tags'
 import { fontStyle } from '../default-styles'
-import Person from './person'
-import Place from './place'
+import Label from './label'
 import { Annotation } from '../index';
 
 export interface IAnnotationCommon extends IAnnotationFormProps {
@@ -36,15 +35,9 @@ const AnnotationItem: React.SFC<IAnnotationProps> = (props) =>
 				</div>
 			}
 			{
-				props.annotation.type === 'persName' &&
-				<Person
-					annotation={props.annotation}
-					rootAnnotation={props.rootAnnotation}
-				/>
-			}
-			{
-				props.annotation.type === 'placeName' &&
-				<Place
+				(props.annotation.type === 'persName' ||
+				props.annotation.type === 'placeName') &&
+				<Label
 					annotation={props.annotation}
 					rootAnnotation={props.rootAnnotation}
 				/>

@@ -5,13 +5,13 @@ const constants_1 = require("../constants");
 const error_label_1 = require("./error-label");
 class Label extends React.PureComponent {
     render() {
-        const imgBasename = this.props.type === 'person' ? 'person' : 'location';
+        const imgBasename = this.props.annotation.type === 'persName' ? 'person' : 'location';
         return (React.createElement("div", { style: {
                 display: 'grid',
                 gridTemplateColumns: 'calc(12px + .2em) auto',
             }, title: this.props.annotation.attributes.get('key') },
             React.createElement("img", { style: {
-                    marginTop: '8px',
+                    marginTop: '7px',
                     width: "12px",
                 }, src: `${constants_1.IMAGE_BASE_DIR}/ui/${imgBasename}.svg` }),
             this.props.annotation.attributes.has('text') ?

@@ -7,3 +7,5 @@ export const IGNORE_CLASSNAME = '__ignore';
 // the text can be styled in one component.
 export const SYSTEM_TEXT_TYPE = '__text'
 export const SYSTEM_ROOT_TYPE = '__root'
+
+export const IMAGE_BASE_DIR = '/static/graphics'

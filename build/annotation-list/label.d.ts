@@ -1,6 +1,10 @@
 /// <reference types="react" />
 import * as React from 'react';
-import { IProps } from './error-label';
+import Annotation from '../models/annotation';
+export interface IProps {
+    annotation: Annotation;
+    rootAnnotation: Annotation;
+}
 declare class Label extends React.PureComponent<IProps, null> {
     render(): JSX.Element;
 }

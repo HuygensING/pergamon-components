@@ -1,10 +1,6 @@
 import * as React from 'react'
-import { Annotation } from '../index'
+import ErrorLabel, { IProps } from './error-label'
 
-export interface IProps {
-	annotation: Annotation
-	rootAnnotation: Annotation
-}
 class Place extends React.PureComponent<IProps, null> {
 	public render() {
 		return (
@@ -15,9 +11,13 @@ class Place extends React.PureComponent<IProps, null> {
 						height:'auto',
 						marginRight: '.2em',
 					}}
-					src="http://design.huygens.knaw.nl/static/icons/location.svg"
+					src="/static/graphics/ui/location.svg"
 				/>
-				{ this.props.rootAnnotation.text.slice(this.props.annotation.start, this.props.annotation.end) }
+				{
+					this.props.annotation.attributes.has('text') ?
+						this.props.annotation.attributes.get('text') :
+						<ErrorLabel {...this.props} />
+				}
 			</div>
 		)
 	}
