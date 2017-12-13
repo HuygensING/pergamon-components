@@ -19,18 +19,21 @@ class Annotation {
 		Object.keys(raw).forEach(k => {
 			if (k === 'annotations') this[k] = raw[k].map(a => new Annotation(a))
 			else if (k === 'attributes' && !(raw[k] instanceof Map)) {
-				this[k] = new Map()
-				Object.keys(raw[k]).forEach(attrKey => this[k].set(attrKey, raw[k][attrKey]))
+				const attrs = raw[k]
+				Object.keys(attrs).forEach(attrKey => this.attributes.set(attrKey, attrs[attrKey]))
 			}
+			else if (k === 'body') {
+				const body = raw[k]
+				Object.keys(body).forEach(bodyKey => {
+					if (bodyKey === 'body') this.text = body.body
+					else this.metadata.set(bodyKey, body[bodyKey])
+				})
+			}
+			else if (k === 'text') {}
 			else this[k] = raw[k]
 		})
 
-		if (this.end == null && this.text != null) this.end = this.text.length
-
-		// TODO: let server send metadata instead of extracting it in every (root)annotation
-		this.annotations
-			.filter(a => a.type === 'meta')
-			.forEach(a => this.metadata.set(a.attributes.get('type'), a.attributes.get('value')))
+		if (this.end == null && this.text != null && this.metadata.has('body')) this.end = this.metadata.get('body').length
 	}
 }
 

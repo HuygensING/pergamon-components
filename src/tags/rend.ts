@@ -3,7 +3,7 @@ import { ITagProps } from '../interfaces';
 
 const getRendAttr = (props: ITagProps) =>
 	props.node.hasOwnProperty('attributes') &&
-	props.node.attributes.hasOwnProperty('rend') ?
+	props.node.attributes.has('rend') ?
 		props.node.attributes.get('rend') :
 		undefined
 
