@@ -84,12 +84,15 @@ class Anchor extends React.Component<ITagProps, IState> {
 				a.hasOwnProperty('attributes') &&
 				a.attributes.get('n') === this.props.activeAnnotation.attributes.get('n')
 			)
+			noteAnnotation = noteAnnotation.clone()
+			noteAnnotation.annotations = [noteAnnotation]
+			noteAnnotation.text = this.props.root.text
 		} 
 
 		return (
 			<span>
 				<AnchorComp
-					id={this.props.node.id}
+					id={this.props.node.id()}
 					onClick={ev => {
 						ev.stopPropagation()
 						this.props.activateAnnotation(this.props.node.annotationId)
@@ -116,11 +119,7 @@ class Anchor extends React.Component<ITagProps, IState> {
 						}}
 					>
 						<RenderedText
-							root={new Annotation({
-								...noteAnnotation,
-								annotations: [{...noteAnnotation}],
-								text: this.props.root.text,
-							})}
+							root={noteAnnotation}
 							tags={this.props.tags}
 						/>
 					</HucTooltip>

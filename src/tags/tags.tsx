@@ -81,7 +81,7 @@ export const Graphic: Tag = (props) => {
 
 	return (
 		<img
-			id={props.id}
+			id={props.node.id()}
 			src={`/static/graphics/${props.node.attributes.get('url')}`}
 			style={{
 				height: height != null ? height : 'auto',

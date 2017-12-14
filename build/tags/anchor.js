@@ -5,7 +5,6 @@ const huc_ui_components_1 = require("huc-ui-components");
 const constants_1 = require("../constants");
 const rendered_text_1 = require("../rendered-text");
 const default_styles_1 = require("../default-styles");
-const annotation_1 = require("../models/annotation");
 const AnchorComp = (props) => React.createElement("span", { className: constants_1.IGNORE_CLASSNAME, id: props.id, onClick: props.onClick, ref: props.setRef, style: Object.assign({}, default_styles_1.fontStyle, { backgroundColor: '#fff', borderRadius: '50%', cursor: 'pointer', fontSize: '10px', marginLeft: '.2em', padding: '.5em .5em', verticalAlign: 'top', whiteSpace: 'nowrap', border: '1px solid #aaa', marginRight: '.4em' }) }, props.children);
 const minLeft = 18;
 const tooltipWidth = 400;
@@ -47,9 +46,12 @@ class Anchor extends React.Component {
             noteAnnotation = this.props.root.annotations.find(a => a.type === 'note' &&
                 a.hasOwnProperty('attributes') &&
                 a.attributes.get('n') === this.props.activeAnnotation.attributes.get('n'));
+            noteAnnotation = noteAnnotation.clone();
+            noteAnnotation.annotations = [noteAnnotation];
+            noteAnnotation.text = this.props.root.text;
         }
         return (React.createElement("span", null,
-            React.createElement(AnchorComp, { id: this.props.node.id, onClick: ev => {
+            React.createElement(AnchorComp, { id: this.props.node.id(), onClick: ev => {
                     ev.stopPropagation();
                     this.props.activateAnnotation(this.props.node.annotationId);
                 }, setRef: (el) => {
@@ -65,7 +67,7 @@ class Anchor extends React.Component {
                         top: this.state.top + this.state.height + 16 + window.scrollY,
                         width: `${tooltipWidth}px`,
                     } },
-                    React.createElement(rendered_text_1.default, { root: new annotation_1.default(Object.assign({}, noteAnnotation, { annotations: [Object.assign({}, noteAnnotation)], text: this.props.root.text })), tags: this.props.tags }))));
+                    React.createElement(rendered_text_1.default, { root: noteAnnotation, tags: this.props.tags }))));
     }
 }
 exports.default = Anchor;

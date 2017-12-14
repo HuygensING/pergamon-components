@@ -107,28 +107,28 @@ export const annotationsSplitted = [
 		row: 0,
 	}),
 	new TreeNode({
-		first: true,
+		segment: 'first',
 		start: 2,
 		end: 6,
 		type: 'persName',
 		row: 1,
 	}),
 	new TreeNode({
-		segment: true,
+		segment: 'middle',
 		start: 6,
 		end: 30,
 		type: 'persName',
 		row: 1,
 	}),
 	new TreeNode({
-		segment: true,
+		segment: 'middle',
 		start: 30,
 		end: 31,
 		type: 'persName',
 		row: 1,
 	}),
 	new TreeNode({
-		last: true,
+		segment: 'last',
 		start: 31,
 		end: 39,
 		type: 'persName',
@@ -150,7 +150,7 @@ export const annotationsSplitted = [
 
 export const tree = [
 	new TreeNode({
-		first: true,
+		segment: 'first',
 		start: 2,
 		end: 6,
 		type: 'persName',
@@ -163,7 +163,7 @@ export const tree = [
 		row: 0,
 		children: [
 			new TreeNode({
-				segment: true,
+				segment: 'middle',
 				start: 6,
 				end: 30,
 				type: 'persName',
@@ -180,7 +180,7 @@ export const tree = [
 		]
 	}),
 	new TreeNode({
-		segment: true,
+		segment: 'middle',
 		start: 30,
 		end: 31,
 		type: 'persName',
@@ -193,7 +193,7 @@ export const tree = [
 		row: 0,
 		children: [
 			new TreeNode({
-				last: true,
+				segment: 'last',
 				start: 31,
 				end: 39,
 				type: 'persName',

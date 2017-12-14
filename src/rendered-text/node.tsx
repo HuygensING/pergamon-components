@@ -26,7 +26,6 @@ const TextTreeNode: React.SFC<ITextTreeNode> = (props) => {
 			activateAnnotation={props.activateAnnotation}
 			activeAnnotation={props.activeAnnotation}
 			node={props.node}
-			id={props.node.id}
 			root={props.root}
 			tags={props.tags}
 		>

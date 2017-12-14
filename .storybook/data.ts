@@ -2,17 +2,19 @@
 import Annotation from '../src/models/annotation'
 
 export const activeAnnotation: Annotation = new Annotation({
-	"attributes": new Map()
-		.set("key", "PE00873")
-		.set("resp", "#ckcc")
-		.set("resp_key", "#ckcc")
-	,
+	"attributes": {
+		"key": "PE00873",
+		"resp": "#ckcc",
+		"resp_key": "#ckcc",
+	},
+	"body": {
+		body: '',
+	},
 	"id": "AV8Fr6Y2zCK540LqWxJ_",
 	"start": 596,
 	"end": 606,
 	"type": "persName",
 	"target": "AV8Fr6BvzCK540LqWxIx",
-	"text": "",
 	"source": 'xml' 
 })
 

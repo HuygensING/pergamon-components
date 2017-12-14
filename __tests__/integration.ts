@@ -6,8 +6,8 @@ describe('integration', () => {
 	test('simple', () => {
 		const annotation = new Annotation({
 			annotations: [
-				new Annotation({ end: 40 }),
-				new Annotation({ end: 80, start: 40 }),
+				{ end: 40 },
+				{ end: 80, start: 40 },
 			],
 			end: 80,
 		})
@@ -15,7 +15,6 @@ describe('integration', () => {
 		const expected = [
 			new TreeNode({
 				"attributes": new Map(),
-				"id": "__root_undefined",
 				"row": 0,
 				"end": 40,
 				"start": 0,
@@ -23,7 +22,6 @@ describe('integration', () => {
 			}),
 			new TreeNode({
 				"attributes": new Map(),
-				"id": "__root_undefined",
 				"row": 0,
 				"end": 80,
 				"start": 40,

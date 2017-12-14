@@ -4,7 +4,7 @@ import rendStyle from './rend'
 
 export const Span: Tag = (props) =>
 	<span
-		id={props.id}
+		id={props.node.id()}
 		style={{
 			...rendStyle(props),
 			...props.style,
@@ -15,7 +15,7 @@ export const Span: Tag = (props) =>
 
 export const Div: Tag = (props) =>
 	<div
-		id={props.id}
+		id={props.node.id()}
 		style={{
 			...rendStyle(props),
 			...props.style,
@@ -26,7 +26,7 @@ export const Div: Tag = (props) =>
 
 export const Ul: Tag = (props) =>
 	<ul
-		id={props.id}
+		id={props.node.id()}
 		style={{
 			...rendStyle(props),
 			...props.style,
@@ -37,7 +37,7 @@ export const Ul: Tag = (props) =>
 
 export const Li: Tag = (props) =>
 	<li
-		id={props.id}
+		id={props.node.id()}
 		style={{
 			...rendStyle(props),
 			...props.style,

@@ -1,7 +1,7 @@
 import hasOverlap from "./has-overlap"
 import TreeNode from '../../models/tree-node'
 
-export const toSplitPoints = (splitPoints, curr, index, arr) => {
+export const toSplitPoints = (splitPoints: number[], curr: TreeNode, index, arr: TreeNode[]) => {
 	if (index === 0) return splitPoints;
 	const prevAnnotations = arr.slice(0, index);
 	prevAnnotations.forEach((prev) => {
@@ -16,56 +16,50 @@ export const toSplitPoints = (splitPoints, curr, index, arr) => {
 	});
 
 	return [...new Set(splitPoints)]
-		.sort((a: number, b: number) => a - b); // Sort numerically
+		.sort((a, b) => a - b); // Sort numerically
 };
 
-export const splitAnnotation = (annotation: TreeNode, splitPoints: number[]) => {
-	if (annotation.start !== splitPoints[0]) {
-		splitPoints = [annotation.start].concat(splitPoints);
+export const splitAnnotation = (node: TreeNode, splitPoints: number[]) => {
+	if (node.start !== splitPoints[0]) {
+		splitPoints = [node.start].concat(splitPoints);
 	}
-	if (annotation.end !== splitPoints[splitPoints.length - 1]) {
-		splitPoints = splitPoints.concat(annotation.end);
+	if (node.end !== splitPoints[splitPoints.length - 1]) {
+		splitPoints = splitPoints.concat(node.end);
 	}
 
-	const parts = splitPoints.reduce((agg, curr, index, arr) => {
-		if (index === arr.length - 1) return agg;
+	const parts = splitPoints
+		.reduce((agg: TreeNode[], curr, index, arr) => {
+			if (index === arr.length - 1) return agg;
 
-		let to = arr[index + 1];
-		agg.push({...annotation, ...{start: curr, end: to}});
-		return agg;
-	}, []);
+			const clone = node.clone()
+			clone.start = curr
+			clone.end = arr[index + 1]
 
-	if (parts.length > 1) {
-		for (let i = 0; i < parts.length; i++) {
-			const part = parts[i];
+			if (index === 0 && arr.length > 2) clone.segment = 'first'
+			else if (index === (arr.length - 2) && arr.length > 2) clone.segment = 'last'
+			else if (arr.length > 2) clone.segment = 'middle'
 
-			if (i === 0) {
-				part.first = true;
-			}
-			else if (i === (parts.length - 1)) {
-				part.last = true;
-			}
-			else {
-				part.segment = true;
-			}
-		}
-	}
+			agg.push(clone)
+
+			return agg;
+		}, [])
 
 	return parts;
 };
 
+type SplitPoint = { value: number, active: boolean }
 export const splitAnnotations = () => {
-	let splitPointIndex = 0;
-	let splitPoints;
+	let splitPointIndex = 0
+	let splitPoints: SplitPoint[]
 	const extractSplitPoints = (arr) => {
 		splitPoints = arr.reduce(toSplitPoints, [])
-			.map((sp) => ({
+			.map((sp: SplitPoint) => ({
 				value: sp,
 				active: false,
 			}));
 	};
 
-	return (agg, curr, index, arr) => {
+	return (agg: TreeNode[], curr: TreeNode, index: number, arr: TreeNode[]) => {
 		if (splitPoints == null) extractSplitPoints(arr);
 		if (!splitPoints.length) {
 			agg.push(curr);

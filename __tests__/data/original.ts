@@ -109,21 +109,21 @@ export const annotationsSplitted: TreeNode[] = [
 		type: 'geogName',
 	}),
 	new TreeNode({
-		first: true,
+		segment: 'first',
 		row: 1,
 		end: 30,
 		start: 23,
 		type: 'persName',
 	}),
 	new TreeNode({
-		segment: true,
+		segment: 'middle',
 		row: 1,
 		end: 31,
 		start: 30,
 		type: 'persName',
 	}),
 	new TreeNode({
-		last: true,
+		segment: 'last',
 		row: 1,
 		end: 39,
 		start: 31,
@@ -151,7 +151,7 @@ export const tree: TreeNode[] = [
 				type: 'geogName',
 			}),
 			new TreeNode({
-				first: true,
+				segment: 'first',
 				end: 30,
 				row: 1,
 				start: 23,
@@ -160,7 +160,7 @@ export const tree: TreeNode[] = [
 		]
 	}),
 	new TreeNode({
-		segment: true,
+		segment: 'middle',
 		end: 31,
 		row: 1,
 		start: 30,
@@ -173,7 +173,7 @@ export const tree: TreeNode[] = [
 		type: 'p',
 		children: [
 			new TreeNode({
-				last: true,
+				segment: 'last',
 				end: 39,
 				row: 1,
 				start: 31,
@@ -220,7 +220,7 @@ export const treeGapsFilled: TreeNode[] = [
 				type: '__text',
 			}),
 			new TreeNode({
-				first: true,
+				segment: 'first',
 				end: 30,
 				row: 1,
 				start: 23,
@@ -229,7 +229,7 @@ export const treeGapsFilled: TreeNode[] = [
 		]
 	}),
 	new TreeNode({
-		segment: true,
+		segment: 'middle',
 		end: 31,
 		row: 1,
 		start: 30,
@@ -242,7 +242,7 @@ export const treeGapsFilled: TreeNode[] = [
 		type: 'p',
 		children: [
 			new TreeNode({
-				last: true,
+				segment: 'last',
 				end: 39,
 				row: 1,
 				start: 31,

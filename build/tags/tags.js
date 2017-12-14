@@ -45,7 +45,7 @@ exports.Graphic = (props) => {
             height = Number.parseInt(attrs.get('height').slice(0, -heightExt.length)) * scale;
         }
     }
-    return (React.createElement("img", { id: props.id, src: `/static/graphics/${props.node.attributes.get('url')}`, style: {
+    return (React.createElement("img", { id: props.node.id(), src: `/static/graphics/${props.node.attributes.get('url')}`, style: {
             height: height != null ? height : 'auto',
             width: width != null ? width : 'auto',
             maxWidth: '100%',

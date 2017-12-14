@@ -3,7 +3,6 @@ import {splitAnnotations} from "./split-annotations"
 import addRow from "./add-row"
 import toTree from "./to-tree"
 import fillGaps from "./fill-gaps"
-import toNode from './to-node'
 import Annotation from '../../models/annotation'
 import TreeNode from '../../models/tree-node'
 
@@ -19,21 +18,15 @@ export const generateNodeId = (node: TreeNode, withSuffix: boolean = true): stri
 	return withSuffix ? `${node.type}_${node.annotationId}${suffix}` : `${node.type}_${node.annotationId}`;
 }
 
-const addNodeId = (node: TreeNode) => {
-	node.id = generateNodeId(node);
-	return node;
-}
-
 const createTree = (root: Annotation): TreeNode[] => {
 	const tree: TreeNode[] = root.annotations
-		.map(toNode)
+		.map(a => a.toNode())
 		.sort(byDisplayStartEnd)
 		.map(addRow())
 		.sort(byRowStartEnd)
 		.reduce(splitAnnotations(), [])
 		.map(addRow())
 		.sort(byRowStartEnd)
-		.map(addNodeId)
 		.reduce(toTree, []);
 
 	const rootNode = new TreeNode({

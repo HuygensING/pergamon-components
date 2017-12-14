@@ -11,8 +11,7 @@ const Dummy: React.SFC<Partial<IDummyTag>> = (props) => {
 	props = {
 		activeAnnotation: new Annotation(),
 		activateAnnotation: (defaultAnnotation) => {},
-		node: new TreeNode(),
-		id: null,
+		node: new TreeNode({}),
 		root: new Annotation(),
 		...props
 	}
@@ -22,7 +21,6 @@ const Dummy: React.SFC<Partial<IDummyTag>> = (props) => {
 			activeAnnotation={props.activeAnnotation}
 			activateAnnotation={props.activateAnnotation}
 			node={props.node}
-			id={props.id}
 			root={props.root}
 			tags={Tags}
 		>

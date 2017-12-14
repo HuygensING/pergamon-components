@@ -7,7 +7,6 @@ export interface ITagProps {
     activateAnnotation: (id: string) => void;
     activeAnnotation: Annotation;
     node: TreeNode;
-    id: string;
     root: Annotation;
     style?: React.CSSProperties;
     tags: IComponentsByTags;

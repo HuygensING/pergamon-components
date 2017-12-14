@@ -1,9 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const uuidv4 = require("uuid/v4");
 const tree_node_1 = require("../../models/tree-node");
 const constants_1 = require("../../constants");
-const generateNodeId = (suffix) => `${constants_1.SYSTEM_TEXT_TYPE}_${uuidv4()}_${suffix}`;
 exports.reducer = (parent) => {
     let prevEnd = parent.start;
     return (agg, curr, index, arr) => {
@@ -13,7 +11,6 @@ exports.reducer = (parent) => {
         if (prev == null && curr.start > parent.start) {
             agg.push(new tree_node_1.default({
                 end: curr.start,
-                id: generateNodeId('first'),
                 start: parent.start,
                 type: constants_1.SYSTEM_TEXT_TYPE,
             }));
@@ -24,7 +21,6 @@ exports.reducer = (parent) => {
             const end = curr.start;
             agg.push(new tree_node_1.default({
                 end,
-                id: generateNodeId('segment'),
                 start,
                 type: constants_1.SYSTEM_TEXT_TYPE,
             }));
@@ -34,7 +30,6 @@ exports.reducer = (parent) => {
         if (index === arr.length - 1 && prevEnd < parent.end) {
             agg.push(new tree_node_1.default({
                 end: parent.end,
-                id: generateNodeId('last'),
                 start: prevEnd,
                 type: constants_1.SYSTEM_TEXT_TYPE,
             }));

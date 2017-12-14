@@ -9,6 +9,6 @@ const TextTreeNode = (props) => {
     const TextTreeTag = props.tags.hasOwnProperty(props.node.type) ?
         props.tags[props.node.type].component :
         not_implemented_1.default;
-    return (React.createElement(TextTreeTag, { activateAnnotation: props.activateAnnotation, activeAnnotation: props.activeAnnotation, node: props.node, id: props.node.id, root: props.root, tags: props.tags }, props.children));
+    return (React.createElement(TextTreeTag, { activateAnnotation: props.activateAnnotation, activeAnnotation: props.activeAnnotation, node: props.node, root: props.root, tags: props.tags }, props.children));
 };
 exports.default = TextTreeNode;

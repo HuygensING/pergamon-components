@@ -1,8 +1,5 @@
-import * as uuidv4 from 'uuid/v4'
 import TreeNode from '../../models/tree-node'
 import { SYSTEM_TEXT_TYPE } from '../../constants';
-
-const generateNodeId = (suffix: string) => `${SYSTEM_TEXT_TYPE}_${uuidv4()}_${suffix}`
 
 // Export for __tests__/fill-gaps.test.ts
 export const reducer = (parent: TreeNode) => {
@@ -18,7 +15,6 @@ export const reducer = (parent: TreeNode) => {
 		if (prev == null && curr.start > parent.start) {
 			agg.push(new TreeNode({
 				end: curr.start,
-				id: generateNodeId('first'),
 				start: parent.start,
 				type: SYSTEM_TEXT_TYPE,
 			}))
@@ -33,7 +29,6 @@ export const reducer = (parent: TreeNode) => {
 			const end = curr.start
 			agg.push(new TreeNode({
 				end,
-				id: generateNodeId('segment'),
 				start,
 				type: SYSTEM_TEXT_TYPE,
 			}))
@@ -52,7 +47,6 @@ export const reducer = (parent: TreeNode) => {
 		if (index === arr.length - 1 && prevEnd < parent.end) {
 			agg.push(new TreeNode({
 				end: parent.end,
-				id: generateNodeId('last'),
 				start: prevEnd,
 				type: SYSTEM_TEXT_TYPE,
 			}))

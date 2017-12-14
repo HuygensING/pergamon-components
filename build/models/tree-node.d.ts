@@ -1,15 +1,14 @@
 declare class TreeNode {
-    first: boolean;
+    segment: 'first' | 'middle' | 'last' | 'none';
     annotationId: string;
-    last: boolean;
     row: number;
-    segment: boolean;
-    id: string;
     children: TreeNode[];
     attributes: Map<string, string>;
     end: number;
     start: number;
     type: string;
-    constructor(raw?: Partial<TreeNode>);
+    constructor(raw: Partial<TreeNode>);
+    id(): string;
+    clone(): TreeNode;
 }
 export default TreeNode;
