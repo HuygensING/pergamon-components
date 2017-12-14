@@ -42599,7 +42599,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(0);
 const ErrorLabel = (props) => React.createElement("div", { style: { display: 'inline-block' } },
     React.createElement("div", null, props.rootAnnotation.text.slice(props.annotation.start, props.annotation.end)),
-    React.createElement("div", { style: { color: 'red', fontSize: '.8em' } }, "No `text` attribute found!"));
+    React.createElement("div", { style: { color: 'red', fontSize: '.8em' } }, "Not identified"));
 exports.default = ErrorLabel;
 
 
@@ -42722,31 +42722,49 @@ exports.default = Keywords;
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(0);
 const default_styles_1 = __webpack_require__(74);
-const MetadataList = (props) => React.createElement("ul", { style: Object.assign({ color: '#888', listStyle: 'none', margin: 0, padding: 0 }, default_styles_1.fontStyle) }, props.children);
+const MetadataList = (props) => React.createElement("ul", { ref: props.setRef, style: Object.assign({ color: '#888', listStyle: 'none', margin: 0, padding: 0 }, default_styles_1.fontStyle) }, props.children);
 const MetadataItem = (props) => React.createElement("li", { style: {
         marginBottom: '1em',
     } }, props.children);
 const Label = (props) => React.createElement("label", { style: {
-        marginLeft: props.width < 400 ? 0 : '-65px',
-        position: props.width < 400 ? 'static' : 'absolute',
+        // marginLeft: props.width < 700 ? 0 : '-65px',
+        // position: props.width < 700 ? 'static' : 'absolute',
+        marginLeft: '-65px',
+        position: 'absolute',
         textAlign: 'right',
         width: '50px',
     } }, props.children);
 const Bold = (props) => React.createElement("div", { style: { color: '#444', fontWeight: 700 } }, props.children);
-const Metadata = (props) => React.createElement(MetadataList, null,
-    React.createElement(MetadataItem, null,
-        React.createElement(Label, null, "FROM"),
-        React.createElement("div", null,
-            React.createElement(Bold, null, props.rootAnnotation.metadata.get('sender')),
-            React.createElement("div", null, props.rootAnnotation.metadata.get('senderloc')))),
-    React.createElement(MetadataItem, null,
-        React.createElement(Label, null, "TO"),
-        React.createElement("div", null,
-            React.createElement(Bold, null, props.rootAnnotation.metadata.get('recipient')),
-            React.createElement("div", null, props.rootAnnotation.metadata.get('recipientloc')))),
-    React.createElement(MetadataItem, null,
-        React.createElement(Label, null, "DATE"),
-        React.createElement(Bold, null, props.rootAnnotation.metadata.get('date'))));
+class Metadata extends React.PureComponent {
+    constructor() {
+        super(...arguments);
+        this.state = {
+            width: null
+        };
+    }
+    render() {
+        return (React.createElement(MetadataList, { setRef: (el) => {
+                if (el == null)
+                    return;
+                this.setState({
+                    width: el.getBoundingClientRect().width
+                });
+            } },
+            React.createElement(MetadataItem, null,
+                React.createElement(Label, { width: this.state.width }, "FROM"),
+                React.createElement("div", null,
+                    React.createElement(Bold, null, this.props.rootAnnotation.metadata.get('sender')),
+                    React.createElement("div", null, this.props.rootAnnotation.metadata.get('senderloc')))),
+            React.createElement(MetadataItem, null,
+                React.createElement(Label, { width: this.state.width }, "TO"),
+                React.createElement("div", null,
+                    React.createElement(Bold, null, this.props.rootAnnotation.metadata.get('recipient')),
+                    React.createElement("div", null, this.props.rootAnnotation.metadata.get('recipientloc')))),
+            React.createElement(MetadataItem, null,
+                React.createElement(Label, { width: this.state.width }, "DATE"),
+                React.createElement(Bold, null, this.props.rootAnnotation.metadata.get('date')))));
+    }
+}
 exports.default = Metadata;
 
 
@@ -46113,4 +46131,4 @@ module.exports = __webpack_require__(746);
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=preview.695265ec0ed7b7e8a9d4.bundle.js.map
+//# sourceMappingURL=preview.1dbd86ffc44502637ece.bundle.js.map
