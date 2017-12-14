@@ -4,7 +4,8 @@ import { Annotation } from '../index'
 
 const MetadataList = (props) =>
 	<ul
-		 style={{
+		ref={props.setRef}
+		style={{
 			color: '#888',
 			listStyle: 'none',
 			margin: 0,
@@ -25,8 +26,10 @@ const MetadataItem = (props) =>
 const Label = (props) =>
 	<label
 		style={{
-			marginLeft: props.width < 400 ? 0 : '-65px',
-			position: props.width < 400 ? 'static' : 'absolute',
+			// marginLeft: props.width < 700 ? 0 : '-65px',
+			// position: props.width < 700 ? 'static' : 'absolute',
+			marginLeft: '-65px',
+			position: 'absolute',
 			textAlign: 'right',
 			width: '50px',
 		}}
@@ -37,28 +40,47 @@ const Label = (props) =>
 const Bold = (props) =>
 	<div style={{color: '#444', fontWeight: 700}}>{props.children}</div>
 
-export interface IMetadata {
+export interface IProps {
 	rootAnnotation: Annotation
 }
-const Metadata: React.SFC<IMetadata> = (props) =>
-	<MetadataList>
-		<MetadataItem>
-			<Label>FROM</Label>
-			<div>
-				<Bold>{props.rootAnnotation.metadata.get('sender')}</Bold>
-				<div>{props.rootAnnotation.metadata.get('senderloc')}</div>
-			</div>
-		</MetadataItem>
-		<MetadataItem>
-			<Label>TO</Label>
-			<div>
-				<Bold>{props.rootAnnotation.metadata.get('recipient')}</Bold>
-				<div>{props.rootAnnotation.metadata.get('recipientloc')}</div>
-			</div>
-		</MetadataItem>
-		<MetadataItem>
-			<Label>DATE</Label>
-			<Bold>{props.rootAnnotation.metadata.get('date')}</Bold>
-		</MetadataItem>
-	</MetadataList>
+export interface IState {
+	width: number
+}
+class Metadata extends React.PureComponent<IProps, IState> {
+	public state = {
+		width: null
+	}
+
+	public render() {
+		return (
+			<MetadataList
+				setRef={(el) => {
+					if (el == null) return
+					this.setState({
+						width: el.getBoundingClientRect().width
+					})
+				}}
+			>
+				<MetadataItem>
+					<Label width={this.state.width}>FROM</Label>
+					<div>
+						<Bold>{this.props.rootAnnotation.metadata.get('sender')}</Bold>
+						<div>{this.props.rootAnnotation.metadata.get('senderloc')}</div>
+					</div>
+				</MetadataItem>
+				<MetadataItem>
+					<Label width={this.state.width}>TO</Label>
+					<div>
+						<Bold>{this.props.rootAnnotation.metadata.get('recipient')}</Bold>
+						<div>{this.props.rootAnnotation.metadata.get('recipientloc')}</div>
+					</div>
+				</MetadataItem>
+				<MetadataItem>
+					<Label width={this.state.width}>DATE</Label>
+					<Bold>{this.props.rootAnnotation.metadata.get('date')}</Bold>
+				</MetadataItem>
+			</MetadataList>
+		)
+	}
+}
 export default Metadata

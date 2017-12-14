@@ -1,8 +1,16 @@
 /// <reference types="react" />
 import * as React from 'react';
 import { Annotation } from '../index';
-export interface IMetadata {
+export interface IProps {
     rootAnnotation: Annotation;
 }
-declare const Metadata: React.SFC<IMetadata>;
+export interface IState {
+    width: number;
+}
+declare class Metadata extends React.PureComponent<IProps, IState> {
+    state: {
+        width: any;
+    };
+    render(): JSX.Element;
+}
 export default Metadata;
