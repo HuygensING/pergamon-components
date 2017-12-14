@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Tag } from '../interfaces'
 import { fontStyle } from '../default-styles';
+import { IMAGE_BASE_DIR } from '../constants';
 
 const NotImplemented: Tag = (props) =>
 	<div
@@ -26,7 +27,7 @@ const NotImplemented: Tag = (props) =>
 						display: 'inline-block',
 						verticalAlign: 'top',
 					}}
-					src="http://design.huygens.knaw.nl/static/icons/caution-inv.svg"
+					src={`${IMAGE_BASE_DIR}/ui/caution-inv.svg`}
 				/>
 				<span
 					style={{

@@ -1,5 +1,7 @@
 import * as React from 'react'
-import ErrorLabel, { IProps } from './error-label'
+import ErrorLabel from './error-label'
+import { IMAGE_BASE_DIR } from '../constants';
+import { IProps } from './label';
 
 class Place extends React.PureComponent<IProps, null> {
 	public render() {
@@ -11,7 +13,7 @@ class Place extends React.PureComponent<IProps, null> {
 						height:'auto',
 						marginRight: '.2em',
 					}}
-					src="/static/graphics/ui/location.svg"
+					src={`${IMAGE_BASE_DIR}/ui/location.svg`}
 				/>
 				{
 					this.props.annotation.attributes.has('text') ?

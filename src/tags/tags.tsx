@@ -3,6 +3,7 @@ import { basicAnnotation, fontStyle } from '../default-styles'
 import { Tag } from '../interfaces'
 import { Div, Span, Ul, Li } from './system-tags'
 import NotImplemented from './not-implemented'
+import { IMAGE_BASE_DIR } from '../constants';
 
 export const Add: Tag = (props) =>
 	<Span
@@ -46,7 +47,7 @@ export const DateTag: Tag = (props) =>
 		style={basicAnnotation}
 		{...props}
 	>
-        <Icon src="http://design.huygens.knaw.nl/static/icons/date.svg" />
+        <Icon src={`${IMAGE_BASE_DIR}/ui/date.svg`} />
 		{props.children}
 	</Span>
 
@@ -102,7 +103,7 @@ export const GeogName: Tag = (props) =>
 		style={basicAnnotation}
 		{...props}
 	>
-		<Icon src="http://design.huygens.knaw.nl/static/icons/location.svg" />
+		<Icon src={`${IMAGE_BASE_DIR}/ui/location.svg`} />
 		{props.children}
 	</Span>
 
@@ -180,7 +181,7 @@ export const PersName: Tag = (props) =>
 		style={basicAnnotation}
 		{...props}
 	>
-		<Icon src="http://design.huygens.knaw.nl/static/icons/person.svg" />
+		<Icon src={`${IMAGE_BASE_DIR}/ui/person.svg`} />
 		{props.children}
 	</Span>
 
@@ -189,7 +190,7 @@ export const PlaceName: Tag = (props) =>
 		style={basicAnnotation}
 		{...props}
 	>
-		<Icon src="http://design.huygens.knaw.nl/static/icons/location.svg" />
+		<Icon src={`${IMAGE_BASE_DIR}/ui/location.svg`} />
 		{props.children}
 	</Span>
 
@@ -246,6 +247,6 @@ export const Title: Tag = (props) =>
 		style={basicAnnotation}
 		{...props}
 	>
-		<Icon src="http://design.huygens.knaw.nl/static/icons/book.svg" />
+		<Icon src={`${IMAGE_BASE_DIR}/ui/book.svg`} />
 		{props.children}
 	</Span>

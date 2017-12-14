@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
 const default_styles_1 = require("../default-styles");
 const suggestion_1 = require("./suggestion");
+const constants_1 = require("../constants");
 const Wrapper = (props) => React.createElement("div", { style: Object.assign({}, default_styles_1.fontStyle, default_styles_1.grayLightBackground, { padding: props.semanticSuggestions.length > 0 ? '.5em' : 0 }) }, props.children);
 const Suggestions = (props) => React.createElement("ul", { style: {
         listStyle: 'none',
@@ -19,7 +20,7 @@ const SemanticSuggestions = (props) => React.createElement(Wrapper, Object.assig
                 justifyItems: 'center',
                 padding: '.5em',
             } },
-            React.createElement("img", { src: "http://design.huygens.knaw.nl/static/icons/loader.svg", style: {
+            React.createElement("img", { src: `${constants_1.IMAGE_BASE_DIR}/ui/loader.svg`, style: {
                     height: 'auto',
                     width: '30px',
                 } }),

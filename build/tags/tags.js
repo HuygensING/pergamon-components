@@ -4,6 +4,7 @@ const React = require("react");
 const default_styles_1 = require("../default-styles");
 const system_tags_1 = require("./system-tags");
 const not_implemented_1 = require("./not-implemented");
+const constants_1 = require("../constants");
 exports.Add = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: {
         color: 'green',
     } }, props),
@@ -23,7 +24,7 @@ exports.Corr = (props) => React.createElement(system_tags_1.Span, Object.assign(
             color: '#aaa',
         } }, "corr"));
 exports.DateTag = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: default_styles_1.basicAnnotation }, props),
-    React.createElement(Icon, { src: "http://design.huygens.knaw.nl/static/icons/date.svg" }),
+    React.createElement(Icon, { src: `${constants_1.IMAGE_BASE_DIR}/ui/date.svg` }),
     props.children);
 exports.Figure = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: {
         margin: 'auto',
@@ -52,7 +53,7 @@ exports.Graphic = (props) => {
 };
 exports.Formula = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: { fontStyle: 'italic' } }, props));
 exports.GeogName = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: default_styles_1.basicAnnotation }, props),
-    React.createElement(Icon, { src: "http://design.huygens.knaw.nl/static/icons/location.svg" }),
+    React.createElement(Icon, { src: `${constants_1.IMAGE_BASE_DIR}/ui/location.svg` }),
     props.children);
 exports.Item = (props) => React.createElement(system_tags_1.Li, Object.assign({ style: {
         padding: '0 0 0 0em',
@@ -85,10 +86,10 @@ const Icon = (props) => React.createElement("img", { src: props.src, style: {
         marginRight: '.2em',
     } });
 exports.PersName = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: default_styles_1.basicAnnotation }, props),
-    React.createElement(Icon, { src: "http://design.huygens.knaw.nl/static/icons/person.svg" }),
+    React.createElement(Icon, { src: `${constants_1.IMAGE_BASE_DIR}/ui/person.svg` }),
     props.children);
 exports.PlaceName = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: default_styles_1.basicAnnotation }, props),
-    React.createElement(Icon, { src: "http://design.huygens.knaw.nl/static/icons/location.svg" }),
+    React.createElement(Icon, { src: `${constants_1.IMAGE_BASE_DIR}/ui/location.svg` }),
     props.children);
 exports.Row = (props) => React.createElement("tr", { style: {
         borderBottom: '1px solid #aaa',
@@ -113,5 +114,5 @@ exports.Space = (props) => React.createElement(system_tags_1.Div, Object.assign(
 exports.Table = (props) => React.createElement("table", { style: default_styles_1.fontStyle },
     React.createElement("tbody", null, props.children));
 exports.Title = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: default_styles_1.basicAnnotation }, props),
-    React.createElement(Icon, { src: "http://design.huygens.knaw.nl/static/icons/book.svg" }),
+    React.createElement(Icon, { src: `${constants_1.IMAGE_BASE_DIR}/ui/book.svg` }),
     props.children);

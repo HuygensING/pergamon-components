@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { fontStyle,grayLightBackground } from '../default-styles'
 import Suggestion, { ISuggestion } from './suggestion';
+import { IMAGE_BASE_DIR } from '../constants';
 
 const Wrapper: React.SFC<ISemanticSuggestions> = (props) =>
 	<div
@@ -44,7 +45,7 @@ const SemanticSuggestions: React.SFC<ISemanticSuggestions> = (props) =>
 				}}
 			>
 				<img
-					src="http://design.huygens.knaw.nl/static/icons/loader.svg"
+					src={`${IMAGE_BASE_DIR}/ui/loader.svg`}
 					style={{
 						height: 'auto',
 						width: '30px',
