@@ -22,6 +22,8 @@ const rendStyle = (props: ITagProps): React.CSSProperties => {
 			rend === 'bold' ? 'bold' : null,
 		lineHeight:
 			rend === 'superscript' || rend === 'subscript' ? 0 : null,
+		textAlign:
+			rend === 'align(right)' ? 'right' : null,
 		textDecoration:
 			rend === 'underline' ?
 				'underline' :
