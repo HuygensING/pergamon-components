@@ -30,8 +30,7 @@
     "hire-forms-select": "^2.2.10",
     "hire-forms-textarea": "^2.3.0",
     "huc-ui-components": "^1.1.0",
-    "react": "^15.6.1",
-    "uuid": "^3.1.0"
+    "react": "^15.6.1"
   },
   "jest": {
     "transform": {

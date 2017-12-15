@@ -1,7 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const uuidv4 = require("uuid/v4");
-const constants_1 = require("../constants");
 class TreeNode {
     constructor(raw) {
         this.segment = 'none';
@@ -14,7 +12,7 @@ class TreeNode {
     }
     id() {
         const suffix = (this.segment !== 'none') ? `_${this.segment}` : '';
-        return `${constants_1.SYSTEM_TEXT_TYPE}_${uuidv4()}${suffix}`;
+        return `${this.type}_${this.start}_${this.end}_${this.row}${suffix}`;
     }
     clone() {
         return new TreeNode(this);

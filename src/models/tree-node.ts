@@ -1,6 +1,3 @@
-import * as uuidv4 from 'uuid/v4'
-import { SYSTEM_TEXT_TYPE } from '../constants';
-
 class TreeNode {
 	public segment: 'first' | 'middle' | 'last' | 'none' = 'none'
     public annotationId: string
@@ -20,7 +17,7 @@ class TreeNode {
 
 	public id(): string {
 		const suffix = (this.segment !== 'none') ? `_${this.segment}` : ''
-		return `${SYSTEM_TEXT_TYPE}_${uuidv4()}${suffix}`
+		return `${this.type}_${this.start}_${this.end}_${this.row}${suffix}`
 	}
 
 	public clone() {
