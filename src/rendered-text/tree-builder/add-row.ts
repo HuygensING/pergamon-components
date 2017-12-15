@@ -5,6 +5,8 @@ import TreeNode from '../../models/tree-node'
 const addRow = () => {
 	const rows = [[]];
 	return (annotation: TreeNode) => {
+		if (DisplayByTagName[annotation.type] === Display.None) return annotation 
+
 		const space = [];
 		for (let row = 0; row < rows.length; row++) {
 			const annotationsInRow = rows[row];

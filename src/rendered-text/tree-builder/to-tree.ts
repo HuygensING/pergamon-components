@@ -12,7 +12,7 @@ const toTree = (agg: TreeNode[], curr: TreeNode, index: number, arr: TreeNode[])
 	for (let i = prevAnnotations.length - 1; i >= 0; i--) {
 		const prevAnnotation = prevAnnotations[i];
 		if (
-			hasOverlap(curr, prevAnnotation) ||
+			hasOverlap(prevAnnotation, curr) ||
 			// TODO make an exception for figure and graphic due to PER-331
 			(
 				prevAnnotation.type === 'figure' &&
@@ -33,4 +33,4 @@ const toTree = (agg: TreeNode[], curr: TreeNode, index: number, arr: TreeNode[])
 	return agg;
 };
 
-export default toTree;
+export default toTree

@@ -17,7 +17,8 @@ class TreeNode {
 
 	public id(): string {
 		const suffix = (this.segment !== 'none') ? `_${this.segment}` : ''
-		return `${this.type}_${this.start}_${this.end}_${this.row}${suffix}`
+		const row = (this.row != null) ? `_${this.row}` : ''
+		return `${this.type}_${this.start}_${this.end}${row}${suffix}`
 	}
 
 	public clone() {

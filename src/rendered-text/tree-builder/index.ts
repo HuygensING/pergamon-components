@@ -1,4 +1,4 @@
-import {byDisplayStartEnd, byRowStartEnd} from "./sort";
+import {byDisplayStartEnd, byRowDisplayStartEnd, byStartEnd} from "./sort";
 import {splitAnnotations} from "./split-annotations"
 import addRow from "./add-row"
 import toTree from "./to-tree"
@@ -19,14 +19,14 @@ export const generateNodeId = (node: TreeNode, withSuffix: boolean = true): stri
 }
 
 const createTree = (root: Annotation): TreeNode[] => {
-	const tree: TreeNode[] = root.annotations
+	let tree: TreeNode[] = root.annotations
 		.map(a => a.toNode())
 		.sort(byDisplayStartEnd)
 		.map(addRow())
-		.sort(byRowStartEnd)
+		.sort(byRowDisplayStartEnd)
 		.reduce(splitAnnotations(), [])
 		.map(addRow())
-		.sort(byRowStartEnd)
+		.sort(byStartEnd)
 		.reduce(toTree, []);
 
 	const rootNode = new TreeNode({

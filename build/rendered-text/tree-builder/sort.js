@@ -18,17 +18,21 @@ exports.byDisplayStartEnd = (a, b) => {
     const aDisplay = display_by_tag_name_1.default.hasOwnProperty(a.type) ? display_by_tag_name_1.default[a.type] : display_by_tag_name_1.Display.Inline;
     const bDisplay = display_by_tag_name_1.default.hasOwnProperty(b.type) ? display_by_tag_name_1.default[b.type] : display_by_tag_name_1.Display.Inline;
     if (aDisplay !== bDisplay) {
-        return (aDisplay === display_by_tag_name_1.Display.Inline) ? 1 : -1;
+        return (aDisplay === display_by_tag_name_1.Display.None) ?
+            1 :
+            (aDisplay === display_by_tag_name_1.Display.Inline) ?
+                1 :
+                -1;
     }
     else {
         return exports.byStartEnd(a, b);
     }
 };
-exports.byRowStartEnd = (a, b) => {
+exports.byRowDisplayStartEnd = (a, b) => {
     if (a.row > b.row)
         return 1;
     else if (a.row < b.row)
         return -1;
     else
-        return exports.byStartEnd(a, b);
+        return exports.byDisplayStartEnd(a, b);
 };

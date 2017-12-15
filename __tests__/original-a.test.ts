@@ -3,16 +3,19 @@ import {byDisplayStartEnd, byStartEnd} from '../src/rendered-text/tree-builder/s
 import {splitAnnotations, toSplitPoints} from '../src/rendered-text/tree-builder/split-annotations'
 import addRow from '../src/rendered-text/tree-builder/add-row'
 import {
-	annotations,
+	nodes,
 	annotationsWithRow,
 	annotationsSorted,
 	annotationsSplitted,
-	tree
+	tree,
+	rootAnnotation,
+	treeIntegration
 } from "./data/original-a"
+import createTree from '../src/rendered-text/tree-builder'
 
 describe('byDisplayStartEnd - set 1', () => {
 	test('byDisplayStartEnd 1', () => {
-		const received = annotations.sort(byDisplayStartEnd);
+		const received = nodes.sort(byDisplayStartEnd);
 		expect(received).toEqual(annotationsSorted);
 	})
 });
@@ -47,4 +50,11 @@ describe('toTree', () => {
 			.reduce(toTree, []);
 		expect(received).toEqual(tree);
 	})
+
+	test('toTree 2', () => {
+		expect(createTree(rootAnnotation)).toEqual(treeIntegration)
+
+	})
 });
+
+

@@ -17,14 +17,14 @@ exports.generateNodeId = (node, withSuffix = true) => {
     return withSuffix ? `${node.type}_${node.annotationId}${suffix}` : `${node.type}_${node.annotationId}`;
 };
 const createTree = (root) => {
-    const tree = root.annotations
+    let tree = root.annotations
         .map(a => a.toNode())
         .sort(sort_1.byDisplayStartEnd)
         .map(add_row_1.default())
-        .sort(sort_1.byRowStartEnd)
+        .sort(sort_1.byRowDisplayStartEnd)
         .reduce(split_annotations_1.splitAnnotations(), [])
         .map(add_row_1.default())
-        .sort(sort_1.byRowStartEnd)
+        .sort(sort_1.byStartEnd)
         .reduce(to_tree_1.default, []);
     const rootNode = new tree_node_1.default({
         annotationId: root.id,

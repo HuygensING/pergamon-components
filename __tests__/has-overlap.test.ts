@@ -47,18 +47,26 @@ describe('hasOverlap', () => {
 		expect(hasOverlap({ start: 5, end: 5 }, { start : 5, end: 5 })).toBeFalsy();
 	});
 
-	// <foo><bar />text</foo>
+	// <foo><bar />Sche</foo>veningenj
 	test('hasOverlap 8', () => {
 		expect(hasOverlap({ start: 0, end: 4 }, { start : 0, end: 0 })).toBeTruthy();
 	});
 
-	// <foo>text<bar /></foo>
+	// <foo>Sche<bar /></foo>veningen
 	test('hasOverlap 8', () => {
 		expect(hasOverlap({ start: 0, end: 4 }, { start : 4, end: 4 })).toBeTruthy();
 	});
 
-	// <foo /><bar>text</bar>
+	// <foo /><bar>Sche</bar>veningen
 	test('hasOverlap 9', () => {
-		expect(hasOverlap({ start: 0, end: 0 }, { start : 0, end: 4 })).toBeFalsy();
+		expect(hasOverlap({ start: 0, end: 0 }, { start : 0, end: 4 })).toBeTruthy();
+	});
+
+	test('hasOverlap 10', () => {
+		expect(hasOverlap({ start: 50, end: 60 }, { start : 60, end: 60 })).toBeTruthy();
+	});
+
+	test('hasOverlap 11', () => {
+		expect(hasOverlap({ start: 60, end: 60 }, { start : 50, end: 60 })).toBeTruthy();
 	});
 });

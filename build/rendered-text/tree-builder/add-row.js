@@ -5,6 +5,8 @@ const display_by_tag_name_1 = require("./display-by-tag-name");
 const addRow = () => {
     const rows = [[]];
     return (annotation) => {
+        if (display_by_tag_name_1.default[annotation.type] === display_by_tag_name_1.Display.None)
+            return annotation;
         const space = [];
         for (let row = 0; row < rows.length; row++) {
             const annotationsInRow = rows[row];

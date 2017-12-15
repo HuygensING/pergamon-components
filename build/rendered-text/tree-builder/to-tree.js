@@ -9,7 +9,7 @@ const toTree = (agg, curr, index, arr) => {
     const prevAnnotations = arr.slice(0, index);
     for (let i = prevAnnotations.length - 1; i >= 0; i--) {
         const prevAnnotation = prevAnnotations[i];
-        if (has_overlap_1.default(curr, prevAnnotation) ||
+        if (has_overlap_1.default(prevAnnotation, curr) ||
             (prevAnnotation.type === 'figure' &&
                 curr.type === 'graphic' &&
                 prevAnnotation.start === curr.start &&
