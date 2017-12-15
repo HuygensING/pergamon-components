@@ -3,7 +3,8 @@ import { basicAnnotation, fontStyle } from '../default-styles'
 import { Tag } from '../interfaces'
 import { Div, Span, Ul, Li } from './system-tags'
 import NotImplemented from './not-implemented'
-import { IMAGE_BASE_DIR } from '../constants';
+import { IMAGE_BASE_DIR } from '../constants'
+import { getRendValue } from './rend'
 
 export const Add: Tag = (props) =>
 	<Span
@@ -51,14 +52,19 @@ export const DateTag: Tag = (props) =>
 		{props.children}
 	</Span>
 
-export const Figure: Tag = (props) =>
-	<Div
-		style={{
-			margin: 'auto',
-			width: '75%',
-		}}
-		{...props}
-	/>
+export const Figure: Tag = (props) => {
+	const rend = getRendValue(props.node)
+	return (
+		<Div
+			style={{
+				display: (rend === 'inline') ? 'inline' : 'block',
+				margin: (rend === 'inline') ? 0 : 'auto',
+				width: (rend === 'inline') ? 'auto' : '75%',
+			}}
+			{...props}
+		/>
+	)
+}
 
 export const Graphic: Tag = (props) => {
 	let width: number

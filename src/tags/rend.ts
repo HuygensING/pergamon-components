@@ -1,14 +1,15 @@
 import * as React from 'react'
-import { ITagProps } from '../interfaces';
+import { ITagProps } from '../interfaces'
+import TreeNode from '../models/tree-node'
 
-const getRendAttr = (props: ITagProps) =>
-	props.node.hasOwnProperty('attributes') &&
-	props.node.attributes.has('rend') ?
-		props.node.attributes.get('rend') :
-		undefined
+export const getRendValue = (node: TreeNode): string =>
+	node.hasOwnProperty('attributes') &&
+	node.attributes.has('rend') ?
+		node.attributes.get('rend') :
+		''
 
 const rendStyle = (props: ITagProps): React.CSSProperties => {
-	const rend = getRendAttr(props)
+	const rend = getRendValue(props.node)
 	if (rend == null) return {}
 	let rendStyle: React.CSSProperties = {
 		fontSize:

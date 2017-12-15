@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const getRendAttr = (props) => props.node.hasOwnProperty('attributes') &&
-    props.node.attributes.has('rend') ?
-    props.node.attributes.get('rend') :
-    undefined;
+exports.getRendValue = (node) => node.hasOwnProperty('attributes') &&
+    node.attributes.has('rend') ?
+    node.attributes.get('rend') :
+    '';
 const rendStyle = (props) => {
-    const rend = getRendAttr(props);
+    const rend = exports.getRendValue(props.node);
     if (rend == null)
         return {};
     let rendStyle = {

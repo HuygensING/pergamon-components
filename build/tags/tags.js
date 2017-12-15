@@ -5,6 +5,7 @@ const default_styles_1 = require("../default-styles");
 const system_tags_1 = require("./system-tags");
 const not_implemented_1 = require("./not-implemented");
 const constants_1 = require("../constants");
+const rend_1 = require("./rend");
 exports.Add = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: {
         color: 'green',
     } }, props),
@@ -26,10 +27,14 @@ exports.Corr = (props) => React.createElement(system_tags_1.Span, Object.assign(
 exports.DateTag = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: default_styles_1.basicAnnotation }, props),
     React.createElement(Icon, { src: `${constants_1.IMAGE_BASE_DIR}/ui/date.svg` }),
     props.children);
-exports.Figure = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: {
-        margin: 'auto',
-        width: '75%',
-    } }, props));
+exports.Figure = (props) => {
+    const rend = rend_1.getRendValue(props.node);
+    return (React.createElement(system_tags_1.Div, Object.assign({ style: {
+            display: (rend === 'inline') ? 'inline' : 'block',
+            margin: (rend === 'inline') ? 0 : 'auto',
+            width: (rend === 'inline') ? 'auto' : '75%',
+        } }, props)));
+};
 exports.Graphic = (props) => {
     let width;
     let height;
