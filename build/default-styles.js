@@ -10,7 +10,7 @@ exports.fontReadStyle = {
     fontFamily: "'Merriweather', serif",
     fontSize: '18px',
     fontWeight: 300,
-    lineHeight: '150%',
+    lineHeight: '1.75em',
     maxWidth: '550px',
     marginLeft: 'auto',
     marginRight: 'auto',
