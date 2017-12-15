@@ -11,7 +11,16 @@ const toTree = (agg: TreeNode[], curr: TreeNode, index: number, arr: TreeNode[])
 
 	for (let i = prevAnnotations.length - 1; i >= 0; i--) {
 		const prevAnnotation = prevAnnotations[i];
-		if (hasOverlap(curr, prevAnnotation)) {
+		if (
+			hasOverlap(curr, prevAnnotation) ||
+			// TODO make an exception for figure and graphic due to PER-331
+			(
+				prevAnnotation.type === 'figure' &&
+				curr.type === 'graphic' &&
+				prevAnnotation.start === curr.start &&
+				prevAnnotation.end === curr.end
+			)
+		) {
 			if (!prevAnnotation.hasOwnProperty('children')) prevAnnotation.children = [];
 			prevAnnotation.children.push(curr);
 
