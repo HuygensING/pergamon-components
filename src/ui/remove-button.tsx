@@ -29,7 +29,7 @@ export interface IState {
 	confirm: boolean;
 }
 
-class RemoveButton extends React.Component<IProps, IState> {
+class RemoveButton extends React.PureComponent<IProps, IState> {
 	public state = {
 		confirm: false,
 	};

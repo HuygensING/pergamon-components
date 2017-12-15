@@ -10,7 +10,7 @@ export interface IState {
     top: number;
     width: number;
 }
-declare class Anchor extends React.Component<ITagProps, IState> {
+declare class Anchor extends React.PureComponent<ITagProps, IState> {
     private el;
     state: {
         active: boolean;

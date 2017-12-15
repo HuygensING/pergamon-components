@@ -1,9 +1,9 @@
 import * as React from 'react';
 import Input from "hire-forms-input";
-import {IAnnotation} from "../../../interfaces";
+import Annotation from '../../../models/annotation'
 
 export interface IProps {
-	activeAnnotation: IAnnotation;
+	activeAnnotation: Annotation;
 	updateAnnotation: (any) => void;
 	end: number;
 }
@@ -12,7 +12,7 @@ export interface IState {
 	value: string;
 }
 
-class End extends React.Component<IProps, IState> {
+class End extends React.PureComponent<IProps, IState> {
 	public state = {
 		value: (this.props.end.toString()) ? this.props.end.toString() : '',
 	};

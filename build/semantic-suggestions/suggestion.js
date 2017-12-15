@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
-class Suggestion extends React.Component {
+class Suggestion extends React.PureComponent {
     constructor() {
         super(...arguments);
         this.state = {

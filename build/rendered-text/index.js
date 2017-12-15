@@ -12,7 +12,7 @@ const React = require("react");
 const node_1 = require("./node");
 const default_styles_1 = require("../default-styles");
 const tree_builder_1 = require("./tree-builder");
-class RenderedText extends React.Component {
+class RenderedText extends React.PureComponent {
     constructor() {
         super(...arguments);
         this.state = {

@@ -13,7 +13,7 @@ export interface IProps extends IRenderedTextCommon {
 export interface IState {
     componentTree: any;
 }
-declare class RenderedText extends React.Component<IProps, IState> {
+declare class RenderedText extends React.PureComponent<IProps, IState> {
     state: {
         componentTree: any;
     };

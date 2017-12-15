@@ -12,7 +12,7 @@ export interface ISuggestionProps {
 export interface ISuggestionState {
 	hover: boolean
 }
-class Suggestion extends React.Component<ISuggestionProps, ISuggestionState> {
+class Suggestion extends React.PureComponent<ISuggestionProps, ISuggestionState> {
 	public state = {
 		hover: false,
 	}

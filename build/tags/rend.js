@@ -22,7 +22,6 @@ const rendStyle = (props) => {
             rend === 'subscript' ? 'sub' : null,
     };
     if (props.node.type === 'list') {
-        console.log('HERE');
         let listStyleType = 'disc';
         if (rend === 'simple')
             listStyleType = 'none';

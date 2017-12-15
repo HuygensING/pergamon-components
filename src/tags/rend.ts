@@ -32,7 +32,6 @@ const rendStyle = (props: ITagProps): React.CSSProperties => {
 	}
 
 	if (props.node.type === 'list') {
-		console.log('HERE')
 		let listStyleType: string = 'disc'
 		if (rend === 'simple') listStyleType = 'none'
 		else if (rend === 'numbered') listStyleType = 'decimal'
