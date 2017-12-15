@@ -7,14 +7,12 @@ import { fontStyle } from '../default-styles'
 import Annotation from '../models/annotation'
 
 interface IAnchorComp {
-	id: string
 	onClick: (ev: any) => void
 	setRef: (el: Element) => void
 }
 const AnchorComp: React.SFC<IAnchorComp> = (props) =>
 	<span
 		className={IGNORE_CLASSNAME}
-		id={props.id}
 		onClick={props.onClick}
 		ref={props.setRef}
 		style={{
@@ -91,9 +89,8 @@ class Anchor extends React.PureComponent<ITagProps, IState> {
 		} 
 
 		return (
-			<span>
+			<span id={this.props.node.id()}>
 				<AnchorComp
-					id={this.props.node.id()}
 					onClick={ev => {
 						ev.stopPropagation()
 						this.props.activateAnnotation(this.props.node.annotationId)
