@@ -6,4 +6,6 @@ exports.Span = (props) => React.createElement("span", { id: props.node.id(), sty
 exports.Div = (props) => React.createElement("div", { id: props.node.id(), style: Object.assign({}, rend_1.default(props), props.style) }, props.children);
 exports.Ul = (props) => React.createElement("ul", { id: props.node.id(), style: Object.assign({}, rend_1.default(props), props.style) }, props.children);
 exports.Li = (props) => React.createElement("li", { id: props.node.id(), style: Object.assign({}, rend_1.default(props), props.style) }, props.children);
+exports.Italic = (props) => React.createElement("em", { id: props.node.id(), style: Object.assign({}, rend_1.default(props), { fontStyle: 'italic' }, props.style) }, props.children);
+exports.H3 = (props) => React.createElement("h3", { id: props.node.id(), style: Object.assign({}, rend_1.default(props), props.style) }, props.children);
 exports.None = () => null;

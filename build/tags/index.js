@@ -4,11 +4,16 @@ const system_components_by_tags_1 = require("./system-components-by-tags");
 const tags_1 = require("./tags");
 const div_1 = require("./div");
 const anchor_1 = require("./anchor");
+const choice_1 = require("./choice");
 const system_tags_1 = require("./system-tags");
 const componentsByTags = Object.assign({}, system_components_by_tags_1.default, {
     ab: {
         component: system_tags_1.Div,
         display: system_components_by_tags_1.Display.Block,
+    },
+    abbr: {
+        component: tags_1.Abbr,
+        display: system_components_by_tags_1.Display.Inline,
     },
     add: {
         component: tags_1.Add,
@@ -27,7 +32,7 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Block,
     },
     choice: {
-        component: system_tags_1.Span,
+        component: choice_1.default,
         display: system_components_by_tags_1.Display.Inline,
     },
     closer: {
@@ -38,12 +43,24 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         component: tags_1.Corr,
         display: system_components_by_tags_1.Display.Inline,
     },
+    date: {
+        component: tags_1.DateTag,
+        display: system_components_by_tags_1.Display.Inline,
+    },
+    del: {
+        component: tags_1.Del,
+        display: system_components_by_tags_1.Display.Inline,
+    },
     div: {
         component: div_1.default,
         display: system_components_by_tags_1.Display.Block,
     },
-    date: {
-        component: tags_1.DateTag,
+    ex: {
+        component: system_tags_1.Italic,
+        display: system_components_by_tags_1.Display.Inline,
+    },
+    expan: {
+        component: tags_1.Expan,
         display: system_components_by_tags_1.Display.Inline,
     },
     figure: {
@@ -51,7 +68,11 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Block,
     },
     formula: {
-        component: tags_1.Formula,
+        component: system_tags_1.Italic,
+        display: system_components_by_tags_1.Display.Inline,
+    },
+    g: {
+        component: system_tags_1.Span,
         display: system_components_by_tags_1.Display.Inline,
     },
     geogName: {
@@ -63,7 +84,7 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Block,
     },
     head: {
-        component: system_tags_1.Div,
+        component: system_tags_1.H3,
         display: system_components_by_tags_1.Display.Block,
     },
     hi: {
@@ -83,7 +104,7 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         display: system_components_by_tags_1.Display.Inline,
     },
     lb: {
-        component: system_tags_1.Div,
+        component: tags_1.Lb,
         display: system_components_by_tags_1.Display.Block,
     },
     lg: {
@@ -93,6 +114,10 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
     list: {
         component: tags_1.List,
         display: system_components_by_tags_1.Display.Block,
+    },
+    mentioned: {
+        component: system_tags_1.Span,
+        display: system_components_by_tags_1.Display.Inline,
     },
     meta: {
         component: system_tags_1.None,

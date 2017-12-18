@@ -1,12 +1,14 @@
 /// <reference types="react" />
 import * as React from 'react';
 import Annotation from "../models/annotation";
+import TreeNode from "../models/tree-node";
 import { IComponentsByTags } from '../tags/system-components-by-tags';
 export interface IRenderedTextCommon {
     activateAnnotation?: (id: string) => void;
     activeAnnotation?: Annotation;
 }
 export interface IProps extends IRenderedTextCommon {
+    onChange?: (tree: TreeNode[]) => void;
     root: Annotation;
     tags: IComponentsByTags;
 }

@@ -9,8 +9,8 @@ const NotImplemented: Tag = (props) =>
 			...fontStyle,
 			backgroundColor: '#EC7700',
 			color: 'white',
-			padding: '2em 1.5em',
 			margin: '1em -.5em',
+			padding: '2em 1.5em',
 		}}
 	>
 		<div

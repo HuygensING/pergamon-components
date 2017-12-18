@@ -1,11 +1,14 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import Tags from '../../src/tags'
+const Abbr = Tags.abbr.component
 const Add = Tags.add.component
 const Cell = Tags.cell.component
 const Choice = Tags.choice.component
 const Closer = Tags.closer.component
 const Corr = Tags.corr.component
+const Ex = Tags.ex.component
+const Expan = Tags.expan.component
 const Formula = Tags.formula.component
 const Head = Tags.head.component
 const Line = Tags.l.component
@@ -31,7 +34,7 @@ storiesOf("Tags/Passive/{ type: 'add' }")
 	)
 
 storiesOf("Tags/Passive/{ type: 'choice' }")
-	.add('default', () =>
+	.add('with sic/corr', () =>
 		<div style={{ maxWidth: '500px' }}>
 			Nostrud ex est et est cillum veniam ex dolor officia.
 			Mollit duis excepteur laboris <Dummy comp={Choice}>
@@ -40,7 +43,25 @@ storiesOf("Tags/Passive/{ type: 'choice' }")
 			</Dummy> do nulla aliqua veniam in.
 			Eu aliqua laborum dolore ad non reprehenderit.
 		</div>
-	);
+	)
+	.add('with abbr/expan', () =>
+		<div style={{ maxWidth: '500px' }}>
+			Nostrud ex est et est cillum veniam ex dolor officia.
+			Mollit duis excepteur laboris <Dummy comp={Choice}>
+				<Dummy comp={Abbr}>Rd</Dummy>
+				<Dummy comp={Expan}>Ro<Dummy comp={Ex}>ad</Dummy></Dummy>
+			</Dummy> do nulla aliqua veniam in.
+			Eu aliqua laborum dolore ad non reprehenderit.
+		</div>
+	)
+	.add('empty', () =>
+		<div style={{ maxWidth: '500px' }}>
+			Nostrud ex est et est cillum veniam ex dolor officia.
+			Mollit duis excepteur laboris <Dummy comp={Choice}>nothing
+			here</Dummy> do nulla aliqua veniam in.
+			Eu aliqua laborum dolore ad non reprehenderit.
+		</div>
+	)
 
 storiesOf("Tags/Passive/{ type: closer }")
 	.add('default', () =>

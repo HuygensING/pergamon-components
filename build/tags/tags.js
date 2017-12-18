@@ -6,6 +6,9 @@ const system_tags_1 = require("./system-tags");
 const not_implemented_1 = require("./not-implemented");
 const constants_1 = require("../constants");
 const rend_1 = require("./rend");
+exports.Abbr = (props) => props.custom != null && props.custom.expanded ?
+    null :
+    React.createElement(system_tags_1.Span, Object.assign({}, props), props.children);
 exports.Add = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: {
         color: 'green',
     } }, props),
@@ -27,6 +30,11 @@ exports.Corr = (props) => React.createElement(system_tags_1.Span, Object.assign(
 exports.DateTag = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: default_styles_1.basicAnnotation }, props),
     React.createElement(Icon, { src: `${constants_1.IMAGE_BASE_DIR}/ui/date.svg` }),
     props.children);
+exports.Del = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: { color: 'red', textDecoration: 'line-through' } }, props),
+    React.createElement("span", { style: { color: 'black' } }, props.children));
+exports.Expan = (props) => props.custom != null && props.custom.expanded ?
+    React.createElement(system_tags_1.Span, Object.assign({}, props), props.children) :
+    null;
 exports.Figure = (props) => {
     const rend = rend_1.getRendValue(props.node);
     return (React.createElement(system_tags_1.Div, Object.assign({ style: {
@@ -56,7 +64,6 @@ exports.Graphic = (props) => {
             maxWidth: '100%',
         } }));
 };
-exports.Formula = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: { fontStyle: 'italic' } }, props));
 exports.GeogName = (props) => React.createElement(system_tags_1.Span, Object.assign({ style: default_styles_1.basicAnnotation }, props),
     React.createElement(Icon, { src: `${constants_1.IMAGE_BASE_DIR}/ui/location.svg` }),
     props.children);
@@ -64,6 +71,15 @@ exports.Item = (props) => React.createElement(system_tags_1.Li, Object.assign({ 
         padding: '0 0 0 0em',
         margin: '0 0 .5em 1em',
     } }, props));
+exports.Lb = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: {
+        color: 'gray',
+        display: 'block',
+        fontSize: '.8em',
+        marginLeft: '-4em',
+        position: 'absolute',
+        textAlign: 'right',
+        width: '3em',
+    } }, props), props.node.attributes.get('n'));
 exports.Line = (props) => React.createElement(system_tags_1.Div, Object.assign({ style: {
         lineHeight: props.node.attributes.get('type') === 'stanza' ? '1em' : '2em',
         marginTop: props.node.attributes.get('type') === 'stanza' ? '.5em' : 'initial',

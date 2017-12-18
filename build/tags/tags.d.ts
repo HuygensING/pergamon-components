@@ -1,13 +1,16 @@
 import { Tag } from '../interfaces';
+export declare const Abbr: Tag;
 export declare const Add: Tag;
 export declare const Cell: Tag;
 export declare const Corr: Tag;
 export declare const DateTag: Tag;
+export declare const Del: Tag;
+export declare const Expan: Tag;
 export declare const Figure: Tag;
 export declare const Graphic: Tag;
-export declare const Formula: Tag;
 export declare const GeogName: Tag;
 export declare const Item: Tag;
+export declare const Lb: Tag;
 export declare const Line: Tag;
 export declare const List: Tag;
 export declare const LineGroup: Tag;

@@ -6,6 +6,11 @@ import NotImplemented from './not-implemented'
 import { IMAGE_BASE_DIR } from '../constants'
 import { getRendValue } from './rend'
 
+export const Abbr: Tag = (props) =>
+	props.custom != null && props.custom.expanded ?
+		null :
+		<Span {...props}>{props.children}</Span>
+
 export const Add: Tag = (props) =>
 	<Span
 		style={{
@@ -48,9 +53,19 @@ export const DateTag: Tag = (props) =>
 		style={basicAnnotation}
 		{...props}
 	>
-        <Icon src={`${IMAGE_BASE_DIR}/ui/date.svg`} />
+		<Icon src={`${IMAGE_BASE_DIR}/ui/date.svg`} />
 		{props.children}
 	</Span>
+
+export const Del: Tag = (props) =>
+	<Span style={{ color: 'red', textDecoration: 'line-through' }} {...props}>
+		<span style={{ color: 'black' }}>{props.children}</span>
+	</Span>
+
+export const Expan: Tag = (props) =>
+	props.custom != null && props.custom.expanded ?
+		<Span {...props}>{props.children}</Span> : 
+		null
 
 export const Figure: Tag = (props) => {
 	const rend = getRendValue(props.node)
@@ -98,12 +113,6 @@ export const Graphic: Tag = (props) => {
 	)
 }
 
-export const Formula: Tag = (props) =>
-	<Span
-		style={{ fontStyle: 'italic' }}
-		{...props}
-	/>
-
 export const GeogName: Tag = (props) =>
 	<Span
 		style={basicAnnotation}
@@ -121,6 +130,22 @@ export const Item: Tag = (props) =>
 		}}
 		{...props}
 	/>
+
+export const Lb: Tag = (props) =>
+	<Div
+		style={{
+			color: 'gray',
+			display: 'block',
+			fontSize: '.8em',
+			marginLeft: '-4em',
+			position: 'absolute',
+			textAlign: 'right',
+			width: '3em',
+		}}
+		{...props}
+	>
+		{props.node.attributes.get('n')}
+	</Div>
 
 export const Line: Tag = (props) =>
 	<Div
@@ -178,7 +203,7 @@ const Icon: React.SFC<IIcon> = (props) =>
 		style={{
 			width: "12px",
 			height:'auto',
-      marginRight: '.2em',
+			marginRight: '.2em',
 		}}
 	/>
 

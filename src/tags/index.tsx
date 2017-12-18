@@ -1,12 +1,15 @@
 import systemComponentsByTags, { Display, IComponentsByTags } from './system-components-by-tags'
 import {
+	Abbr,
 	Add,
 	Cell,
 	Corr,
 	DateTag,
+	Del,
+	Expan,
 	Figure,
-	Formula,
 	Graphic,
+	Lb,
 	Line,
 	LineGroup,
 	List,
@@ -26,7 +29,8 @@ import {
 } from './tags'
 import DivTag from './div' // DivTag === TEI <div>, Div === HTML <div>
 import Anchor from "./anchor"
-import { Div, None, Span } from './system-tags'
+import Choice from "./choice"
+import { Div, H3, Italic, None, Span } from './system-tags'
 
 const componentsByTags: IComponentsByTags = {
 	...systemComponentsByTags,
@@ -34,6 +38,10 @@ const componentsByTags: IComponentsByTags = {
 		ab: {
 			component: Div,
 			display: Display.Block,
+		},
+		abbr: {
+			component: Abbr,
+			display: Display.Inline,
 		},
 		add: {
 			component: Add,
@@ -52,7 +60,7 @@ const componentsByTags: IComponentsByTags = {
 			display: Display.Block,
 		},
 		choice: {
-			component: Span,
+			component: Choice,
 			display: Display.Inline,
 		},
 		closer: {
@@ -63,12 +71,24 @@ const componentsByTags: IComponentsByTags = {
 			component: Corr,
 			display: Display.Inline,
 		},
+		date: {
+			component: DateTag,
+			display: Display.Inline,
+		},
+		del: {
+			component: Del,
+			display: Display.Inline,
+		},
 		div: {
 			component: DivTag,
 			display: Display.Block,
 		},
-		date: {
-			component: DateTag,
+		ex: {
+			component: Italic,
+			display: Display.Inline,
+		},
+		expan: {
+			component: Expan,
 			display: Display.Inline,
 		},
 		figure: {
@@ -76,7 +96,11 @@ const componentsByTags: IComponentsByTags = {
 			display: Display.Block,
 		},
 		formula: {
-			component: Formula,
+			component: Italic,
+			display: Display.Inline,
+		},
+		g: {
+			component: Span,
 			display: Display.Inline,
 		},
 		geogName: {
@@ -88,7 +112,7 @@ const componentsByTags: IComponentsByTags = {
 			display: Display.Block,
 		},
 		head: {
-			component: Div,
+			component: H3,
 			display: Display.Block,
 		},
 		hi: {
@@ -108,7 +132,7 @@ const componentsByTags: IComponentsByTags = {
 			display: Display.Inline,
 		},
 		lb: {
-			component: Div,
+			component: Lb,
 			display: Display.Block,
 		},
 		lg: {
@@ -118,6 +142,10 @@ const componentsByTags: IComponentsByTags = {
 		list: {
 			component: List,
 			display: Display.Block,
+		},
+		mentioned: {
+			component: Span,
+			display: Display.Inline,
 		},
 		meta: {
 			component: None,

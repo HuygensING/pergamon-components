@@ -5,6 +5,7 @@ import { IComponentsByTags } from '../tags/system-components-by-tags';
 import { IRenderedTextCommon } from './index';
 import TreeNode from '../models/tree-node';
 export interface ITextTreeNode extends IRenderedTextCommon {
+    custom?: any;
     node: TreeNode;
     root: Annotation;
     tags: IComponentsByTags;

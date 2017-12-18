@@ -53,6 +53,9 @@ export type SourceType = 'system' | 'xml' | 'user';
 export interface ITagProps {
 	activateAnnotation: (id: string) => void
 	activeAnnotation: Annotation
+	custom?: {
+		[key: string]: any
+	}
 	node: TreeNode
 	root: Annotation
 	style?: React.CSSProperties

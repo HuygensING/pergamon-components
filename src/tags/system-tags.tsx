@@ -46,4 +46,27 @@ export const Li: Tag = (props) =>
 		{props.children}
 	</li>
 
+export const Italic: Tag = (props) =>
+	<em
+		id={props.node.id()}
+		style={{
+			...rendStyle(props),
+			fontStyle: 'italic',
+			...props.style,
+		}}
+	>
+		{props.children}
+	</em>
+
+export const H3: Tag = (props) =>
+	<h3
+		id={props.node.id()}
+		style={{
+			...rendStyle(props),
+			...props.style,
+		}}
+	>
+		{props.children}
+	</h3>
+
 export const None: React.SFC = () => null

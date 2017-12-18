@@ -12,6 +12,7 @@ export interface IRenderedTextCommon {
 }
 
 export interface IProps extends IRenderedTextCommon {
+	onChange?: (tree: TreeNode[]) => void
 	root: Annotation;
 	tags: IComponentsByTags;
 }
@@ -51,6 +52,7 @@ class RenderedText extends React.PureComponent<IProps, IState> {
 			this.props.activeAnnotation !== props.activeAnnotation
 		) {
 			const tree = createTree(props.root)
+			if (props.onChange != null) props.onChange(tree)
 			const componentTree = tree.map(branch =>
 				this.nodeTreeToComponentTree(branch, props.root, props)
 			)

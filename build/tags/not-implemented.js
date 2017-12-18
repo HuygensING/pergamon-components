@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
 const default_styles_1 = require("../default-styles");
 const constants_1 = require("../constants");
-const NotImplemented = (props) => React.createElement("div", { style: Object.assign({}, default_styles_1.fontStyle, { backgroundColor: '#EC7700', color: 'white', padding: '2em 1.5em', margin: '1em -.5em' }) },
+const NotImplemented = (props) => React.createElement("div", { style: Object.assign({}, default_styles_1.fontStyle, { backgroundColor: '#EC7700', color: 'white', margin: '1em -.5em', padding: '2em 1.5em' }) },
     React.createElement("div", { style: {
             fontWeight: 'bold',
             fontSize: '1.3em',

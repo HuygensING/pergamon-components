@@ -36,6 +36,8 @@ class RenderedText extends React.PureComponent {
                 this.props.root.id !== props.root.id ||
                 this.props.activeAnnotation !== props.activeAnnotation) {
                 const tree = tree_builder_1.default(props.root);
+                if (props.onChange != null)
+                    props.onChange(tree);
                 const componentTree = tree.map(branch => this.nodeTreeToComponentTree(branch, props.root, props));
                 this.setState({ componentTree });
             }

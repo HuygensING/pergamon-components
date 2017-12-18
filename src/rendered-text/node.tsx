@@ -7,6 +7,7 @@ import NotImplemented from '../tags/not-implemented'
 import TreeNode from '../models/tree-node'
 
 export interface ITextTreeNode extends IRenderedTextCommon {
+	custom?: any
 	node: TreeNode
 	root: Annotation
 	tags: IComponentsByTags
@@ -25,6 +26,7 @@ const TextTreeNode: React.SFC<ITextTreeNode> = (props) => {
 		<TextTreeTag
 			activateAnnotation={props.activateAnnotation}
 			activeAnnotation={props.activeAnnotation}
+			custom={props.custom}
 			node={props.node}
 			root={props.root}
 			tags={props.tags}
