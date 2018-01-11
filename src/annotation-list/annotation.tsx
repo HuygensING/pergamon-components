@@ -27,20 +27,16 @@ const AnnotationItem: React.SFC<IAnnotationProps> = (props) =>
 			}}
 		>
 			{
-				(props.annotation.type === 'note' && props.annotation.attributes.has('n')) &&
-				<div style={{ color: '#444', fontSize:'.85em'}}>
-					{ props.annotation.attributes.get('n') }
-					<br />
-					{ props.rootAnnotation.text.slice(props.annotation.start, props.annotation.end) }
-				</div>
-			}
-			{
-				(props.annotation.type === 'persName' ||
-				props.annotation.type === 'placeName') &&
-				<Label
-					annotation={props.annotation}
-					rootAnnotation={props.rootAnnotation}
-				/>
+				(props.annotation.type === 'note' && props.annotation.attributes.has('n')) ?
+					<div style={{ color: '#444', fontSize:'.85em'}}>
+						{ props.annotation.attributes.get('n') }
+						<br />
+						{ props.rootAnnotation.text.slice(props.annotation.start, props.annotation.end) }
+					</div> :
+					<Label
+						annotation={props.annotation}
+						rootAnnotation={props.rootAnnotation}
+					/>
 			}
 		</h4>
 		{

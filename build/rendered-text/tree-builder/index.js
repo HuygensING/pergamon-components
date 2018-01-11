@@ -24,7 +24,8 @@ const createTree = (root) => {
         .sort(sort_1.byRowDisplayStartEnd)
         .reduce(split_annotations_1.splitAnnotations(), [])
         .map(add_row_1.default())
-        .sort(sort_1.byStartEnd)
+        .sort(sort_1.byStartEnd);
+    tree = tree
         .reduce(to_tree_1.default, []);
     const rootNode = new tree_node_1.default({
         annotationId: root.id,

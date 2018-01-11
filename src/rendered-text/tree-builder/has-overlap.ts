@@ -8,4 +8,5 @@ const hasOverlap = (a: IStartEnd, b: IStartEnd) =>
 	!(a.end <= b.start || a.start >= b.end) ||
 	(a.start === b.start && a.end !== b.end) ||
 	(a.start !== b.start && a.end === b.end)
+
 export default hasOverlap

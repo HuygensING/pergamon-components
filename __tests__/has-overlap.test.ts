@@ -53,20 +53,14 @@ describe('hasOverlap', () => {
 	});
 
 	// <foo>Sche<bar /></foo>veningen
+	// => or should it be <foo>Sche</foo><bar />veningen?
 	test('hasOverlap 8', () => {
 		expect(hasOverlap({ start: 0, end: 4 }, { start : 4, end: 4 })).toBeTruthy();
 	});
 
 	// <foo /><bar>Sche</bar>veningen
+	// => or should it be <bar /><foo>Sche</foo>veningen?
 	test('hasOverlap 9', () => {
 		expect(hasOverlap({ start: 0, end: 0 }, { start : 0, end: 4 })).toBeTruthy();
-	});
-
-	test('hasOverlap 10', () => {
-		expect(hasOverlap({ start: 50, end: 60 }, { start : 60, end: 60 })).toBeTruthy();
-	});
-
-	test('hasOverlap 11', () => {
-		expect(hasOverlap({ start: 60, end: 60 }, { start : 50, end: 60 })).toBeTruthy();
 	});
 });
