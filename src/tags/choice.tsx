@@ -12,8 +12,11 @@ class Choice extends React.PureComponent<ITagProps, IState> {
 	}
 
 	public render() {
-		const sicCorr: boolean = this.props.node.children.some(child => child.type === 'sic' || child.type === 'corr')
-		if (sicCorr) return <Span {...this.props} />
+		const defaultComp = <Span {...this.props} />
+		if (!Array.isArray(this.props.node.children)) return defaultComp
+
+		const sicCorr: boolean =  this.props.node.children.some(child => child.type === 'sic' || child.type === 'corr')
+		if (sicCorr) return defaultComp
 
 		const abbrExpan: boolean = this.props.node.children.some(child => child.type === 'abbr' || child.type === 'expan')
 		if (abbrExpan) {

@@ -11,9 +11,12 @@ class Choice extends React.PureComponent {
         };
     }
     render() {
+        const defaultComp = React.createElement(system_tags_1.Span, Object.assign({}, this.props));
+        if (!Array.isArray(this.props.node.children))
+            return defaultComp;
         const sicCorr = this.props.node.children.some(child => child.type === 'sic' || child.type === 'corr');
         if (sicCorr)
-            return React.createElement(system_tags_1.Span, Object.assign({}, this.props));
+            return defaultComp;
         const abbrExpan = this.props.node.children.some(child => child.type === 'abbr' || child.type === 'expan');
         if (abbrExpan) {
             return (React.createElement("span", { id: this.props.node.id(), onClick: () => this.setState({ expanded: !this.state.expanded }), style: { cursor: 'pointer' } },
