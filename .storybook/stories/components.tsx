@@ -2,14 +2,13 @@ import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import { withKnobs, object } from '@storybook/addon-knobs'
 import {
-	AnnotationList,
 	Keywords,
 	Metadata,
-	RenderedText,
 	SemanticSuggestions,
 } from '../../src'
+import { AnnotationList, PergamonUITags, RenderedText } from '../../build'
 import { activeAnnotation, rootAnnotation } from '../data'
-import Tags from '../../src/tags'
+// import Tags from '../../src/tags'
 
 export const createStory = (name) => storiesOf(name, module)
 
@@ -25,15 +24,15 @@ createStoryWithKnobs('Components/AnnotationList')
 			activateAnnotation={() => {}}
 			activeAnnotation={null}
 			rootAnnotation={ object('rootAnnotation', rootAnnotation) }
-			tags={Tags}
+			tags={PergamonUITags}
 		/>
 	)
 	.add('active annotation', () =>
 		<AnnotationList
-			activeAnnotation={ object('activeAnnotation', activeAnnotation) }
 			activateAnnotation={() => {}}
+			activeAnnotation={ object('activeAnnotation', activeAnnotation) }
 			rootAnnotation={ object('rootAnnotation', rootAnnotation) }
-			tags={Tags}
+			tags={PergamonUITags}
 		/>
 	)
 
@@ -63,14 +62,14 @@ createStoryWithKnobs('Components/RenderedText')
 	.add('default', () =>
 		<RenderedText
 			root={ object('rootAnnotation', rootAnnotation) }
-			tags={Tags}
+			tags={PergamonUITags}
 		/>
 	)
 	.add('active annotation', () =>
 		<RenderedText
 			activeAnnotation={ object('activeAnnotation', Object.assign({}, activeAnnotation)) }
 			root={ object('rootAnnotation', rootAnnotation) }
-			tags={Tags}
+			tags={PergamonUITags}
 		/>
 	)
 

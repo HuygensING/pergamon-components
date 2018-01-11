@@ -2,6 +2,7 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import Tags from '../../src/tags'
+const Anchor = Tags.anchor.component
 const DateTag = Tags.date.component
 const GeogName = Tags.geogName.component
 const Name = Tags.name.component
@@ -37,9 +38,12 @@ storiesOf("Tags/Passive/Named Entities/{ type: name }")
 		<div>Fugiat consequat ex mollit <Dummy comp={Name} node={new TreeNode({ attributes: new Map().set('type', 'place' )})}>Culemborg</Dummy> incididunt quis non pariatur laborum veniam.</div>
 	)
 
-storiesOf("Tags/Passive/Named Entities/{ type: personName }")
+storiesOf("Tags/Passive/Named Entities/{ type: persName }")
 	.add('default', () =>
 		<div>Consectetur minim adipisicing <Dummy comp={PersName} node={new TreeNode({ attributes: new Map().set('type', 'person') })}>Jan van Riebeeck</Dummy> enim consequat ex aute voluptate do.</div>
+	)
+	.add('followed by <anchor>', () =>
+		<div>Consectetur minim adipisicing <Dummy comp={PersName} node={new TreeNode({ attributes: new Map().set('type', 'person') })}>Jan van Riebeeck</Dummy><Dummy comp={Anchor} node={new TreeNode({ attributes: new Map().set('type', 'note').set('n', '6-4') })}/> enim consequat ex aute voluptate do.</div>
 	)
 
 storiesOf("Tags/Passive/Named Entities/{ type: placeName }")

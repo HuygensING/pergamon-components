@@ -46,9 +46,11 @@ class Anchor extends React.PureComponent {
             noteAnnotation = this.props.root.annotations.find(a => a.type === 'note' &&
                 a.hasOwnProperty('attributes') &&
                 a.attributes.get('n') === this.props.activeAnnotation.attributes.get('n'));
-            noteAnnotation = noteAnnotation.clone();
-            noteAnnotation.annotations = [noteAnnotation];
-            noteAnnotation.text = this.props.root.text;
+            if (noteAnnotation != null) {
+                noteAnnotation = noteAnnotation.clone();
+                noteAnnotation.annotations = [noteAnnotation];
+                noteAnnotation.text = this.props.root.text;
+            }
         }
         return (React.createElement("span", { id: this.props.node.id() },
             React.createElement(AnchorComp, { onClick: ev => {

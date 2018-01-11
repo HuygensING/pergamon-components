@@ -83,9 +83,11 @@ class Anchor extends React.PureComponent<ITagProps, IState> {
 				a.hasOwnProperty('attributes') &&
 				a.attributes.get('n') === this.props.activeAnnotation.attributes.get('n')
 			)
-			noteAnnotation = noteAnnotation.clone()
-			noteAnnotation.annotations = [noteAnnotation]
-			noteAnnotation.text = this.props.root.text
+			if (noteAnnotation != null) {
+				noteAnnotation = noteAnnotation.clone()
+				noteAnnotation.annotations = [noteAnnotation]
+				noteAnnotation.text = this.props.root.text
+			}
 		} 
 
 		return (

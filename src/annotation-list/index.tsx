@@ -1,6 +1,6 @@
 import * as React from 'react'
 import AnnotationItem, {IAnnotationCommon} from "./annotation"
-import { Annotation } from '../index'
+import Annotation from '../models/annotation'
 
 export interface IAnnotationListProps extends IAnnotationCommon {
 	filter?: (a: Annotation) => boolean

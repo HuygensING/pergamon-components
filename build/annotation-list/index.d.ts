@@ -1,7 +1,7 @@
 /// <reference types="react" />
 import * as React from 'react';
 import { IAnnotationCommon } from "./annotation";
-import { Annotation } from '../index';
+import Annotation from '../models/annotation';
 export interface IAnnotationListProps extends IAnnotationCommon {
     filter?: (a: Annotation) => boolean;
     rootAnnotation: Annotation;
