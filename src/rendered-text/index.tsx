@@ -13,6 +13,7 @@ export interface IRenderedTextCommon {
 
 export interface IProps extends IRenderedTextCommon {
 	onChange?: (tree: TreeNode[]) => void
+	onRef?: (el: Element) => void
 	root: Annotation;
 	tags: IComponentsByTags;
 }
@@ -35,6 +36,9 @@ class RenderedText extends React.PureComponent<IProps, IState> {
 	public render() {
 		return (
 			<div
+				ref={el => {
+					if (this.props.onRef != null) this.props.onRef(el)
+				}}
 				style={fontReadStyle}
 			>
 				{this.state.componentTree}

@@ -26,7 +26,10 @@ class RenderedText extends React.PureComponent {
         this.init(nextProps);
     }
     render() {
-        return (React.createElement("div", { style: default_styles_1.fontReadStyle }, this.state.componentTree));
+        return (React.createElement("div", { ref: el => {
+                if (this.props.onRef != null)
+                    this.props.onRef(el);
+            }, style: default_styles_1.fontReadStyle }, this.state.componentTree));
     }
     init(props) {
         return __awaiter(this, void 0, void 0, function* () {

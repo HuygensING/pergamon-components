@@ -9,6 +9,7 @@ export interface IRenderedTextCommon {
 }
 export interface IProps extends IRenderedTextCommon {
     onChange?: (tree: TreeNode[]) => void;
+    onRef?: (el: Element) => void;
     root: Annotation;
     tags: IComponentsByTags;
 }
