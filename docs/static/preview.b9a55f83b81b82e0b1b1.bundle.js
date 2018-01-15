@@ -15741,7 +15741,10 @@ class RenderedText extends React.PureComponent {
         this.init(nextProps);
     }
     render() {
-        return (React.createElement("div", { style: default_styles_1.fontReadStyle }, this.state.componentTree));
+        return (React.createElement("div", { ref: el => {
+                if (this.props.onRef != null)
+                    this.props.onRef(el);
+            }, style: default_styles_1.fontReadStyle }, this.state.componentTree));
     }
     init(props) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -15854,13 +15857,17 @@ var RenderedText = function (_React$PureComponent) {
     }, {
         key: "render",
         value: function render() {
-            return React.createElement("div", { style: default_styles_1.fontReadStyle }, this.state.componentTree);
+            var _this2 = this;
+
+            return React.createElement("div", { ref: function ref(el) {
+                    if (_this2.props.onRef != null) _this2.props.onRef(el);
+                }, style: default_styles_1.fontReadStyle }, this.state.componentTree);
         }
     }, {
         key: "init",
         value: function init(props) {
             return __awaiter(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var _this2 = this;
+                var _this3 = this;
 
                 var tree, componentTree;
                 return regeneratorRuntime.wrap(function _callee$(_context) {
@@ -15880,7 +15887,7 @@ var RenderedText = function (_React$PureComponent) {
 
                                     if (props.onChange != null) props.onChange(tree);
                                     componentTree = tree.map(function (branch) {
-                                        return _this2.nodeTreeToComponentTree(branch, props.root, props);
+                                        return _this3.nodeTreeToComponentTree(branch, props.root, props);
                                     });
 
                                     this.setState({ componentTree: componentTree });
@@ -15897,10 +15904,10 @@ var RenderedText = function (_React$PureComponent) {
     }, {
         key: "nodeTreeToComponentTree",
         value: function nodeTreeToComponentTree(node, root, props) {
-            var _this3 = this;
+            var _this4 = this;
 
             var nodes = node.hasOwnProperty('children') && node.children.length ? node.children.map(function (child) {
-                return _this3.nodeTreeToComponentTree(child, root, props);
+                return _this4.nodeTreeToComponentTree(child, root, props);
             }) : root.text.slice(node.start, node.end);
             return React.createElement(node_1.default, { activateAnnotation: props.activateAnnotation, activeAnnotation: props.activeAnnotation, node: node, key: node.id + Math.random().toString(), root: root, tags: props.tags }, nodes);
         }
@@ -43239,7 +43246,7 @@ exports.fontStyle = default_styles_1.fontStyle;
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(0);
 const default_styles_1 = __webpack_require__(74);
-const Li = (props) => React.createElement("li", { style: { display: 'inline-block', marginRight: '.5em' } }, props.children);
+const Li = ({ children, keyword, onClick }) => React.createElement("li", { onClick: () => onClick(keyword), style: { display: 'inline-block', marginRight: '.5em' } }, children);
 const Keywords = (props) => React.createElement("section", null,
     React.createElement("h3", { style: {
             fontSize: '1em',
@@ -43248,7 +43255,7 @@ const Keywords = (props) => React.createElement("section", null,
         props.keywords != null &&
             props.keywords
                 .reduce((prev, curr) => { return prev.concat(curr.terms); }, [])
-                .map(k => React.createElement(Li, { key: k }, k)),
+                .map(k => React.createElement(Li, { key: k, keyword: k, onClick: props.onClickKeyword }, k)),
         props.children));
 exports.default = Keywords;
 
@@ -44247,8 +44254,13 @@ exports.fontStyle = default_styles_1.fontStyle;
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(0);
 var default_styles_1 = __webpack_require__(75);
-var Li = function Li(props) {
-    return React.createElement("li", { style: { display: 'inline-block', marginRight: '.5em' } }, props.children);
+var Li = function Li(_ref) {
+    var children = _ref.children,
+        keyword = _ref.keyword,
+        _onClick = _ref.onClick;
+    return React.createElement("li", { onClick: function onClick() {
+            return _onClick(keyword);
+        }, style: { display: 'inline-block', marginRight: '.5em' } }, children);
 };
 var Keywords = function Keywords(props) {
     return React.createElement("section", null, React.createElement("h3", { style: {
@@ -44256,7 +44268,7 @@ var Keywords = function Keywords(props) {
         } }, "Keywords"), React.createElement("ul", { style: Object.assign({}, default_styles_1.blueFontStyle, { margin: 0, padding: 0 }) }, props.keywords != null && props.keywords.reduce(function (prev, curr) {
         return prev.concat(curr.terms);
     }, []).map(function (k) {
-        return React.createElement(Li, { key: k }, k);
+        return React.createElement(Li, { key: k, keyword: k, onClick: props.onClickKeyword }, k);
     }), props.children));
 };
 exports.default = Keywords;
@@ -48038,4 +48050,4 @@ module.exports = __webpack_require__(758);
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=preview.6ec0532fc8668f412211.bundle.js.map
+//# sourceMappingURL=preview.b9a55f83b81b82e0b1b1.bundle.js.map
