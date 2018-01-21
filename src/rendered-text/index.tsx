@@ -20,19 +20,7 @@ export interface IProps extends IRenderedTextCommon {
 export interface IState {
 	componentTree: any;
 }
-class RenderedText extends React.PureComponent<IProps, IState> {
-	public state = {
-		componentTree: null,
-	}
-
-	public componentDidMount() {
-		this.init(this.props)
-	}
-
-	public componentWillReceiveProps(nextProps: IProps) {
-		this.init(nextProps)
-	}
-
+class RenderedText extends React.Component<IProps, IState> {
 	public render() {
 		return (
 			<div
@@ -41,46 +29,37 @@ class RenderedText extends React.PureComponent<IProps, IState> {
 				}}
 				style={fontReadStyle}
 			>
-				{this.state.componentTree}
+				{this.constructTree()}
 			</div>
-		);
+		)
 	}
 
-	private async init(props: IProps) {
-		// No root, no init
-		if (props.root.id == null) return
-
-		if (
-			this.state.componentTree == null ||
-			this.props.root.id !== props.root.id ||
-			this.props.activeAnnotation !== props.activeAnnotation
-		) {
-			const tree = createTree(props.root)
-			if (props.onChange != null) props.onChange(tree)
-			const componentTree = tree.map(branch =>
-				this.nodeTreeToComponentTree(branch, props.root, props)
-			)
-			this.setState({ componentTree })
-		}
-	}
-
-	private nodeTreeToComponentTree(node: TreeNode, root: Annotation, props: any) {
+	private nodeTreeToComponentTree(node: TreeNode) {
 		const nodes = (node.hasOwnProperty('children') && node.children.length) ?
-			node.children.map((child: TreeNode) => this.nodeTreeToComponentTree(child, root, props)) :
-			root.text.slice(node.start, node.end)
+			node.children.map((child: TreeNode) => this.nodeTreeToComponentTree(child)) :
+			this.props.root.text.slice(node.start, node.end)
 
 		return (
 			<TextTreeNode
-				activateAnnotation={props.activateAnnotation}
-				activeAnnotation={props.activeAnnotation}
+				activateAnnotation={this.props.activateAnnotation}
+				activeAnnotation={this.props.activeAnnotation}
 				node={node}
 				key={node.id + Math.random().toString()}
-				root={root}
-				tags={props.tags}
+				root={this.props.root}
+				tags={this.props.tags}
 			>
 				{nodes}
 			</TextTreeNode>
 		);
+	}
+
+	private constructTree = () => {
+		if (this.props.root == null) return null
+		const tree = createTree(this.props.root)
+		return tree.map(branch =>
+			this.nodeTreeToComponentTree(branch)
+		)
+
 	}
 }
 

@@ -16,14 +16,9 @@ export interface IProps extends IRenderedTextCommon {
 export interface IState {
     componentTree: any;
 }
-declare class RenderedText extends React.PureComponent<IProps, IState> {
-    state: {
-        componentTree: any;
-    };
-    componentDidMount(): void;
-    componentWillReceiveProps(nextProps: IProps): void;
+declare class RenderedText extends React.Component<IProps, IState> {
     render(): JSX.Element;
-    private init(props);
-    private nodeTreeToComponentTree(node, root, props);
+    private nodeTreeToComponentTree(node);
+    private constructTree;
 }
 export default RenderedText;

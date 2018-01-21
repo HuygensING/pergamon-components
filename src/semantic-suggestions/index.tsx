@@ -26,7 +26,7 @@ const Suggestions: React.SFC = (props) =>
 	</ul>
 
 export interface ISemanticSuggestions {
-	fullTextSearch: (q: string) => void
+	onClickSuggestion: (q: string) => void
 	requesting: boolean
 	semanticSuggestions: ISuggestion[]
 }
@@ -68,7 +68,7 @@ const SemanticSuggestions: React.SFC<ISemanticSuggestions> = (props) =>
 					props.semanticSuggestions.map(((s: ISuggestion) =>
 						<Suggestion
 							key={s.text}
-							onClick={(ev) => props.fullTextSearch(s.text)}
+							onClick={(ev) => props.onClickSuggestion(s.text)}
 							suggestion={s}
 						/>
 					))

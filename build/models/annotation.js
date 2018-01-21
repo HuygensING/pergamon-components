@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const constants_1 = require("../../src/constants");
+const constants_1 = require("../constants");
 const tree_node_1 = require("./tree-node");
 class Annotation {
     constructor(raw) {

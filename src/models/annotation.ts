@@ -1,4 +1,4 @@
-import { SYSTEM_ROOT_TYPE } from "../../src/constants"
+import { SYSTEM_ROOT_TYPE } from "../constants"
 import TreeNode from "./tree-node";
 
 export interface IRawAnnotation {

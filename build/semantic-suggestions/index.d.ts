@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { ISuggestion } from './suggestion';
 export interface ISemanticSuggestions {
-    fullTextSearch: (q: string) => void;
+    onClickSuggestion: (q: string) => void;
     requesting: boolean;
     semanticSuggestions: ISuggestion[];
 }
