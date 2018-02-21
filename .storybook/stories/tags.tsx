@@ -15,7 +15,7 @@ const Line = Tags.l.component
 const LineGroup = Tags.lg.component
 const Opener = Tags.opener.component
 const Row = Tags.row.component
-const Quote = Tags.q.component
+const Quote = Tags.quote.component
 const Sic = Tags.sic.component
 const Space = Tags.space.component
 const Table = Tags.table.component
@@ -183,13 +183,27 @@ storiesOf("Tags/Passive/{ type: opener }")
 		</div>
 	)
 
-storiesOf("Tags/Passive/{ type: q }")
+storiesOf("Tags/Passive/{ type: quote }")
 	.add('default', () =>
 		<div>
 			Elit id consectetur nisi quis laborum adipisicing ipsum adipisicing.
 			Deserunt voluptate exercitation cupidatat nisi sunt esse eu eiusmod ex mollit.
 			Incididunt sunt dolor irure amet proident velit Lorem quis.
 			<Dummy comp={Quote}>Esse in sit nostrud et sit laborum.</Dummy>
+			Id proident do aliqua aliqua cillum quis veniam culpa et tempor.
+			Consectetur laboris id incididunt commodo ut velit consectetur labore proident occaecat occaecat tempor nostrud ad.
+			Sit amet mollit magna pariatur reprehenderit laboris qui et ullamco officia sit et.
+		</div>
+	)
+	.add('block', () =>
+		<div>
+			Elit id consectetur nisi quis laborum adipisicing ipsum adipisicing.
+			Deserunt voluptate exercitation cupidatat nisi sunt esse eu eiusmod ex mollit.
+			Incididunt sunt dolor irure amet proident velit Lorem quis.
+			<Dummy
+				comp={Quote}
+				node={new TreeNode({attributes: new Map().set('rend', 'block') })}
+			>Esse in sit nostrud et sit laborum.</Dummy>
 			Id proident do aliqua aliqua cillum quis veniam culpa et tempor.
 			Consectetur laboris id incididunt commodo ut velit consectetur labore proident occaecat occaecat tempor nostrud ad.
 			Sit amet mollit magna pariatur reprehenderit laboris qui et ullamco officia sit et.

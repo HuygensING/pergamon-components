@@ -151,9 +151,9 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         component: tags_1.PlaceName,
         display: system_components_by_tags_1.Display.Inline,
     },
-    q: {
-        component: system_tags_1.Div,
-        display: system_components_by_tags_1.Display.Block,
+    quote: {
+        component: system_tags_1.Span,
+        display: system_components_by_tags_1.Display.Inline,
     },
     row: {
         component: tags_1.Row,

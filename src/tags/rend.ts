@@ -12,6 +12,8 @@ const rendStyle = (props: ITagProps): React.CSSProperties => {
 	const rend = getRendValue(props.node)
 	if (rend == null) return {}
 	let rendStyle: React.CSSProperties = {
+		display:
+			rend === 'block' ? 'block' : null,
 		fontSize:
 			rend === 'superscript' || rend === 'subscript' ? '.8em' : null,
 		fontStyle:

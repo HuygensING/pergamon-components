@@ -179,9 +179,9 @@ const componentsByTags: IComponentsByTags = {
 			component: PlaceName,
 			display: Display.Inline,
 		},
-		q: {
-			component: Div,
-			display: Display.Block,
+		quote: {
+			component: Span,
+			display: Display.Inline, // #ToDo What if rend="block" ?
 		},
 		row: {
 			component: Row,
