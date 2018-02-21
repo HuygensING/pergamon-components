@@ -3222,9 +3222,9 @@ const componentsByTags = Object.assign({}, system_components_by_tags_1.default, 
         component: tags_1.PlaceName,
         display: system_components_by_tags_1.Display.Inline,
     },
-    q: {
-        component: system_tags_1.Div,
-        display: system_components_by_tags_1.Display.Block,
+    quote: {
+        component: system_tags_1.Span,
+        display: system_components_by_tags_1.Display.Inline,
     },
     row: {
         component: tags_1.Row,
@@ -39691,6 +39691,7 @@ const rendStyle = (props) => {
     if (rend == null)
         return {};
     let rendStyle = {
+        display: rend === 'block' ? 'block' : null,
         fontSize: rend === 'superscript' || rend === 'subscript' ? '.8em' : null,
         fontStyle: rend === 'italic' ? 'italic' : null,
         fontVariant: rend === 'case(smallcaps)' ? 'small-caps' : null,
@@ -39819,6 +39820,7 @@ var rendStyle = function rendStyle(props) {
     var rend = exports.getRendValue(props.node);
     if (rend == null) return {};
     var rendStyle = {
+        display: rend === 'block' ? 'block' : null,
         fontSize: rend === 'superscript' || rend === 'subscript' ? '.8em' : null,
         fontStyle: rend === 'italic' ? 'italic' : null,
         fontVariant: rend === 'case(smallcaps)' ? 'small-caps' : null,
@@ -42524,16 +42526,16 @@ exports.createStory('Components/Keywords')
         { weight: 0.3, terms: ['vakantiepark'] },
         { weight: 0.3, terms: ['pech'] },
         { weight: 0.1, terms: ['rond', 'stoel', 'rsa', 'filter', 'groente'] },
-    ] }));
+    ], onClickKeyword: () => { } }));
 exports.createStoryWithKnobs('Components/Metadata')
     .add('default', () => React.createElement(src_1.Metadata, { rootAnnotation: data_1.rootAnnotation }));
 exports.createStoryWithKnobs('Components/RenderedText')
     .add('default', () => React.createElement(build_1.RenderedText, { root: addon_knobs_1.object('rootAnnotation', data_1.rootAnnotation), tags: build_1.PergamonUITags }))
     .add('active annotation', () => React.createElement(build_1.RenderedText, { activeAnnotation: addon_knobs_1.object('activeAnnotation', Object.assign({}, data_1.activeAnnotation)), root: addon_knobs_1.object('rootAnnotation', data_1.rootAnnotation), tags: build_1.PergamonUITags }));
 exports.createStory('Components/SemanticSuggestions')
-    .add('default', () => React.createElement(src_1.SemanticSuggestions, { fullTextSearch: () => { }, requesting: false, semanticSuggestions: [] }))
-    .add('requesting', () => React.createElement(src_1.SemanticSuggestions, { fullTextSearch: () => { }, requesting: true, semanticSuggestions: [] }))
-    .add('found', () => React.createElement(src_1.SemanticSuggestions, { fullTextSearch: () => { }, requesting: false, semanticSuggestions: [
+    .add('default', () => React.createElement(src_1.SemanticSuggestions, { onClickSuggestion: () => { }, requesting: false, semanticSuggestions: [] }))
+    .add('requesting', () => React.createElement(src_1.SemanticSuggestions, { onClickSuggestion: () => { }, requesting: true, semanticSuggestions: [] }))
+    .add('found', () => React.createElement(src_1.SemanticSuggestions, { onClickSuggestion: () => { }, requesting: false, semanticSuggestions: [
         { text: 'reprehenderit', weight: 1 },
         { text: 'pariatur', weight: 0.9 },
         { text: 'occaecat', weight: 0.9 },
@@ -42849,7 +42851,7 @@ const Line = tags_1.default.l.component;
 const LineGroup = tags_1.default.lg.component;
 const Opener = tags_1.default.opener.component;
 const Row = tags_1.default.row.component;
-const Quote = tags_1.default.q.component;
+const Quote = tags_1.default.quote.component;
 const Sic = tags_1.default.sic.component;
 const Space = tags_1.default.space.component;
 const Table = tags_1.default.table.component;
@@ -42934,10 +42936,14 @@ react_1.storiesOf("Tags/Passive/{ type: opener }")
     "Commodo enim adipisicing nostrud labore. Ad deserunt commodo cillum Lorem sunt Lorem reprehenderit sint. Ut dolor nulla est consequat consectetur magna in culpa eiusmod pariatur.",
     React.createElement(dummy_1.default, { comp: Opener }, "Est tempor anim in id anim reprehenderit laboris. Eiusmod sit velit pariatur incididunt. In adipisicing consequat ullamco duis non occaecat non magna dolore nostrud magna exercitation. Ipsum cillum adipisicing est ullamco et aliqua."),
     "Minim eu cillum laboris reprehenderit consequat labore ipsum qui cillum ad tempor non. Aute exercitation incididunt irure aute dolore culpa consequat. Est laborum quis laboris sint enim incididunt minim Lorem ut qui ea proident enim anim."));
-react_1.storiesOf("Tags/Passive/{ type: q }")
+react_1.storiesOf("Tags/Passive/{ type: quote }")
     .add('default', () => React.createElement("div", null,
     "Elit id consectetur nisi quis laborum adipisicing ipsum adipisicing. Deserunt voluptate exercitation cupidatat nisi sunt esse eu eiusmod ex mollit. Incididunt sunt dolor irure amet proident velit Lorem quis.",
     React.createElement(dummy_1.default, { comp: Quote }, "Esse in sit nostrud et sit laborum."),
+    "Id proident do aliqua aliqua cillum quis veniam culpa et tempor. Consectetur laboris id incididunt commodo ut velit consectetur labore proident occaecat occaecat tempor nostrud ad. Sit amet mollit magna pariatur reprehenderit laboris qui et ullamco officia sit et."))
+    .add('block', () => React.createElement("div", null,
+    "Elit id consectetur nisi quis laborum adipisicing ipsum adipisicing. Deserunt voluptate exercitation cupidatat nisi sunt esse eu eiusmod ex mollit. Incididunt sunt dolor irure amet proident velit Lorem quis.",
+    React.createElement(dummy_1.default, { comp: Quote, node: new tree_node_1.default({ attributes: new Map().set('rend', 'block') }) }, "Esse in sit nostrud et sit laborum."),
     "Id proident do aliqua aliqua cillum quis veniam culpa et tempor. Consectetur laboris id incididunt commodo ut velit consectetur labore proident occaecat occaecat tempor nostrud ad. Sit amet mollit magna pariatur reprehenderit laboris qui et ullamco officia sit et."));
 react_1.storiesOf("Tags/Passive/{ type: space }")
     .add('default', () => React.createElement("div", null,
@@ -45137,9 +45143,9 @@ var componentsByTags = Object.assign({}, system_components_by_tags_1.default, {
         component: tags_1.PlaceName,
         display: system_components_by_tags_1.Display.Inline
     },
-    q: {
-        component: system_tags_1.Div,
-        display: system_components_by_tags_1.Display.Block
+    quote: {
+        component: system_tags_1.Span,
+        display: system_components_by_tags_1.Display.Inline
     },
     row: {
         component: tags_1.Row,
@@ -47955,4 +47961,4 @@ module.exports = __webpack_require__(758);
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=preview.bde5903c54e1a018272b.bundle.js.map
+//# sourceMappingURL=preview.2dc2c9e9512ecda29820.bundle.js.map
