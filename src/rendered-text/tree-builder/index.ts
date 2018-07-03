@@ -28,8 +28,7 @@ const createTree = (root: Annotation): TreeNode[] => {
 		.map(addRow())
 		.sort(byStartEnd)
 
-	tree = tree
-		.reduce(toTree, []);
+	tree = tree.reduce(toTree, []);
 
 	const rootNode = new TreeNode({
 		annotationId: root.id,
