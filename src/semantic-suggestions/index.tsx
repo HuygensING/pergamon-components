@@ -26,9 +26,10 @@ const Suggestions: React.SFC = (props) =>
 	</ul>
 
 export interface ISemanticSuggestions {
-	onClickSuggestion: (q: string) => void
-	requesting: boolean
-	semanticSuggestions: ISuggestion[]
+	// onClickSuggestion: (q: string) => void
+	// requesting: boolean
+	// semanticSuggestions: ISuggestion[]
+	query: string
 }
 const SemanticSuggestions: React.SFC<ISemanticSuggestions> = (props) =>
 	<Wrapper {...props}>

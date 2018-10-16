@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import * as React from 'react';
 import Annotation from '../../models/annotation';
 export interface IAnnotationFormProps {

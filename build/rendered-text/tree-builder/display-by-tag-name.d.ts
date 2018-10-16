@@ -1,7 +1,7 @@
 export declare enum Display {
     None = 0,
     Inline = 1,
-    Block = 2,
+    Block = 2
 }
 declare const _default: {
     ab: Display;

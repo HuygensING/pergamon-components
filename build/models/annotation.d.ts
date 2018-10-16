@@ -32,7 +32,7 @@ declare class Annotation {
     text: string;
     type: string;
     constructor(raw?: Partial<IRawAnnotation>);
-    private toRawAnnotation();
+    private toRawAnnotation;
     clone(): Annotation;
     toNode(): TreeNode;
 }

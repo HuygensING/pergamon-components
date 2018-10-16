@@ -2,7 +2,7 @@ import { Tag } from "../interfaces";
 export declare enum Display {
     None = 0,
     Inline = 1,
-    Block = 2,
+    Block = 2
 }
 export interface IComponentsByTags {
     [name: string]: {

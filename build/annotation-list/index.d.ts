@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import * as React from 'react';
 import { IAnnotationCommon } from "./annotation";
 import Annotation from '../models/annotation';

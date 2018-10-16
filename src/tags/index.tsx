@@ -31,6 +31,7 @@ import DivTag from './div' // DivTag === TEI <div>, Div === HTML <div>
 import Anchor from "./anchor"
 import Choice from "./choice"
 import { Div, H3, Italic, None, Span } from './system-tags'
+import { Tag } from '../interfaces';
 
 const componentsByTags: IComponentsByTags = {
 	...systemComponentsByTags,
@@ -48,7 +49,7 @@ const componentsByTags: IComponentsByTags = {
 			display: Display.Inline,
 		},
 		anchor: {
-			component: Anchor,
+			component: Anchor as Tag,
 			display: Display.Inline,
 		},
 		body: {
@@ -148,7 +149,7 @@ const componentsByTags: IComponentsByTags = {
 			display: Display.Inline,
 		},
 		meta: {
-			component: None,
+			component: None as Tag,
 			display: Display.None,
 		},
 		name: {
@@ -168,7 +169,7 @@ const componentsByTags: IComponentsByTags = {
 			display: Display.Block,
 		},
 		pb: {
-			component: None,
+			component: None as Tag,
 			display: Display.None,
 		},
 		persName: {
@@ -220,7 +221,7 @@ const componentsByTags: IComponentsByTags = {
 			display: Display.Block,
 		},
 		teiHeader: {
-			component: None,
+			component: None as Tag,
 			display: Display.None,
 		},
 	}

@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import * as React from 'react';
 import Annotation from "../models/annotation";
 import TreeNode from "../models/tree-node";
@@ -18,7 +17,7 @@ export interface IState {
 }
 declare class RenderedText extends React.Component<IProps, IState> {
     render(): JSX.Element;
-    private nodeTreeToComponentTree(node);
+    private nodeTreeToComponentTree;
     private constructTree;
 }
 export default RenderedText;

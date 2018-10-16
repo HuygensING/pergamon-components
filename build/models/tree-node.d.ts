@@ -9,6 +9,6 @@ declare class TreeNode {
     type: string;
     constructor(raw: Partial<TreeNode>);
     id(): string;
-    clone(): TreeNode;
+    clone(): any;
 }
 export default TreeNode;

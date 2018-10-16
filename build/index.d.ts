@@ -10,4 +10,4 @@ import Keywords from './keywords';
 import Metadata from './metadata';
 import { Display, IComponentsByTags } from './tags/system-components-by-tags';
 import { fontStyle } from './default-styles';
-export { Annotation, AnnotationList, Button, Display, fontStyle, IComponentsByTags, ISuggestion, Keywords, Metadata, PergamonUITags, RenderedText, SemanticSuggestions, TreeNode };
+export { Annotation, AnnotationList, Button, Display, fontStyle, IComponentsByTags, ISuggestion, Keywords, Metadata, PergamonUITags, RenderedText, SemanticSuggestions, TreeNode, };

@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import * as React from 'react';
 import { ITagProps } from '../interfaces';
 import TreeNode from '../models/tree-node';

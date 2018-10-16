@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import * as React from 'react';
 export declare const buttonBackgroundColor = "#EEE";
 export interface IButton {
